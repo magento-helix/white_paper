@@ -1,0 +1,17 @@
+{
+    "name": "white_paper",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/vgoncharenko/phpword"
+        }
+    ],
+    "require": {
+        "phpoffice/phpword": "develop-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

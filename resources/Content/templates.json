@@ -1,0 +1,257 @@
+[
+    {
+        "type": "title",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "documentTitle",
+                        "data": "Measurements on AWS Infrastructure"
+                    },
+                    {
+                        "type": "documentAuthors",
+                        "data": "Helix team<w:br/><w:br/>Sustaining Engineering,<w:br/>Magento"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Introduction",
+        "type": "introduction",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "text",
+                        "data": "This whitepaper aims to validate Magento Commerce (former Enterprise) product for cases of small, medium, large and extra large profiles, proving that platform meets requirements of high-traffic e-commerce site and provides additional capacity for potential growth. Additionally, whitepaper has client side measurements for main pages. It will help e-commerce managers and technical staff to better understand the performance characteristics of the application and get an idea of the recommended infrastructure to run large-scale Magento Commerce store."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Environment",
+        "type": "environment",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "image",
+                        "data": "/resources/Content/Environment.png"
+                    }
+                ]
+            },
+            {
+                "blocks": [
+                    {
+                        "type": "table",
+                        "data": {
+                            "rows": [
+                                [
+                                    "Configuration /<w:br/>Instance",
+                                    "12 cores",
+                                    "24 cores",
+                                    "48 cores",
+                                    "120 cores"
+                                ],
+                                [
+                                    "Instance type",
+                                    "m4",
+                                    "m4",
+                                    "m4",
+                                    "m4"
+                                ],
+                                [
+                                    "Elasticsearch<w:br/>(version:1.7.6)",
+                                    "HEAP_SIZE = 2G<w:br/>data dir size = 10G",
+                                    "HEAP_SIZE = 4G<w:br/>data dir size = 20G",
+                                    "HEAP_SIZE = 6G<w:br/>data dir size = 30G",
+                                    "HEAP_SIZE = 8G<w:br/>data dir size = 40G"
+                                ],
+                                [
+                                    "Mysql ",
+                                    "innodb_buffer_size = 6G<w:br/>space = 200Gb",
+                                    "innodb_buffer_size = 12G<w:br/>space = 200Gb",
+                                    "innodb_buffer_size = 18G<w:br/>space = 200Gb",
+                                    "innodb_buffer_size = 24G<w:br/>space = 200Gb"
+                                ],
+                                [
+                                    "CPU ",
+                                    "Intel(R) Xeon(R) CPU E5-2686 v4<w:br/>L1d = 32K<w:br/>L1i = 32K<w:br/>L2 = 256K<w:br/>L3 = 46080K",
+                                    null,
+                                    null,
+                                    null
+                                ],
+                                [
+                                    "Redis ",
+                                    "configuration = master + 2 slaves<w:br/>version =3.2.8<w:br/>maxclients = 10000<w:br/>maxmemory = 512mb",
+                                    null,
+                                    null,
+                                    null
+                                ],
+                                [
+                                    "Fastly ",
+                                    "max_conn = 200",
+                                    null,
+                                    null,
+                                    null
+                                ],
+                                [
+                                    "Cron ",
+                                    "run each 5 minuts",
+                                    null,
+                                    null,
+                                    null
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Condition",
+        "type": "condition",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "table",
+                        "data": {
+                            "rows": [
+                                [
+                                    "Configuration /<w:br/>Instance",
+                                    "12 cores",
+                                    "24 cores",
+                                    "48 cores",
+                                    "120 cores"
+                                ],
+                                [
+                                    "Small",
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+                                [
+                                    "Medium",
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+                                [
+                                    "Large",
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+                                [
+                                    "Extra Large",
+                                    "",
+                                    "",
+                                    "website/store/store view = 5<w:br/>individual simples = 600K<w:br/>configurable products = 16K<w:br/>(with 11 simples for each configurable ~ 176K simples)",
+                                    ""
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Emulation details",
+        "type": "emulationDetails",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "pieChart",
+                        "data": {
+                            "title": "Frontend Scenarios",
+                            "type": "inline",
+                            "categories": [
+                                "browse catalog by guest",
+                                "search",
+                                "quick search",
+                                "quick search with filter",
+                                "advanced search",
+                                "checkout by guest",
+                                "checkout by customer",
+                                "add to cart by guest",
+                                "add to wishlist",
+                                "compare products"
+                            ],
+                            "data": {
+                                "items": [
+                                    [
+                                        30.00,
+                                        30.00,
+                                        60.00,
+                                        30.00,
+                                        10.00,
+                                        4.00,
+                                        4.00,
+                                        28.00,
+                                        2.00,
+                                        2.00
+                                    ]
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Load generation flow",
+        "type": "loadGenerationFlow",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Active threads over time",
+                            "type": "jtl",
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "src": "./temp/benchmark_result.jtl",
+                                "category": "timeStamp",
+                                "value": "grpThreads",
+                                "items": [
+                                    {
+                                        "title": "Frontend Pool",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Frontend Pool"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Admin Pool",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Admin Pool"
+                                        ]
+                                    },
+                                    {
+                                        "title": "CSR Pool",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "CSR Pool"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

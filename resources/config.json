@@ -1,0 +1,26 @@
+{
+    "title": "Measurements on AWS Infrastructure",
+    "instances": [
+        {
+            "name": "brasda2phcxlc",
+            "type": "48core",
+            "measurements": [
+                {
+                    "type": "SS",
+                    "profile": "extra_large",
+                    "jtl": "./temp/benchmark_result.jtl"
+                },
+                {
+                    "type": "API",
+                    "profile": "extra_large",
+                    "jtl": "./temp/benchmark_api_result.jtl"
+                },
+                {
+                    "type": "SS",
+                    "profile": "large",
+                    "jtl": "./temp/benchmark_result2.jtl"
+                }
+            ]
+        }
+    ]
+}
