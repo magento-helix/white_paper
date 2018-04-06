@@ -14,14 +14,10 @@ class ChapterPool
 {
     private $map = [
         'title' => TitleChapter::class,
-//        'introduction' => IntroductionChapter::class,
-        'environment' => EnvironmentChapter::class,
-        'condition' => ConditionChapter::class,
-        'emulationDetails' => EmulationDetailsChapter::class,
     ];
 
     public function get($type, Config $config) : ChapterInterface
     {
-        return new Chapter($config);
+        return isset($this->map[$type]) ? new $this->map[$type]($config) : new Chapter($config);
     }
 }

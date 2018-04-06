@@ -19,7 +19,6 @@ class Parser
             $row = [];
             foreach (str_getcsv($line) as $key => $field)
                 $row[$headers[$key]] = $field;
-            $row = array_filter($row);
             $data[] = $row;
         }
         return $data;

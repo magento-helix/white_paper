@@ -16,5 +16,8 @@ use App\Document\Settings\Header;
 
 class TitleChapter extends AbstractChapter implements ChapterInterface
 {
-    //
+    protected function addPage(PhpWord $phpWord)
+    {
+        return $phpWord->getSections()[0];
+    }
 }

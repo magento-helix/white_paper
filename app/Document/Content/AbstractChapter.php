@@ -53,18 +53,23 @@ class AbstractChapter implements ChapterInterface
                 $this->blockTypePool->getPage($block['type'], $phpWord)->add($section, $block['data']);
             }
             if (isset($pages[$index + 1])) {
-                $section = $phpWord->addSection();
+                $section = $this->addPage($phpWord);
             }
         }
     }
 
     public function add(PhpWord $phpWord, $content)
     {
-        $section = $phpWord->addSection();
+        $section = $this->addPage($phpWord);
 
         if (isset($content['title'])) {
             $this->addTitle($section, $content['title']);
         }
         $this->addPages($phpWord, $section, $content['pages']);
+    }
+
+    protected function addPage(PhpWord $phpWord)
+    {
+        return $phpWord->addSection();
     }
 }

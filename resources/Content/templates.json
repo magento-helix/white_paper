@@ -203,6 +203,37 @@
                                 ]
                             }
                         }
+                    },
+                    {
+                        "type": "pieChart",
+                        "data": {
+                            "title": "Admin Scenarios",
+                            "type": "inline",
+                            "categories": [
+                                "promotion rules",
+                                "category management",
+                                "product edit",
+                                "product create",
+                                "edit order",
+                                "create order",
+                                "returns management",
+                                "customer grid"
+                            ],
+                            "data": {
+                                "items": [
+                                    [
+                                        15.00,
+                                        10.00,
+                                        35.00,
+                                        25.00,
+                                        15.00,
+                                        10.00,
+                                        70.00,
+                                        20.00
+                                    ]
+                                ]
+                            }
+                        }
                     }
                 ]
             }
@@ -219,6 +250,7 @@
                         "data": {
                             "title": "Active threads over time",
                             "type": "jtl",
+                            "metric": {"type": "avg", "config": {}},
                             "categories": ["TimeLine"],
                             "data": {
                                 "src": "./temp/benchmark_result.jtl",
@@ -244,6 +276,342 @@
                                         "tag_field": "threadName",
                                         "tags": [
                                             "CSR Pool"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Response Time Over Time (successful responses)",
+                            "type": "jtl",
+                            "metric": {"type": "percentile", "config": {"lvl": "90"}},
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "src": "./temp/benchmark_result.jtl",
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "90 percentile",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Frontend Pool",
+                                            "Admin Pool",
+                                            "CSR Pool"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "responseCode",
+                                                "value": "200",
+                                                "type": "equals"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Median for cashed pages",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Frontend Pool",
+                                            "Admin Pool",
+                                            "CSR Pool"
+                                        ],
+                                        "metric": {"type": "percentile", "config": {"lvl": "50"}},
+                                        "conditions": [
+                                            {
+                                                "field": "responseCode",
+                                                "value": "200",
+                                                "type": "equals"
+                                            },
+                                            {
+                                                "field": "URL",
+                                                "value": "cacheModifier",
+                                                "type": "notcontains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Median for NOT cashed pages",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Frontend Pool",
+                                            "Admin Pool",
+                                            "CSR Pool"
+                                        ],
+                                        "metric": {"type": "percentile", "config": {"lvl": "50"}},
+                                        "conditions": [
+                                            {
+                                                "field": "responseCode",
+                                                "value": "200",
+                                                "type": "equals"
+                                            },
+                                            {
+                                                "field": "URL",
+                                                "value": "cacheModifier",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "blocks": [
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Catalog browsing by guest",
+                            "type": "jtl",
+                            "metric": {"type": "avg", "config": {}},
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "src": "./temp/benchmark_result.jtl",
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Category page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Category"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Home page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Home Page"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Simple Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            },
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Complex product page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Configurable Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            },
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Catalog browsing by customer",
+                            "type": "jtl",
+                            "metric": {"type": "avg", "config": {}},
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "src": "./temp/benchmark_result.jtl",
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Category page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Category"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Home page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Home Page"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Simple Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            },
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Complex product page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Configurable Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            },
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "blocks": [
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Checkout start page",
+                            "type": "jtl",
+                            "metric": {"type": "avg", "config": {}},
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "src": "./temp/benchmark_result.jtl",
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "by Guest",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout start"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "by Customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout start"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Checkout place order page",
+                            "type": "jtl",
+                            "metric": {"type": "avg", "config": {}},
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "src": "./temp/benchmark_result.jtl",
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "by Guest",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "by Customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
                                         ]
                                     }
                                 ]

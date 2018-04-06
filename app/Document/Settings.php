@@ -25,6 +25,19 @@ class Settings
         $this->header = new Header();
     }
 
+    public function setDefaultPageStyle(PhpWord $phpWord)
+    {
+        $PidPageSettings = array(
+            'headerHeight'=> \PhpOffice\PhpWord\Shared\Converter::inchToTwip(.01),
+            'footerHeight'=> \PhpOffice\PhpWord\Shared\Converter::inchToTwip(.2),
+            'marginLeft'  => \PhpOffice\PhpWord\Shared\Converter::inchToTwip(.75),
+            'marginRight' => \PhpOffice\PhpWord\Shared\Converter::inchToTwip(.75),
+            'marginTop'   => 0,
+            'marginBottom'=> 0,
+        );
+        $phpWord->addSection($PidPageSettings);
+    }
+
     public function setDefaultHeader(PhpWord $phpWord)
     {
         $section = $phpWord->getSections()[0];

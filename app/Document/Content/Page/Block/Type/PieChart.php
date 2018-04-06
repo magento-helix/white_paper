@@ -47,7 +47,7 @@ class PieChart implements TypeInterface
 
         $style = [
             'width' => Converter::cmToEmu(18),
-            'height' => Converter::cmToEmu(10),
+            'height' => Converter::cmToEmu(7),
             '3d' => true,
             'showAxisLabels' => true,
             'showGridX' => true,

@@ -10,7 +10,6 @@ namespace App;
 
 use PhpOffice\PhpWord\PhpWord;
 use App\Document\Content;
-use App\Document\LineChart;
 use App\Document\Settings;
 
 class Document
@@ -18,7 +17,6 @@ class Document
     public function __construct(Config $config)
     {
         $this->phpWord = new PhpWord();
-        $this->chart = new LineChart();
         $this->settings = new Settings();
         $this->content = new Content();
         $this->config = $config;
@@ -26,8 +24,7 @@ class Document
 
     public function create()
     {
-        $section = $this->phpWord->addSection();
-
+        $this->settings->setDefaultPageStyle($this->phpWord);
         $this->settings->setDefaultHeader($this->phpWord);
         $this->settings->setDefaultTableStyle($this->phpWord);
         $this->settings->setDefaultParagraphStyle($this->phpWord);
@@ -39,12 +36,6 @@ class Document
         foreach ($template as $item) {
             $this->content->add($this->phpWord, $this->config, $item);
         }
-
-//        $categories = array(10, 20, 30, 40, 50, 60, 70);
-//        $series1 = array(1, 3, 2, 5, 4, 0, 0, 0);
-//        $series3 = array(0, 0, 0, 8, 3, 2, 5, 4);
-//        $this->chart->add($this->phpWord, '2D charts', $categories, [$series1, $series3]);
-
 
         $this->phpWord->save('aaa.docx');
     }
