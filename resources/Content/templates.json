@@ -45,7 +45,7 @@
             {
                 "blocks": [
                     {
-                        "type": "table",
+                        "type": "inlineTable",
                         "data": {
                             "rows": [
                                 [
@@ -118,7 +118,7 @@
             {
                 "blocks": [
                     {
-                        "type": "table",
+                        "type": "inlineTable",
                         "data": {
                             "rows": [
                                 [
@@ -173,7 +173,7 @@
                         "type": "pieChart",
                         "data": {
                             "title": "Frontend Scenarios",
-                            "type": "inline",
+                            "type": "chart_inline",
                             "categories": [
                                 "browse catalog by guest",
                                 "search",
@@ -208,7 +208,7 @@
                         "type": "pieChart",
                         "data": {
                             "title": "Admin Scenarios",
-                            "type": "inline",
+                            "type": "chart_inline",
                             "categories": [
                                 "promotion rules",
                                 "category management",
@@ -251,8 +251,8 @@
                         "type": "lineChart",
                         "data": {
                             "title": "Active threads over time",
-                            "type": "jtl",
-                            "metric": {"type": "avg", "config": {}},
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -287,8 +287,8 @@
                         "type": "lineChart",
                         "data": {
                             "title": "Response Time Over Time (successful responses)",
-                            "type": "jtl",
-                            "metric": {"type": "percentile", "config": {"lvl": "90"}},
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "percentile", "config": {"lvl": "90"}}],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -318,7 +318,7 @@
                                             "Admin Pool",
                                             "CSR Pool"
                                         ],
-                                        "metric": {"type": "percentile", "config": {"lvl": "50"}},
+                                        "metrics": [{"type": "percentile", "config": {"lvl": "50"}}],
                                         "conditions": [
                                             {
                                                 "field": "responseCode",
@@ -340,7 +340,7 @@
                                             "Admin Pool",
                                             "CSR Pool"
                                         ],
-                                        "metric": {"type": "percentile", "config": {"lvl": "50"}},
+                                        "metrics": [{"type": "percentile", "config": {"lvl": "50"}}],
                                         "conditions": [
                                             {
                                                 "field": "responseCode",
@@ -367,8 +367,8 @@
                         "type": "lineChart",
                         "data": {
                             "title": "Catalog browsing by guest",
-                            "type": "jtl",
-                            "metric": {"type": "avg", "config": {}},
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -448,8 +448,8 @@
                         "type": "lineChart",
                         "data": {
                             "title": "Catalog browsing by customer",
-                            "type": "jtl",
-                            "metric": {"type": "avg", "config": {}},
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -534,8 +534,8 @@
                         "type": "lineChart",
                         "data": {
                             "title": "Checkout start page",
-                            "type": "jtl",
-                            "metric": {"type": "avg", "config": {}},
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -577,8 +577,8 @@
                         "type": "lineChart",
                         "data": {
                             "title": "Checkout place order page",
-                            "type": "jtl",
-                            "metric": {"type": "avg", "config": {}},
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -625,8 +625,8 @@
                         "type": "lineChart",
                         "data": {
                             "title": "Add to cart",
-                            "type": "jtl",
-                            "metric": {"type": "avg", "config": {}},
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -670,8 +670,8 @@
                         "type": "lineChart",
                         "data": {
                             "title": "Search",
-                            "type": "jtl",
-                            "metric": {"type": "avg", "config": {}},
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -679,6 +679,141 @@
                                 "items": [
                                     {
                                         "title": "Quick",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Search"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Quick",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Quick Search With Filtration",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Search"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Quick Search With Filtration",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Advanced Search",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Search"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Advanced Search",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "src": "SS",
+                "blocks": [
+                    {
+                        "type": "jtlText",
+                        "data": ""
+                    },
+                    {
+                        "type": "jtlTable",
+                        "data": {
+                            "title": "Frontend Results",
+                            "type": "table_jtl",
+                            "metrics": [
+                                {"type": "percentile", "config": {"lvl": 50}},
+                                {"type": "percentile", "config": {"lvl": 90}},
+                                {"type": "percentile", "config": {"lvl": 95}},
+                                {"type": "percentile", "config": {"lvl": 99}}
+                            ],
+                            "max": 2000,
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Category page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Category"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Home page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Home Page"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Simple Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Complex product page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Configurable Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Checkout start",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout start"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Place Order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Add To Cart",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Add To Cart"
+                                        ],
+                                        "pattern": "/Add To Cart/"
+                                    },
+                                    {
+                                        "title": "Quick Search",
                                         "tag_field": "label",
                                         "tags": [
                                             "Search"

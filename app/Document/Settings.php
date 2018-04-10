@@ -81,15 +81,15 @@ class Settings
         $phpWord->addTableStyle(
             Font::DEFAULT_TABLE_STYLE,
             [
-                'borderSize' => 6,
+                'borderSize' => 4,
                 'borderColor' => '006699',
-                'cellMargin' => 80,
+                'cellMargin' => 0,
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
-                'cellSpacing' => 50,
+                'cellSpacing' => 0,
                 'valign' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER
             ],
             [
-                'borderBottomSize' => 18,
+                'borderBottomSize' => 4,
                 'borderBottomColor' => '0000FF',
                 'bgColor' => '66BBFF',
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,

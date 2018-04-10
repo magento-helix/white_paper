@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Condition;
+namespace App\Document\Data\JtlProvider\Jtl\Condition;
 
 /**
  * Created by PhpStorm.

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Value;
+namespace App\Document\Data\JtlProvider\Jtl\Value;
 
 /**
  * Created by PhpStorm.

@@ -8,7 +8,6 @@
 
 namespace App\Document\Content\Page\Block\Type;
 
-use App\Document\Content\Page\Block\Type\Chart\DataProviderPool;
 use App\Document\Content\Page\Block\TypeInterface;
 use App\Document\Data\InstanceInterface;
 use App\Document\Font;
@@ -64,12 +63,12 @@ class LineChart implements TypeInterface
         ];
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
-        $categories = $dataProvider->getX($content);
+        $categories = $dataProvider->getRange($content);
         $data = $dataProvider->getData($content, 0);
         $chart = $section->addChart(
             self::TYPE,
             $categories,
-            $data['values'],
+            $data['values'][0],
             $style,
             $content['data']['items'][0]['title']
         );
@@ -77,7 +76,7 @@ class LineChart implements TypeInterface
             $data = $dataProvider->getData($content, $i);
             $chart->addSeries(
                 $categories,
-                $data['values'],
+                $data['values'][0],
                 $content['data']['items'][$i]['title']
             );
         }

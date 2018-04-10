@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Condition;
+namespace App\Document\Data\JtlProvider\Jtl\Condition;
 
 /**
  * Created by PhpStorm.
@@ -8,7 +8,7 @@ namespace App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Condition;
  * Date: 4/5/18
  * Time: 11:20 AM
  */
-class NotContains implements ConditionInterface
+class Contains implements ConditionInterface
 {
     /**
      * @var array
@@ -25,6 +25,6 @@ class NotContains implements ConditionInterface
      */
     public function check(array $data): bool
     {
-        return strpos($data[$this->config['field']], $this->config['value']) === false;
+        return strpos($data[$this->config['field']], $this->config['value']) !== false;
     }
 }

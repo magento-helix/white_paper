@@ -2,7 +2,7 @@
 
 namespace App\Document\Content\Page\Block\Type\Chart\Data;
 
-use App\Document\Content\Page\Block\Type\Chart\DataProviderInterface;
+use App\Document\Data\JtlProvider\DataProviderInterface;
 
 /**
  * Created by PhpStorm.
@@ -22,7 +22,7 @@ class Inline implements DataProviderInterface
         return $data['data']['items'][$index];
     }
 
-    public function getX(array $data) : array
+    public function getRange(array $data) : array
     {
         return $data['categories'];
     }

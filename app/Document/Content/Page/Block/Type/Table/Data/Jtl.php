@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Document\Content\Page\Block\Type\Chart\Data;
+namespace App\Document\Content\Page\Block\Type\Table\Data;
 
 use App\Document\Data\JtlProvider\AbstractJtl;
 use App\Document\Data\JtlProvider\DataProviderInterface;
@@ -13,5 +13,5 @@ use App\Document\Data\JtlProvider\DataProviderInterface;
  */
 class Jtl extends AbstractJtl implements DataProviderInterface
 {
-    //
+    const RANGE_COUNT = 1;
 }

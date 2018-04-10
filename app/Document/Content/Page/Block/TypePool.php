@@ -10,6 +10,8 @@ namespace App\Document\Content\Page\Block;
 
 use App\Document\Content\Page\Block\Type\DocumentAuthors;
 use App\Document\Content\Page\Block\Type\DocumentTitle;
+use App\Document\Content\Page\Block\Type\JTLTable;
+use App\Document\Content\Page\Block\Type\JTLText;
 use App\Document\Content\Page\Block\Type\LineChart;
 use App\Document\Content\Page\Block\Type\PieChart;
 use App\Document\Content\Page\Block\Type\Table;
@@ -25,7 +27,9 @@ class TypePool
         'documentAuthors' => DocumentAuthors::class,
         'text' => Text::class,
         'image' => Image::class,
-        'table' => Table::class,
+        'inlineTable' => Table::class,
+        'jtlTable' => JTLTable::class,
+        'jtlText' => JTLText::class,
         'pieChart' => PieChart::class,
         'lineChart' => LineChart::class,
     ];

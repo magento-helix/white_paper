@@ -8,8 +8,6 @@
 
 namespace App\Document\Content\Page\Block\Type;
 
-use App\Document\Content\Page\Block\Type\Chart\Data\DataProviderInterface;
-use App\Document\Content\Page\Block\Type\Chart\DataProviderPool;
 use App\Document\Content\Page\Block\TypeInterface;
 use App\Document\Font;
 use PhpOffice\PhpWord\Element\Section;
@@ -56,7 +54,7 @@ class PieChart implements TypeInterface
 
         $section->addChart(
             self::TYPE,
-            $this->dataProviderPool->get($content['type'])->getX($content),
+            $this->dataProviderPool->get($content['type'])->getRange($content),
             $this->dataProviderPool->get($content['type'])->getData($content, 0),
             $style
         );

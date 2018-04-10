@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Document\Content\Page\Block\Type\Chart\Data\Jtl;
-use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Value\Avg;
-use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Value\MetricInterface;
-use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Value\Percentile;
+namespace App\Document\Data\JtlProvider\Jtl;
+
+use App\Document\Data\JtlProvider\Jtl\Value\Avg;
+use App\Document\Data\JtlProvider\Jtl\Value\MetricInterface;
+use App\Document\Data\JtlProvider\Jtl\Value\Percentile;
 
 /**
  * Created by PhpStorm.

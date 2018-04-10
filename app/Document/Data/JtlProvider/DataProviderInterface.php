@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Document\Content\Page\Block\Type\Chart;
+namespace App\Document\Data\JtlProvider;
 
 /**
  * Created by PhpStorm.
@@ -21,5 +21,5 @@ interface DataProviderInterface
      * @param array $data
      * @return array
      */
-    public function getX(array $data) : array;
+    public function getRange(array $data) : array;
 }

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Document\Content\Page\Block\Type\Chart\Data\Jtl;
-use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Condition\ConditionInterface;
-use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Condition\Contains;
-use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Condition\Equals;
-use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Condition\NotContains;
+namespace App\Document\Data\JtlProvider\Jtl;
+
+use App\Document\Data\JtlProvider\Jtl\Condition\ConditionInterface;
+use App\Document\Data\JtlProvider\Jtl\Condition\Contains;
+use App\Document\Data\JtlProvider\Jtl\Condition\Equals;
+use App\Document\Data\JtlProvider\Jtl\Condition\NotContains;
+
 
 /**
  * Created by PhpStorm.

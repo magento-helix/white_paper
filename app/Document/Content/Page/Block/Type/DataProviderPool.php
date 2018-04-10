@@ -6,17 +6,20 @@
  * Time: 8:31 PM
  */
 
-namespace App\Document\Content\Page\Block\Type\Chart;
+namespace App\Document\Content\Page\Block\Type;
 
 use App\Document\Content\Page\Block\Type\Chart\Data\Inline;
-use App\Document\Content\Page\Block\Type\Chart\Data\Jtl;
+use App\Document\Content\Page\Block\Type\Table\Data\Jtl as TableJTL;
+use App\Document\Content\Page\Block\Type\Chart\Data\Jtl as ChartJTL;
 use App\Document\Data\InstanceInterface;
+use App\Document\Data\JtlProvider\DataProviderInterface;
 
 class DataProviderPool
 {
     private $map = [
-        'inline' => Inline::class,
-        'jtl' => Jtl::class,
+        'chart_jtl' => ChartJTL::class,
+        'chart_inline' => Inline::class,
+        'table_jtl' => TableJTL::class,
     ];
 
     public function get($type, InstanceInterface $instance = null, array $measurementConfig = []) : DataProviderInterface
