@@ -11,36 +11,35 @@ namespace App\Document\Data;
 class Instance implements InstanceInterface
 {
     const SS_TYPE = 'SS';
+    const API_TYPE = 'API';
 
-    private $ssData = [];
-    private $csData = [];
-    private $apiData = [];
+    private $data = [];
 
     private $instanceConfig;
     private $dataConfig;
 
-    private $ssDataConfig = [];
+    private $dataSearchConfig = [];
 
     public function __construct($instanceConfig, $dataConfig)
     {
         $this->instanceConfig = $instanceConfig;
         $this->dataConfig = $dataConfig;
 
-        $this->loadSSData();
+        $this->loadData();
     }
 
-    private function loadSSData()
+    private function loadData()
     {
         foreach ($this->instanceConfig['profiles'] as $profile) {
             foreach ($profile['measurements'] as $measurement) {
-                $jtlProvider = new JtlProvider($this->getSSDataConfig());
+                $jtlProvider = new JtlProvider($this->getDataConfig($measurement['type']));
                 $src = BP . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR
                     . $this->instanceConfig['type'] . DIRECTORY_SEPARATOR
                     . $profile['name'] . DIRECTORY_SEPARATOR
                     . $measurement['type'] . DIRECTORY_SEPARATOR
                     . $measurement['src'];
                 $jtlProvider->load($src);
-                $this->ssData[$profile['name'] . $measurement['type']] = [
+                $this->data[$profile['name'] . $measurement['type']] = [
                     'full' => $jtlProvider->getReportData($src),
                     'filtered' => $jtlProvider->getData()
                 ];
@@ -48,14 +47,14 @@ class Instance implements InstanceInterface
         }
     }
 
-    private function getSSDataConfig(): array
+    private function getDataConfig($type): array
     {
-        if (empty($this->ssDataConfig)) {
+        if (!isset($this->dataSearchConfig[$type])) {
             $needTags = [];
             $needFields = [];
             $patterns = ['/^[^0-9(]*/'];
             foreach ($this->dataConfig as $page) {
-                if ($page['src'] == self::SS_TYPE) {
+                if ($page['src'] == $type) {
                     foreach ($page['blocks'] as $block) {
                         foreach ($block['data']['data']['items'] as $item) {
                             $needTags = array_merge($needTags, $item['tags']);
@@ -72,26 +71,17 @@ class Instance implements InstanceInterface
                 }
             }
 
-            $this->ssDataConfig['needTags'] = $needTags;
-            $this->ssDataConfig['needFields'] = $needFields;
-            $this->ssDataConfig['patterns'] = $patterns;
+            $this->dataSearchConfig[$type]['needTags'] = $needTags;
+            $this->dataSearchConfig[$type]['needFields'] = $needFields;
+            $this->dataSearchConfig[$type]['patterns'] = $patterns;
 
         }
-        return $this->ssDataConfig;
+
+        return $this->dataSearchConfig[$type];
     }
 
-    public function getSSData(string $profile): array
+    public function getData(string $key): array
     {
-        return $this->ssData[$profile];
-    }
-
-    public function getCSData(string $profile): array
-    {
-        // TODO: Implement getCSProvider() method.
-    }
-
-    public function getAPIData(string $profile): array
-    {
-        // TODO: Implement getAPIProvider() method.
+        return $this->data[$key];
     }
 }

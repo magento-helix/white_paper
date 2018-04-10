@@ -12,6 +12,11 @@
                             "type": "SS",
                             "profile": "extra_large",
                             "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "extra_large",
+                            "src": "var/tests/results/benchmark_api_result.jtl"
                         }
                     ]
                 },

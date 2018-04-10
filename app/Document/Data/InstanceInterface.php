@@ -11,7 +11,5 @@ namespace App\Document\Data;
 
 interface InstanceInterface
 {
-    public function getSSData(string $profile) : array;
-    public function getCSData(string $profile) : array;
-    public function getAPIData(string $profile) : array;
+    public function getData(string $key) : array;
 }

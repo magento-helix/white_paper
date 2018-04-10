@@ -15,7 +15,8 @@ use PhpOffice\PhpWord\PhpWord;
 class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterface
 {
     private $map = [
-        Instance::SS_TYPE => 'Server Side'
+        Instance::SS_TYPE => 'Server Side',
+        Instance::API_TYPE => 'API'
     ];
 
     public function add(PhpWord $phpWord, $content)

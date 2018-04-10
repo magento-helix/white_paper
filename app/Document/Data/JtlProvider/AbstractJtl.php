@@ -78,6 +78,11 @@ abstract class AbstractJtl implements DataProviderInterface
         $handleName = $data['data']['items'][$index]['title'];
         $handleCategory = $data['data']['category'];
         $handleValue = $data['data']['value'];
+
+        if (!isset($this->data[$handleName])) {
+            $t =10;
+        }
+
         $handle = $this->data[$handleName];
         $metricConfig = isset($data['data']['items'][$index]['metrics'])
             ? $data['data']['items'][$index]['metrics']
@@ -108,7 +113,7 @@ abstract class AbstractJtl implements DataProviderInterface
 
     public function loadData($config)
     {
-        $reportData = $this->instance->getSSData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['filtered'];
+        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['filtered'];
         $data = [];
         foreach ($config['data']['items'] as $itemConfig) {
             $data[$itemConfig['title']] = [];
@@ -147,7 +152,7 @@ abstract class AbstractJtl implements DataProviderInterface
         if (empty($this->range)) {
             $result = [];
             $count = static::RANGE_COUNT;
-            $reportData = $this->instance->getSSData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['full'];
+            $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['full'];
 
             $maxCategory = (int)$reportData[count($reportData) - 2]['timeStamp'] / 1000;
             $minCategory = (int)$reportData[0]['timeStamp'] / 1000;

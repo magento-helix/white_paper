@@ -952,6 +952,407 @@
                         }
                     }
                 ]
+            },
+            {
+                "src": "API",
+                "blocks": [
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Active threads over time",
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "grpThreads",
+                                "items": [
+                                    {
+                                        "title": "Api",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "API"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Response Time Over Time (successful responses)",
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "percentile", "config": {"lvl": "90"}}],
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "90 percentile",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "API"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "responseCode",
+                                                "value": "200",
+                                                "type": "equals"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Median for cashed pages",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "API"
+                                        ],
+                                        "metrics": [{"type": "percentile", "config": {"lvl": "50"}}],
+                                        "conditions": [
+                                            {
+                                                "field": "responseCode",
+                                                "value": "200",
+                                                "type": "equals"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "src": "API",
+                "blocks": [
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Catalog browsing",
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Get category",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Get category"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Get categories",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Get categories"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Get products",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Get products"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Checkout",
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Add product to quote",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Add product to quote"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create quote",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create quote"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create guest cart",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create Guest Cart"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Place order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "src": "API",
+                "blocks": [
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Customer",
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Check customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Check customer"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create customer"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Product Management",
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Check product",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Check product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Check product with extensible data objects",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Check product with extensible data objects"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create product",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create product with extensible data objects",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create product with extensible data objects"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "src": "API",
+                "blocks": [
+                    {
+                        "type": "jtlText",
+                        "data": {
+                            "title": "Concurrent Results",
+                            "type": "table_jtl",
+                            "metrics": [
+                                {"type": "concurrent", "config": {"lvl": 1}}
+                            ],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "timeStamp",
+                                "items": [
+                                    {
+                                        "title": "Place order per hour",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Page views per hour",
+                                        "tag_field": "grpThreads",
+                                        "tags": [
+                                            "API"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "API Catalog Browsing",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Errors count",
+                                        "metrics": [
+                                            {"type": "count"}
+                                        ],
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "API"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "responseCode",
+                                                "value": "200",
+                                                "type": "notequals"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "jtlTable",
+                        "data": {
+                            "title": "Frontend Results",
+                            "type": "table_jtl",
+                            "metrics": [
+                                {"type": "percentile", "config": {"lvl": 50}},
+                                {"type": "percentile", "config": {"lvl": 90}},
+                                {"type": "percentile", "config": {"lvl": 95}},
+                                {"type": "percentile", "config": {"lvl": 99}}
+                            ],
+                            "max": 2000,
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Get category",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Get category"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Get categories",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Get categories"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Get products",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Get products"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Add product to quote",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Add product to quote"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create quote",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create quote"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create guest cart",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create Guest Cart"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Place order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "jtlTable",
+                        "data": {
+                            "title": "Admin Results",
+                            "type": "table_jtl",
+                            "metrics": [
+                                {"type": "percentile", "config": {"lvl": 50}},
+                                {"type": "percentile", "config": {"lvl": 90}},
+                                {"type": "percentile", "config": {"lvl": 95}},
+                                {"type": "percentile", "config": {"lvl": 99}}
+                            ],
+                            "max": 4000,
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Create product",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create product with extensible data objects",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create product with extensible data objects"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create customer"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
             }
         ]
     }
