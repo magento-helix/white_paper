@@ -617,6 +617,113 @@
                         }
                     }
                 ]
+            },
+            {
+                "src": "SS",
+                "blocks": [
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Add to cart",
+                            "type": "jtl",
+                            "metric": {"type": "avg", "config": {}},
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "by Guest",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Add To Cart"
+                                        ],
+                                        "pattern": "/Add To Cart/",
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "by Customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Add To Cart"
+                                        ],
+                                        "pattern": "/Add To Cart/",
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "lineChart",
+                        "data": {
+                            "title": "Search",
+                            "type": "jtl",
+                            "metric": {"type": "avg", "config": {}},
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Quick",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Search"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Quick",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Quick Search With Filtration",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Search"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Quick Search With Filtration",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Advanced Search",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Search"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Advanced Search",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
             }
         ]
     }

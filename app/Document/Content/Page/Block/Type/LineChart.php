@@ -52,7 +52,7 @@ class LineChart implements TypeInterface
     {
         $title = $content['title'];
         $section->addText(
-            $title . '<w:br/>',
+            $title,
             Font::getChartTitleStyle(),
             Font::DEFAULT_CHART_TITLE
         );

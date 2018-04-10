@@ -36,7 +36,9 @@ class Instance implements InstanceInterface
                 $jtlProvider = new JtlProvider($this->getSSDataConfig());
                 $src = BP . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR
                     . $this->instanceConfig['type'] . DIRECTORY_SEPARATOR
-                    . $profile['name'] . DIRECTORY_SEPARATOR . $measurement['src'];
+                    . $profile['name'] . DIRECTORY_SEPARATOR
+                    . $measurement['type'] . DIRECTORY_SEPARATOR
+                    . $measurement['src'];
                 $jtlProvider->load($src);
                 $this->ssData[$profile['name'] . $measurement['type']] = [
                     'full' => $jtlProvider->getReportData($src),
