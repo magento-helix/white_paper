@@ -33,9 +33,6 @@ class JtlProvider implements ProviderInterface
      */
     private $config;
 
-    private $minValue;
-    private $maxValue;
-
     public function __construct($config)
     {
         $this->parser = new Jtl();
@@ -46,12 +43,9 @@ class JtlProvider implements ProviderInterface
     {
         $reportData = $this->getReportData($src);
 
-//        $config = $this->config['config'];
         $needTags = $this->config['needTags'];
         $needFields = $this->config['needFields'];
         $patterns = $this->config['patterns'];
-
-//        $includeSetup = isset($config['data']['includeSetup']) ? $config['data']['includeSetup'] : false;
 
         foreach($reportData as $key => $item) {
             if (empty($item) || !isset($item['timeStamp'])) {

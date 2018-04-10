@@ -6,6 +6,7 @@ use App\Document\Data\JtlProvider\Jtl\Condition\ConditionInterface;
 use App\Document\Data\JtlProvider\Jtl\Condition\Contains;
 use App\Document\Data\JtlProvider\Jtl\Condition\Equals;
 use App\Document\Data\JtlProvider\Jtl\Condition\NotContains;
+use App\Document\Data\JtlProvider\Jtl\Condition\NotEquals;
 
 
 /**
@@ -18,6 +19,7 @@ class ConditionPool
 {
     private $map = [
         'equals' => Equals::class,
+        'notequals' => NotEquals::class,
         'notcontains' => NotContains::class,
         'contains' => Contains::class,
     ];

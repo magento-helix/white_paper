@@ -46,6 +46,12 @@ class JTLTable implements TypeInterface
 
     public function add(Section $section, $content)
     {
+        $title = $content['title'];
+        $section->addText(
+            $title,
+            Font::getChartTitleStyle(),
+            Font::DEFAULT_CHART_TITLE
+        );
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
         $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
 
@@ -92,9 +98,9 @@ class JTLTable implements TypeInterface
             foreach ($cellData as $cellDatum) {
                 $value = $cellDatum['values'][$index][1];
                 $color = '00B050';
-                if ($value - $content['max'] > 0 && $value - $content['max'] < 1) {
+                if ($value - $content['max'] > 0 && $value - $content['max'] < 1000) {
                     $color = 'FF9600';
-                } elseif ($value - $content['max'] > 1) {
+                } elseif ($value - $content['max'] > 1000) {
                     $color = 'FF0000';
                 }
                 $table->addCell($cellSize, $cellRowSpan)

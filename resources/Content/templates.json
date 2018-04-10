@@ -638,7 +638,7 @@
                                         "tags": [
                                             "Add To Cart"
                                         ],
-                                        "pattern": "/Add To Cart/",
+                                        "pattern": "/[^\\(]Add To Cart/",
                                         "conditions": [
                                             {
                                                 "field": "label",
@@ -653,7 +653,7 @@
                                         "tags": [
                                             "Add To Cart"
                                         ],
-                                        "pattern": "/Add To Cart/",
+                                        "pattern": "/[^\\(]Add To Cart/",
                                         "conditions": [
                                             {
                                                 "field": "label",
@@ -730,7 +730,52 @@
                 "blocks": [
                     {
                         "type": "jtlText",
-                        "data": ""
+                        "data": {
+                            "title": "Concurrent Results",
+                            "type": "table_jtl",
+                            "metrics": [
+                                {"type": "concurrent", "config": {"lvl": 1}}
+                            ],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "timeStamp",
+                                "items": [
+                                    {
+                                        "title": "Place order per hour",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Page views per hour",
+                                        "tag_field": "grpThreads",
+                                        "tags": [
+                                            "Frontend Pool"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Errors count",
+                                        "tag_field": "threadName",
+                                        "metrics": [
+                                            {"type": "count"}
+                                        ],
+                                        "tags": [
+                                            "Frontend Pool",
+                                            "Admin Pool",
+                                            "CSR Pool"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "responseCode",
+                                                "value": "200",
+                                                "type": "notequals"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
                     },
                     {
                         "type": "jtlTable",
@@ -798,22 +843,22 @@
                                         ]
                                     },
                                     {
-                                        "title": "Place Order",
+                                        "title": "Place order",
                                         "tag_field": "label",
                                         "tags": [
                                             "Checkout Payment Info/Place Order"
                                         ]
                                     },
                                     {
-                                        "title": "Add To Cart",
+                                        "title": "Add to cart",
                                         "tag_field": "label",
                                         "tags": [
                                             "Add To Cart"
                                         ],
-                                        "pattern": "/Add To Cart/"
+                                        "pattern": "/[^\\(]Add To Cart/"
                                     },
                                     {
-                                        "title": "Quick Search",
+                                        "title": "Quick search",
                                         "tag_field": "label",
                                         "tags": [
                                             "Search"
@@ -827,7 +872,7 @@
                                         ]
                                     },
                                     {
-                                        "title": "Quick Search With Filtration",
+                                        "title": "Quick search with filtration",
                                         "tag_field": "label",
                                         "tags": [
                                             "Search"
@@ -841,7 +886,7 @@
                                         ]
                                     },
                                     {
-                                        "title": "Advanced Search",
+                                        "title": "Advanced search",
                                         "tag_field": "label",
                                         "tags": [
                                             "Search"
@@ -852,6 +897,54 @@
                                                 "value": "Advanced Search",
                                                 "type": "contains"
                                             }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "jtlTable",
+                        "data": {
+                            "title": "Admin Results",
+                            "type": "table_jtl",
+                            "metrics": [
+                                {"type": "percentile", "config": {"lvl": 50}},
+                                {"type": "percentile", "config": {"lvl": 90}},
+                                {"type": "percentile", "config": {"lvl": 95}},
+                                {"type": "percentile", "config": {"lvl": 99}}
+                            ],
+                            "max": 4000,
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Simple product save",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Edit Simple Product Save"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product edit",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Edit Simple Product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Open order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Order"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Save order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Save Order"
                                         ]
                                     }
                                 ]

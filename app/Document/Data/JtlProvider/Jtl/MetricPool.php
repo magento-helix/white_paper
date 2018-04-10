@@ -3,6 +3,8 @@
 namespace App\Document\Data\JtlProvider\Jtl;
 
 use App\Document\Data\JtlProvider\Jtl\Value\Avg;
+use App\Document\Data\JtlProvider\Jtl\Value\Concurrent;
+use App\Document\Data\JtlProvider\Jtl\Value\Count;
 use App\Document\Data\JtlProvider\Jtl\Value\MetricInterface;
 use App\Document\Data\JtlProvider\Jtl\Value\Percentile;
 
@@ -17,6 +19,8 @@ class MetricPool
     private $map = [
         'avg' => Avg::class,
         'percentile' => Percentile::class,
+        'count' => Count::class,
+        'concurrent' => Concurrent::class,
     ];
 
     public function get(array $data) : MetricInterface
