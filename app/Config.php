@@ -22,4 +22,9 @@ class Config
     {
         return $this->config;
     }
+
+    public function getInstances() : array
+    {
+        return $this->config['instances'];
+    }
 }

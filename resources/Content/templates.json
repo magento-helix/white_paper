@@ -242,8 +242,10 @@
     {
         "title": "Load generation flow",
         "type": "loadGenerationFlow",
+        "contentType": "config",
         "pages": [
             {
+                "src": "SS",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -253,7 +255,6 @@
                             "metric": {"type": "avg", "config": {}},
                             "categories": ["TimeLine"],
                             "data": {
-                                "src": "./temp/benchmark_result.jtl",
                                 "category": "timeStamp",
                                 "value": "grpThreads",
                                 "items": [
@@ -290,7 +291,6 @@
                             "metric": {"type": "percentile", "config": {"lvl": "90"}},
                             "categories": ["TimeLine"],
                             "data": {
-                                "src": "./temp/benchmark_result.jtl",
                                 "category": "timeStamp",
                                 "value": "Latency",
                                 "items": [
@@ -361,6 +361,7 @@
                 ]
             },
             {
+                "src": "SS",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -370,7 +371,6 @@
                             "metric": {"type": "avg", "config": {}},
                             "categories": ["TimeLine"],
                             "data": {
-                                "src": "./temp/benchmark_result.jtl",
                                 "category": "timeStamp",
                                 "value": "Latency",
                                 "items": [
@@ -452,7 +452,6 @@
                             "metric": {"type": "avg", "config": {}},
                             "categories": ["TimeLine"],
                             "data": {
-                                "src": "./temp/benchmark_result.jtl",
                                 "category": "timeStamp",
                                 "value": "Latency",
                                 "items": [
@@ -529,6 +528,7 @@
                 ]
             },
             {
+                "src": "SS",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -538,7 +538,6 @@
                             "metric": {"type": "avg", "config": {}},
                             "categories": ["TimeLine"],
                             "data": {
-                                "src": "./temp/benchmark_result.jtl",
                                 "category": "timeStamp",
                                 "value": "Latency",
                                 "items": [
@@ -582,7 +581,6 @@
                             "metric": {"type": "avg", "config": {}},
                             "categories": ["TimeLine"],
                             "data": {
-                                "src": "./temp/benchmark_result.jtl",
                                 "category": "timeStamp",
                                 "value": "Latency",
                                 "items": [

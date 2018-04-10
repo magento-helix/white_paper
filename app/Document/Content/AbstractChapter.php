@@ -11,6 +11,7 @@ namespace App\Document\Content;
 
 use App\Config;
 use App\Document\Content\Page\Block\TypePool;
+use App\Document\Data\InstanceInterface;
 use App\Document\Font;
 use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\PhpWord;
@@ -24,12 +25,12 @@ class AbstractChapter implements ChapterInterface
     /**
      * @var TypePool
      */
-    private $blockTypePool;
+    protected $blockTypePool;
 
     /**
      * @var Config
      */
-    private $config;
+    protected $config;
 
     public function __construct(Config $config)
     {
@@ -46,11 +47,21 @@ class AbstractChapter implements ChapterInterface
         );
     }
 
-    public function addPages(PhpWord $phpWord, Section $section, array $pages)
-    {
+    public function addPages(
+        PhpWord $phpWord,
+        Section $section,
+        array $pages,
+        InstanceInterface $instance = null,
+        array $measurementConfig = []
+    ) {
         foreach ($pages as $index => $page) {
+            if (isset($page['src']) && $page['src'] !== $measurementConfig['type']) {
+                continue;
+            }
             foreach ($page['blocks'] as $block) {
-                $this->blockTypePool->getPage($block['type'], $phpWord)->add($section, $block['data']);
+                $this->blockTypePool
+                    ->getPage($block['type'], $phpWord, $instance, $measurementConfig)
+                    ->add($section, $block['data']);
             }
             if (isset($pages[$index + 1])) {
                 $section = $this->addPage($phpWord);

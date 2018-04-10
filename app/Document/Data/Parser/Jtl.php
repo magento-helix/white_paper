@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Document\Content\Page\Block\Type\Chart\Data\Jtl;
+namespace App\Document\Data\Parser;
 
 /**
  * Created by PhpStorm.
@@ -8,7 +8,7 @@ namespace App\Document\Content\Page\Block\Type\Chart\Data\Jtl;
  * Date: 4/5/18
  * Time: 11:20 AM
  */
-class Parser
+class Jtl
 {
     public function parse($path): array
     {

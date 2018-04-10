@@ -10,6 +10,7 @@ namespace App\Document\Content\Page\Block\Type\Chart;
 
 use App\Document\Content\Page\Block\Type\Chart\Data\Inline;
 use App\Document\Content\Page\Block\Type\Chart\Data\Jtl;
+use App\Document\Data\InstanceInterface;
 
 class DataProviderPool
 {
@@ -18,8 +19,8 @@ class DataProviderPool
         'jtl' => Jtl::class,
     ];
 
-    public function get($type) : DataProviderInterface
+    public function get($type, InstanceInterface $instance = null, array $measurementConfig = []) : DataProviderInterface
     {
-        return new $this->map[$type]();
+        return new $this->map[$type]($instance, $measurementConfig);
     }
 }

@@ -26,8 +26,7 @@ class Percentile implements MetricInterface
      */
     public function calculate(array $list): float
     {
-        asort($list);
-        $list = array_values($list);
+        sort($list);
         return $list[floor((count($list) - 1) * $this->config['lvl'] / 100)];
     }
 }

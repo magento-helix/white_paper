@@ -2,23 +2,28 @@
     "title": "Measurements on AWS Infrastructure",
     "instances": [
         {
-            "name": "brasda2phcxlc",
-            "type": "48core",
-            "measurements": [
+            "name": "qjldd4p2tbpwg",
+            "type": "Pro48",
+            "profiles": [
                 {
-                    "type": "SS",
-                    "profile": "extra_large",
-                    "jtl": "./temp/benchmark_result.jtl"
+                    "name": "extra_large",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "extra_large",
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        }
+                    ]
                 },
                 {
-                    "type": "API",
-                    "profile": "extra_large",
-                    "jtl": "./temp/benchmark_api_result.jtl"
-                },
-                {
-                    "type": "SS",
-                    "profile": "large",
-                    "jtl": "./temp/benchmark_result2.jtl"
+                    "name": "large",
+                    "measurements": [
+                        {
+                            "type": "SS",
+                            "profile": "large",
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        }
+                    ]
                 }
             ]
         }

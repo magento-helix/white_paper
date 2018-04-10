@@ -15,6 +15,7 @@ use App\Document\Content\Page\Block\Type\PieChart;
 use App\Document\Content\Page\Block\Type\Table;
 use App\Document\Content\Page\Block\Type\Text;
 use App\Document\Content\Page\Block\Type\Image;
+use App\Document\Data\InstanceInterface;
 use PhpOffice\PhpWord\PhpWord;
 
 class TypePool
@@ -29,8 +30,8 @@ class TypePool
         'lineChart' => LineChart::class,
     ];
 
-    public function getPage($type, PhpWord $phpWord) : TypeInterface
+    public function getPage($type, PhpWord $phpWord, InstanceInterface $instance = null, array $measurementConfig = []) : TypeInterface
     {
-        return new $this->map[$type]($phpWord);
+        return new $this->map[$type]($phpWord, $instance, $measurementConfig);
     }
 }

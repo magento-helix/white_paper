@@ -6,6 +6,7 @@ use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\ConditionPool;
 use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\MetricPool;
 use App\Document\Content\Page\Block\Type\Chart\Data\Jtl\Parser;
 use App\Document\Content\Page\Block\Type\Chart\DataProviderInterface;
+use App\Document\Data\InstanceInterface;
 
 /**
  * Created by PhpStorm.
@@ -39,11 +40,6 @@ class Jtl implements DataProviderInterface
     private $x = [];
 
     /**
-     * @var Parser
-     */
-    private $parser;
-
-    /**
      * @var MetricPool
      */
     private $metricPool;
@@ -53,9 +49,20 @@ class Jtl implements DataProviderInterface
      */
     private $conditionPool;
 
-    public function __construct()
+    /**
+     * @var InstanceInterface
+     */
+    private $instance;
+
+    /**
+     * @var array
+     */
+    private $measurementConfig;
+
+    public function __construct(InstanceInterface $instance, array $measurementConfig)
     {
-        $this->parser = new Parser();
+        $this->instance = $instance;
+        $this->measurementConfig = $measurementConfig;
         $this->metricPool = new MetricPool();
         $this->conditionPool = new ConditionPool();
     }
@@ -65,15 +72,11 @@ class Jtl implements DataProviderInterface
      * @param int $index
      * @return array
      */
-    public function getData(array $data, int $index) : array
+    public function getData(array $data, int $index): array
     {
         $result = [];
         if (empty($this->data)) {
             $this->loadData($data);
-        }
-
-        if (!isset($this->data[$data['data']['items'][$index]['title']])) {
-            return $result;
         }
 
         $handleName = $data['data']['items'][$index]['title'];
@@ -87,9 +90,9 @@ class Jtl implements DataProviderInterface
         $x = $this->getX($data);
         $start = 0;
         $end = count($handle);
-        for($i = 0; $i < count($x); $i++) {
+        for ($i = 0; $i < count($x); $i++) {
             $list = [];
-            for($j = $start; $j < $end; $j++) {
+            for ($j = $start; $j < $end; $j++) {
                 $item = $handle[$j];
                 $timestamp = (int)$item[$handleCategory] / 1000;
                 $time = date(self::TIME_FORMAT, $timestamp);
@@ -107,71 +110,45 @@ class Jtl implements DataProviderInterface
 
     public function loadData($config)
     {
-        $reportData = $this->getReportData($config['data']['src']);
-
-        $includeSetup = isset($config['data']['includeSetup']) ? $config['data']['includeSetup'] : false;
-        $needTags = [];
-        $needFields = [];
-        $patterns = ['/^[^0-9(]*/'];
-        foreach ($config['data']['items'] as $item) {
-            $needTags = array_merge($needTags, $item['tags']);
-            $needFields[] = $item['tag_field'];
-            if (isset($item['pattern'])) {
-                $patterns[] = $item['pattern'];
+        $reportData = $this->instance->getSSData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['filtered'];
+        $data = [];
+        foreach ($config['data']['items'] as $itemConfig) {
+            $data[$itemConfig['title']] = [];
+            foreach ($itemConfig['tags'] as $tag) {
+                $data[$itemConfig['title']] = array_merge($data[$itemConfig['title']], $reportData['by_tags'][$tag]);
             }
         }
 
-        $needFields = array_unique($needFields);
-        $patterns = array_unique($patterns);
+        $this->minValue = (int)$reportData['all'][0][$config['data']['value']];
+        $this->maxValue = (int)$reportData['all'][count($reportData['all']) - 1][$config['data']['value']];
 
-        $this->minValue = (int)$reportData[0][$config['data']['value']];
-        $this->maxValue = (int)$reportData[count($reportData) - 2][$config['data']['value']];
-
-        foreach($reportData as $key => $item) {
-            if (empty($item) || !isset($item['timeStamp'])
-                || (!$includeSetup && (strpos($item['label'], 'SetUp') !== false || strpos($item['threadName'], 'setUp') !== false))
-            ) {
-                continue;
-            }
-
-            foreach ($needFields as $needField) {
-                $needles = [];
-                foreach ($patterns as $pattern) {
-                    preg_match($pattern, $item[$needField], $needle);
-                    if(isset($needle[0])) {
-                        $needles[] = trim($needle[0]);
+        foreach ($config['data']['items'] as $itemConfig) {
+            foreach ($data[$itemConfig['title']] as $item) {
+                $isConditionPass = true;
+                if (isset($itemConfig['conditions'])) {
+                    foreach ($itemConfig['conditions'] as $condition) {
+                        if (!$this->conditionPool->get($condition)->check($item)) {
+                            $isConditionPass = false;
+                            break;
+                        }
                     }
                 }
-
-                if (array_intersect($needTags, $needles) !== []) {
-                    foreach ($config['data']['items'] as $itemConfig) {
-                        $isConditionPass = true;
-                        if(isset($itemConfig['conditions'])) {
-                            foreach ($itemConfig['conditions'] as $condition) {
-                                if(!$this->conditionPool->get($condition)->check($item)){
-                                    $isConditionPass = false;
-                                    break;
-                                }
-                            }
-                        }
-                        if (array_intersect($itemConfig['tags'], $needles) !== [] && $isConditionPass) {
-                            $this->data[$itemConfig['title']][] = $item;
-                            if ($this->maxValue < $item[$config['data']['value']]) {
-                                $this->maxValue = (int)$item[$config['data']['value']];
-                            }
-                        }
+                if ($isConditionPass) {
+                    $this->data[$itemConfig['title']][] = $item;
+                    if ($this->maxValue < $item[$config['data']['value']]) {
+                        $this->maxValue = (int)$item[$config['data']['value']];
                     }
                 }
             }
         }
     }
 
-    public function getX(array $data) : array
+    public function getX(array $data): array
     {
         if (empty($this->x)) {
             $result = [];
             $count = self::X_COUNT;
-            $reportData = $this->getReportData($data['data']['src']);
+            $reportData = $this->instance->getSSData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['full'];
 
             $maxCategory = (int)$reportData[count($reportData) - 2]['timeStamp'] / 1000;
             $minCategory = (int)$reportData[0]['timeStamp'] / 1000;
@@ -186,14 +163,5 @@ class Jtl implements DataProviderInterface
         }
 
         return $this->x;
-    }
-
-    private function getReportData($reportPath) : array
-    {
-        if (empty($this->reportData)) {
-            $this->reportData = $this->parser->parse($reportPath);
-        }
-
-        return $this->reportData;
     }
 }

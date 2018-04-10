@@ -8,6 +8,7 @@
 
 namespace App;
 
+use App\Document\Data\JtlProvider;
 use PhpOffice\PhpWord\PhpWord;
 use App\Document\Content;
 use App\Document\Settings;
