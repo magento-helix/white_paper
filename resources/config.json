@@ -31,6 +31,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "zhe434vvxvvhc",
+            "type": "Pro24",
+            "profiles": [
+                {
+                    "name": "medium",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "medium",
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

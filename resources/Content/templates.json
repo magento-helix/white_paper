@@ -49,60 +49,168 @@
                         "data": {
                             "rows": [
                                 [
-                                    "Configuration /<w:br/>Instance",
-                                    "12 cores",
-                                    "24 cores",
-                                    "48 cores",
-                                    "120 cores"
+                                    {
+                                        "type": "normal",
+                                        "text": "Configuration /<w:br/>Instance"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "12 cores"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "24 cores"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "48 cores"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "120 cores"
+                                    }
                                 ],
                                 [
-                                    "Instance type",
-                                    "m4",
-                                    "m4",
-                                    "m4",
-                                    "m4"
+                                    {
+                                        "type": "normal",
+                                        "text": "Instance type"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": "m4"
+                                    }
                                 ],
                                 [
-                                    "Elasticsearch<w:br/>(version:1.7.6)",
-                                    "HEAP_SIZE = 2G<w:br/>data dir size = 10G",
-                                    "HEAP_SIZE = 4G<w:br/>data dir size = 20G",
-                                    "HEAP_SIZE = 6G<w:br/>data dir size = 30G",
-                                    "HEAP_SIZE = 8G<w:br/>data dir size = 40G"
+                                    {
+                                        "type": "normal",
+                                        "text": "Elasticsearch<w:br/>(version:1.7.6)"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "HEAP_SIZE: 2G<w:br/>data dir size: 10G"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "HEAP_SIZE: 4G<w:br/>data dir size: 20G"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "HEAP_SIZE: 6G<w:br/>data dir size: 30G"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "HEAP_SIZE: 8G<w:br/>data dir size: 40G"
+                                    }
                                 ],
                                 [
-                                    "Mysql ",
-                                    "innodb_buffer_size = 6G<w:br/>space = 200Gb",
-                                    "innodb_buffer_size = 12G<w:br/>space = 200Gb",
-                                    "innodb_buffer_size = 18G<w:br/>space = 200Gb",
-                                    "innodb_buffer_size = 24G<w:br/>space = 200Gb"
+                                    {
+                                        "type": "normal",
+                                        "text": "Mysql"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "innodb_buffer_size: 6G<w:br/>space: 200Gb"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "innodb_buffer_size: 12G<w:br/>space: 200Gb"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "innodb_buffer_size: 18G<w:br/>space: 200Gb"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "innodb_buffer_size: 24G<w:br/>space: 200Gb"
+                                    }
                                 ],
                                 [
-                                    "CPU ",
-                                    "Intel(R) Xeon(R) CPU E5-2686 v4<w:br/>L1d = 32K<w:br/>L1i = 32K<w:br/>L2 = 256K<w:br/>L3 = 46080K",
-                                    null,
-                                    null,
-                                    null
+                                    {
+                                        "type": "normal",
+                                        "text": "CPU"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": "Intel(R) Xeon(R) CPU E5-2686 v4<w:br/>L1d: 32K<w:br/>L1i: 32K<w:br/>L2: 256K<w:br/>L3: 46080K"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    }
                                 ],
                                 [
-                                    "Redis ",
-                                    "configuration = master + 2 slaves<w:br/>version =3.2.8<w:br/>maxclients = 10000<w:br/>maxmemory = 512mb",
-                                    null,
-                                    null,
-                                    null
+                                    {
+                                        "type": "normal",
+                                        "text": "Redis"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": "configuration: master + 2 slaves<w:br/>version =3.2.8<w:br/>maxclients: 10000<w:br/>maxmemory: 512mb"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    }
                                 ],
                                 [
-                                    "Fastly ",
-                                    "max_conn = 200",
-                                    null,
-                                    null,
-                                    null
+                                    {
+                                        "type": "normal",
+                                        "text": "Fastly"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": "max_conn: 200"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    }
                                 ],
                                 [
-                                    "Cron ",
-                                    "run each 5 minuts",
-                                    null,
-                                    null,
-                                    null
+                                    {
+                                        "type": "normal",
+                                        "text": "Cron"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": "run each 5 minuts"
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    },
+                                    {
+                                        "type": "cell",
+                                        "text": null
+                                    }
                                 ]
                             ]
                         }
@@ -122,39 +230,158 @@
                         "data": {
                             "rows": [
                                 [
-                                    "Configuration /<w:br/>Instance",
-                                    "12 cores",
-                                    "24 cores",
-                                    "48 cores",
-                                    "120 cores"
+                                    {
+                                        "type": "normal",
+                                        "text": "Configuration /<w:br/>Instance"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "Starter"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "Starter large"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "12 cores"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "24 cores"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "48 cores"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "120 cores"
+                                    }
                                 ],
                                 [
-                                    "Small",
-                                    "",
-                                    "",
-                                    "",
-                                    ""
+                                    {
+                                        "type": "normal",
+                                        "text": "Small"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 1<w:br/><w:br/>individual simples: 800<w:br/><w:br/>configurable products: 40<w:br/><w:br/>(with 15 simples for each configurable ~ 600 simples)<w:br/><w:br/>categories: 30"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 1<w:br/><w:br/>individual simples: 800<w:br/><w:br/>configurable products: 40<w:br/><w:br/>(with 15 simples for each configurable ~ 600 simples)<w:br/><w:br/>categories: 30"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 1<w:br/><w:br/>individual simples: 800<w:br/><w:br/>configurable products: 40<w:br/><w:br/>(with 15 simples for each configurable ~ 600 simples)<w:br/><w:br/>categories: 30"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 1<w:br/><w:br/>individual simples: 800<w:br/><w:br/>configurable products: 40<w:br/><w:br/>(with 15 simples for each configurable ~ 600 simples)<w:br/><w:br/>categories: 30"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 1<w:br/><w:br/>individual simples: 800<w:br/><w:br/>configurable products: 40<w:br/><w:br/>(with 15 simples for each configurable ~ 600 simples)<w:br/><w:br/>categories: 30"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 1<w:br/><w:br/>individual simples: 800<w:br/><w:br/>configurable products: 40<w:br/><w:br/>(with 15 simples for each configurable ~ 600 simples)<w:br/><w:br/>categories: 30"
+                                    }
+                                ],
+
+
+
+
+                                [
+                                    {
+                                        "type": "normal",
+                                        "text": "Medium"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 3<w:br/><w:br/>individual simples: 24K<w:br/><w:br/>configurable products: 640<w:br/><w:br/>(with 11 simples for each configurable ~ 7K simples)<w:br/><w:br/>categories: 300"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 3<w:br/><w:br/>individual simples: 24K<w:br/><w:br/>configurable products: 640<w:br/><w:br/>(with 11 simples for each configurable ~ 7K simples)<w:br/><w:br/>categories: 300"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 3<w:br/><w:br/>individual simples: 24K<w:br/><w:br/>configurable products: 640<w:br/><w:br/>(with 11 simples for each configurable ~ 7K simples)<w:br/><w:br/>categories: 300"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 3<w:br/><w:br/>individual simples: 24K<w:br/><w:br/>configurable products: 640<w:br/><w:br/>(with 11 simples for each configurable ~ 7K simples)<w:br/><w:br/>categories: 300"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 3<w:br/><w:br/>individual simples: 24K<w:br/><w:br/>configurable products: 640<w:br/><w:br/>(with 11 simples for each configurable ~ 7K simples)<w:br/><w:br/>categories: 300"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 3<w:br/><w:br/>individual simples: 24K<w:br/><w:br/>configurable products: 640<w:br/><w:br/>(with 11 simples for each configurable ~ 7K simples)<w:br/><w:br/>categories: 300"
+                                    }
                                 ],
                                 [
-                                    "Medium",
-                                    "",
-                                    "",
-                                    "",
-                                    ""
+                                    {
+                                        "type": "normal",
+                                        "text": "Large"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 300K<w:br/><w:br/>configurable products: 8K<w:br/><w:br/>(with 11 simples for each configurable ~ 88K simples)<w:br/><w:br/>categories: 3k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 300K<w:br/><w:br/>configurable products: 8K<w:br/><w:br/>(with 11 simples for each configurable ~ 88K simples)<w:br/><w:br/>categories: 3k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 300K<w:br/><w:br/>configurable products: 8K<w:br/><w:br/>(with 11 simples for each configurable ~ 88K simples)<w:br/><w:br/>categories: 3k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 300K<w:br/><w:br/>configurable products: 8K<w:br/><w:br/>(with 11 simples for each configurable ~ 88K simples)<w:br/><w:br/>categories: 3k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 300K<w:br/><w:br/>configurable products: 8K<w:br/><w:br/>(with 11 simples for each configurable ~ 88K simples)<w:br/><w:br/>categories: 3k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 300K<w:br/><w:br/>configurable products: 8K<w:br/><w:br/>(with 11 simples for each configurable ~ 88K simples)<w:br/><w:br/>categories: 3k"
+                                    }
                                 ],
                                 [
-                                    "Large",
-                                    "",
-                                    "",
-                                    "",
-                                    ""
-                                ],
-                                [
-                                    "Extra Large",
-                                    "",
-                                    "",
-                                    "website/store/store view = 5<w:br/>individual simples = 600K<w:br/>configurable products = 16K<w:br/>(with 11 simples for each configurable ~ 176K simples)",
-                                    ""
+                                    {
+                                        "type": "normal",
+                                        "text": "Extra Large"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 600K<w:br/><w:br/>configurable products: 16K<w:br/><w:br/>(with 11 simples for each configurable ~ 176K simples)<w:br/><w:br/>categories: 6k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 600K<w:br/><w:br/>configurable products: 16K<w:br/><w:br/>(with 11 simples for each configurable ~ 176K simples)<w:br/><w:br/>categories: 6k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 600K<w:br/><w:br/>configurable products: 16K<w:br/><w:br/>(with 11 simples for each configurable ~ 176K simples)<w:br/><w:br/>categories: 6k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 600K<w:br/><w:br/>configurable products: 16K<w:br/><w:br/>(with 11 simples for each configurable ~ 176K simples)<w:br/><w:br/>categories: 6k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 600K<w:br/><w:br/>configurable products: 16K<w:br/><w:br/>(with 11 simples for each configurable ~ 176K simples)<w:br/><w:br/>categories: 6k"
+                                    },
+                                    {
+                                        "type": "normal",
+                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 600K<w:br/><w:br/>configurable products: 16K<w:br/><w:br/>(with 11 simples for each configurable ~ 176K simples)<w:br/><w:br/>categories: 6k"
+                                    }
                                 ]
                             ]
                         }

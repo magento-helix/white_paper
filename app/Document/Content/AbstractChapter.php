@@ -41,7 +41,7 @@ class AbstractChapter implements ChapterInterface
     public function addTitle(Section $section, $title)
     {
         $section->addText(
-            $title . '<w:br/>',
+            $title,
             Font::getChapterTitleStyle(),
             Font::DEFAULT_CHAPTER_TITLE
         );

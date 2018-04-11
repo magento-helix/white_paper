@@ -71,11 +71,6 @@ abstract class AbstractJtl implements DataProviderInterface
     public function getData(array $data, int $index): array
     {
         $result = [];
-
-        if (isset($data['data']['items'][2]['tags'][0]) && $data['data']['items'][2]['tags'][0] == 'API') {
-            $t= 10;
-        }
-
         if (empty($this->data)) {
             $this->loadData($data);
         }
@@ -83,10 +78,6 @@ abstract class AbstractJtl implements DataProviderInterface
         $handleName = $data['data']['items'][$index]['title'];
         $handleCategory = $data['data']['category'];
         $handleValue = $data['data']['value'];
-
-        if (!isset($this->data[$handleName])) {
-            $t =10;
-        }
 
         $handle = $this->data[$handleName];
         $metricConfig = isset($data['data']['items'][$index]['metrics'])

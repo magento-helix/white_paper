@@ -27,10 +27,12 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
             $this->addTitle($section, $content['title']);
         }
 
-        foreach ($this->config->getInstances() as $instance) {
+        $instances = $this->config->getInstances();
+        foreach ($instances as $instanceKey => $instance) {
             $instanceObject = new Instance($instance, $content['pages']);
+            $this->addTitle($section, $instance['type']);
             foreach ($instance['profiles'] as $key => $profileConfig) {
-                $this->addTitle($section, $instance['type'] . ' with "' . $profileConfig['name'] . '" profile');
+                $this->addTitle($section, $profileConfig['name'] . ' profile');
                 foreach ($profileConfig['measurements'] as $measurementKey => $item) {
                     $this->addTitle($section, $this->map[$item['type']]);
                     $this->addPages($phpWord, $section, $content['pages'], $instanceObject, $item);
@@ -43,6 +45,10 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
                 if (isset($instance['profiles'][$key + 1])) {
                     $section = $phpWord->addSection();
                 }
+            }
+
+            if (isset($instances[$instanceKey + 1])) {
+                $section = $phpWord->addSection();
             }
         }
     }

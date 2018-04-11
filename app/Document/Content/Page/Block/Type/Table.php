@@ -28,30 +28,39 @@ class Table implements TypeInterface
     public function add(Section $section, $content)
     {
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
-        $cellRowContinue = ['alignment' => 'center', 'gridSpan' => 4, 'valign' => 'center'];
+//        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
+        $cellRowContinue = ['alignment' => 'center', 'vMerge' => 'continue', 'valign' => 'center'];
+        $cellColSpan = ['alignment' => 'center', 'gridSpan' => 4, 'valign' => 'center'];
 
-        foreach ($content['rows'] as $row) {
+        foreach ($content['rows'] as $key => $row) {
             $table->addRow();
+            $bold = false;
+            if ($key == 0) {
+                $bold = true;
+            }
             foreach ($row as $index => $item) {
-                if (null == $item) {
+                $width = 1500;
+                $cellRow = null;
+                if ($item['type'] == 'cell') {
+                    $cellRow = $cellColSpan;
+                    $width = $width * 4;
+                }
+                if (null == $item['text']) {
+                    $cellRow = $cellRowContinue;
+                    $width = null;
+                }
+                $cell = $table->addCell($width, $cellRow);
+                if (null == $item['text']) {
                     continue;
                 }
-                $cellRow = $cellRowSpan;
-                $width = 2300;
-                if (array_key_exists($index + 1, $row) && null === $row[$index + 1]) {
-                    $cellRow = $cellRowContinue;
-                    $width = 9200;
-                }
-                $table->addCell($width, $cellRow)
-                    ->addText(
-                        $item,
-                        [
-                            'name' => Font::DEFAULT_FONT,
-                            'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
-                            'bold' => true,
-                        ]
-                    );
+                $cell->addText(
+                    $item['text'],
+                    [
+                        'name' => Font::DEFAULT_FONT,
+                        'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
+                        'bold' => $bold
+                    ]
+                );
             }
 
         }
