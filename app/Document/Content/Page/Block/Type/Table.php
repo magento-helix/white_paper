@@ -28,9 +28,10 @@ class Table implements TypeInterface
     public function add(Section $section, $content)
     {
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-//        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
+        $count = count($content['rows'][0]) - 1;
+        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
         $cellRowContinue = ['alignment' => 'center', 'vMerge' => 'continue', 'valign' => 'center'];
-        $cellColSpan = ['alignment' => 'center', 'gridSpan' => 4, 'valign' => 'center'];
+        $cellColSpan = ['alignment' => 'center', 'gridSpan' => $count, 'valign' => 'center'];
 
         foreach ($content['rows'] as $key => $row) {
             $table->addRow();
@@ -38,12 +39,16 @@ class Table implements TypeInterface
             if ($key == 0) {
                 $bold = true;
             }
+
             foreach ($row as $index => $item) {
                 $width = 1500;
                 $cellRow = null;
                 if ($item['type'] == 'cell') {
                     $cellRow = $cellColSpan;
-                    $width = $width * 4;
+                    $width = $width * $count;
+                }
+                if ($item['type'] == 'row') {
+                    $cellRow = $cellRowSpan;
                 }
                 if (null == $item['text']) {
                     $cellRow = $cellRowContinue;
