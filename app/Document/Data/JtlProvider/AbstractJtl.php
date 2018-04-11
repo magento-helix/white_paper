@@ -71,6 +71,11 @@ abstract class AbstractJtl implements DataProviderInterface
     public function getData(array $data, int $index): array
     {
         $result = [];
+
+        if (isset($data['data']['items'][2]['tags'][0]) && $data['data']['items'][2]['tags'][0] == 'API') {
+            $t= 10;
+        }
+
         if (empty($this->data)) {
             $this->loadData($data);
         }
@@ -126,6 +131,7 @@ abstract class AbstractJtl implements DataProviderInterface
         $this->maxValue = (int)$reportData['all'][count($reportData['all']) - 1][$config['data']['value']];
 
         foreach ($config['data']['items'] as $itemConfig) {
+            $this->data[$itemConfig['title']] = [];
             foreach ($data[$itemConfig['title']] as $item) {
                 $isConditionPass = true;
                 if (isset($itemConfig['conditions'])) {
