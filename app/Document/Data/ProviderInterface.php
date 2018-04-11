@@ -13,4 +13,6 @@ interface ProviderInterface
     public function load(string $src);
 
     public function getData() : array;
+
+    public function getReportData(string $src): array;
 }

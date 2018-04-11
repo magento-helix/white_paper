@@ -76,11 +76,11 @@ class JtlProvider implements ProviderInterface
         }
     }
 
-    public function getReportData($reportPath) : array
+    public function getReportData(string $src) : array
     {
-        $key = md5($reportPath);
+        $key = md5($src);
         if (!isset($this->reportData[$key])) {
-            $this->reportData[$key] = $this->parser->parse($reportPath);
+            $this->reportData[$key] = $this->parser->parse($src);
         }
 
         return $this->reportData[$key];

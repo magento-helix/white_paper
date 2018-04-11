@@ -10,6 +10,8 @@ namespace App\Document\Content\Page\Block\Type;
 
 use App\Document\Content\Page\Block\Type\Chart\Data\Inline;
 use App\Document\Content\Page\Block\Type\Table\Data\Jtl as TableJTL;
+use App\Document\Content\Page\Block\Type\Table\Data\Sitespeed as TableSitespeed;
+use App\Document\Content\Page\Block\Type\Table\Data\Googlepage as TableGooglepage;
 use App\Document\Content\Page\Block\Type\Chart\Data\Jtl as ChartJTL;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\DataProviderInterface;
@@ -20,6 +22,8 @@ class DataProviderPool
         'chart_jtl' => ChartJTL::class,
         'chart_inline' => Inline::class,
         'table_jtl' => TableJTL::class,
+        'table_sitespeed' => TableSitespeed::class,
+        'table_googlepage' => TableGooglepage::class,
     ];
 
     public function get($type, InstanceInterface $instance = null, array $measurementConfig = []) : DataProviderInterface

@@ -17,6 +17,16 @@
                             "type": "API",
                             "profile": "extra_large",
                             "src": "var/tests/results/benchmark_api_result.jtl"
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "extra_large",
+                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "extra_large",
+                            "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
                 },

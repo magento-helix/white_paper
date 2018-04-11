@@ -16,7 +16,9 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
 {
     private $map = [
         Instance::SS_TYPE => 'Server Side',
-        Instance::API_TYPE => 'API'
+        Instance::API_TYPE => 'API',
+        Instance::CS_SITESPEED_TYPE => 'Client Side load tests',
+        Instance::CS_GOOGLEPAGE_TYPE => 'Client Side rate test',
     ];
 
     public function add(PhpWord $phpWord, $content)

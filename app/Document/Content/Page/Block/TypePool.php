@@ -10,6 +10,7 @@ namespace App\Document\Content\Page\Block;
 
 use App\Document\Content\Page\Block\Type\DocumentAuthors;
 use App\Document\Content\Page\Block\Type\DocumentTitle;
+use App\Document\Content\Page\Block\Type\JSONTable;
 use App\Document\Content\Page\Block\Type\JTLTable;
 use App\Document\Content\Page\Block\Type\JTLText;
 use App\Document\Content\Page\Block\Type\LineChart;
@@ -29,6 +30,7 @@ class TypePool
         'image' => Image::class,
         'inlineTable' => Table::class,
         'jtlTable' => JTLTable::class,
+        'jsonTable' => JSONTable::class,
         'jtlText' => JTLText::class,
         'pieChart' => PieChart::class,
         'lineChart' => LineChart::class,

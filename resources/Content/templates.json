@@ -1580,6 +1580,39 @@
                         }
                     }
                 ]
+            },
+            {
+                "src": "CS-SITESPEED",
+                "blocks": [
+                    {
+                        "type": "jsonTable",
+                        "data": {
+                            "title": "Sitespeed.io Results",
+                            "type": "table_sitespeed",
+                            "metrics": [
+                                {"type": "percentile 50"},
+                                {"type": "percentile 90"}
+                            ],
+                            "max": 1000
+                        }
+                    }
+                ]
+            },
+            {
+                "src": "CS-GOOGLEPAGE",
+                "blocks": [
+                    {
+                        "type": "jsonTable",
+                        "data": {
+                            "title": "Google page test.io Results",
+                            "type": "table_googlepage",
+                            "metrics": [
+                                {"type": "score"}
+                            ],
+                            "max": 100
+                        }
+                    }
+                ]
             }
         ]
     }
