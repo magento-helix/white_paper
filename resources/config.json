@@ -2,49 +2,227 @@
     "title": "Measurements on AWS Infrastructure",
     "instances": [
         {
-            "name": "qjldd4p2tbpwg",
-            "type": "Pro48",
+            "type": "Starter",
+            "id": "tbshviwd5ciiw",
+            "jenkins": "jenkins1",
+            "include": false,
             "profiles": [
                 {
-                    "name": "extra_large",
+                    "name": "small",
                     "measurements" : [
                         {
                             "type": "SS",
-                            "profile": "extra_large",
+                            "profile": "small",
+                            "build_id": 100,
                             "src": "var/tests/results/benchmark_result.jtl"
                         },
                         {
                             "type": "API",
-                            "profile": "extra_large",
-                            "src": "var/tests/results/benchmark_api_result.jtl"
+                            "profile": "small",
+                            "build_id": 100,
+                            "src": "var/tests/results/benchmark_result.jtl"
                         },
                         {
                             "type": "CS-SITESPEED",
-                            "profile": "extra_large",
+                            "profile": "small",
+                            "build_id": 100,
                             "src": "var/tests/results/sidespeedio/browsertime.json"
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
-                            "profile": "extra_large",
+                            "profile": "small",
+                            "build_id": 100,
                             "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
                 },
                 {
-                    "name": "large",
-                    "measurements": [
+                    "name": "medium",
+                    "measurements" : [
                         {
                             "type": "SS",
-                            "profile": "large",
+                            "profile": "medium",
+                            "build_id": 100,
                             "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
                 }
             ]
         },
         {
-            "name": "zhe434vvxvvhc",
+            "type": "Starter Large",
+            "id": "7xtzaczaepvhg",
+            "jenkins": "jenkins1",
+            "include": false,
+            "profiles": [
+                {
+                    "name": "small",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "small",
+                            "build_id": 100,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 100,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "small",
+                            "build_id": 100,
+                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "small",
+                            "build_id": 100,
+                            "src": "var/tests/results/googlepagespeed/result.json"
+                        }
+                    ]
+                },
+                {
+                    "name": "medium",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/googlepagespeed/result.json"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Pro12",
+            "id": "oh2wi6klp5ytk",
+            "jenkins": "jenkins12-eu",
+            "jenkins_folder": "12eu",
+            "include": true,
+            "profiles": [
+                {
+                    "name": "small",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "small",
+                            "build_id": 111,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 112,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "small",
+                            "build_id": 114,
+                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "small",
+                            "build_id": 114,
+                            "src": "var/tests/results/googlepagespeed/result.json"
+                        }
+                    ]
+                },
+                {
+                    "name": "medium",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "medium",
+                            "build_id": 113,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 110,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "medium",
+                            "build_id": 100,
+                            "src": "var/tests/results/googlepagespeed/result.json"
+                        }
+                    ]
+                },
+                {
+                    "name": "large",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "large",
+                            "build_id": 121,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "large",
+                            "build_id": 120,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "type": "Pro24",
+            "id": "zhe434vvxvvhc",
+            "jenkins_folder": "24eu",
+            "jenkins": "jenkins24-eu",
+            "include": false,
             "profiles": [
                 {
                     "name": "medium",
@@ -52,7 +230,117 @@
                         {
                             "type": "SS",
                             "profile": "medium",
+                            "build_id": 87,
                             "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 90,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
+                        }
+                    ]
+                },
+                {
+                    "name": "large",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "large",
+                            "build_id": 88,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "large",
+                            "build_id": 89,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Pro48",
+            "id": "qjldd4p2tbpwg",
+            "jenkins_folder": "48eu",
+            "jenkins": "jenkins48-eu",
+            "include": false,
+            "profiles": [
+                {
+                    "name": "large",
+                    "measurements": [
+                        {
+                            "type": "SS",
+                            "profile": "large",
+                            "build_id": 99,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "large",
+                            "build_id": 100,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
+                        }
+                    ]
+                },
+                {
+                    "name": "extra_large",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "extra_large",
+                            "build_id": 97,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "extra_large",
+                            "build_id": 98,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Pro120",
+            "id": "smjthfxq3rotk",
+            "jenkins_folder": "120eu",
+            "jenkins": "jenkins120-eu",
+            "include": false,
+            "profiles": [
+                {
+                    "name": "large",
+                    "measurements": [
+                        {
+                            "type": "SS",
+                            "profile": "large",
+                            "build_id": 78,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "large",
+                            "build_id": 79,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
+                        }
+                    ]
+                },
+                {
+                    "name": "extra_large",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "extra_large",
+                            "build_id": 80,
+                            "src": "var/tests/results/benchmark_result.jtl"
+                        },
+                        {
+                            "type": "API",
+                            "profile": "extra_large",
+                            "build_id": 81,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
                         }
                     ]
                 }
