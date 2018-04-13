@@ -158,13 +158,13 @@
                         {
                             "type": "CS-SITESPEED",
                             "profile": "small",
-                            "build_id": 114,
+                            "build_id": 124,
                             "src": "var/tests/results/sidespeedio/browsertime.json"
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "small",
-                            "build_id": 114,
+                            "build_id": 124,
                             "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
@@ -187,13 +187,13 @@
                         {
                             "type": "CS-SITESPEED",
                             "profile": "medium",
-                            "build_id": 100,
+                            "build_id": 125,
                             "src": "var/tests/results/sidespeedio/browsertime.json"
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "medium",
-                            "build_id": 100,
+                            "build_id": 125,
                             "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
@@ -222,7 +222,7 @@
             "id": "zhe434vvxvvhc",
             "jenkins_folder": "24eu",
             "jenkins": "jenkins24-eu",
-            "include": false,
+            "include": true,
             "profiles": [
                 {
                     "name": "medium",
@@ -265,7 +265,7 @@
             "id": "qjldd4p2tbpwg",
             "jenkins_folder": "48eu",
             "jenkins": "jenkins48-eu",
-            "include": false,
+            "include": true,
             "profiles": [
                 {
                     "name": "large",
@@ -308,7 +308,7 @@
             "id": "smjthfxq3rotk",
             "jenkins_folder": "120eu",
             "jenkins": "jenkins120-eu",
-            "include": false,
+            "include": true,
             "profiles": [
                 {
                     "name": "large",
@@ -339,7 +339,7 @@
                         {
                             "type": "API",
                             "profile": "extra_large",
-                            "build_id": 81,
+                            "build_id": 82,
                             "src": "var/tests/results/benchmark_api_result.jtl"
                         }
                     ]

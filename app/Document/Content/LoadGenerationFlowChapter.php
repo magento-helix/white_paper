@@ -31,6 +31,9 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
 
         $instances = $this->config->getInstances();
         foreach ($instances as $instanceKey => $instance) {
+            if (!$instance['include']) {
+                continue;
+            }
             $instanceObject = new Instance($instance, $content['pages']);
             $this->addTitle($section, $instance['type']);
             foreach ($instance['profiles'] as $key => $profileConfig) {

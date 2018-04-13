@@ -52,6 +52,10 @@ class JtlProvider implements ProviderInterface
                 continue;
             }
 
+            if (!isset($item['label']) || !isset($item['threadName'])) {
+                continue;
+            }
+
             if (strpos($item['label'], 'SetUp') !== false || strpos($item['threadName'], 'setUp') !== false) {
                 continue;
             }

@@ -976,7 +976,7 @@
                                     },
                                     {
                                         "title": "Page views per hour",
-                                        "tag_field": "grpThreads",
+                                        "tag_field": "threadName",
                                         "tags": [
                                             "Frontend Pool"
                                         ]
@@ -1436,7 +1436,7 @@
                                     },
                                     {
                                         "title": "Page views per hour",
-                                        "tag_field": "grpThreads",
+                                        "tag_field": "threadName",
                                         "tags": [
                                             "API"
                                         ],
