@@ -15,10 +15,10 @@ use PhpOffice\PhpWord\PhpWord;
 class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterface
 {
     private $map = [
-        Instance::SS_TYPE => 'Server Side',
-        Instance::API_TYPE => 'API',
-        Instance::CS_SITESPEED_TYPE => 'Client Side load tests',
-        Instance::CS_GOOGLEPAGE_TYPE => 'Client Side rate test',
+        'SS' => 'Server Side',
+        'API' => 'API',
+        'CS' => 'Client Side load tests',
+        'GRAFANA' => 'Client Side rate test',
     ];
 
     public function add(PhpWord $phpWord, $content)
@@ -31,6 +31,9 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
 
         $instances = $this->config->getInstances();
         foreach ($instances as $instanceKey => $instance) {
+            if (!$instance['include']) {
+                continue;
+            }
             $instanceObject = new Instance($instance, $content['pages']);
             $this->addTitle($section, $instance['type']);
             foreach ($instance['profiles'] as $key => $profileConfig) {

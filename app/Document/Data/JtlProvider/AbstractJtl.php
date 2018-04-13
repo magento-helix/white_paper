@@ -2,6 +2,7 @@
 
 namespace App\Document\Data\JtlProvider;
 
+use App\Document\Data\Instance;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\Jtl\ConditionPool;
 use App\Document\Data\JtlProvider\Jtl\MetricPool;
@@ -54,6 +55,11 @@ abstract class AbstractJtl implements DataProviderInterface
      * @var array
      */
     protected $measurementConfig;
+
+    /**
+     * @var int
+     */
+    private $count;
 
     public function __construct(InstanceInterface $instance = null, array $measurementConfig = [])
     {
@@ -109,7 +115,7 @@ abstract class AbstractJtl implements DataProviderInterface
 
     public function loadData($config)
     {
-        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['filtered'];
+        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::JTL)['filtered'];
         $data = [];
         foreach ($config['data']['items'] as $itemConfig) {
             $data[$itemConfig['title']] = [];
@@ -120,6 +126,7 @@ abstract class AbstractJtl implements DataProviderInterface
 
         $this->minValue = (int)$reportData['all'][0][$config['data']['value']];
         $this->maxValue = (int)$reportData['all'][count($reportData['all']) - 1][$config['data']['value']];
+        $this->count = count($config['data']['items']);
 
         foreach ($config['data']['items'] as $itemConfig) {
             $this->data[$itemConfig['title']] = [];
@@ -149,7 +156,7 @@ abstract class AbstractJtl implements DataProviderInterface
         if (empty($this->range)) {
             $result = [];
             $count = static::RANGE_COUNT;
-            $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['full'];
+            $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::JTL)['full'];
 
             $maxCategory = (int)$reportData[count($reportData) - 2]['timeStamp'] / 1000;
             $minCategory = (int)$reportData[0]['timeStamp'] / 1000;
@@ -164,5 +171,15 @@ abstract class AbstractJtl implements DataProviderInterface
         }
 
         return $this->range;
+    }
+
+    public function getSeriesTitle(array $data, int $index): string
+    {
+        return $data['data']['items'][$index]['title'];
+    }
+
+    public function getCount() : int
+    {
+        return $this->count;
     }
 }

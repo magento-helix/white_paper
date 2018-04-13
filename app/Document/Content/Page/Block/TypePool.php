@@ -8,6 +8,8 @@
 
 namespace App\Document\Content\Page\Block;
 
+use App\Document\Content\Page\Block\Type\ColumnChart;
+use App\Document\Content\Page\Block\Type\CompositeColumnChart;
 use App\Document\Content\Page\Block\Type\DocumentAuthors;
 use App\Document\Content\Page\Block\Type\DocumentTitle;
 use App\Document\Content\Page\Block\Type\JSONTable;
@@ -34,6 +36,8 @@ class TypePool
         'jtlText' => JTLText::class,
         'pieChart' => PieChart::class,
         'lineChart' => LineChart::class,
+        'columnChart' => ColumnChart::class,
+        'compositeColumnChart' => CompositeColumnChart::class,
     ];
 
     public function getPage($type, PhpWord $phpWord, InstanceInterface $instance = null, array $measurementConfig = []) : TypeInterface

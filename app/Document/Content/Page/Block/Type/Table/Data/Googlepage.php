@@ -2,6 +2,7 @@
 
 namespace App\Document\Content\Page\Block\Type\Table\Data;
 
+use App\Document\Data\Instance;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\DataProviderInterface;
 
@@ -31,7 +32,7 @@ class Googlepage implements DataProviderInterface
     public function getData(array $data, int $index): array
     {
         $result = [];
-        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'])['full'];
+        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::JSON)['full'];
 
         foreach ($reportData as $key => $scenario) {
             $result[0][] = $key;
@@ -48,5 +49,18 @@ class Googlepage implements DataProviderInterface
     public function getRange(array $data): array
     {
         return [];
+    }
+
+    public function getSeriesTitle(array $data, int $index): string
+    {
+        // TODO: Implement getSeriesTitle() method.
+    }
+
+    /**
+     * @return int
+     */
+    public function getCount(): int
+    {
+        // TODO: Implement getCount() method.
     }
 }

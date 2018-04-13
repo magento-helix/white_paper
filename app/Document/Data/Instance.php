@@ -10,10 +10,9 @@ namespace App\Document\Data;
 
 class Instance implements InstanceInterface
 {
-    const SS_TYPE = 'SS';
-    const API_TYPE = 'API';
-    const CS_SITESPEED_TYPE = 'CS-SITESPEED';
-    const CS_GOOGLEPAGE_TYPE = 'CS-GOOGLEPAGE';
+    const JTL = 'jtl';
+    const JSON = 'json';
+    const GRAFANA = 'grafana';
 
     private $data = [];
 
@@ -23,10 +22,9 @@ class Instance implements InstanceInterface
     private $dataSearchConfig = [];
 
     private $dataProviderMap = [
-        self::SS_TYPE => JtlProvider::class,
-        self::API_TYPE => JtlProvider::class,
-        self::CS_SITESPEED_TYPE => JSONProvider::class,
-        self::CS_GOOGLEPAGE_TYPE => JSONProvider::class,
+        self::JTL => JtlProvider::class,
+        self::JSON => JSONProvider::class,
+        self::GRAFANA => GrafanaProvider::class,
     ];
 
     public function __construct($instanceConfig, $dataConfig)
@@ -41,28 +39,35 @@ class Instance implements InstanceInterface
     {
         foreach ($this->instanceConfig['profiles'] as $profile) {
             foreach ($profile['measurements'] as $measurement) {
-                /** @var ProviderInterface $provider */
-                $provider = new $this->dataProviderMap[$measurement['type']]($this->getDataConfig($measurement['type']));
-                $src = BP . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR
-                    . $this->instanceConfig['type'] . DIRECTORY_SEPARATOR
-                    . $profile['name'] . DIRECTORY_SEPARATOR
-                    . $measurement['type'] . DIRECTORY_SEPARATOR
-                    . $measurement['src'];
-                $provider->load($src);
-                $this->data[$profile['name'] . $measurement['type']] = [
-                    'full' => $provider->getReportData($src),
-                    'filtered' => $provider->getData()
-                ];
+                foreach ($measurement['src'] as $item) {
+                    /** @var ProviderInterface $provider */
+                    $provider = new $this->dataProviderMap[$item['type']]($this->getDataConfig($item['type'], $measurement['type']), $this);
+                    $src = BP . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR
+                        . $this->instanceConfig['type'] . DIRECTORY_SEPARATOR
+                        . $profile['name'] . DIRECTORY_SEPARATOR
+                        . $measurement['type'] . DIRECTORY_SEPARATOR
+                        . $item['path'];
+                    $provider->load($src);
+                    $this->data[$profile['name'] . $measurement['type'] . $item['type']] = [
+                        'full' => $provider->getReportData($src),
+                        'filtered' => $provider->getData()
+                    ];
+                }
             }
         }
     }
 
-    private function initializeJtlDataConfig($type) {
+    public function getInstanceType(): string
+    {
+        return $this->instanceConfig['type'];
+    }
+
+    private function initializeJtlDataConfig($type, $measurementType) {
         $needTags = [];
         $needFields = [];
         $patterns = ['/^[^0-9(]*/'];
         foreach ($this->dataConfig as $page) {
-            if ($page['src'] == $type) {
+            if ($page['type'] == $measurementType && $page['src'] == $type) {
                 foreach ($page['blocks'] as $block) {
                     foreach ($block['data']['data']['items'] as $item) {
                         $needTags = array_merge($needTags, $item['tags']);
@@ -79,27 +84,47 @@ class Instance implements InstanceInterface
             }
         }
 
-        $this->dataSearchConfig[$type]['needTags'] = $needTags;
-        $this->dataSearchConfig[$type]['needFields'] = $needFields;
-        $this->dataSearchConfig[$type]['patterns'] = $patterns;
+        $this->dataSearchConfig[$measurementType . $type]['needTags'] = $needTags;
+        $this->dataSearchConfig[$measurementType . $type]['needFields'] = $needFields;
+        $this->dataSearchConfig[$measurementType . $type]['patterns'] = $patterns;
     }
 
-    private function initializeJsonDataConfig($type)
+    private function initializeJsonDataConfig($type, $measurementType)
     {
-        $this->dataSearchConfig[$type] = [];
+        $this->dataSearchConfig[$measurementType . $type] = [];
     }
 
-    private function getDataConfig($type): array
+    private function initializeGrafanaDataConfig($type, $measurementType)
     {
-        if (!isset($this->dataSearchConfig[$type])) {
-            if ($type == self::SS_TYPE || $type == self::API_TYPE){
-                $this->initializeJtlDataConfig($type);
-            } elseif ($type == self::CS_SITESPEED_TYPE || $type == self::CS_GOOGLEPAGE_TYPE) {
-                $this->initializeJsonDataConfig($type);
+        $queries= [];
+        foreach ($this->dataConfig as $page) {
+            if ($page['src'] == $type) {
+                foreach ($page['blocks'] as $block) {
+                    foreach ($this->instanceConfig['sub_hosts'] as $subHost) {
+                        $query = str_replace('%cluster_id%', $this->instanceConfig['id'], $block['data']['query']);
+                        $query = str_replace('%sub_host_name%', $subHost['name'], $query);
+                        $queries[$block['data']['title']][] = $query;
+                    }
+                }
+            }
+        }
+        $queries = array_unique($queries);
+        $this->dataSearchConfig[$measurementType . $type]['queries'] = $queries;
+    }
+
+    private function getDataConfig($type, $measurementType): array
+    {
+        if (!isset($this->dataSearchConfig[$measurementType . $type])) {
+            if ($type == self::JTL){
+                $this->initializeJtlDataConfig($type, $measurementType);
+            } elseif ($type == self::JSON) {
+                $this->initializeJsonDataConfig($type, $measurementType);
+            } elseif ($type == self::GRAFANA) {
+                $this->initializeGrafanaDataConfig($type, $measurementType);
             }
         }
 
-        return $this->dataSearchConfig[$type];
+        return $this->dataSearchConfig[$measurementType . $type];
     }
 
     public function getData(string $key): array

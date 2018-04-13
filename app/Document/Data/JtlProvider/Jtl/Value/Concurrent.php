@@ -29,6 +29,7 @@ class Concurrent implements MetricInterface
         $first = $list[0];
         $last = $list[$count - 1];
         $duration = ($last - $first) / 1000 / 60 / 60; //in hours
+        $duration = $duration == 0 ? 1 : $duration;
 
         return $count / $duration;
     }

@@ -15,7 +15,11 @@ use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Converter;
 
-class LineChart extends AbstractChart implements TypeInterface
+class CompositeColumnChart extends ColumnChart implements TypeInterface
 {
-    const TYPE = 'line';
+    public function add(Section $section, $content)
+    {
+        $content['index'] = 0;
+        parent::add($section, $content);
+    }
 }

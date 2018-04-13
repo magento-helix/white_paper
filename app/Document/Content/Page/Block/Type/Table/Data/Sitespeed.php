@@ -50,4 +50,17 @@ class Sitespeed implements DataProviderInterface
     {
         return [];
     }
+
+    public function getSeriesTitle(array $data, int $index): string
+    {
+        // TODO: Implement getSeriesTitle() method.
+    }
+
+    /**
+     * @return int
+     */
+    public function getCount(): int
+    {
+        // TODO: Implement getCount() method.
+    }
 }

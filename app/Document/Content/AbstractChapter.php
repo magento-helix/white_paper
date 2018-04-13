@@ -55,7 +55,7 @@ class AbstractChapter implements ChapterInterface
         array $measurementConfig = []
     ) {
         foreach ($pages as $index => $page) {
-            if (isset($page['src']) && $page['src'] !== $measurementConfig['type']) {
+            if (isset($page['type']) && $page['type'] !== $measurementConfig['type']) {
                 continue;
             }
             foreach ($page['blocks'] as $block) {

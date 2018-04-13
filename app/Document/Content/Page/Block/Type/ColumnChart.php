@@ -15,7 +15,7 @@ use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Converter;
 
-class LineChart extends AbstractChart implements TypeInterface
+class ColumnChart extends AbstractChart implements TypeInterface
 {
-    const TYPE = 'line';
+    const TYPE = 'column';
 }

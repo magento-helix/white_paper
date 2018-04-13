@@ -12,4 +12,6 @@ namespace App\Document\Data;
 interface InstanceInterface
 {
     public function getData(string $key) : array;
+
+    public function getInstanceType(): string;
 }

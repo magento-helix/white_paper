@@ -22,4 +22,16 @@ interface DataProviderInterface
      * @return array
      */
     public function getRange(array $data) : array;
+
+    /**
+     * @param array $data
+     * @param int $index
+     * @return string
+     */
+    public function getSeriesTitle(array $data, int $index) : string;
+
+    /**
+     * @return int
+     */
+    public function getCount() : int;
 }

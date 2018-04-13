@@ -472,7 +472,8 @@
         "contentType": "config",
         "pages": [
             {
-                "src": "SS",
+                "type": "SS",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -588,7 +589,8 @@
                 ]
             },
             {
-                "src": "SS",
+                "type": "SS",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -755,7 +757,8 @@
                 ]
             },
             {
-                "src": "SS",
+                "type": "SS",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -846,7 +849,8 @@
                 ]
             },
             {
-                "src": "SS",
+                "type": "SS",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -953,7 +957,8 @@
                 ]
             },
             {
-                "src": "SS",
+                "type": "SS",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "jtlText",
@@ -1181,7 +1186,8 @@
                 ]
             },
             {
-                "src": "API",
+                "type": "API",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -1252,7 +1258,8 @@
                 ]
             },
             {
-                "src": "API",
+                "type": "API",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -1336,7 +1343,8 @@
                 ]
             },
             {
-                "src": "API",
+                "type": "API",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "lineChart",
@@ -1413,7 +1421,8 @@
                 ]
             },
             {
-                "src": "API",
+                "type": "API",
+                "src": "jtl",
                 "blocks": [
                     {
                         "type": "jtlText",
@@ -1582,7 +1591,8 @@
                 ]
             },
             {
-                "src": "CS-SITESPEED",
+                "type": "CS",
+                "src": "sitespeed",
                 "blocks": [
                     {
                         "type": "jsonTable",
@@ -1599,7 +1609,8 @@
                 ]
             },
             {
-                "src": "CS-GOOGLEPAGE",
+                "type": "CS",
+                "src": "googlepage",
                 "blocks": [
                     {
                         "type": "jsonTable",
@@ -1610,6 +1621,20 @@
                                 {"type": "score"}
                             ],
                             "max": 100
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "SS",
+                "src": "grafana",
+                "blocks": [
+                    {
+                        "type": "compositeColumnChart",
+                        "data": {
+                            "title": "CPU",
+                            "query": "SELECT SUM(\"system:second\")/(30000/1000) as \"system\", SUM(\"user:second\")/(30000/1000) as \"user\", SUM(\"nice:second\")/(30000/1000) as \"nice\", SUM(\"idle:second\")/(30000/1000) as \"idle\", SUM(\"iowait:second\")/(30000/1000) as \"iowait\", SUM(\"irq:second\")/(30000/1000) as \"irq\", SUM(\"softirq:second\")/(30000/1000) as \"softirq\", SUM(\"steal:second\")/(30000/1000) as \"steal\", SUM(\"guest:second\")/(30000/1000) as \"guest\" FROM \"cpu\" WHERE \"cluster\" = '%cluster_id%' AND \"host\" = 'i-%sub_host_name%.platform.sh' AND time >= %start_time%ms and time <= %end_time%ms GROUP BY time(30s) fill(none)",
+                            "type": "chart_grafana"
                         }
                     }
                 ]

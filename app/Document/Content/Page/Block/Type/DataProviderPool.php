@@ -13,6 +13,7 @@ use App\Document\Content\Page\Block\Type\Table\Data\Jtl as TableJTL;
 use App\Document\Content\Page\Block\Type\Table\Data\Sitespeed as TableSitespeed;
 use App\Document\Content\Page\Block\Type\Table\Data\Googlepage as TableGooglepage;
 use App\Document\Content\Page\Block\Type\Chart\Data\Jtl as ChartJTL;
+use App\Document\Content\Page\Block\Type\Chart\Data\Gragana as ChartGrafana;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\DataProviderInterface;
 
@@ -20,6 +21,7 @@ class DataProviderPool
 {
     private $map = [
         'chart_jtl' => ChartJTL::class,
+        'chart_grafana' => ChartGrafana::class,
         'chart_inline' => Inline::class,
         'table_jtl' => TableJTL::class,
         'table_sitespeed' => TableSitespeed::class,

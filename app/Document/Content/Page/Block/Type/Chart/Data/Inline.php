@@ -26,4 +26,22 @@ class Inline implements DataProviderInterface
     {
         return $data['categories'];
     }
+
+    /**
+     * @param array $data
+     * @param int $index
+     * @return string
+     */
+    public function getSeriesTitle(array $data, int $index): string
+    {
+        // TODO: Implement getSeriesTitle() method.
+    }
+
+    /**
+     * @return int
+     */
+    public function getCount(): int
+    {
+        // TODO: Implement getCount() method.
+    }
 }
