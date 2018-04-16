@@ -56,6 +56,18 @@ class Settings
         );
     }
 
+    public function setLeftOrientedParagraphStyle(PhpWord $phpWord)
+    {
+        $phpWord->addParagraphStyle(Font::LEFT_ORIENTED_CHAPTER_CONTENT,
+            [
+
+                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::LEFT,
+                'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
+                'spacing' => 120,
+            ]
+        );
+    }
+
     public function setDefaultChapterTitleParagraphStyle(PhpWord $phpWord)
     {
         $phpWord->addParagraphStyle(Font::DEFAULT_CHAPTER_TITLE,
@@ -85,15 +97,13 @@ class Settings
                 'borderColor' => '006699',
                 'cellMargin' => 0,
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
-                'cellSpacing' => 0,
-                'valign' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER
+                'cellSpacing' => 0
             ],
             [
                 'borderBottomSize' => 4,
                 'borderBottomColor' => '0000FF',
                 'bgColor' => '66BBFF',
-                'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
-                'valign' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER
+                'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER
             ]
         );
     }

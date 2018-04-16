@@ -146,13 +146,13 @@
                         {
                             "type": "SS",
                             "profile": "small",
-                            "build_id": 111,
+                            "build_id": 126,
                             "src": "var/tests/results/benchmark_result.jtl"
                         },
                         {
                             "type": "API",
                             "profile": "small",
-                            "build_id": 112,
+                            "build_id": 128,
                             "src": "var/tests/results/benchmark_api_result.jtl"
                         },
                         {
@@ -175,13 +175,13 @@
                         {
                             "type": "SS",
                             "profile": "medium",
-                            "build_id": 113,
+                            "build_id": 127,
                             "src": "var/tests/results/benchmark_result.jtl"
                         },
                         {
                             "type": "API",
                             "profile": "medium",
-                            "build_id": 110,
+                            "build_id": 129,
                             "src": "var/tests/results/benchmark_api_result.jtl"
                         },
                         {
@@ -310,23 +310,6 @@
             "jenkins": "jenkins120-eu",
             "include": true,
             "profiles": [
-                {
-                    "name": "large",
-                    "measurements": [
-                        {
-                            "type": "SS",
-                            "profile": "large",
-                            "build_id": 78,
-                            "src": "var/tests/results/benchmark_result.jtl"
-                        },
-                        {
-                            "type": "API",
-                            "profile": "large",
-                            "build_id": 79,
-                            "src": "var/tests/results/benchmark_api_result.jtl"
-                        }
-                    ]
-                },
                 {
                     "name": "extra_large",
                     "measurements" : [

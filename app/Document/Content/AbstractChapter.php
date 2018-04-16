@@ -54,17 +54,21 @@ class AbstractChapter implements ChapterInterface
         InstanceInterface $instance = null,
         array $measurementConfig = []
     ) {
+        $newPage = false;
         foreach ($pages as $index => $page) {
             if (isset($page['src']) && $page['src'] !== $measurementConfig['type']) {
                 continue;
+            }
+            if ($newPage) {
+                $section = $this->addPage($phpWord);
             }
             foreach ($page['blocks'] as $block) {
                 $this->blockTypePool
                     ->getPage($block['type'], $phpWord, $instance, $measurementConfig)
                     ->add($section, $block['data']);
             }
-            if (isset($pages[$index + 1])) {
-                $section = $this->addPage($phpWord);
+            if(isset($pages[$index + 1])) {
+                $newPage = true;
             }
         }
     }

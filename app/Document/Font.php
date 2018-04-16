@@ -23,6 +23,7 @@ class Font
     const DEFAULT_BIG_TITLE_SIZE = 18;
     const DEFAULT_CHAPTER_TITLE_SIZE = 13;
     const DEFAULT_CHAPTER_CONTENT = 'defaultChapterContent';
+    const LEFT_ORIENTED_CHAPTER_CONTENT = 'leftOrientedChapterContent';
     const DEFAULT_CHAPTER_TITLE = 'defaultChapterTitle';
     const DEFAULT_CHART_TITLE = 'defaultChartTitle';
 
@@ -59,6 +60,7 @@ class Font
         return [
             'name' => self::DEFAULT_FONT,
             'size' => self::DEFAULT_REGULAR_SIZE,
+            'space' => ['line' => 1000]
         ];
     }
 }

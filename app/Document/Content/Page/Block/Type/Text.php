@@ -27,10 +27,13 @@ class Text implements TypeInterface
 
     public function add(Section $section, $content)
     {
-        $section->addText(
-            $content,
-            Font::getChapterContentStyle(),
-            Font::DEFAULT_CHAPTER_CONTENT
-        );
+        $content = explode('<w:br/>', $content);
+        foreach ($content as $item) {
+            $section->addText(
+                $item,
+                Font::getChapterContentStyle(),
+                Font::DEFAULT_CHAPTER_CONTENT
+            );
+        }
     }
 }

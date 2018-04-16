@@ -29,6 +29,7 @@ class Document
         $this->settings->setDefaultHeader($this->phpWord);
         $this->settings->setDefaultTableStyle($this->phpWord);
         $this->settings->setDefaultParagraphStyle($this->phpWord);
+        $this->settings->setLeftOrientedParagraphStyle($this->phpWord);
         $this->settings->setDefaultChapterTitleParagraphStyle($this->phpWord);
         $this->settings->setDefaultChartTitleStyleStyle($this->phpWord);
 

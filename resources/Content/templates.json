@@ -384,6 +384,7 @@
                     },
                     {
                         "type": "text",
+                        "style": {"pStyle": {"name": "leftOrientedChapterContent"}},
                         "data": "Scenarios must be follow next conditions:<w:br/>1) Cache hit/miss rate 60 / 40%<w:br/>2) Each user performs 2-3 actions (clicks) per minute [average industry rate is 1 click per 1-2 minutes]<w:br/>3) Load average was chosen equals 1 user/core."
                     }
                 ]
@@ -1611,6 +1612,20 @@
                             ],
                             "max": 100
                         }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Conclusion",
+        "type": "conclusion",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "text",
+                        "data": "Having conducted emulation with maximally close replication of client store and expected load our team confirms that ECE12 with small and medium profiles, ECE24 with medium profile can serve described load without any specific customizations and demonstrate above response time results (that in terms of median almost fit into Magento referenceable targets). ECE12, ECE24, ECE48 with large profile perform bad results and very similar that maybe caused with not perfect configurations for this kind of profile or performance issue in Magento code base. The same situation happens for ECE48 and ECE120 with extra large profile that have not good results for some scenarios and have very similar results.<w:br/>Api performance tests results are more positive. Expect 3 very slowly scenarios: “Get Products (Frontend pool)”, “Create Product (Admin pool)”, “Create product with extensible data objects (Admin Pool)” that perform bad results on all kinds of servers and with all kinds of profiles expect ECE12 with small profile. Additionally, need to add that more powerful server demonstrate better results than less powerful that leads to thought of hardware issue or attainment resource limit on instance. <w:br/>Additionally, need to add that during testing we working with 60% uncacheable pages that implies more time of response caused with request to application and subsequent processes (connections to data base, make a request, analyze response data, rendering, store data to cache, etc.) and all of this make a loading directly application instances. <w:br/>Client side performance tests have very good results. <w:br/>"
                     }
                 ]
             }

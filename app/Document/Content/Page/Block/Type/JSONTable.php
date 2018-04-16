@@ -53,7 +53,7 @@ class JSONTable implements TypeInterface
             Font::DEFAULT_CHART_TITLE
         );
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
+        $cellRowSpan = ['vMerge' => 'restart', 'valign' => 'center'];
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
         $cellSize = 1500;

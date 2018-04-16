@@ -28,32 +28,35 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
         if (isset($content['title'])) {
             $this->addTitle($section, $content['title']);
         }
-
+        $newPage = false;
         $instances = $this->config->getInstances();
         foreach ($instances as $instanceKey => $instance) {
             if (!$instance['include']) {
                 continue;
             }
+            if ($newPage) {
+                $section = $this->addPage($phpWord);
+            }
             $instanceObject = new Instance($instance, $content['pages']);
-            $this->addTitle($section, $instance['type']);
+//            $this->addTitle($section, $instance['type']);
             foreach ($instance['profiles'] as $key => $profileConfig) {
-                $this->addTitle($section, $profileConfig['name'] . ' profile');
+//                $this->addTitle($section, $profileConfig['name'] . ' profile');
                 foreach ($profileConfig['measurements'] as $measurementKey => $item) {
-                    $this->addTitle($section, $this->map[$item['type']]);
+                    $this->addTitle($section, "{$instance['type']} instance with {$profileConfig['name']} profile for {$this->map[$item['type']]}");
                     $this->addPages($phpWord, $section, $content['pages'], $instanceObject, $item);
 
                     if (isset($profileConfig['measurements'][$measurementKey + 1])) {
-                        $section = $phpWord->addSection();
+                        $section = $this->addPage($phpWord);
                     }
                 }
 
                 if (isset($instance['profiles'][$key + 1])) {
-                    $section = $phpWord->addSection();
+                    $section = $this->addPage($phpWord);
                 }
             }
 
             if (isset($instances[$instanceKey + 1])) {
-                $section = $phpWord->addSection();
+                $newPage = true;
             }
         }
     }

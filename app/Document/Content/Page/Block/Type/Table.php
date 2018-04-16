@@ -29,9 +29,9 @@ class Table implements TypeInterface
     {
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
         $count = count($content['rows'][0]) - 1;
-        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
-        $cellRowContinue = ['alignment' => 'center', 'vMerge' => 'continue', 'valign' => 'center'];
-        $cellColSpan = ['alignment' => 'center', 'gridSpan' => $count, 'valign' => 'center'];
+        $cellRowSpan = ['vMerge' => 'restart', 'valign' => 'center'];
+        $cellRowContinue = ['vMerge' => 'continue'];
+        $cellColSpan = ['gridSpan' => $count, 'valign' => 'center'];
 
         foreach ($content['rows'] as $key => $row) {
             $table->addRow();
