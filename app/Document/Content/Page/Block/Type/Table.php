@@ -42,7 +42,7 @@ class Table implements TypeInterface
 
             foreach ($row as $index => $item) {
                 $width = 1500;
-                $cellRow = null;
+                $cellRow = ['valign' => 'center'];
                 if ($item['type'] == 'cell') {
                     $cellRow = $cellColSpan;
                     $width = $width * $count;
@@ -64,7 +64,8 @@ class Table implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => $bold
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
             }
 

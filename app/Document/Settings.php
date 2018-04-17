@@ -103,7 +103,7 @@ class Settings
                 'borderBottomSize' => 4,
                 'borderBottomColor' => '0000FF',
                 'bgColor' => '66BBFF',
-                'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER
+                'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
             ]
         );
     }

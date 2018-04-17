@@ -68,7 +68,8 @@ class JTLTable implements TypeInterface
                     'name' => Font::DEFAULT_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                     'bold' => true,
-                ]
+                ],
+                ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
             );
         foreach ($content['data']['items'] as $index => $item) {
             $cellData[$index] = $dataProvider->getData($content, $index);
@@ -80,7 +81,8 @@ class JTLTable implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
         }
 
@@ -93,7 +95,8 @@ class JTLTable implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
             foreach ($cellData as $cellDatum) {
                 $value = $cellDatum['values'][$index][1];
@@ -110,7 +113,8 @@ class JTLTable implements TypeInterface
                             'name' => Font::DEFAULT_FONT,
                             'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                             'color' => $color,
-                        ]
+                        ],
+                        ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                     );
             }
         }

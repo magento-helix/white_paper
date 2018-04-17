@@ -66,7 +66,8 @@ class JSONTable implements TypeInterface
                     'name' => Font::DEFAULT_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                     'bold' => true,
-                ]
+                ],
+                ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
             );
         $data = $dataProvider->getData($content, -1);
         $head = array_shift($data);
@@ -78,7 +79,8 @@ class JSONTable implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
         }
 
@@ -91,7 +93,8 @@ class JSONTable implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
             foreach ($data[$index] as $value) {
                 $color = '00B050';
@@ -107,7 +110,8 @@ class JSONTable implements TypeInterface
                             'name' => Font::DEFAULT_FONT,
                             'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                             'color' => $color,
-                        ]
+                        ],
+                        ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                     );
             }
         }

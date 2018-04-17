@@ -1134,7 +1134,7 @@
                     {
                         "type": "jtlTable",
                         "data": {
-                            "title": "Admin Results",
+                            "title": "<w:br/>Admin Results",
                             "type": "table_jtl",
                             "metrics": [
                                 {"type": "percentile", "config": {"lvl": 50}},
@@ -1429,27 +1429,6 @@
                                 "value": "timeStamp",
                                 "items": [
                                     {
-                                        "title": "Place order per hour",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout Payment Info/Place Order"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Page views per hour",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "API"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "API Catalog Browsing",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
                                         "title": "Errors count",
                                         "metrics": [
                                             {"type": "count"}
@@ -1473,7 +1452,7 @@
                     {
                         "type": "jtlTable",
                         "data": {
-                            "title": "Frontend Results",
+                            "title": "Category management results",
                             "type": "table_jtl",
                             "metrics": [
                                 {"type": "percentile", "config": {"lvl": 50}},
@@ -1508,6 +1487,48 @@
                                         ]
                                     },
                                     {
+                                        "title": "Create product",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create product with extensible data objects",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create product with extensible data objects"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "jtlTable",
+                        "data": {
+                            "title": "<w:br/>Checkout and Customer results",
+                            "type": "table_jtl",
+                            "metrics": [
+                                {"type": "percentile", "config": {"lvl": 50}},
+                                {"type": "percentile", "config": {"lvl": 90}},
+                                {"type": "percentile", "config": {"lvl": 95}},
+                                {"type": "percentile", "config": {"lvl": 99}}
+                            ],
+                            "max": 4000,
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+
+                                    {
+                                        "title": "Create customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create customer"
+                                        ]
+                                    },
+                                    {
                                         "title": "Add product to quote",
                                         "tag_field": "label",
                                         "tags": [
@@ -1533,47 +1554,6 @@
                                         "tag_field": "label",
                                         "tags": [
                                             "Checkout Payment Info/Place Order"
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "type": "jtlTable",
-                        "data": {
-                            "title": "Admin Results",
-                            "type": "table_jtl",
-                            "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50}},
-                                {"type": "percentile", "config": {"lvl": 90}},
-                                {"type": "percentile", "config": {"lvl": 95}},
-                                {"type": "percentile", "config": {"lvl": 99}}
-                            ],
-                            "max": 4000,
-                            "data": {
-                                "category": "timeStamp",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Create product",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Create product"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Create product with extensible data objects",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Create product with extensible data objects"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Create customer",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Create customer"
                                         ]
                                     }
                                 ]
@@ -1605,7 +1585,7 @@
                     {
                         "type": "jsonTable",
                         "data": {
-                            "title": "Google page test.io Results",
+                            "title": "Google page test Results",
                             "type": "table_googlepage",
                             "metrics": [
                                 {"type": "score"}
@@ -1625,7 +1605,7 @@
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "Having conducted emulation with maximally close replication of client store and expected load our team confirms that ECE12 with small and medium profiles, ECE24 with medium profile can serve described load without any specific customizations and demonstrate above response time results (that in terms of median almost fit into Magento referenceable targets). ECE12, ECE24, ECE48 with large profile perform bad results and very similar that maybe caused with not perfect configurations for this kind of profile or performance issue in Magento code base. The same situation happens for ECE48 and ECE120 with extra large profile that have not good results for some scenarios and have very similar results.<w:br/>Api performance tests results are more positive. Expect 3 very slowly scenarios: “Get Products (Frontend pool)”, “Create Product (Admin pool)”, “Create product with extensible data objects (Admin Pool)” that perform bad results on all kinds of servers and with all kinds of profiles expect ECE12 with small profile. Additionally, need to add that more powerful server demonstrate better results than less powerful that leads to thought of hardware issue or attainment resource limit on instance. <w:br/>Additionally, need to add that during testing we working with 60% uncacheable pages that implies more time of response caused with request to application and subsequent processes (connections to data base, make a request, analyze response data, rendering, store data to cache, etc.) and all of this make a loading directly application instances. <w:br/>Client side performance tests have very good results. <w:br/>"
+                        "data": "<w:br/>Having conducted emulation with maximally close replication of client store and expected load our team confirms that ECE12 with small and medium profiles, ECE24 with medium profile can serve described load without any specific customizations and demonstrate above response time results (that in terms of median almost fit into Magento referenceable targets). ECE12, ECE24, ECE48 with large profile perform bad results and very similar that maybe caused with not perfect configurations for this kind of profile or performance issue in Magento code base. The same situation happens for ECE48 and ECE120 with extra large profile that have not good results for some scenarios and have very similar results.<w:br/>Api performance tests results are more positive. Expect 3 very slowly scenarios: “Get Products (Frontend pool)”, “Create Product (Admin pool)”, “Create product with extensible data objects (Admin Pool)” that perform bad results on all kinds of servers and with all kinds of profiles expect ECE12 with small profile. Additionally, need to add that more powerful server demonstrate better results than less powerful that leads to thought of hardware issue or attainment resource limit on instance. <w:br/>Additionally, need to add that during testing we working with 60% uncacheable pages that implies more time of response caused with request to application and subsequent processes (connections to data base, make a request, analyze response data, rendering, store data to cache, etc.) and all of this make a loading directly application instances. <w:br/>Client side performance tests have very good results. <w:br/>"
                     }
                 ]
             }
