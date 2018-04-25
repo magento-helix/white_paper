@@ -9,6 +9,7 @@
 namespace App\Document\Content\Page\Block;
 
 use App\Document\Content\Page\Block\Type\DocumentAuthors;
+use App\Document\Content\Page\Block\Type\DocumentTableOfContent;
 use App\Document\Content\Page\Block\Type\DocumentTitle;
 use App\Document\Content\Page\Block\Type\JSONTable;
 use App\Document\Content\Page\Block\Type\JTLTable;
@@ -26,6 +27,7 @@ class TypePool
     private $map = [
         'documentTitle' => DocumentTitle::class,
         'documentAuthors' => DocumentAuthors::class,
+        'documentTableOfContent' => DocumentTableOfContent::class,
         'text' => Text::class,
         'image' => Image::class,
         'inlineTable' => Table::class,

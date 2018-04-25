@@ -17,6 +17,19 @@
         ]
     },
     {
+        "type": "table_of_content",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "documentTableOfContent",
+                        "data": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "Introduction",
         "type": "introduction",
         "pages": [
@@ -24,26 +37,40 @@
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "This whitepaper aims to validate Magento Commerce (former Enterprise) product for cases of small, medium, large and extra large profiles, proving that platform meets requirements of high-traffic e-commerce site and provides additional capacity for potential growth. Additionally, whitepaper has client side measurements for main pages. It will help e-commerce managers and technical staff to better understand the performance characteristics of the application and get an idea of the recommended infrastructure to run large-scale Magento Commerce store."
+                        "data": "<w:br/>This whitepaper aims to validate Magento Commerce (former Enterprise) product for cases of small, medium, large and extra large profiles, proving that platform meets requirements of high-traffic e-commerce site and provides additional capacity for potential growth. Additionally, whitepaper has client side measurements for main pages. It will help e-commerce managers and technical staff to better understand the performance characteristics of the application and get an idea of the recommended infrastructure to run large-scale Magento Commerce store."
                     }
                 ]
             }
         ]
     },
     {
-        "title": "Environment",
+        "title": "Cloud Infrastructure Schema",
         "type": "environment",
         "pages": [
             {
                 "blocks": [
                     {
+                        "type": "text",
+                        "data": ""
+                    },
+                    {
                         "type": "image",
                         "data": "/resources/Content/Environment.png"
                     }
                 ]
-            },
+            }
+        ]
+    },
+    {
+        "title": "Instances technical information",
+        "type": "environment",
+        "pages": [
             {
                 "blocks": [
+                    {
+                        "type": "text",
+                        "data": ""
+                    },
                     {
                         "type": "inlineTable",
                         "data": {
@@ -220,11 +247,15 @@
         ]
     },
     {
-        "title": "Condition",
+        "title": "Instance Profile Configuration",
         "type": "condition",
         "pages": [
             {
                 "blocks": [
+                    {
+                        "type": "text",
+                        "data": ""
+                    },
                     {
                         "type": "inlineTable",
                         "data": {
@@ -381,11 +412,6 @@
                                 ]
                             ]
                         }
-                    },
-                    {
-                        "type": "text",
-                        "style": {"pStyle": {"name": "leftOrientedChapterContent"}},
-                        "data": "Scenarios must be follow next conditions:<w:br/>1) Cache hit/miss rate 60 / 40%<w:br/>2) Each user performs 2-3 actions (clicks) per minute [average industry rate is 1 click per 1-2 minutes]<w:br/>3) Load average was chosen equals 1 user/core."
                     }
                 ]
             }
@@ -393,10 +419,29 @@
     },
     {
         "title": "Emulation details",
-        "type": "emulationDetails",
+        "type": "emulation_details",
         "pages": [
             {
                 "blocks": [
+                    {
+                        "type": "text",
+                        "style": {"pStyle": {"name": "leftOrientedChapterContent"}},
+                        "data": "<w:br/>1) Cache hit/miss rate 60 / 40%<w:br/>2) Each user performs 2-3 actions (clicks) per minute [average industry rate is 1 click per 1-2 minutes]<w:br/>3) Load average was chosen equals 1 user/core."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Users distribution details",
+        "type": "usersDistributionDetails",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "text",
+                        "data": ""
+                    },
                     {
                         "type": "pieChart",
                         "data": {
@@ -431,6 +476,14 @@
                                 ]
                             }
                         }
+                    }
+                ]
+            },
+            {
+                "blocks": [
+                    {
+                        "type": "text",
+                        "data": ""
                     },
                     {
                         "type": "pieChart",

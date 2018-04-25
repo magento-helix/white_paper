@@ -12,6 +12,7 @@ namespace App\Document;
 use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\PhpWord;
 use App\Document\Settings\Header;
+use PhpOffice\PhpWord\Shared\Converter;
 
 class Settings
 {
@@ -97,13 +98,36 @@ class Settings
                 'borderColor' => '006699',
                 'cellMargin' => 0,
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
-                'cellSpacing' => 0
+                'cellSpacing' => 0,
+                'unit' => \PhpOffice\PhpWord\SimpleType\TblWidth::TWIP,
+                'width' => 9504
             ],
             [
                 'borderBottomSize' => 4,
                 'borderBottomColor' => '0000FF',
                 'bgColor' => '66BBFF',
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
+            ]
+        );
+    }
+
+    public function setDefaultTitleStyle(PhpWord $phpWord)
+    {
+        $phpWord->addTitleStyle(
+            1,
+            ['color' => 'E36C0A', 'size' => 16, 'name' => Font::DEFAULT_FONT],
+            [
+                'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
+                'spacing' => 120,
+            ]
+        );
+        $phpWord->addTitleStyle(
+            2,
+            ['color' => '365F91', 'size' => 13, 'name' => Font::DEFAULT_FONT],
+            [
+                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER,
+                'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(2),
+                'spacing' => 120,
             ]
         );
     }

@@ -25,6 +25,7 @@ class MetricPool
 
     public function get(array $data) : MetricInterface
     {
-        return new $this->map[$data['type']]($data['config']);
+        $config = isset($data['config']) ? $data['config'] : [];
+        return new $this->map[$data['type']]($config);
     }
 }

@@ -3,9 +3,10 @@
     "instances": [
         {
             "type": "Starter",
-            "id": "tbshviwd5ciiw",
-            "jenkins": "jenkins1",
-            "include": false,
+            "id": "mcklpmeupnfcq",
+            "jenkins": "starter-eu",
+            "jenkins_folder": "starter",
+            "include": true,
             "profiles": [
                 {
                     "name": "small",
@@ -13,25 +14,25 @@
                         {
                             "type": "SS",
                             "profile": "small",
-                            "build_id": 100,
+                            "build_id": 135,
                             "src": "var/tests/results/benchmark_result.jtl"
                         },
                         {
                             "type": "API",
                             "profile": "small",
-                            "build_id": 100,
-                            "src": "var/tests/results/benchmark_result.jtl"
+                            "build_id": 136,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
                         },
                         {
                             "type": "CS-SITESPEED",
                             "profile": "small",
-                            "build_id": 100,
+                            "build_id": 138,
                             "src": "var/tests/results/sidespeedio/browsertime.json"
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "small",
-                            "build_id": 100,
+                            "build_id": 138,
                             "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
@@ -42,25 +43,25 @@
                         {
                             "type": "SS",
                             "profile": "medium",
-                            "build_id": 100,
+                            "build_id": 142,
                             "src": "var/tests/results/benchmark_result.jtl"
                         },
                         {
                             "type": "API",
                             "profile": "medium",
-                            "build_id": 100,
-                            "src": "var/tests/results/benchmark_result.jtl"
+                            "build_id": 143,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
                         },
                         {
                             "type": "CS-SITESPEED",
                             "profile": "medium",
-                            "build_id": 100,
+                            "build_id": 144,
                             "src": "var/tests/results/sidespeedio/browsertime.json"
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "medium",
-                            "build_id": 100,
+                            "build_id": 144,
                             "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
@@ -69,9 +70,10 @@
         },
         {
             "type": "Starter Large",
-            "id": "7xtzaczaepvhg",
-            "jenkins": "jenkins1",
-            "include": false,
+            "id": "fit4a2kwwt56a",
+            "jenkins": "starterlarge-eu",
+            "jenkins_folder": "starterlarge",
+            "include": true,
             "profiles": [
                 {
                     "name": "small",
@@ -79,25 +81,25 @@
                         {
                             "type": "SS",
                             "profile": "small",
-                            "build_id": 100,
+                            "build_id": 131,
                             "src": "var/tests/results/benchmark_result.jtl"
                         },
                         {
                             "type": "API",
                             "profile": "small",
-                            "build_id": 100,
-                            "src": "var/tests/results/benchmark_result.jtl"
+                            "build_id": 132,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
                         },
                         {
                             "type": "CS-SITESPEED",
                             "profile": "small",
-                            "build_id": 100,
+                            "build_id": 133,
                             "src": "var/tests/results/sidespeedio/browsertime.json"
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "small",
-                            "build_id": 100,
+                            "build_id": 133,
                             "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
@@ -108,26 +110,14 @@
                         {
                             "type": "SS",
                             "profile": "medium",
-                            "build_id": 100,
+                            "build_id": 144,
                             "src": "var/tests/results/benchmark_result.jtl"
                         },
                         {
                             "type": "API",
                             "profile": "medium",
-                            "build_id": 100,
-                            "src": "var/tests/results/benchmark_result.jtl"
-                        },
-                        {
-                            "type": "CS-SITESPEED",
-                            "profile": "medium",
-                            "build_id": 100,
-                            "src": "var/tests/results/sidespeedio/browsertime.json"
-                        },
-                        {
-                            "type": "CS-GOOGLEPAGE",
-                            "profile": "medium",
-                            "build_id": 100,
-                            "src": "var/tests/results/googlepagespeed/result.json"
+                            "build_id": 145,
+                            "src": "var/tests/results/benchmark_api_result.jtl"
                         }
                     ]
                 }
@@ -138,7 +128,7 @@
             "id": "oh2wi6klp5ytk",
             "jenkins": "jenkins12-eu",
             "jenkins_folder": "12eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "small",
@@ -222,7 +212,7 @@
             "id": "zhe434vvxvvhc",
             "jenkins_folder": "24eu",
             "jenkins": "jenkins24-eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "medium",
@@ -265,7 +255,7 @@
             "id": "qjldd4p2tbpwg",
             "jenkins_folder": "48eu",
             "jenkins": "jenkins48-eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "large",
@@ -308,7 +298,7 @@
             "id": "smjthfxq3rotk",
             "jenkins_folder": "120eu",
             "jenkins": "jenkins120-eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "extra_large",

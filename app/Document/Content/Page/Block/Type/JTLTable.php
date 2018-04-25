@@ -48,7 +48,7 @@ class JTLTable implements TypeInterface
     {
         $title = $content['title'];
         $section->addText(
-            $title,
+            $title . '<w:br/>',
             Font::getChartTitleStyle(),
             Font::DEFAULT_CHART_TITLE
         );

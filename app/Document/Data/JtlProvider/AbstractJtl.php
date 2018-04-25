@@ -114,7 +114,9 @@ abstract class AbstractJtl implements DataProviderInterface
         foreach ($config['data']['items'] as $itemConfig) {
             $data[$itemConfig['title']] = [];
             foreach ($itemConfig['tags'] as $tag) {
-                $data[$itemConfig['title']] = array_merge($data[$itemConfig['title']], $reportData['by_tags'][$tag]);
+                if (isset($reportData['by_tags'][$tag])) {
+                    $data[$itemConfig['title']] = array_merge($data[$itemConfig['title']], $reportData['by_tags'][$tag]);
+                }
             }
         }
 

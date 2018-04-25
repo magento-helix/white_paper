@@ -15,10 +15,10 @@ use PhpOffice\PhpWord\PhpWord;
 class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterface
 {
     private $map = [
-        Instance::SS_TYPE => 'Server Side',
-        Instance::API_TYPE => 'API',
-        Instance::CS_SITESPEED_TYPE => 'Client Side load tests',
-        Instance::CS_GOOGLEPAGE_TYPE => 'Client Side rate test',
+        Instance::SS_TYPE => ' for benchmarking',
+        Instance::API_TYPE => ' (API performance)',
+        Instance::CS_SITESPEED_TYPE => ' (client-side snapshot)',
+        Instance::CS_GOOGLEPAGE_TYPE => ' (client-side snapshot)',
     ];
 
     public function add(PhpWord $phpWord, $content)
@@ -42,7 +42,7 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
             foreach ($instance['profiles'] as $key => $profileConfig) {
 //                $this->addTitle($section, $profileConfig['name'] . ' profile');
                 foreach ($profileConfig['measurements'] as $measurementKey => $item) {
-                    $this->addTitle($section, "{$instance['type']} instance with {$profileConfig['name']} profile for {$this->map[$item['type']]}");
+                    $this->addTitle($section, "{$instance['type']} instance with " . ucfirst($profileConfig['name']) . " profile{$this->map[$item['type']]}", 2);
                     $this->addPages($phpWord, $section, $content['pages'], $instanceObject, $item);
 
                     if (isset($profileConfig['measurements'][$measurementKey + 1])) {

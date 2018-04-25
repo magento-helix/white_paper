@@ -38,13 +38,9 @@ class AbstractChapter implements ChapterInterface
         $this->blockTypePool = new TypePool();
     }
 
-    public function addTitle(Section $section, $title)
+    public function addTitle(Section $section, $title, $depth = 1)
     {
-        $section->addText(
-            $title,
-            Font::getChapterTitleStyle(),
-            Font::DEFAULT_CHAPTER_TITLE
-        );
+        $section->addTitle($title, $depth);
     }
 
     public function addPages(
