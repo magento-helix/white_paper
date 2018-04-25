@@ -52,7 +52,10 @@ class AbstractChapter implements ChapterInterface
     ) {
         $newPage = false;
         foreach ($pages as $index => $page) {
-            if (isset($page['type']) && $page['type'] !== $measurementConfig['type']) {
+            if (isset($page['type'])
+                && ($page['type'] !== $measurementConfig['type']
+                || !$this->isSetSRC($page['src'], $measurementConfig['src']))
+            ) {
                 continue;
             }
             if ($newPage) {
@@ -67,6 +70,20 @@ class AbstractChapter implements ChapterInterface
                 $newPage = true;
             }
         }
+    }
+
+    private function isSetSRC($needle, $haystack)
+    {
+        $isset = false;
+
+        foreach ($haystack as $item) {
+            if ($item['type'] == $needle) {
+                $isset = true;
+                break;
+            }
+        }
+
+        return $isset;
     }
 
     public function add(PhpWord $phpWord, $content)

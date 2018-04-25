@@ -20,25 +20,45 @@
                             "type": "SS",
                             "profile": "small",
                             "build_id": 135,
-                            "src": "var/tests/results/benchmark_result.jtl"
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
                         },
                         {
                             "type": "API",
                             "profile": "small",
                             "build_id": 136,
-                            "src": "var/tests/results/benchmark_api_result.jtl"
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
                         },
                         {
                             "type": "CS-SITESPEED",
                             "profile": "small",
                             "build_id": 138,
-                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "small",
                             "build_id": 138,
-                            "src": "var/tests/results/googlepagespeed/result.json"
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -49,25 +69,45 @@
                             "type": "SS",
                             "profile": "medium",
                             "build_id": 142,
-                            "src": "var/tests/results/benchmark_result.jtl"
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
                         },
                         {
                             "type": "API",
                             "profile": "medium",
                             "build_id": 143,
-                            "src": "var/tests/results/benchmark_api_result.jtl"
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
                         },
                         {
                             "type": "CS-SITESPEED",
                             "profile": "medium",
                             "build_id": 144,
-                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "medium",
                             "build_id": 144,
-                            "src": "var/tests/results/googlepagespeed/result.json"
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -83,7 +123,7 @@
             ],
             "jenkins": "starterlarge-eu",
             "jenkins_folder": "starterlarge",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "small",
@@ -92,25 +132,45 @@
                             "type": "SS",
                             "profile": "small",
                             "build_id": 131,
-                            "src": "var/tests/results/benchmark_result.jtl"
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
                         },
                         {
                             "type": "API",
                             "profile": "small",
                             "build_id": 132,
-                            "src": "var/tests/results/benchmark_api_result.jtl"
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
                         },
                         {
                             "type": "CS-SITESPEED",
                             "profile": "small",
                             "build_id": 133,
-                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "small",
                             "build_id": 133,
-                            "src": "var/tests/results/googlepagespeed/result.json"
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -121,25 +181,45 @@
                             "type": "SS",
                             "profile": "medium",
                             "build_id": 144,
-                            "src": "var/tests/results/benchmark_result.jtl"
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
                         },
                         {
                             "type": "API",
                             "profile": "medium",
                             "build_id": 145,
-                            "src": "var/tests/results/benchmark_api_result.jtl"
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
                         },
                         {
                             "type": "CS-SITESPEED",
                             "profile": "medium",
                             "build_id": 146,
-                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
                         },
                         {
                             "type": "CS-GOOGLEPAGE",
                             "profile": "medium",
                             "build_id": 146,
-                            "src": "var/tests/results/googlepagespeed/result.json"
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
                         }
                     ]
                 }

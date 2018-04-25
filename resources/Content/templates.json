@@ -1625,8 +1625,8 @@
                 ]
             },
             {
-                "type": "CS",
-                "src": "sitespeed",
+                "type": "CS-SITESPEED",
+                "src": "json",
                 "blocks": [
                     {
                         "type": "jsonTable",
@@ -1643,8 +1643,8 @@
                 ]
             },
             {
-                "type": "CS",
-                "src": "googlepage",
+                "type": "CS-GOOGLEPAGE",
+                "src": "json",
                 "blocks": [
                     {
                         "type": "jsonTable",

@@ -17,7 +17,8 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
     private $map = [
         'SS' => ' for benchmarking',
         'API' => ' (API performance)',
-        'CS' => ' (client-side snapshot)',
+        'CS-SITESPEED' => ' (client-side snapshot)',
+        'CS-GOOGLEPAGE' => ' (client-side snapshot)',
         'GRAFANA' => ' server loading',
     ];
 
