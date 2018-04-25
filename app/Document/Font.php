@@ -18,6 +18,8 @@ class Font
     const DEFAULT_FONT = 'Times New Roman';
     const DEFAULT_TABLE_TEXT_SIZE = 12;
     const DEFAULT_TABLE_STYLE = 'defaultTableStyle';
+    const DEFAULT_TABLE_WIDTH = 6000;
+    const DEFAULT_TABLE_ROW_HEIGHT = 1000;
     const DEFAULT_REGULAR_SIZE = 12;
     const DEFAULT_TITLE_SIZE = 14;
     const DEFAULT_BIG_TITLE_SIZE = 18;

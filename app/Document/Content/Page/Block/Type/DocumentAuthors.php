@@ -33,14 +33,19 @@ class DocumentAuthors implements TypeInterface
         $this->phpWord->addParagraphStyle($authorParagraphStyleName,
             [
 
-                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::LEFT,
+                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::START,
                 'space' => array('before' => 0, 'after' => 0),
-                'indentation' => array('left' => 5500, 'right' => 0)
+                'indentation' => array('left' => 6000, 'right' => 0)
             ]
         );
         $section->addText(
             $content,
-            Font::DEFAULT_TITLE_SIZE,
+            [
+                'name' => 'Calibri',
+                'size' => 11,
+                'italic' => true,
+                'color' => '5A5A5A'
+            ],
             $authorParagraphStyleName
         );
     }

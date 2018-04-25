@@ -118,6 +118,18 @@
                             "profile": "medium",
                             "build_id": 145,
                             "src": "var/tests/results/benchmark_api_result.jtl"
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "medium",
+                            "build_id": 146,
+                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "medium",
+                            "build_id": 146,
+                            "src": "var/tests/results/googlepagespeed/result.json"
                         }
                     ]
                 }

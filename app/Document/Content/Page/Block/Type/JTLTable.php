@@ -53,6 +53,7 @@ class JTLTable implements TypeInterface
             Font::DEFAULT_CHART_TITLE
         );
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
+        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
         $cellRowSpan = ['valign' => 'center'];
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
@@ -60,7 +61,7 @@ class JTLTable implements TypeInterface
 
         $cellSize = 1500;
 
-        $table->addRow();
+        $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
         $table->addCell($cellSize, $cellRowSpan)
             ->addText(
                 'Percentile',
@@ -87,7 +88,7 @@ class JTLTable implements TypeInterface
         }
 
         foreach ($content['metrics'] as $index => $metric) {
-            $table->addRow();
+            $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT / 2);
             $table->addCell($cellSize, $cellRowSpan)
                 ->addText(
                     "{$metric['type']} ({$metric['config']['lvl']})",

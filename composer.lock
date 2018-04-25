@@ -105,12 +105,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vgoncharenko/PHPWord.git",
-                "reference": "06b9eacf18f1c50852f6758b4e31cbe6e15a4a0b"
+                "reference": "b7013c934cabf4229ee88b45a7d96f21fcdb9c6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vgoncharenko/PHPWord/zipball/06b9eacf18f1c50852f6758b4e31cbe6e15a4a0b",
-                "reference": "06b9eacf18f1c50852f6758b4e31cbe6e15a4a0b",
+                "url": "https://api.github.com/repos/vgoncharenko/PHPWord/zipball/b7013c934cabf4229ee88b45a7d96f21fcdb9c6b",
+                "reference": "b7013c934cabf4229ee88b45a7d96f21fcdb9c6b",
                 "shasum": ""
             },
             "require": {
@@ -223,7 +223,7 @@
             "support": {
                 "source": "https://github.com/vgoncharenko/PHPWord/tree/develop"
             },
-            "time": "2018-04-05 17:38:54"
+            "time": "2018-04-25 06:57:47"
         },
         {
             "name": "zendframework/zend-escaper",

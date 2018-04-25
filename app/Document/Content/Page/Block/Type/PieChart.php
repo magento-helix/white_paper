@@ -45,11 +45,13 @@ class PieChart implements TypeInterface
 
         $style = [
             'width' => Converter::cmToEmu(18),
-            'height' => Converter::cmToEmu(7),
+            'height' => Converter::cmToEmu(16),
             '3d' => true,
             'showAxisLabels' => true,
             'showGridX' => true,
-            'showGridY' => true
+            'showGridY' => true,
+            'yRotation' => 30,
+            'showLabels' => true
         ];
 
         $section->addChart(

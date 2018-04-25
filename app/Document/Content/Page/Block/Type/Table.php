@@ -28,19 +28,23 @@ class Table implements TypeInterface
     public function add(Section $section, $content)
     {
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
+        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
         $count = count($content['rows'][0]) - 1;
         $cellRowSpan = ['vMerge' => 'restart', 'valign' => 'center'];
         $cellRowContinue = ['vMerge' => 'continue'];
         $cellColSpan = ['gridSpan' => $count, 'valign' => 'center'];
 
         foreach ($content['rows'] as $key => $row) {
-            $table->addRow();
+            $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
             $bold = false;
             if ($key == 0) {
                 $bold = true;
             }
 
             foreach ($row as $index => $item) {
+                if (null == $item['text']) {
+                    continue;
+                }
                 $width = 1500;
                 $cellRow = ['valign' => 'center'];
                 if ($item['type'] == 'cell') {
@@ -54,10 +58,8 @@ class Table implements TypeInterface
                     $cellRow = $cellRowContinue;
                     $width = null;
                 }
+
                 $cell = $table->addCell($width, $cellRow);
-                if (null == $item['text']) {
-                    continue;
-                }
                 $cell->addText(
                     $item['text'],
                     [
