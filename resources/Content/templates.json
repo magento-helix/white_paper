@@ -6,11 +6,24 @@
                 "blocks": [
                     {
                         "type": "documentTitle",
-                        "data": "Measurements on AWS Infrastructure"
+                        "data": "Measurements on Magento Cloud Infrastructure"
                     },
                     {
                         "type": "documentAuthors",
-                        "data": "Helix team<w:br/><w:br/>Sustaining Engineering,<w:br/>Magento"
+                        "data": "<w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/>Helix Team<w:br/>Cloud-Performance-Measurements,<w:br/>Magento"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "Content",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "documentTableOfContent",
+                        "data": ""
                     }
                 ]
             }
@@ -24,26 +37,40 @@
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "This whitepaper aims to validate Magento Commerce (former Enterprise) product for cases of small, medium, large and extra large profiles, proving that platform meets requirements of high-traffic e-commerce site and provides additional capacity for potential growth. Additionally, whitepaper has client side measurements for main pages. It will help e-commerce managers and technical staff to better understand the performance characteristics of the application and get an idea of the recommended infrastructure to run large-scale Magento Commerce store."
+                        "data": "<w:br/>This whitepaper document contains results of performance measurements for Magento Commerce 2.2.4 running on Magento Cloud infrastructure for cases of Small, Medium, Large and Extra-large profiles, validating that platform meets requirements of high-loaded e-commerce site. Additionally, whitepaper has client-side measurements for main pages. It will help e-commerce managers and technical staff to better understand the performance characteristics of the application and select appropriate plan for Magento Commerce store."
                     }
                 ]
             }
         ]
     },
     {
-        "title": "Environment",
+        "title": "Cloud Infrastructure Schema",
         "type": "environment",
         "pages": [
             {
                 "blocks": [
                     {
+                        "type": "text",
+                        "data": ""
+                    },
+                    {
                         "type": "image",
                         "data": "/resources/Content/Environment.png"
                     }
                 ]
-            },
+            }
+        ]
+    },
+    {
+        "title": "Instances technical information",
+        "type": "environment",
+        "pages": [
             {
                 "blocks": [
+                    {
+                        "type": "text",
+                        "data": ""
+                    },
                     {
                         "type": "inlineTable",
                         "data": {
@@ -220,11 +247,15 @@
         ]
     },
     {
-        "title": "Condition",
+        "title": "Instance Profile Configuration",
         "type": "condition",
         "pages": [
             {
                 "blocks": [
+                    {
+                        "type": "text",
+                        "data": ""
+                    },
                     {
                         "type": "inlineTable",
                         "data": {
@@ -266,7 +297,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "website/store/store view: 1<w:br/><w:br/>individual simples: 800<w:br/><w:br/>configurable products: 40<w:br/><w:br/>(with 15 simples for each configurable ~ 600 simples)<w:br/><w:br/>categories: 30"
+                                        "text": "website/store/store view: 1<w:br/>individual simples: 800<w:br/>configurable products: 40<w:br/>(with 15 simples for each configurable ~ 600 simples)<w:br/>categories: 30"
                                     },
                                     {
                                         "type": "cell",
@@ -296,7 +327,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "website/store/store view: 3<w:br/><w:br/>individual simples: 24K<w:br/><w:br/>configurable products: 640<w:br/><w:br/>(with 11 simples for each configurable ~ 7K simples)<w:br/><w:br/>categories: 300"
+                                        "text": "website/store/store view: 3<w:br/>individual simples: 24K<w:br/>configurable products: 640<w:br/>(with 11 simples for each configurable ~ 7K simples)<w:br/>categories: 300"
                                     },
                                     {
                                         "type": "cell",
@@ -326,7 +357,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 300K<w:br/><w:br/>configurable products: 8K<w:br/><w:br/>(with 11 simples for each configurable ~ 88K simples)<w:br/><w:br/>categories: 3k"
+                                        "text": "website/store/store view: 5<w:br/>individual simples: 300K<w:br/>configurable products: 8K<w:br/>(with 11 simples for each configurable ~ 88K simples)<w:br/>categories: 3k"
                                     },
                                     {
                                         "type": "cell",
@@ -356,7 +387,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "website/store/store view: 5<w:br/><w:br/>individual simples: 600K<w:br/><w:br/>configurable products: 16K<w:br/><w:br/>(with 11 simples for each configurable ~ 176K simples)<w:br/><w:br/>categories: 6k"
+                                        "text": "website/store/store view: 5<w:br/>individual simples: 600K<w:br/>configurable products: 16K<w:br/>(with 11 simples for each configurable ~ 176K simples)<w:br/>categories: 6k"
                                     },
                                     {
                                         "type": "cell",
@@ -381,10 +412,6 @@
                                 ]
                             ]
                         }
-                    },
-                    {
-                        "type": "text",
-                        "data": "Scenarios must be follow next conditions:<w:br/>1) Cache hit/miss rate 60 / 40%<w:br/>2) Each user performs 2-3 actions (clicks) per minute [average industry rate is 1 click per 1-2 minutes]<w:br/>3) Load average was chosen equals 1 user/core."
                     }
                 ]
             }
@@ -392,10 +419,29 @@
     },
     {
         "title": "Emulation details",
-        "type": "emulationDetails",
+        "type": "emulation_details",
         "pages": [
             {
                 "blocks": [
+                    {
+                        "type": "text",
+                        "style": {"pStyle": {"name": "leftOrientedChapterContent"}},
+                        "data": "<w:br/>1) Cache hit/miss rate 60 / 40%<w:br/>2) Each user performs 2-3 actions (clicks) per minute [average industry rate is 1 click per 1-2 minutes]<w:br/>3) Load average was chosen equals 1 user/core."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Users distribution details",
+        "type": "usersDistributionDetails",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "text",
+                        "data": ""
+                    },
                     {
                         "type": "pieChart",
                         "data": {
@@ -430,6 +476,14 @@
                                 ]
                             }
                         }
+                    }
+                ]
+            },
+            {
+                "blocks": [
+                    {
+                        "type": "text",
+                        "data": ""
                     },
                     {
                         "type": "pieChart",
@@ -973,7 +1027,7 @@
                                 "value": "timeStamp",
                                 "items": [
                                     {
-                                        "title": "Place order per hour",
+                                        "title": "Order placed per hour",
                                         "tag_field": "label",
                                         "tags": [
                                             "Checkout Payment Info/Place Order"
@@ -981,7 +1035,7 @@
                                     },
                                     {
                                         "title": "Page views per hour",
-                                        "tag_field": "grpThreads",
+                                        "tag_field": "threadName",
                                         "tags": [
                                             "Frontend Pool"
                                         ]
@@ -1138,7 +1192,7 @@
                     {
                         "type": "jtlTable",
                         "data": {
-                            "title": "Admin Results",
+                            "title": "<w:br/>Admin Results",
                             "type": "table_jtl",
                             "metrics": [
                                 {"type": "percentile", "config": {"lvl": 50}},
@@ -1437,27 +1491,6 @@
                                 "value": "timeStamp",
                                 "items": [
                                     {
-                                        "title": "Place order per hour",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout Payment Info/Place Order"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Page views per hour",
-                                        "tag_field": "grpThreads",
-                                        "tags": [
-                                            "API"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "API Catalog Browsing",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
                                         "title": "Errors count",
                                         "metrics": [
                                             {"type": "count"}
@@ -1481,7 +1514,7 @@
                     {
                         "type": "jtlTable",
                         "data": {
-                            "title": "Frontend Results",
+                            "title": "Category management results",
                             "type": "table_jtl",
                             "metrics": [
                                 {"type": "percentile", "config": {"lvl": 50}},
@@ -1516,6 +1549,48 @@
                                         ]
                                     },
                                     {
+                                        "title": "Create product",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create product with extensible data objects",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create product with extensible data objects"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "jtlTable",
+                        "data": {
+                            "title": "<w:br/>Checkout and Customer results",
+                            "type": "table_jtl",
+                            "metrics": [
+                                {"type": "percentile", "config": {"lvl": 50}},
+                                {"type": "percentile", "config": {"lvl": 90}},
+                                {"type": "percentile", "config": {"lvl": 95}},
+                                {"type": "percentile", "config": {"lvl": 99}}
+                            ],
+                            "max": 4000,
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "Latency",
+                                "items": [
+
+                                    {
+                                        "title": "Create customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create customer"
+                                        ]
+                                    },
+                                    {
                                         "title": "Add product to quote",
                                         "tag_field": "label",
                                         "tags": [
@@ -1541,47 +1616,6 @@
                                         "tag_field": "label",
                                         "tags": [
                                             "Checkout Payment Info/Place Order"
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "type": "jtlTable",
-                        "data": {
-                            "title": "Admin Results",
-                            "type": "table_jtl",
-                            "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50}},
-                                {"type": "percentile", "config": {"lvl": 90}},
-                                {"type": "percentile", "config": {"lvl": 95}},
-                                {"type": "percentile", "config": {"lvl": 99}}
-                            ],
-                            "max": 4000,
-                            "data": {
-                                "category": "timeStamp",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Create product",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Create product"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Create product with extensible data objects",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Create product with extensible data objects"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Create customer",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Create customer"
                                         ]
                                     }
                                 ]
@@ -1615,7 +1649,7 @@
                     {
                         "type": "jsonTable",
                         "data": {
-                            "title": "Google page test.io Results",
+                            "title": "Google page test Results",
                             "type": "table_googlepage",
                             "metrics": [
                                 {"type": "score"}
@@ -1636,6 +1670,20 @@
                             "query": "SELECT SUM(\"system:second\")/(30000/1000) as \"system\", SUM(\"user:second\")/(30000/1000) as \"user\", SUM(\"nice:second\")/(30000/1000) as \"nice\", SUM(\"idle:second\")/(30000/1000) as \"idle\", SUM(\"iowait:second\")/(30000/1000) as \"iowait\", SUM(\"irq:second\")/(30000/1000) as \"irq\", SUM(\"softirq:second\")/(30000/1000) as \"softirq\", SUM(\"steal:second\")/(30000/1000) as \"steal\", SUM(\"guest:second\")/(30000/1000) as \"guest\" FROM \"cpu\" WHERE \"cluster\" = '%cluster_id%' AND \"host\" = 'i-%sub_host_name%.platform.sh' AND time >= %start_time%ms and time <= %end_time%ms GROUP BY time(30s) fill(none)",
                             "type": "chart_grafana"
                         }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Summary",
+        "type": "conclusion",
+        "pages": [
+            {
+                "blocks": [
+                    {
+                        "type": "text",
+                        "data": "<w:br/>Summary template text"
                     }
                 ]
             }

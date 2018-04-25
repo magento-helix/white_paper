@@ -21,7 +21,7 @@ foreach ($config->getInstances() as $item) {
     foreach ($item['profiles'] as $profile) {
         foreach ($profile['measurements'] as $measurement) {
             $sourceFile = " {$item['jenkins']}:/var/lib/jenkins/jobs/{$item['jenkins_folder']}/builds/{$measurement['build_id']}/archive/{$measurement['src']} ";
-            $destinationFile = BP . "/../temp/{$item['type']}/{$profile['name']}/{$measurement['type']}/{$measurement['src']}";
+            $destinationFile = str_replace(' ', '\ ', BP . "/../temp/{$item['type']}/{$profile['name']}/{$measurement['type']}/{$measurement['src']}");
             `rm -rf $destinationFile`;
             $destinationDirName = dirname($destinationFile);
             if (!file_exists($destinationDirName)) {
@@ -29,8 +29,12 @@ foreach ($config->getInstances() as $item) {
             }
             $cmd = "scp -r -F " . SSH_CONFIG . $sourceFile . " ". $destinationFile;
             echo $cmd . "\n";
-            `$cmd`;
-            echo "COMPLETE \n";
+            exec($cmd, $output, $result);
+            if ($result == 0) {
+                echo "COMPLETE \n";
+            } else {
+                echo "FAIL \n";
+            }
         }
     }
 }

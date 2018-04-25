@@ -13,7 +13,7 @@ use App\Document\Font;
 use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\PhpWord;
 
-class Text implements TypeInterface
+class DocumentTableOfContent implements TypeInterface
 {
     /**
      * @var PhpWord
@@ -27,13 +27,6 @@ class Text implements TypeInterface
 
     public function add(Section $section, $content)
     {
-        $content = explode('<w:br/>', $content);
-        foreach ($content as $item) {
-            $section->addText(
-                $item,
-                Font::getChapterContentStyle(),
-                Font::DEFAULT_CHAPTER_CONTENT
-            );
-        }
+        $section->addTOC();
     }
 }

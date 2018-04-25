@@ -16,13 +16,16 @@ use PhpOffice\PhpWord\Element\Section;
 class Font
 {
     const DEFAULT_FONT = 'Times New Roman';
-    const DEFAULT_TABLE_TEXT_SIZE = 10;
+    const DEFAULT_TABLE_TEXT_SIZE = 12;
     const DEFAULT_TABLE_STYLE = 'defaultTableStyle';
+    const DEFAULT_TABLE_WIDTH = 6000;
+    const DEFAULT_TABLE_ROW_HEIGHT = 1000;
     const DEFAULT_REGULAR_SIZE = 12;
-    const DEFAULT_TITLE_SIZE = 12;
+    const DEFAULT_TITLE_SIZE = 14;
     const DEFAULT_BIG_TITLE_SIZE = 18;
     const DEFAULT_CHAPTER_TITLE_SIZE = 13;
     const DEFAULT_CHAPTER_CONTENT = 'defaultChapterContent';
+    const LEFT_ORIENTED_CHAPTER_CONTENT = 'leftOrientedChapterContent';
     const DEFAULT_CHAPTER_TITLE = 'defaultChapterTitle';
     const DEFAULT_CHART_TITLE = 'defaultChartTitle';
 
@@ -59,6 +62,7 @@ class Font
         return [
             'name' => self::DEFAULT_FONT,
             'size' => self::DEFAULT_REGULAR_SIZE,
+            'space' => ['line' => 1000]
         ];
     }
 }

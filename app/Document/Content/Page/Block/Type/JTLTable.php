@@ -48,19 +48,20 @@ class JTLTable implements TypeInterface
     {
         $title = $content['title'];
         $section->addText(
-            $title,
+            $title . '<w:br/>',
             Font::getChartTitleStyle(),
             Font::DEFAULT_CHART_TITLE
         );
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
+        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
+        $cellRowSpan = ['valign' => 'center'];
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
         $cellData = [];
 
         $cellSize = 1500;
 
-        $table->addRow();
+        $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
         $table->addCell($cellSize, $cellRowSpan)
             ->addText(
                 'Percentile',
@@ -68,7 +69,8 @@ class JTLTable implements TypeInterface
                     'name' => Font::DEFAULT_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                     'bold' => true,
-                ]
+                ],
+                ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
             );
         foreach ($content['data']['items'] as $index => $item) {
             $cellData[$index] = $dataProvider->getData($content, $index);
@@ -80,12 +82,13 @@ class JTLTable implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
         }
 
         foreach ($content['metrics'] as $index => $metric) {
-            $table->addRow();
+            $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT / 2);
             $table->addCell($cellSize, $cellRowSpan)
                 ->addText(
                     "{$metric['type']} ({$metric['config']['lvl']})",
@@ -93,7 +96,8 @@ class JTLTable implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
             foreach ($cellData as $cellDatum) {
                 $value = $cellDatum['values'][$index][1];
@@ -110,7 +114,8 @@ class JTLTable implements TypeInterface
                             'name' => Font::DEFAULT_FONT,
                             'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                             'color' => $color,
-                        ]
+                        ],
+                        ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                     );
             }
         }

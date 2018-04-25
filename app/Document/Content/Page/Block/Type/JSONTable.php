@@ -53,12 +53,13 @@ class JSONTable implements TypeInterface
             Font::DEFAULT_CHART_TITLE
         );
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
+        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
+        $cellRowSpan = ['vMerge' => 'restart', 'valign' => 'center'];
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
         $cellSize = 1500;
 
-        $table->addRow();
+        $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
         $table->addCell($cellSize, $cellRowSpan)
             ->addText(
                 'Percentile',
@@ -66,7 +67,8 @@ class JSONTable implements TypeInterface
                     'name' => Font::DEFAULT_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                     'bold' => true,
-                ]
+                ],
+                ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
             );
         $data = $dataProvider->getData($content, -1);
         $head = array_shift($data);
@@ -78,12 +80,13 @@ class JSONTable implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
         }
 
         foreach ($content['metrics'] as $index => $metric) {
-            $table->addRow();
+            $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
             $table->addCell($cellSize, $cellRowSpan)
                 ->addText(
                     $metric['type'],
@@ -91,7 +94,8 @@ class JSONTable implements TypeInterface
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
             foreach ($data[$index] as $value) {
                 $color = '00B050';
@@ -107,7 +111,8 @@ class JSONTable implements TypeInterface
                             'name' => Font::DEFAULT_FONT,
                             'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                             'color' => $color,
-                        ]
+                        ],
+                        ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                     );
             }
         }

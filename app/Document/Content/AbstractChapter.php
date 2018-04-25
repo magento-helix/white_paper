@@ -38,13 +38,9 @@ class AbstractChapter implements ChapterInterface
         $this->blockTypePool = new TypePool();
     }
 
-    public function addTitle(Section $section, $title)
+    public function addTitle(Section $section, $title, $depth = 1)
     {
-        $section->addText(
-            $title,
-            Font::getChapterTitleStyle(),
-            Font::DEFAULT_CHAPTER_TITLE
-        );
+        $section->addTitle($title, $depth);
     }
 
     public function addPages(
@@ -54,17 +50,21 @@ class AbstractChapter implements ChapterInterface
         InstanceInterface $instance = null,
         array $measurementConfig = []
     ) {
+        $newPage = false;
         foreach ($pages as $index => $page) {
             if (isset($page['type']) && $page['type'] !== $measurementConfig['type']) {
                 continue;
+            }
+            if ($newPage) {
+                $section = $this->addPage($phpWord);
             }
             foreach ($page['blocks'] as $block) {
                 $this->blockTypePool
                     ->getPage($block['type'], $phpWord, $instance, $measurementConfig)
                     ->add($section, $block['data']);
             }
-            if (isset($pages[$index + 1])) {
-                $section = $this->addPage($phpWord);
+            if(isset($pages[$index + 1])) {
+                $newPage = true;
             }
         }
     }

@@ -28,21 +28,25 @@ class Table implements TypeInterface
     public function add(Section $section, $content)
     {
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
+        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
         $count = count($content['rows'][0]) - 1;
-        $cellRowSpan = ['alignment' => 'center', 'vMerge' => 'restart', 'valign' => 'center'];
-        $cellRowContinue = ['alignment' => 'center', 'vMerge' => 'continue', 'valign' => 'center'];
-        $cellColSpan = ['alignment' => 'center', 'gridSpan' => $count, 'valign' => 'center'];
+        $cellRowSpan = ['vMerge' => 'restart', 'valign' => 'center'];
+        $cellRowContinue = ['vMerge' => 'continue'];
+        $cellColSpan = ['gridSpan' => $count, 'valign' => 'center'];
 
         foreach ($content['rows'] as $key => $row) {
-            $table->addRow();
+            $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
             $bold = false;
             if ($key == 0) {
                 $bold = true;
             }
 
             foreach ($row as $index => $item) {
+                if (null == $item['text']) {
+                    continue;
+                }
                 $width = 1500;
-                $cellRow = null;
+                $cellRow = ['valign' => 'center'];
                 if ($item['type'] == 'cell') {
                     $cellRow = $cellColSpan;
                     $width = $width * $count;
@@ -54,17 +58,16 @@ class Table implements TypeInterface
                     $cellRow = $cellRowContinue;
                     $width = null;
                 }
+
                 $cell = $table->addCell($width, $cellRow);
-                if (null == $item['text']) {
-                    continue;
-                }
                 $cell->addText(
                     $item['text'],
                     [
                         'name' => Font::DEFAULT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => $bold
-                    ]
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
             }
 
