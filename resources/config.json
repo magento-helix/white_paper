@@ -1,5 +1,7 @@
 {
     "title": "Measurements on AWS Infrastructure",
+    "edition": "ee",
+    "version": "2.2.4",
     "instances": [
         {
             "type": "Starter",
@@ -24,6 +26,11 @@
                                 {
                                     "type": "jtl",
                                     "path": "var/tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "type": "indexerLog",
+                                    "path": "log",
+                                    "build_id": 146
                                 }
                             ]
                         },
@@ -73,6 +80,11 @@
                                 {
                                     "type": "jtl",
                                     "path": "var/tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "type": "indexerLog",
+                                    "path": "log",
+                                    "build_id": 140
                                 }
                             ]
                         },
@@ -136,6 +148,11 @@
                                 {
                                     "type": "jtl",
                                     "path": "var/tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "type": "indexer_log",
+                                    "path": "log",
+                                    "build_id": 121
                                 }
                             ]
                         },
@@ -185,6 +202,11 @@
                                 {
                                     "type": "jtl",
                                     "path": "var/tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "type": "indexer_log",
+                                    "path": "medium.out",
+                                    "build_id": 142
                                 }
                             ]
                         },

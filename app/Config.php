@@ -27,4 +27,14 @@ class Config
     {
         return $this->config['instances'];
     }
+
+    public function getMagentoEdition() : string
+    {
+        return $this->config['edition'];
+    }
+
+    public function getMagentoVersion() : string
+    {
+        return $this->config['version'];
+    }
 }

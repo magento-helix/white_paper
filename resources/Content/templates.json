@@ -418,6 +418,54 @@
         ]
     },
     {
+        "title": "Profile indexation time",
+        "type": "profile_indexation_time",
+        "pages": [
+            {
+                "type": "SS",
+                "src": "jenkins_console",
+                "blocks": [
+                    {
+                        "type": "text",
+                        "data": {
+                            "title": "Active threads over time",
+                            "type": "chart_jtl",
+                            "metrics": [{"type": "avg", "config": {}}],
+                            "categories": ["TimeLine"],
+                            "data": {
+                                "category": "timeStamp",
+                                "value": "grpThreads",
+                                "items": [
+                                    {
+                                        "title": "Frontend Pool",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Frontend Pool"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Admin Pool",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Admin Pool"
+                                        ]
+                                    },
+                                    {
+                                        "title": "CSR Pool",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "CSR Pool"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "Emulation details",
         "type": "emulation_details",
         "pages": [

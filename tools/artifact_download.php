@@ -13,6 +13,12 @@ date_default_timezone_set('UTC');
 
 $config = new \App\Config(BP . '/../resources/config.json');
 
+$sourceLinkMap = [
+    'jtl' => ' %s:/var/lib/jenkins/jobs/%s/builds/%s/archive/%s ',
+    'json' => ' %s:/var/lib/jenkins/jobs/%s/builds/%s/archive/%s ',
+    'indexerLog' => ' %s:/var/lib/jenkins/workspace/starter/var/nohup/%s/%s/%s',
+];
+
 foreach ($config->getInstances() as $item) {
     if (!$item['include']) {
         continue;
@@ -20,21 +26,47 @@ foreach ($config->getInstances() as $item) {
 
     foreach ($item['profiles'] as $profile) {
         foreach ($profile['measurements'] as $measurement) {
-            $sourceFile = " {$item['jenkins']}:/var/lib/jenkins/jobs/{$item['jenkins_folder']}/builds/{$measurement['build_id']}/archive/{$measurement['src']} ";
-            $destinationFile = str_replace(' ', '\ ', BP . "/../temp/{$item['type']}/{$profile['name']}/{$measurement['type']}/{$measurement['src']}");
-            `rm -rf $destinationFile`;
-            $destinationDirName = dirname($destinationFile);
-            if (!file_exists($destinationDirName)) {
-                `mkdir -p $destinationDirName`;
-            }
-            $cmd = "scp -r -F " . SSH_CONFIG . $sourceFile . " ". $destinationFile;
-            echo $cmd . "\n";
-            exec($cmd, $output, $result);
-            if ($result == 0) {
-                echo "COMPLETE \n";
-            } else {
-                echo "FAIL \n";
+            foreach ($measurement['src'] as $src) {
+                $sourceMethod = 'get' . ucfirst($src['type']) . 'SourcePath';
+                $sourceFile = $sourceMethod($item, $src, $measurement, $config);
+                $destinationFile = str_replace(' ', '\ ', BP . "/../temp/{$item['type']}/{$profile['name']}/{$measurement['type']}/{$src['path']}");
+                `rm -rf $destinationFile`;
+                $destinationDirName = dirname($destinationFile);
+                if (!file_exists($destinationDirName)) {
+                    `mkdir -p $destinationDirName`;
+                }
+                $cmd = "scp -r -F " . SSH_CONFIG . $sourceFile . " ". $destinationFile;
+                echo $cmd . "\n";
+                exec($cmd, $output, $result);
+                if ($result == 0) {
+                    echo "COMPLETE \n";
+                } else {
+                    echo "FAIL \n";
+                }
             }
         }
     }
+}
+
+function getJtlSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
+{
+    global $sourceLinkMap;
+    $buildId = isset($src['build_id']) ? $src['build_id'] : $measurement['build_id'];
+
+    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins'], $instance['jenkins_folder'], $buildId, $src['path']);
+}
+
+function getJsonSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
+{
+    global $sourceLinkMap;
+    $buildId = isset($src['build_id']) ? $src['build_id'] : $measurement['build_id'];
+
+    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins'], $instance['jenkins_folder'], $buildId, $src['path']);
+}
+
+function getIndexerLogSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
+{
+    global $sourceLinkMap;
+
+    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins'], $instance['edition'], $config->getMagentoEdition(), $config->getMagentoVersion());
 }
