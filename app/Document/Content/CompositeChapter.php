@@ -12,7 +12,7 @@ namespace App\Document\Content;
 use App\Document\Data\Instance;
 use PhpOffice\PhpWord\PhpWord;
 
-class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterface
+class CompositeChapter extends AbstractChapter implements ChapterInterface
 {
     private $map = [
         'SS' => ' for benchmarking',
@@ -39,14 +39,30 @@ class LoadGenerationFlowChapter extends AbstractChapter implements ChapterInterf
                 $section = $this->addPage($phpWord);
             }
             $instanceObject = new Instance($instance, $content['pages']);
-//            $this->addTitle($section, $instance['type']);
             foreach ($instance['profiles'] as $key => $profileConfig) {
-//                $this->addTitle($section, $profileConfig['name'] . ' profile');
                 foreach ($profileConfig['measurements'] as $measurementKey => $item) {
-                    $this->addTitle($section, "{$instance['type']} instance with " . ucfirst($profileConfig['name']) . " profile{$this->map[$item['type']]}", 2);
+                    $pagesSRC = [];
+                    foreach ($content['pages'] as $page) {
+                        $pagesSRC[] = $page['src'];
+                    }
+                    $measurementSRC = [];
+                    foreach ($item['src'] as $measurement) {
+                        $measurementSRC[] = $measurement['type'];
+                    }
+                    $countSRC = count(array_intersect($pagesSRC, $measurementSRC));
+                    if ($countSRC == 0) {
+                        continue;
+                    }
+
+                    $this->addTitle(
+                        $section,
+                        "{$instance['type']} instance with "
+                            . ucfirst($profileConfig['name']) . " profile{$content['sub_titles'][$item['type']]}",
+                        2
+                    );
                     $this->addPages($phpWord, $section, $content['pages'], $instanceObject, $item);
 
-                    if (isset($profileConfig['measurements'][$measurementKey + 1])) {
+                    if (isset($profileConfig['measurements'][$measurementKey + 1]) && --$countSRC > 0) {
                         $section = $this->addPage($phpWord);
                     }
                 }

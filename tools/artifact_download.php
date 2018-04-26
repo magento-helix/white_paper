@@ -16,7 +16,7 @@ $config = new \App\Config(BP . '/../resources/config.json');
 $sourceLinkMap = [
     'jtl' => ' %s:/var/lib/jenkins/jobs/%s/builds/%s/archive/%s ',
     'json' => ' %s:/var/lib/jenkins/jobs/%s/builds/%s/archive/%s ',
-    'indexerLog' => ' %s:/var/lib/jenkins/workspace/starter/var/nohup/%s/%s/%s',
+    'indexerLog' => ' %s:/var/lib/jenkins/workspace/%s/var/nohup/%s/%s/%s',
 ];
 
 foreach ($config->getInstances() as $item) {
@@ -68,5 +68,5 @@ function getIndexerLogSourcePath(array $instance, array $src, array $measurement
 {
     global $sourceLinkMap;
 
-    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins'], $instance['edition'], $config->getMagentoEdition(), $config->getMagentoVersion());
+    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins'], $instance['jenkins_folder'], $config->getMagentoEdition(), $config->getMagentoVersion(), $src['path']);
 }

@@ -29,7 +29,7 @@ class Googlepage implements DataProviderInterface
      * @param int $index
      * @return array
      */
-    public function getData(array $data, int $index): array
+    public function getData(array $data, int $index)
     {
         $result = [];
         $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::JSON)['full'];

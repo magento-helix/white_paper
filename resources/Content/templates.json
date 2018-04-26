@@ -10,7 +10,7 @@
                     },
                     {
                         "type": "documentAuthors",
-                        "data": "<w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/>Helix Team<w:br/>Cloud-Performance-Measurements,<w:br/>Magento"
+                        "data": "<w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/>Helix Team<w:br/>Cloud-Performance-Measurements,<w:br/>Magento"
                     }
                 ]
             }
@@ -418,47 +418,30 @@
         ]
     },
     {
-        "title": "Profile indexation time",
-        "type": "profile_indexation_time",
+        "title": "Profile generation and indexation time",
+        "type": "compositeChapter",
+        "sub_titles": {
+            "SS": ""
+        },
         "pages": [
             {
                 "type": "SS",
-                "src": "jenkins_console",
+                "src": "indexerLog",
                 "blocks": [
                     {
-                        "type": "text",
+                        "type": "indexerLog",
                         "data": {
-                            "title": "Active threads over time",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
-                            "data": {
-                                "category": "timeStamp",
-                                "value": "grpThreads",
-                                "items": [
-                                    {
-                                        "title": "Frontend Pool",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "Frontend Pool"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Admin Pool",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "Admin Pool"
-                                        ]
-                                    },
-                                    {
-                                        "title": "CSR Pool",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "CSR Pool"
-                                        ]
-                                    }
-                                ]
-                            }
+                            "type": "indexer_log",
+                            "title": "Profile generation times",
+                            "pattern": "\/(Config Changes.*Total execution time:[^a-zA-Z]+)\/s"
+                        }
+                    },
+                    {
+                        "type": "indexerLog",
+                        "data": {
+                            "type": "indexer_log",
+                            "title": "Indexer times",
+                            "pattern": "\/(Design Config.*)Disabled maintenance\/s"
                         }
                     }
                 ]
@@ -570,8 +553,15 @@
     },
     {
         "title": "Load generation flow",
-        "type": "loadGenerationFlow",
+        "type": "compositeChapter",
         "contentType": "config",
+        "sub_titles": {
+            "SS": " for benchmarking",
+            "API": " (API performance)",
+            "CS-SITESPEED": " (client-side snapshot)",
+            "CS-GOOGLEPAGE": " (client-side snapshot)",
+            "GRAFANA": " server loading"
+        },
         "pages": [
             {
                 "type": "SS",

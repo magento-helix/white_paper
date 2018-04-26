@@ -14,6 +14,7 @@ use App\Document\Content\Page\Block\Type\Table\Data\Sitespeed as TableSitespeed;
 use App\Document\Content\Page\Block\Type\Table\Data\Googlepage as TableGooglepage;
 use App\Document\Content\Page\Block\Type\Chart\Data\Jtl as ChartJTL;
 use App\Document\Content\Page\Block\Type\Chart\Data\Gragana as ChartGrafana;
+use App\Document\Content\Page\Block\Type\Text\Data\IndexerLog;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\DataProviderInterface;
 
@@ -26,6 +27,7 @@ class DataProviderPool
         'table_jtl' => TableJTL::class,
         'table_sitespeed' => TableSitespeed::class,
         'table_googlepage' => TableGooglepage::class,
+        'indexer_log' => IndexerLog::class,
     ];
 
     public function get($type, InstanceInterface $instance = null, array $measurementConfig = []) : DataProviderInterface

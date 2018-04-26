@@ -13,6 +13,7 @@ use App\Document\Content\Page\Block\Type\CompositeColumnChart;
 use App\Document\Content\Page\Block\Type\DocumentAuthors;
 use App\Document\Content\Page\Block\Type\DocumentTableOfContent;
 use App\Document\Content\Page\Block\Type\DocumentTitle;
+use App\Document\Content\Page\Block\Type\IndexerLogText;
 use App\Document\Content\Page\Block\Type\JSONTable;
 use App\Document\Content\Page\Block\Type\JTLTable;
 use App\Document\Content\Page\Block\Type\JTLText;
@@ -40,9 +41,10 @@ class TypePool
         'lineChart' => LineChart::class,
         'columnChart' => ColumnChart::class,
         'compositeColumnChart' => CompositeColumnChart::class,
+        'indexerLog' => IndexerLogText::class,
     ];
 
-    public function getPage($type, PhpWord $phpWord, InstanceInterface $instance = null, array $measurementConfig = []) : TypeInterface
+    public function getBlock($type, PhpWord $phpWord, InstanceInterface $instance = null, array $measurementConfig = []) : TypeInterface
     {
         return new $this->map[$type]($phpWord, $instance, $measurementConfig);
     }

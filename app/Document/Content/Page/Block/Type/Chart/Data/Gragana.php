@@ -43,7 +43,7 @@ class Gragana implements DataProviderInterface
      * @param int $index
      * @return array
      */
-    public function getData(array $data, int $index): array
+    public function getData(array $data, int $index)
     {
         $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::GRAFANA)['full'];
         $reportData = $reportData[$index][0]['series'][0];

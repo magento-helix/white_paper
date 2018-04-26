@@ -78,7 +78,7 @@ class GrafanaProvider implements ProviderInterface
         return $result;
     }
 
-    public function getReportData(string $src) : array
+    public function getReportData(string $src)
     {
         $key = md5($src);
         if (!isset($this->reportData[$key])) {

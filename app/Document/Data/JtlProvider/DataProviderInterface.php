@@ -15,7 +15,7 @@ interface DataProviderInterface
      * @param int $index
      * @return array
      */
-    public function getData(array $data, int $index) : array;
+    public function getData(array $data, int $index);
 
     /**
      * @param array $data

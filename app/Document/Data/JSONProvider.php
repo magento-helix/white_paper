@@ -43,7 +43,7 @@ class JSONProvider implements ProviderInterface
         $this->data = $this->getReportData($src);
     }
 
-    public function getReportData(string $src) : array
+    public function getReportData(string $src)
     {
         $key = md5($src);
         if (!isset($this->reportData[$key])) {

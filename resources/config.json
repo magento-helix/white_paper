@@ -29,8 +29,7 @@
                                 },
                                 {
                                     "type": "indexerLog",
-                                    "path": "log",
-                                    "build_id": 146
+                                    "path": "small.out"
                                 }
                             ]
                         },
@@ -83,8 +82,7 @@
                                 },
                                 {
                                     "type": "indexerLog",
-                                    "path": "log",
-                                    "build_id": 140
+                                    "path": "medium.out"
                                 }
                             ]
                         },
@@ -135,7 +133,7 @@
             ],
             "jenkins": "starterlarge-eu",
             "jenkins_folder": "starterlarge",
-            "include": false,
+            "include": true,
             "profiles": [
                 {
                     "name": "small",
@@ -150,9 +148,8 @@
                                     "path": "var/tests/results/benchmark_result.jtl"
                                 },
                                 {
-                                    "type": "indexer_log",
-                                    "path": "log",
-                                    "build_id": 121
+                                    "type": "indexerLog",
+                                    "path": "small.out"
                                 }
                             ]
                         },
@@ -204,9 +201,8 @@
                                     "path": "var/tests/results/benchmark_result.jtl"
                                 },
                                 {
-                                    "type": "indexer_log",
-                                    "path": "medium.out",
-                                    "build_id": 142
+                                    "type": "indexerLog",
+                                    "path": "medium.out"
                                 }
                             ]
                         },

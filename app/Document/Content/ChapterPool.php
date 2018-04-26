@@ -14,7 +14,7 @@ class ChapterPool
 {
     private $map = [
         'title' => TitleChapter::class,
-        'loadGenerationFlow' => LoadGenerationFlowChapter::class,
+        'compositeChapter' => CompositeChapter::class,
     ];
 
     public function get($type, Config $config) : ChapterInterface

@@ -13,6 +13,7 @@ class Instance implements InstanceInterface
     const JTL = 'jtl';
     const JSON = 'json';
     const GRAFANA = 'grafana';
+    const INDEXER_LOG = 'indexerLog';
 
     private $data = [];
 
@@ -25,6 +26,7 @@ class Instance implements InstanceInterface
         self::JTL => JtlProvider::class,
         self::JSON => JSONProvider::class,
         self::GRAFANA => GrafanaProvider::class,
+        self::INDEXER_LOG => IndexerLogProvider::class,
     ];
 
     public function __construct($instanceConfig, $dataConfig)
@@ -89,6 +91,18 @@ class Instance implements InstanceInterface
         $this->dataSearchConfig[$measurementType . $type]['patterns'] = $patterns;
     }
 
+    private function initializeIndexerLogDataConfig($type, $measurementType) {
+        $patterns = [];
+        foreach ($this->dataConfig as $page) {
+            if ($page['type'] == $measurementType && $page['src'] == $type) {
+                foreach ($page['blocks'] as $block) {
+                    $patterns[] = $block['data']['pattern'];
+                }
+            }
+        }
+        $this->dataSearchConfig[$measurementType . $type]['patterns'] = array_unique($patterns);
+    }
+
     private function initializeJsonDataConfig($type, $measurementType)
     {
         $this->dataSearchConfig[$measurementType . $type] = [];
@@ -121,6 +135,8 @@ class Instance implements InstanceInterface
                 $this->initializeJsonDataConfig($type, $measurementType);
             } elseif ($type == self::GRAFANA) {
                 $this->initializeGrafanaDataConfig($type, $measurementType);
+            } elseif ($type == self::INDEXER_LOG) {
+                $this->initializeIndexerLogDataConfig($type, $measurementType);
             }
         }
 

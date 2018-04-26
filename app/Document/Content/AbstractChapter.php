@@ -63,7 +63,7 @@ class AbstractChapter implements ChapterInterface
             }
             foreach ($page['blocks'] as $block) {
                 $this->blockTypePool
-                    ->getPage($block['type'], $phpWord, $instance, $measurementConfig)
+                    ->getBlock($block['type'], $phpWord, $instance, $measurementConfig)
                     ->add($section, $block['data']);
             }
             if(isset($pages[$index + 1])) {
