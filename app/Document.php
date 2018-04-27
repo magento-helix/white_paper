@@ -40,6 +40,6 @@ class Document
             $this->content->add($this->phpWord, $this->config, $item);
         }
 
-        $this->phpWord->save('aaa.docx');
+        $this->phpWord->save("white_paper_{$this->config->getMagentoEdition()}_{$this->config->getMagentoVersion()}.docx");
     }
 }
