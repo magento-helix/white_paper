@@ -66,9 +66,8 @@ class JTLTable implements TypeInterface
             ->addText(
                 'Percentile',
                 [
-                    'name' => Font::DEFAULT_FONT,
+                    'name' => Font::DEFAULT_TEXT_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
-                    'bold' => true,
                 ],
                 ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
             );
@@ -79,7 +78,7 @@ class JTLTable implements TypeInterface
                 ->addText(
                     $item['title'],
                     [
-                        'name' => Font::DEFAULT_FONT,
+                        'name' => Font::DEFAULT_TEXT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
                     ],
@@ -91,9 +90,9 @@ class JTLTable implements TypeInterface
             $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT / 2);
             $table->addCell($cellSize, $cellRowSpan)
                 ->addText(
-                    "{$metric['type']} ({$metric['config']['lvl']})",
+                    "{$metric['config']['lvl']}",
                     [
-                        'name' => Font::DEFAULT_FONT,
+                        'name' => Font::DEFAULT_TEXT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
                     ],
@@ -111,7 +110,7 @@ class JTLTable implements TypeInterface
                     ->addText(
                         $cellDatum['values'][$index][1],
                         [
-                            'name' => Font::DEFAULT_FONT,
+                            'name' => Font::DEFAULT_TEXT_FONT,
                             'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                             'color' => $color,
                         ],

@@ -51,8 +51,9 @@ class Settings
             [
 
                 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::BOTH,
-                'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
+                'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
                 'spacing' => 120,
+                'lineHeight' => 1,
             ]
         );
     }
@@ -74,7 +75,7 @@ class Settings
         $phpWord->addParagraphStyle(Font::DEFAULT_CHAPTER_TITLE,
             [
 
-                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::LEFT,
+                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::START,
             ]
         );
     }
@@ -95,17 +96,16 @@ class Settings
             Font::DEFAULT_TABLE_STYLE,
             [
                 'borderSize' => 4,
-                'borderColor' => '006699',
+                'borderColor' => '0061ff',
                 'cellMargin' => 0,
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
                 'cellSpacing' => 0,
                 'unit' => \PhpOffice\PhpWord\SimpleType\TblWidth::TWIP,
-                'width' => 9504
             ],
             [
                 'borderBottomSize' => 4,
-                'borderBottomColor' => '0000FF',
-                'bgColor' => '66BBFF',
+                'borderBottomColor' => '0061ff',
+                'bgColor' => '006699',
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
             ]
         );
@@ -115,7 +115,7 @@ class Settings
     {
         $phpWord->addTitleStyle(
             1,
-            ['color' => 'E36C0A', 'size' => 16, 'name' => Font::DEFAULT_FONT],
+            ['color' => 'E36C0A', 'size' => Font::DEFAULT_TITLE_SIZE, 'name' => Font::DEFAULT_TITLE_FONT],
             [
                 'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
                 'spacing' => 120,
@@ -123,7 +123,7 @@ class Settings
         );
         $phpWord->addTitleStyle(
             2,
-            ['color' => '365F91', 'size' => 13, 'name' => Font::DEFAULT_FONT],
+            ['color' => '365F91', 'size' => 13, 'name' => Font::DEFAULT_TEXT_FONT],
             [
                 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER,
                 'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(2),

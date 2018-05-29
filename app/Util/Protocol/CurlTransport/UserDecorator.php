@@ -47,7 +47,7 @@ class UserDecorator implements CurlInterface
     public function __construct()
     {
         $this->transport = new CurlTransport();
-        $this->credentials = json_decode(file_get_contents('/magento/white_paper/temp/credentials.json'), true);
+        $this->credentials = json_decode(file_get_contents(__DIR__ . '/../../../temp/credentials.json'), true);
         $this->configuration = new \App\Config(BP . '/resources/config.json');
         $this->authorize();
     }

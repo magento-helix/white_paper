@@ -93,6 +93,7 @@ class AbstractChapter implements ChapterInterface
         if (isset($content['title'])) {
             $this->addTitle($section, $content['title']);
         }
+
         $this->addPages($phpWord, $section, $content['pages']);
     }
 

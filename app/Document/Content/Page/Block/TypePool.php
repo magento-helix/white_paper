@@ -18,6 +18,7 @@ use App\Document\Content\Page\Block\Type\JSONTable;
 use App\Document\Content\Page\Block\Type\JTLTable;
 use App\Document\Content\Page\Block\Type\JTLText;
 use App\Document\Content\Page\Block\Type\LineChart;
+use App\Document\Content\Page\Block\Type\MarkedList;
 use App\Document\Content\Page\Block\Type\PieChart;
 use App\Document\Content\Page\Block\Type\Table;
 use App\Document\Content\Page\Block\Type\Text;
@@ -32,6 +33,7 @@ class TypePool
         'documentAuthors' => DocumentAuthors::class,
         'documentTableOfContent' => DocumentTableOfContent::class,
         'text' => Text::class,
+        'markedList' => MarkedList::class,
         'image' => Image::class,
         'inlineTable' => Table::class,
         'jtlTable' => JTLTable::class,
@@ -44,7 +46,8 @@ class TypePool
         'indexerLog' => IndexerLogText::class,
     ];
 
-    public function getBlock($type, PhpWord $phpWord, InstanceInterface $instance = null, array $measurementConfig = []) : TypeInterface
+    public function getBlock($type, PhpWord $phpWord, InstanceInterface $instance = null, array $measurementConfig = [])
+        : TypeInterface
     {
         return new $this->map[$type]($phpWord, $instance, $measurementConfig);
     }

@@ -64,7 +64,7 @@ class JSONTable implements TypeInterface
             ->addText(
                 'Percentile',
                 [
-                    'name' => Font::DEFAULT_FONT,
+                    'name' => Font::DEFAULT_TEXT_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                     'bold' => true,
                 ],
@@ -77,7 +77,7 @@ class JSONTable implements TypeInterface
                 ->addText(
                     $item,
                     [
-                        'name' => Font::DEFAULT_FONT,
+                        'name' => Font::DEFAULT_TEXT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
                     ],
@@ -91,7 +91,7 @@ class JSONTable implements TypeInterface
                 ->addText(
                     $metric['type'],
                     [
-                        'name' => Font::DEFAULT_FONT,
+                        'name' => Font::DEFAULT_TEXT_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
                     ],
@@ -108,7 +108,7 @@ class JSONTable implements TypeInterface
                     ->addText(
                         $value,
                         [
-                            'name' => Font::DEFAULT_FONT,
+                            'name' => Font::DEFAULT_TEXT_FONT,
                             'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                             'color' => $color,
                         ],

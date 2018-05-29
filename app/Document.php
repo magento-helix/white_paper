@@ -34,7 +34,7 @@ class Document
         $this->settings->setDefaultChapterTitleParagraphStyle($this->phpWord);
         $this->settings->setDefaultChartTitleStyleStyle($this->phpWord);
 
-        $template = json_decode(file_get_contents('/magento/white_paper/resources/Content/templates.json'), true);
+        $template = json_decode(file_get_contents(__DIR__ . '/../resources/Content/templates.json'), true);
 
         foreach ($template as $item) {
             $this->content->add($this->phpWord, $this->config, $item);

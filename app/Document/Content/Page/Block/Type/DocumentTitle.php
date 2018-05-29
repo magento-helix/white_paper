@@ -37,7 +37,7 @@ class DocumentTitle implements TypeInterface
             ]
         );
         $fontStyle = [
-            'name' => Font::DEFAULT_FONT,
+            'name' => Font::DEFAULT_TEXT_FONT,
             'size' => Font::DEFAULT_BIG_TITLE_SIZE,
             'bold' => true,
             'color' => 'ED7D31'

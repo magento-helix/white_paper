@@ -28,7 +28,7 @@ class Table implements TypeInterface
     public function add(Section $section, $content)
     {
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
+//        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
         $count = count($content['rows'][0]) - 1;
         $cellRowSpan = ['vMerge' => 'restart', 'valign' => 'center'];
         $cellRowContinue = ['vMerge' => 'continue'];
@@ -36,16 +36,23 @@ class Table implements TypeInterface
 
         foreach ($content['rows'] as $key => $row) {
             $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
-            $bold = false;
+            $color = Font::DEFAULT_TABLE_CELL_COLOR;
             if ($key == 0) {
-                $bold = true;
+                $color = Font::DEFAULT_TABLE_TH_COLOR;
             }
 
             foreach ($row as $index => $item) {
                 if (null == $item['text']) {
                     continue;
                 }
-                $width = 1500;
+
+                $width = empty($item['width']) ? 1500 : $item['width'];
+
+                $textAlignment = empty($item['textAlignment'])
+                    ? \PhpOffice\PhpWord\SimpleType\Jc::CENTER
+                    :  $item['textAlignment'];
+
+
                 $cellRow = ['valign' => 'center'];
                 if ($item['type'] == 'cell') {
                     $cellRow = $cellColSpan;
@@ -63,11 +70,17 @@ class Table implements TypeInterface
                 $cell->addText(
                     $item['text'],
                     [
-                        'name' => Font::DEFAULT_FONT,
+                        'name' => Font::DEFAULT_TITLE_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
-                        'bold' => $bold
+                        'color' => $color,
+                        'bold' => !empty($item['bold'])
                     ],
-                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
+                    [
+                        'alignment' => $textAlignment,
+                        'indentation' => [
+                            'left' => 100
+                        ]
+                    ]
                 );
             }
 
