@@ -38,10 +38,6 @@
                     {
                         "type": "text",
                         "data": "<w:br/>This white paper contains results of performance measurements of Magento Commerce 2.2.4 running on Magento Cloud Pro infrastructure for cases of Small, Medium, Large and Extra-large profiles. Measurements track response rates captured for high-loaded eCommerce sites on Magento Cloud Pro production environments 12 to 120.<w:br/><w:br/>All performance measurements are based on simulated day-to-day store activities for customers and business users. The values do not reflect maximum throughout or reflect unique business models, like private sales or flash sales.<w:br/><w:br/>This information aids eCommerce managers and technical staff to better understand the performance characteristics of the application and select an appropriate plan for Magento Commerce store using Magento Cloud environments and services.<w:br/><w:br/>When considering Magento Cloud for your Magento Commerce storefronts, review Instance Profile Configuration to determine which profile meets the size of your storefront. All performance results in this white paper are titled by profile and environment size."
-                    },
-                    {
-                        "type": "markedList",
-                        "data": "Magento Commerce (Cloud) environments for 12 with Small and Medium profiles and 24 with Medium profile, can serve described load without any specific customizations and demonstrate above response time results for day-to-day store activities and sales.<li>Magento Commerce (Cloud) environments for 12, 24, 48 with Large profile and 48 and 120 with Extra Large profile require customizations in Magento code/infrastructure.<li>API performance scenarios demonstrate acceptable results, with the exception of Get/Create product cases for profiles larger than Small.<li>Client-side performance tests demonstrated good results.<li>Full indexation for Large and Extra-large profile takes a significant amount of time.<li>Emulating real instances, 60% cache hit rate was used during the measurements that implies more time of response caused by request to application and subsequent processes."
                     }
                 ]
             }
@@ -54,8 +50,8 @@
             {
                 "blocks": [
                     {
-                        "type": "text",
-                        "data": "<w:br/>Summary template text"
+                        "type": "markedList",
+                        "data": "Magento Commerce (Cloud) environments for 12 with Small and Medium profiles and 24 with Medium profile, can serve described load without any specific customizations and demonstrate above response time results for day-to-day store activities and sales.<li>Magento Commerce (Cloud) environments for 12, 24, 48 with Large profile and 48 and 120 with Extra Large profile require customizations in Magento code/infrastructure.<li>API performance scenarios demonstrate acceptable results, with the exception of Get/Create product cases for profiles larger than Small.<li>Client-side performance tests demonstrated good results.<li>Full indexation for Large and Extra-large profile takes a significant amount of time.<li>Emulating real instances, 60% cache hit rate was used during the measurements that implies more time of response caused by request to application and subsequent processes."
                     }
                 ]
             }

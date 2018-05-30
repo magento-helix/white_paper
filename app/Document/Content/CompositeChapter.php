@@ -58,7 +58,7 @@ class CompositeChapter extends AbstractChapter implements ChapterInterface
                         $section,
                         "{$instance['type']} instance with "
                             . ucfirst($profileConfig['name']) . " profile{$content['sub_titles'][$item['type']]}",
-                        2
+                        1
                     );
                     $this->addPages($phpWord, $section, $content['pages'], $instanceObject, $item);
 
