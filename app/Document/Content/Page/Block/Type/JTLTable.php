@@ -44,7 +44,7 @@ class JTLTable implements TypeInterface
         $this->measurementConfig = $measurementConfig;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $title = $content['title'];
         $section->addText(
@@ -53,7 +53,7 @@ class JTLTable implements TypeInterface
             Font::DEFAULT_CHART_TITLE
         );
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
+        $table->setWidth(Font::DEFAULT_TABLE_WIDTH + 1000);
         $cellRowSpan = ['valign' => 'center'];
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
@@ -66,8 +66,10 @@ class JTLTable implements TypeInterface
             ->addText(
                 'Percentile',
                 [
-                    'name' => Font::DEFAULT_TEXT_FONT,
+                    'name' => Font::DEFAULT_TABLE_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
+                    'color' => 'ffffff',
+                    'bold' => true
                 ],
                 ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
             );
@@ -78,9 +80,10 @@ class JTLTable implements TypeInterface
                 ->addText(
                     $item['title'],
                     [
-                        'name' => Font::DEFAULT_TEXT_FONT,
+                        'name' => Font::DEFAULT_TABLE_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
+                        'color' => 'ffffff'
                     ],
                     ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
@@ -92,7 +95,7 @@ class JTLTable implements TypeInterface
                 ->addText(
                     "{$metric['config']['lvl']}",
                     [
-                        'name' => Font::DEFAULT_TEXT_FONT,
+                        'name' => Font::DEFAULT_TABLE_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
                     ],
@@ -110,7 +113,7 @@ class JTLTable implements TypeInterface
                     ->addText(
                         $cellDatum['values'][$index][1],
                         [
-                            'name' => Font::DEFAULT_TEXT_FONT,
+                            'name' => Font::DEFAULT_TABLE_FONT,
                             'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                             'color' => $color,
                         ],

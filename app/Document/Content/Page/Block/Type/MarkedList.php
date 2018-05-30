@@ -26,8 +26,16 @@ class MarkedList implements TypeInterface
         $this->phpWord = $phpWord;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
+        $content = str_replace(
+            '<B>',
+            '</w:t></w:r><w:r><w:rPr><w:b/></w:rPr><w:t xml:space="preserve">',
+            $content
+        );
+
+        $content = str_replace('</B>', '</w:t></w:r><w:r><w:t>', $content);
+
         $content = explode('<li>', $content);
         foreach ($content as $item) {
             $section->addListItem(

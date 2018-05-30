@@ -12,6 +12,7 @@ use App\Document\Content\Page\Block\TypeInterface;
 use App\Document\Font;
 use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Style\ListItem;
 
 class Text implements TypeInterface
 {
@@ -25,8 +26,23 @@ class Text implements TypeInterface
         $this->phpWord = $phpWord;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
+        if (false !== $subTitle) {
+            $section->addTitle(
+                $subTitle,
+                2
+            );
+        }
+
+        $content = str_replace(
+            '<B>',
+            '</w:t></w:r><w:r><w:rPr><w:b/></w:rPr><w:t xml:space="preserve">',
+            $content
+        );
+
+        $content = str_replace('</B>', '</w:t></w:r><w:r><w:t>', $content);
+
         $content = explode('<w:br/>', $content);
         foreach ($content as $item) {
             $section->addText(

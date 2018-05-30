@@ -12,5 +12,5 @@ use PhpOffice\PhpWord\Element\Section;
 
 interface TypeInterface
 {
-    public function add(Section $section, $content);
+    public function add(Section $section, $content, $subTitle = false);
 }

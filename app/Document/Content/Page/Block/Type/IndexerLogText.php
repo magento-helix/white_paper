@@ -44,7 +44,7 @@ class IndexerLogText implements TypeInterface
         $this->measurementConfig = $measurementConfig;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
 

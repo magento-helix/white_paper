@@ -44,7 +44,7 @@ class JSONTable implements TypeInterface
         $this->measurementConfig = $measurementConfig;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $title = $content['title'];
         $section->addText(
@@ -54,7 +54,8 @@ class JSONTable implements TypeInterface
         );
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
         $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
-        $cellRowSpan = ['vMerge' => 'restart', 'valign' => 'center'];
+        $cellRowSpan = ['valign' => 'center'];
+//        $cellRowContinue = ['vMerge' => 'continue'];
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
         $cellSize = 1500;
@@ -62,10 +63,11 @@ class JSONTable implements TypeInterface
         $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
         $table->addCell($cellSize, $cellRowSpan)
             ->addText(
-                'Percentile',
+                'Score',
                 [
-                    'name' => Font::DEFAULT_TEXT_FONT,
+                    'name' => Font::DEFAULT_TABLE_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
+                    'color' => 'ffffff',
                     'bold' => true,
                 ],
                 ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
@@ -77,8 +79,9 @@ class JSONTable implements TypeInterface
                 ->addText(
                     $item,
                     [
-                        'name' => Font::DEFAULT_TEXT_FONT,
+                        'name' => Font::DEFAULT_TABLE_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
+                        'color' => 'ffffff',
                         'bold' => true,
                     ],
                     ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
@@ -86,12 +89,12 @@ class JSONTable implements TypeInterface
         }
 
         foreach ($content['metrics'] as $index => $metric) {
-            $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
+            $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT * 1.5);
             $table->addCell($cellSize, $cellRowSpan)
                 ->addText(
                     $metric['type'],
                     [
-                        'name' => Font::DEFAULT_TEXT_FONT,
+                        'name' => Font::DEFAULT_TABLE_FONT,
                         'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                         'bold' => true,
                     ],
@@ -108,7 +111,7 @@ class JSONTable implements TypeInterface
                     ->addText(
                         $value,
                         [
-                            'name' => Font::DEFAULT_TEXT_FONT,
+                            'name' => Font::DEFAULT_TABLE_FONT,
                             'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
                             'color' => $color,
                         ],

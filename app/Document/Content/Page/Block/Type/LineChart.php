@@ -47,7 +47,7 @@ class LineChart extends AbstractChart implements TypeInterface
         $this->measurementConfig = $measurementConfig;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $title = $content['title'];
         $section->addText(

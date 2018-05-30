@@ -21,9 +21,12 @@ class Font
     const DEFAULT_TEXT_SIZE = 11;
     const DEFAULT_TEXT_FONT = 'Arial';
     const DEFAULT_TABLE_TEXT_SIZE = 11;
+    const DEFAULT_TABLE_FONT = 'Calibri (Body)';
+    const DEFAULT_TABLE_TH_SIZE = 14;
     const DEFAULT_TABLE_STYLE = 'defaultTableStyle';
     const DEFAULT_TABLE_WIDTH = 4000;
-    const DEFAULT_TABLE_ROW_HEIGHT = 1000;
+    const DEFAULT_TABLE_ROW_HEIGHT = 500;
+    const DEFAULT_TABLE_TH_HEIGHT = 300;
     const DEFAULT_TABLE_TH_COLOR = 'ffffff';
     const DEFAULT_TABLE_CELL_COLOR = '000000';
     const DEFAULT_BIG_TITLE_SIZE = 18;

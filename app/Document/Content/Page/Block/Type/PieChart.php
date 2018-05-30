@@ -34,13 +34,12 @@ class PieChart implements TypeInterface
         $this->dataProviderPool = new DataProviderPool();
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $title = $content['title'];
-        $section->addText(
-            $title . '<w:br/>',
-            Font::getChartTitleStyle(),
-            Font::DEFAULT_CHART_TITLE
+        $section->addTitle(
+            $title,
+            2
         );
 
         $style = [

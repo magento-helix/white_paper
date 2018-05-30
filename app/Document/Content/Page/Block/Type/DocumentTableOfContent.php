@@ -25,8 +25,30 @@ class DocumentTableOfContent implements TypeInterface
         $this->phpWord = $phpWord;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
-        $section->addTOC();
+        $section->addText(
+            "Contents",
+            [
+                'color' => '365F91',
+                'size' => 18,
+                'name' => Font::DEFAULT_TITLE_FONT
+            ],
+            [
+                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::START,
+                'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(2),
+            ]
+        );
+
+        $section->addTextBreak();
+
+        $section->addTOC(
+            [
+                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::START,
+                'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
+                1,
+                1
+            ]
+        );
     }
 }

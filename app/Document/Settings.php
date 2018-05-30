@@ -29,7 +29,6 @@ class Settings
     public function setDefaultPageStyle(PhpWord $phpWord)
     {
         $PidPageSettings = array(
-            'headerHeight'=> \PhpOffice\PhpWord\Shared\Converter::inchToTwip(.01),
             'footerHeight'=> \PhpOffice\PhpWord\Shared\Converter::inchToTwip(.2),
             'marginLeft'  => \PhpOffice\PhpWord\Shared\Converter::inchToTwip(.75),
             'marginRight' => \PhpOffice\PhpWord\Shared\Converter::inchToTwip(.75),
@@ -37,6 +36,8 @@ class Settings
             'marginBottom'=> 0,
         );
         $phpWord->addSection($PidPageSettings);
+
+//        $phpWord->getSettings()->setUpdateFields(true);
     }
 
     public function setDefaultHeader(PhpWord $phpWord)
@@ -63,7 +64,7 @@ class Settings
         $phpWord->addParagraphStyle(Font::LEFT_ORIENTED_CHAPTER_CONTENT,
             [
 
-                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::LEFT,
+                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::START,
                 'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
                 'spacing' => 120,
             ]
@@ -97,14 +98,13 @@ class Settings
             [
                 'borderSize' => 4,
                 'borderColor' => '0061ff',
-                'cellMargin' => 0,
+                'cellMarginTop' => 100,
+                'cellMarginBottom' => 100,
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
                 'cellSpacing' => 0,
                 'unit' => \PhpOffice\PhpWord\SimpleType\TblWidth::TWIP,
             ],
             [
-                'borderBottomSize' => 4,
-                'borderBottomColor' => '0061ff',
                 'bgColor' => '006699',
                 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER,
             ]
@@ -118,14 +118,16 @@ class Settings
             ['color' => 'E36C0A', 'size' => Font::DEFAULT_TITLE_SIZE, 'name' => Font::DEFAULT_TITLE_FONT],
             [
                 'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
+                'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(8),
             ]
         );
         $phpWord->addTitleStyle(
             2,
-            ['color' => '365F91', 'size' => 13, 'name' => Font::DEFAULT_TEXT_FONT],
+            ['color' => '365F91', 'size' => 16, 'name' => Font::DEFAULT_TITLE_FONT],
             [
-                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER,
-                'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(2),
+                'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::START,
+                'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(6),
+                'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(6),
             ]
         );
     }

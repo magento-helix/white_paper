@@ -25,7 +25,7 @@ class DocumentTitle implements TypeInterface
         $this->phpWord = $phpWord;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $section = $this->phpWord->getSections()[0];
         $paragraphStyleName = 'pStyle';

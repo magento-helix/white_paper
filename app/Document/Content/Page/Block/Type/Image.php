@@ -24,14 +24,14 @@ class Image implements TypeInterface
         $this->phpWord = $phpWord;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $section->addImage(
             BP . $content,
             [
                 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER,
-                'width' => 450,
-                'height' => 480,
+                'width' => 370,
+                'height' => 400,
             ],
             false
         );

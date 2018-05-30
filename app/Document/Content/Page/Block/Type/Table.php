@@ -25,20 +25,23 @@ class Table implements TypeInterface
         $this->phpWord = $phpWord;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-//        $table->setWidth(Font::DEFAULT_TABLE_WIDTH);
         $count = count($content['rows'][0]) - 1;
         $cellRowSpan = ['vMerge' => 'restart', 'valign' => 'center'];
         $cellRowContinue = ['vMerge' => 'continue'];
         $cellColSpan = ['gridSpan' => $count, 'valign' => 'center'];
 
         foreach ($content['rows'] as $key => $row) {
-            $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
-            $color = Font::DEFAULT_TABLE_CELL_COLOR;
             if ($key == 0) {
                 $color = Font::DEFAULT_TABLE_TH_COLOR;
+                $size = Font::DEFAULT_TABLE_TH_SIZE;
+                $table->addRow(Font::DEFAULT_TABLE_TH_HEIGHT);
+            } else {
+                $color = Font::DEFAULT_TABLE_CELL_COLOR;
+                $size = Font::DEFAULT_TABLE_TEXT_SIZE;
+                $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
             }
 
             foreach ($row as $index => $item) {
@@ -52,8 +55,8 @@ class Table implements TypeInterface
                     ? \PhpOffice\PhpWord\SimpleType\Jc::CENTER
                     :  $item['textAlignment'];
 
-
-                $cellRow = ['valign' => 'center'];
+                $vAlign = empty($item['valign']) ? 'center' : $item['valign'];
+                $cellRow = ['valign' => $vAlign];
                 if ($item['type'] == 'cell') {
                     $cellRow = $cellColSpan;
                     $width = $width * $count;
@@ -70,8 +73,8 @@ class Table implements TypeInterface
                 $cell->addText(
                     $item['text'],
                     [
-                        'name' => Font::DEFAULT_TITLE_FONT,
-                        'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
+                        'name' => Font::DEFAULT_TABLE_FONT,
+                        'size' => $size,
                         'color' => $color,
                         'bold' => !empty($item['bold'])
                     ],

@@ -17,9 +17,9 @@ use PhpOffice\PhpWord\Shared\Converter;
 
 class CompositeColumnChart extends ColumnChart implements TypeInterface
 {
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         $content['index'] = 0;
-        parent::add($section, $content);
+        parent::add($section, $content, $subTitle);
     }
 }

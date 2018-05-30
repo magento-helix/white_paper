@@ -62,9 +62,11 @@ class AbstractChapter implements ChapterInterface
                 $section = $this->addPage($phpWord);
             }
             foreach ($page['blocks'] as $block) {
+                $subTitle = isset($block['title']) ? $block['title'] : false;
+
                 $this->blockTypePool
                     ->getBlock($block['type'], $phpWord, $instance, $measurementConfig)
-                    ->add($section, $block['data']);
+                    ->add($section, $block['data'], $subTitle);
             }
             if(isset($pages[$index + 1])) {
                 $newPage = true;

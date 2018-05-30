@@ -47,7 +47,7 @@ class AbstractChart implements TypeInterface
         $this->measurementConfig = $measurementConfig;
     }
 
-    public function add(Section $section, $content)
+    public function add(Section $section, $content, $subTitle = false)
     {
         if(isset($content['title'])) {
             $title = $content['title'];
