@@ -342,7 +342,7 @@
         ]
     },
     {
-        "title": "Profile generation and indexation time",
+        "title": "Profile indexation time",
         "type": "compositeChapter",
         "sub_titles": {
             "SS": ""
@@ -476,7 +476,6 @@
         ]
     },
     {
-        "title": "Load generation flow",
         "type": "compositeChapter",
         "contentType": "config",
         "sub_titles": {

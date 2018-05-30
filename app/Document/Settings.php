@@ -118,7 +118,6 @@ class Settings
             ['color' => 'E36C0A', 'size' => Font::DEFAULT_TITLE_SIZE, 'name' => Font::DEFAULT_TITLE_FONT],
             [
                 'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
-                'spacing' => 120,
             ]
         );
         $phpWord->addTitleStyle(
@@ -127,7 +126,6 @@ class Settings
             [
                 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER,
                 'spaceBefore' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(2),
-                'spacing' => 120,
             ]
         );
     }
