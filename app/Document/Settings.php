@@ -37,7 +37,7 @@ class Settings
         );
         $phpWord->addSection($PidPageSettings);
 
-//        $phpWord->getSettings()->setUpdateFields(true);
+        $phpWord->getSettings()->setUpdateFields(true);
     }
 
     public function setDefaultHeader(PhpWord $phpWord)
