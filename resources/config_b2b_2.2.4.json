@@ -1,0 +1,505 @@
+{
+    "title": "Measurements on AWS Infrastructure",
+    "edition": "b2b",
+    "version": "2.2.4",
+    "instances": [
+        {
+            "type": "Starter",
+            "id": "mcklpmeupnfcq",
+            "sub_hosts": [
+                {"name": null},
+                {"name": null},
+                {"name": null}
+            ],
+            "jenkins": "starter-eu",
+            "jenkins_folder": "starter",
+            "include": false,
+            "profiles": [
+                {
+                    "name": "small",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "small",
+                            "build_id": 135,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 136,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "small",
+                            "build_id": 153,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "small",
+                            "build_id": 153,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "medium",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "medium",
+                            "build_id": 142,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "type": "indexerLog",
+                                    "path": "medium.out"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 143,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "medium",
+                            "build_id": 154,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "medium",
+                            "build_id": 154,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Starter Large",
+            "id": "fit4a2kwwt56a",
+            "sub_hosts": [
+                {"name": null},
+                {"name": null},
+                {"name": null}
+            ],
+            "jenkins": "starterlarge-eu",
+            "jenkins_folder": "starterlarge",
+            "include": false,
+            "profiles": [
+                {
+                    "name": "small",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "small",
+                            "build_id": 131,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "type": "indexerLog",
+                                    "path": "small.out"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 132,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "small",
+                            "build_id": 149,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "small",
+                            "build_id": 149,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "medium",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "medium",
+                            "build_id": 144,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "type": "indexerLog",
+                                    "path": "medium.out"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 145,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "medium",
+                            "build_id": 150,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "medium",
+                            "build_id": 150,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Pro12",
+            "id": "oh2wi6klp5ytk",
+            "sub_hosts": [
+                {"name": "01df15a1dcbecd748"},
+                {"name": "038a5147a9b774b1d"},
+                {"name": "042785963195a60ee"}
+            ],
+            "jenkins": "jenkins12-eu",
+            "jenkins_folder": "12eu",
+            "include": true,
+            "profiles": [
+                {
+                    "name": "small",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "small",
+                            "build_id": 297,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 293,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "small",
+                            "build_id": 298,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "small",
+                            "build_id": 298,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Pro24",
+            "id": "zhe434vvxvvhc",
+            "sub_hosts": [
+                {"name": "025a07f7c8210afda"},
+                {"name": "0674ba891b8349b24"},
+                {"name": "0e9d1089c3f524de9"}
+            ],
+            "jenkins_folder": "24eu",
+            "jenkins": "jenkins24-eu",
+            "include": true,
+            "profiles": [
+                {
+                    "name": "small",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "small",
+                            "build_id": 233,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 234,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Pro48",
+            "id": "qjldd4p2tbpwg",
+            "sub_hosts": [
+                {"name": "032fd67cb04856dab"},
+                {"name": "0b6fc7129022af0a3"},
+                {"name": "0cc95ba4791960d6d"}
+            ],
+            "jenkins_folder": "48eu",
+            "jenkins": "jenkins48-eu",
+            "include": true,
+            "profiles": [
+                {
+                    "name": "small",
+                    "measurements": [
+                        {
+                            "type": "SS",
+                            "profile": "small",
+                            "build_id": 234,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 231,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "small",
+                            "build_id": 235,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "small",
+                            "build_id": 235,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "medium",
+                    "measurements": [
+                        {
+                            "type": "SS",
+                            "profile": "medium",
+                            "build_id": 233,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 232,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Pro120",
+            "id": "smjthfxq3rotk",
+            "sub_hosts": [
+                {"name": "032e8887fe0e8f267"},
+                {"name": "07ccc673207b75041"},
+                {"name": "080c45a8db93504a2"}
+            ],
+            "jenkins_folder": "120eu",
+            "jenkins": "jenkins120-eu",
+            "include": true,
+            "profiles": [
+                {
+                    "name": "medium",
+                    "measurements" : [
+                        {
+                            "type": "SS",
+                            "profile": "medium",
+                            "build_id": 157,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 158,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-SITESPEED",
+                            "profile": "medium",
+                            "build_id": 163,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "CS-GOOGLEPAGE",
+                            "profile": "medium",
+                            "build_id": 163,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "grafana": {
+        "base_url": "https://metrics.internal.magento.cloud/",
+        "api_sub_url": "api",
+        "db_sub_url": "api/datasources/proxy/1/query?db=monitoring&q=%s&epoch=ms"
+    }
+}

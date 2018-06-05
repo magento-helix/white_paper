@@ -36,8 +36,10 @@ class Sitespeed implements DataProviderInterface
 
         foreach ($reportData['scenarios'] as $key => $scenario) {
             $result[0][] = $key;
-            $result[1][] = $scenario['pageTimings']['frontEndTime']['median'];
-            $result[2][] = $scenario['pageTimings']['frontEndTime']['p90'];
+            $result[1][] = $scenario['fullyLoaded']['median'];
+            $result[2][] = $scenario['fullyLoaded']['p90'];
+            $result[3][] = $scenario['fullyLoaded']['p95'];
+            $result[4][] = $scenario['fullyLoaded']['p99'];
         }
 
         return $result;
