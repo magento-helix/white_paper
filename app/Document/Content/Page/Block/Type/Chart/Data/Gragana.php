@@ -5,6 +5,7 @@ namespace App\Document\Content\Page\Block\Type\Chart\Data;
 use App\Document\Data\Instance;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\DataProviderInterface;
+use App\Document\Data\ProviderRegistry;
 
 /**
  * Created by PhpStorm.
@@ -45,7 +46,7 @@ class Gragana implements DataProviderInterface
      */
     public function getData(array $data, int $index)
     {
-        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::GRAFANA)['full'];
+        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . ProviderRegistry::GRAFANA)['full'];
         $reportData = $reportData[$index][0]['series'][0];
 
         return $reportData;
@@ -60,7 +61,7 @@ class Gragana implements DataProviderInterface
         if (empty($this->range)) {
             $result = [];
             $count = static::RANGE_COUNT;
-            $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::GRAFANA)['full'];
+            $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . ProviderRegistry::GRAFANA)['full'];
             $reportData = $reportData[0]['results'][0]['series'][0]['values'];
 
             $this->count = count($reportData);

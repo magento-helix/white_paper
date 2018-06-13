@@ -1,7 +1,7 @@
 {
     "title": "Measurements on AWS Infrastructure",
-    "edition": "b2b",
-    "version": "2.2.4",
+    "edition": "ee",
+    "version": "2.2.5",
     "instances": [
         {
             "type": "Starter",
@@ -249,7 +249,7 @@
             ],
             "jenkins": "jenkins12-eu",
             "jenkins_folder": "12eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "small",
@@ -312,30 +312,19 @@
             ],
             "jenkins_folder": "24eu",
             "jenkins": "jenkins24-eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
-                    "name": "small",
+                    "name": "medium",
                     "measurements" : [
                         {
                             "type": "SS",
-                            "profile": "small",
-                            "build_id": 233,
+                            "profile": "medium",
+                            "build_id": 260,
                             "src": [
                                 {
                                     "type": "jtl",
                                     "path": "var/tests/results/benchmark_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "API",
-                            "profile": "small",
-                            "build_id": 234,
-                            "src": [
-                                {
-                                    "type": "jtl",
-                                    "path": "var/tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         }
@@ -353,7 +342,7 @@
             ],
             "jenkins_folder": "48eu",
             "jenkins": "jenkins48-eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "small",
@@ -446,49 +435,16 @@
             "include": true,
             "profiles": [
                 {
-                    "name": "medium",
+                    "name": "large",
                     "measurements" : [
                         {
                             "type": "SS",
-                            "profile": "medium",
-                            "build_id": 157,
+                            "profile": "large",
+                            "build_id": 195,
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "API",
-                            "profile": "medium",
-                            "build_id": 158,
-                            "src": [
-                                {
-                                    "type": "jtl",
-                                    "path": "var/tests/results/benchmark_api_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-SITESPEED",
-                            "profile": "medium",
-                            "build_id": 163,
-                            "src": [
-                                {
-                                    "type": "json",
-                                    "path": "var/tests/results/sidespeedio/browsertime.json"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-GOOGLEPAGE",
-                            "profile": "medium",
-                            "build_id": 163,
-                            "src": [
-                                {
-                                    "type": "json",
-                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                    "path": "var/tests/results/benchmark_concurrency_result.jtl"
                                 }
                             ]
                         }

@@ -12,8 +12,11 @@ class Jtl
 {
     public function parse($path): array
     {
-        $content = file_get_contents($path);
-        return $this->parseCsv($content);
+//        $content = file_get_contents($path);
+//        $arr1 = $this->parseCsv($content);
+//        $arr2 = $this->parseCsv2($path);
+
+        return $this->parseCsv2($path);
     }
 
     function parseCsv($csv_string, $delimiter = ",", $skip_empty_lines = true, $trim_fields = true)
@@ -51,5 +54,52 @@ class Jtl
                 $lines
             )
         );
+    }
+
+    public function parseCSV2($path)
+    {
+        $lines = [];
+        $handle = @fopen($path, "r");
+        if ($handle) {
+            while (($buffer = fgets($handle)) !== false) {
+                $buffer = preg_replace('/(?<!")""/', '!!Q!!', $buffer);
+                $buffer = preg_replace_callback(
+                    '/"(.*?)"/s',
+                    function ($field) {
+                        return urlencode(utf8_encode($field[1]));
+                    },
+                    $buffer
+                );
+
+                if (!isset($headers)) {
+                    $headers = str_getcsv($buffer);
+                    $count = count($headers);
+                    continue;
+                }
+
+                $fields = array_map('trim', explode(',', $buffer));
+                $fields[4] = $fields[8] = '';
+
+                if (count($fields) < $count) {
+                    continue;
+                }
+                $data = [];
+                foreach ($fields as $index => $field) {
+                    $data[$headers[$index]] = $field;
+                }
+                $lines[] = array_map(
+                    function ($field) {
+                        return str_replace('!!Q!!', '"', utf8_decode(urldecode($field)));
+                    },
+                    $data
+                );
+            }
+            if (!feof($handle)) {
+                echo "Ошибка: fgets() неожиданно потерпел неудачу\n";
+            }
+            fclose($handle);
+        }
+
+        return $lines;
     }
 }

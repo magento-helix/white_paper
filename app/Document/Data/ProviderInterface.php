@@ -15,4 +15,8 @@ interface ProviderInterface
     public function getData() : array;
 
     public function getReportData(string $src);
+
+    public function setConfig(array $config);
+
+    public function setInstance(InstanceInterface $instance);
 }

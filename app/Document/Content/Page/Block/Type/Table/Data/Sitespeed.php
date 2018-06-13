@@ -5,6 +5,7 @@ namespace App\Document\Content\Page\Block\Type\Table\Data;
 use App\Document\Data\Instance;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\DataProviderInterface;
+use App\Document\Data\ProviderRegistry;
 
 /**
  * Created by PhpStorm.
@@ -32,7 +33,7 @@ class Sitespeed implements DataProviderInterface
     public function getData(array $data, int $index)
     {
         $result = [];
-        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::JSON)['full'];
+        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . ProviderRegistry::JSON)['full'];
 
         foreach ($reportData['scenarios'] as $key => $scenario) {
             $result[0][] = $key;

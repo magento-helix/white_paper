@@ -10,24 +10,12 @@ namespace App\Document\Data;
 
 class Instance implements InstanceInterface
 {
-    const JTL = 'jtl';
-    const JSON = 'json';
-    const GRAFANA = 'grafana';
-    const INDEXER_LOG = 'indexerLog';
-
     private $data = [];
 
     private $instanceConfig;
     private $dataConfig;
 
     private $dataSearchConfig = [];
-
-    private $dataProviderMap = [
-        self::JTL => JtlProvider::class,
-        self::JSON => JSONProvider::class,
-        self::GRAFANA => GrafanaProvider::class,
-        self::INDEXER_LOG => IndexerLogProvider::class,
-    ];
 
     public function __construct($instanceConfig, $dataConfig)
     {
@@ -42,13 +30,15 @@ class Instance implements InstanceInterface
         foreach ($this->instanceConfig['profiles'] as $profile) {
             foreach ($profile['measurements'] as $measurement) {
                 foreach ($measurement['src'] as $item) {
-                    /** @var ProviderInterface $provider */
-                    $provider = new $this->dataProviderMap[$item['type']]($this->getDataConfig($item['type'], $measurement['type']), $this);
                     $src = BP . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR
                         . $this->instanceConfig['type'] . DIRECTORY_SEPARATOR
                         . $profile['name'] . DIRECTORY_SEPARATOR
                         . $measurement['type'] . DIRECTORY_SEPARATOR
                         . $item['path'];
+                    /** @var ProviderInterface $provider */
+                    $provider = ProviderRegistry::getProvider($item['type'], $src);
+                    $provider->setConfig($this->getDataConfig($item['type'], $measurement['type']));
+                    $provider->setInstance($this);
                     $provider->load($src);
                     $this->data[$profile['name'] . $measurement['type'] . $item['type']] = [
                         'full' => $provider->getReportData($src),
@@ -129,13 +119,13 @@ class Instance implements InstanceInterface
     private function getDataConfig($type, $measurementType): array
     {
         if (!isset($this->dataSearchConfig[$measurementType . $type])) {
-            if ($type == self::JTL){
+            if ($type == ProviderRegistry::JTL){
                 $this->initializeJtlDataConfig($type, $measurementType);
-            } elseif ($type == self::JSON) {
+            } elseif ($type == ProviderRegistry::JSON) {
                 $this->initializeJsonDataConfig($type, $measurementType);
-            } elseif ($type == self::GRAFANA) {
+            } elseif ($type == ProviderRegistry::GRAFANA) {
                 $this->initializeGrafanaDataConfig($type, $measurementType);
-            } elseif ($type == self::INDEXER_LOG) {
+            } elseif ($type == ProviderRegistry::INDEXER_LOG) {
                 $this->initializeIndexerLogDataConfig($type, $measurementType);
             }
         }

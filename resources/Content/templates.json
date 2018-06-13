@@ -456,10 +456,9 @@
                                 "advanced search",
                                 "checkout by guest",
                                 "checkout by customer",
-                                "quick order",
-                                "negotiable quote",
-                                "requisition list"
-
+                                "add to cart by guest",
+                                "add to wishlist",
+                                "compare products"
                             ],
                             "data": {
                                 "items": [
@@ -471,9 +470,9 @@
                                         10.00,
                                         4.00,
                                         4.00,
-                                        11.0,
-                                        3.0,
-                                        14.0
+                                        28.00,
+                                        2.00,
+                                        2.00
                                     ]
                                 ]
                             }
@@ -500,23 +499,19 @@
                                 "edit order",
                                 "create order",
                                 "returns management",
-                                "customer grid",
-                                "quote management",
-                                "shared catalog"
+                                "customer grid"
                             ],
                             "data": {
                                 "items": [
                                     [
-                                        10.00,
-                                        10.00,
-                                        30.00,
-                                        20.00,
                                         15.00,
                                         10.00,
-                                        20.00,
-                                        20.00,
+                                        35.00,
+                                        25.00,
                                         15.00,
-                                        10.00
+                                        10.00,
+                                        70.00,
+                                        20.00
                                     ]
                                 ]
                             }
@@ -902,10 +897,31 @@
                                 "value": "Latency",
                                 "items": [
                                     {
+                                        "title": "by Guest",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout start"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         "title": "by Customer",
                                         "tag_field": "label",
                                         "tags": [
                                             "Checkout start"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
                                         ]
                                     }
                                 ]
@@ -924,10 +940,31 @@
                                 "value": "Latency",
                                 "items": [
                                     {
+                                        "title": "by Guest",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         "title": "by Customer",
                                         "tag_field": "label",
                                         "tags": [
                                             "Checkout Payment Info/Place Order"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
                                         ]
                                     }
                                 ]
@@ -952,12 +989,34 @@
                                 "value": "Latency",
                                 "items": [
                                     {
+                                        "title": "by Guest",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Add To Cart"
+                                        ],
+                                        "pattern": "/[^\\(]Add To Cart/",
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         "title": "by Customer",
                                         "tag_field": "label",
                                         "tags": [
                                             "Add To Cart"
                                         ],
-                                        "pattern": "/[^\\(]Add To Cart/"
+                                        "pattern": "/[^\\(]Add To Cart/",
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -1243,109 +1302,6 @@
                                         "tag_field": "label",
                                         "tags": [
                                             "Save Order"
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "SS",
-                "src": "jtl",
-                "blocks": [
-                    {
-                        "type": "jtlTable",
-                        "data": {
-                            "title": "Frontend B2B related Results",
-                            "type": "table_jtl",
-                            "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50}},
-                                {"type": "percentile", "config": {"lvl": 90}},
-                                {"type": "percentile", "config": {"lvl": 95}},
-                                {"type": "percentile", "config": {"lvl": 99}}
-                            ],
-                            "max": 2000,
-                            "data": {
-                                "category": "timeStamp",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Quickorder Add To Cart",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Quickorder Add To Cart"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Quickorder Suggest Product",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Quickorder Suggest Product"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Create Requisition List",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Create Requisition List"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Requisition List View",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Requisition List View"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Copy Order Items To Requisition List",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Copy Order Items To Requisition List"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Request Quote",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Request Quote"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Open Quotes",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Quotes"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Open Quote",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Quote"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Quote Recalculate",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Quote Recalculate"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Reorder",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Reorder"
                                         ]
                                     }
                                 ]

@@ -42,12 +42,20 @@ class IndexerLogProvider implements ProviderInterface
      */
     private $appConfig;
 
-    public function __construct($config, InstanceInterface $instance)
+    public function __construct()
+    {
+        $this->parser = new Log();
+        $this->appConfig = new \App\Config(BP . '/resources/config.json');;
+    }
+
+    public function setConfig(array $config)
+    {
+        $this->config = $config;
+    }
+
+    public function setInstance(InstanceInterface $instance)
     {
         $this->instance = $instance;
-        $this->parser = new Log();
-        $this->config = $config;
-        $this->appConfig = new \App\Config(BP . '/resources/config.json');;
     }
 
     public function load(string $src)

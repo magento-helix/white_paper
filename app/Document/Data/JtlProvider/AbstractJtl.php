@@ -6,6 +6,7 @@ use App\Document\Data\Instance;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\Jtl\ConditionPool;
 use App\Document\Data\JtlProvider\Jtl\MetricPool;
+use App\Document\Data\ProviderRegistry;
 
 /**
  * Created by PhpStorm.
@@ -115,7 +116,7 @@ abstract class AbstractJtl implements DataProviderInterface
 
     public function loadData($config)
     {
-        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::JTL)['filtered'];
+        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . ProviderRegistry::JTL)['filtered'];
         $data = [];
         foreach ($config['data']['items'] as $itemConfig) {
             $data[$itemConfig['title']] = [];
@@ -158,7 +159,7 @@ abstract class AbstractJtl implements DataProviderInterface
         if (empty($this->range)) {
             $result = [];
             $count = static::RANGE_COUNT;
-            $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::JTL)['full'];
+            $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . ProviderRegistry::JTL)['full'];
 
             $maxCategory = (int)$reportData[count($reportData) - 2]['timeStamp'] / 1000;
             $minCategory = (int)$reportData[0]['timeStamp'] / 1000;

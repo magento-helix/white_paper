@@ -11,6 +11,7 @@ namespace App\Document\Content\Page\Block\Type\Text\Data;
 use App\Document\Data\Instance;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\DataProviderInterface;
+use App\Document\Data\ProviderRegistry;
 
 class IndexerLog implements DataProviderInterface
 {
@@ -32,7 +33,7 @@ class IndexerLog implements DataProviderInterface
     public function getData(array $data, int $index)
     {
         return $this->instance->getData(
-            $this->measurementConfig['profile'] . $this->measurementConfig['type'] . Instance::INDEXER_LOG
+            $this->measurementConfig['profile'] . $this->measurementConfig['type'] . ProviderRegistry::INDEXER_LOG
         )['filtered']['by_tags'][$data['pattern']];
     }
 

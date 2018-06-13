@@ -32,10 +32,19 @@ class JSONProvider implements ProviderInterface
      */
     private $config;
 
-    public function __construct($config)
+    public function __construct()
     {
         $this->parser = new Json();
+    }
+
+    public function setConfig(array $config)
+    {
         $this->config = $config;
+    }
+
+    public function setInstance(InstanceInterface $instance)
+    {
+        $this->instance = $instance;
     }
 
     public function load(string $src)
