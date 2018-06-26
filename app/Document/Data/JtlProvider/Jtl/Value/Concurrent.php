@@ -28,8 +28,12 @@ class Concurrent implements MetricInterface
         $count = count($list);
         $first = $list[0];
         $last = $list[$count - 1];
-        $duration = ($last - $first) / 1000 / 60 / 60; //in hours
-        $duration = $duration == 0 ? 1 : $duration;
+        if (!isset($this->config['duration'])) {
+            $duration = ($last - $first) / 1000 / 60 / 60; //in hours
+            $duration = $duration == 0 ? 1 : $duration;
+        } else {
+            $duration = $this->config['duration'];
+        }
 
         return $count / $duration;
     }

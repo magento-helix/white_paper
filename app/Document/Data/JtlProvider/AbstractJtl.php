@@ -20,17 +20,17 @@ abstract class AbstractJtl implements DataProviderInterface
 
     const RANGE_COUNT = 12;
 
-    private $data = [];
+    protected $data = [];
 
     /**
      * @var int
      */
-    private $maxValue;
+    protected $maxValue;
 
     /**
      * @var int
      */
-    private $minValue;
+    protected $minValue;
 
     /**
      * @var array
@@ -40,12 +40,12 @@ abstract class AbstractJtl implements DataProviderInterface
     /**
      * @var MetricPool
      */
-    private $metricPool;
+    protected $metricPool;
 
     /**
      * @var ConditionPool
      */
-    private $conditionPool;
+    protected $conditionPool;
 
     /**
      * @var InstanceInterface
@@ -60,7 +60,7 @@ abstract class AbstractJtl implements DataProviderInterface
     /**
      * @var int
      */
-    private $count;
+    protected $count;
 
     public function __construct(InstanceInterface $instance = null, array $measurementConfig = [])
     {

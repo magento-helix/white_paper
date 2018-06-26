@@ -22,22 +22,22 @@ class AbstractChart implements TypeInterface
     /**
      * @var PhpWord
      */
-    private $phpWord;
+    protected $phpWord;
 
     /**
      * @var DataProviderPool
      */
-    private $dataProviderPool;
+    protected $dataProviderPool;
 
     /**
      * @var InstanceInterface
      */
-    private $instance;
+    protected $instance;
 
     /**
      * @var array
      */
-    private $measurementConfig;
+    protected $measurementConfig;
 
     public function __construct(PhpWord $phpWord, InstanceInterface $instance, array $measurementConfig)
     {

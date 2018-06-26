@@ -8,6 +8,7 @@
 
 namespace App\Document\Content\Page\Block\Type;
 
+use App\Document\Content\Page\Block\Type\Chart\Data\GroupJtl as GroupChartJtl;
 use App\Document\Content\Page\Block\Type\Chart\Data\Inline;
 use App\Document\Content\Page\Block\Type\Table\Data\Jtl as TableJTL;
 use App\Document\Content\Page\Block\Type\Table\Data\Sitespeed as TableSitespeed;
@@ -22,6 +23,7 @@ class DataProviderPool
 {
     private $map = [
         'chart_jtl' => ChartJTL::class,
+        'group_chart_jtl' => GroupChartJtl::class,
         'chart_grafana' => ChartGrafana::class,
         'chart_inline' => Inline::class,
         'table_jtl' => TableJTL::class,

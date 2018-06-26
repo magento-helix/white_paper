@@ -13,6 +13,8 @@ use App\Document\Content\Page\Block\Type\CompositeColumnChart;
 use App\Document\Content\Page\Block\Type\DocumentAuthors;
 use App\Document\Content\Page\Block\Type\DocumentTableOfContent;
 use App\Document\Content\Page\Block\Type\DocumentTitle;
+use App\Document\Content\Page\Block\Type\GroupJTLTable;
+use App\Document\Content\Page\Block\Type\GroupLineChart;
 use App\Document\Content\Page\Block\Type\IndexerLogText;
 use App\Document\Content\Page\Block\Type\JSONTable;
 use App\Document\Content\Page\Block\Type\JTLTable;
@@ -37,10 +39,12 @@ class TypePool
         'image' => Image::class,
         'inlineTable' => Table::class,
         'jtlTable' => JTLTable::class,
+        'groupJtlTable' => GroupJTLTable::class,
         'jsonTable' => JSONTable::class,
         'jtlText' => JTLText::class,
         'pieChart' => PieChart::class,
         'lineChart' => LineChart::class,
+        'groupLineChart' => GroupLineChart::class,
         'columnChart' => ColumnChart::class,
         'compositeColumnChart' => CompositeColumnChart::class,
         'indexerLog' => IndexerLogText::class,

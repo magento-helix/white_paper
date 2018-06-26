@@ -15,7 +15,7 @@ use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Converter;
 
-class LineChart extends AbstractChart implements TypeInterface
+class GroupLineChart extends LineChart implements TypeInterface
 {
     const TYPE = 'line';
 
@@ -46,11 +46,13 @@ class LineChart extends AbstractChart implements TypeInterface
         );
         for ($i = 1; $i < count($content['data']['items']); $i++) {
             $data = $dataProvider->getData($content, $i);
-            $chart->addSeries(
-                $categories,
-                $data['values'][0],
-                $content['data']['items'][$i]['title']
-            );
+            if (isset($data['values'])) {
+                $chart->addSeries(
+                    $categories,
+                    $data['values'][0],
+                    $content['data']['items'][$i]['title']
+                );
+            }
         }
     }
 }

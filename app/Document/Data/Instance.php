@@ -30,20 +30,33 @@ class Instance implements InstanceInterface
         foreach ($this->instanceConfig['profiles'] as $profile) {
             foreach ($profile['measurements'] as $measurement) {
                 foreach ($measurement['src'] as $item) {
+                    $buildId = isset($measurement['build_id']) ? $measurement['build_id'] : $item['build']['id'];
                     $src = BP . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR
                         . $this->instanceConfig['type'] . DIRECTORY_SEPARATOR
                         . $profile['name'] . DIRECTORY_SEPARATOR
                         . $measurement['type'] . DIRECTORY_SEPARATOR
+                        . $buildId . DIRECTORY_SEPARATOR
                         . $item['path'];
                     /** @var ProviderInterface $provider */
                     $provider = ProviderRegistry::getProvider($item['type'], $src);
                     $provider->setConfig($this->getDataConfig($item['type'], $measurement['type']));
                     $provider->setInstance($this);
                     $provider->load($src);
-                    $this->data[$profile['name'] . $measurement['type'] . $item['type']] = [
-                        'full' => $provider->getReportData($src),
-                        'filtered' => $provider->getData()
-                    ];
+                    if (isset($this->data[$profile['name'] . $measurement['type'] . $item['type']])) {
+                        $this->data[$profile['name'] . $measurement['type'] . $item['type']]['full'] = array_merge_recursive(
+                            $this->data[$profile['name'] . $measurement['type'] . $item['type']]['full'],
+                            $provider->getReportData($src)
+                        );
+                        $this->data[$profile['name'] . $measurement['type'] . $item['type']]['filtered'] = array_merge_recursive(
+                            $this->data[$profile['name'] . $measurement['type'] . $item['type']]['filtered'],
+                            $provider->getData()
+                        );
+                    } else {
+                        $this->data[$profile['name'] . $measurement['type'] . $item['type']] = [
+                            'full' => $provider->getReportData($src),
+                            'filtered' => $provider->getData()
+                        ];
+                    }
                 }
             }
         }
@@ -119,7 +132,7 @@ class Instance implements InstanceInterface
     private function getDataConfig($type, $measurementType): array
     {
         if (!isset($this->dataSearchConfig[$measurementType . $type])) {
-            if ($type == ProviderRegistry::JTL){
+            if ($type == ProviderRegistry::JTL || $type == ProviderRegistry::CONCURRENCY_JTL){
                 $this->initializeJtlDataConfig($type, $measurementType);
             } elseif ($type == ProviderRegistry::JSON) {
                 $this->initializeJsonDataConfig($type, $measurementType);
