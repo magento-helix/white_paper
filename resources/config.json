@@ -25,7 +25,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_result.jtl"
+                                    "path": "tests/results/benchmark_result.jtl"
                                 }
                             ]
                         },
@@ -36,7 +36,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                    "path": "tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         },
@@ -47,7 +47,7 @@
                             "src": [
                                 {
                                     "type": "json",
-                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                    "path": "tests/results/sidespeedio/browsertime.json"
                                 }
                             ]
                         },
@@ -58,7 +58,7 @@
                             "src": [
                                 {
                                     "type": "json",
-                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                    "path": "tests/results/googlepagespeed/result.json"
                                 }
                             ]
                         }
@@ -74,7 +74,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_result.jtl"
+                                    "path": "tests/results/benchmark_result.jtl"
                                 },
                                 {
                                     "type": "indexerLog",
@@ -89,7 +89,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                    "path": "tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         },
@@ -100,7 +100,7 @@
                             "src": [
                                 {
                                     "type": "json",
-                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                    "path": "tests/results/sidespeedio/browsertime.json"
                                 }
                             ]
                         },
@@ -111,7 +111,7 @@
                             "src": [
                                 {
                                     "type": "json",
-                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                    "path": "tests/results/googlepagespeed/result.json"
                                 }
                             ]
                         }
@@ -141,7 +141,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_result.jtl"
+                                    "path": "tests/results/benchmark_result.jtl"
                                 },
                                 {
                                     "type": "indexerLog",
@@ -156,7 +156,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                    "path": "tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         },
@@ -167,7 +167,7 @@
                             "src": [
                                 {
                                     "type": "json",
-                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                    "path": "tests/results/sidespeedio/browsertime.json"
                                 }
                             ]
                         },
@@ -178,7 +178,7 @@
                             "src": [
                                 {
                                     "type": "json",
-                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                    "path": "tests/results/googlepagespeed/result.json"
                                 }
                             ]
                         }
@@ -194,7 +194,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_result.jtl"
+                                    "path": "tests/results/benchmark_result.jtl"
                                 },
                                 {
                                     "type": "indexerLog",
@@ -209,7 +209,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_api_result.jtl"
+                                    "path": "tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         },
@@ -220,7 +220,7 @@
                             "src": [
                                 {
                                     "type": "json",
-                                    "path": "var/tests/results/sidespeedio/browsertime.json"
+                                    "path": "tests/results/sidespeedio/browsertime.json"
                                 }
                             ]
                         },
@@ -231,7 +231,7 @@
                             "src": [
                                 {
                                     "type": "json",
-                                    "path": "var/tests/results/googlepagespeed/result.json"
+                                    "path": "tests/results/googlepagespeed/result.json"
                                 }
                             ]
                         }
@@ -242,26 +242,70 @@
         {
             "type": "Pro12",
             "id": "oh2wi6klp5ytk",
+            "ip": "35.158.210.240",
             "sub_hosts": [
                 {"name": "01df15a1dcbecd748"},
                 {"name": "038a5147a9b774b1d"},
                 {"name": "042785963195a60ee"}
             ],
-            "jenkins": "jenkins120-eu",
+            "jenkins": "jenkins120-new",
             "jenkins_folder": "12eu",
-            "include": false,
+            "include": true,
             "profiles": [
                 {
-                    "name": "small",
+                    "name": "medium",
                     "measurements" : [
                         {
                             "type": "Concurrency-SS",
                             "profile": "medium",
-                            "build_id": 4,
                             "src": [
                                 {
-                                    "type": "jtl",
-                                    "path": "var/tests/results/benchmark_concurrency_result.jtl"
+                                    "build": {
+                                        "id": 19,
+                                        "threads": {
+                                            "start": 0.6,
+                                            "end": 2,
+                                            "step": 0.2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 20,
+                                        "threads": {
+                                            "start": 2,
+                                            "end": 4,
+                                            "step": 0.2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 21,
+                                        "threads": {
+                                            "start": 4,
+                                            "end": 7.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 22,
+                                        "threads": {
+                                            "start": 8,
+                                            "end": 8,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
                                 }
                             ]
                         }
@@ -272,6 +316,7 @@
         {
             "type": "Pro24",
             "id": "zhe434vvxvvhc",
+            "ip": "54.93.150.14",
             "sub_hosts": [
                 {"name": "025a07f7c8210afda"},
                 {"name": "0674ba891b8349b24"},
@@ -279,7 +324,7 @@
             ],
             "jenkins_folder": "24eu",
             "jenkins": "jenkins24-new2",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "medium",
@@ -298,7 +343,55 @@
                                         }
                                     },
                                     "type": "concurrencyJtl",
-                                    "path": "var/tests/results/benchmark_concurrency_result.jtl"
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 270,
+                                        "threads": {
+                                            "start": 2,
+                                            "end": 3.4,
+                                            "step": 0.2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 271,
+                                        "threads": {
+                                            "start": 4,
+                                            "end": 5.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 272,
+                                        "threads": {
+                                            "start": 6,
+                                            "end": 7,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 273,
+                                        "threads": {
+                                            "start": 7.5,
+                                            "end": 8,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
                                 }
                             ]
                         }
@@ -309,26 +402,154 @@
         {
             "type": "Pro48",
             "id": "qjldd4p2tbpwg",
+            "ip": "18.194.58.244",
             "sub_hosts": [
                 {"name": "032fd67cb04856dab"},
                 {"name": "0b6fc7129022af0a3"},
                 {"name": "0cc95ba4791960d6d"}
             ],
             "jenkins_folder": "48eu",
-            "jenkins": "jenkins48-eu",
-            "include": false,
+            "jenkins": "jenkins48-new",
+            "include": true,
             "profiles": [
                 {
                     "name": "medium",
-                    "measurements": [
+                    "measurements" : [
                         {
-                            "type": "SS",
+                            "type": "Concurrency-SS",
                             "profile": "medium",
-                            "build_id": 281,
                             "src": [
                                 {
-                                    "type": "jtl",
-                                    "path": "var/tests/results/benchmark_concurrency_result.jtl"
+                                    "build": {
+                                        "id": 319,
+                                        "threads": {
+                                            "start": 0.6,
+                                            "end": 2,
+                                            "step": 0.2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 320,
+                                        "threads": {
+                                            "start": 2,
+                                            "end": 2.6,
+                                            "step": 0.2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 322,
+                                        "threads": {
+                                            "start": 2.6,
+                                            "end": 3,
+                                            "step": 0.2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 323,
+                                        "threads": {
+                                            "start": 3,
+                                            "end": 4,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 321,
+                                        "threads": {
+                                            "start": 4,
+                                            "end": 4.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 324,
+                                        "threads": {
+                                            "start": 5,
+                                            "end": 5.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 325,
+                                        "threads": {
+                                            "start": 6,
+                                            "end": 6,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 326,
+                                        "threads": {
+                                            "start": 6.5,
+                                            "end": 6.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 327,
+                                        "threads": {
+                                            "start": 7,
+                                            "end": 7,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 328,
+                                        "threads": {
+                                            "start": 7.5,
+                                            "end": 7.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 329,
+                                        "threads": {
+                                            "start": 8,
+                                            "end": 8,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
                                 }
                             ]
                         }
@@ -358,7 +579,7 @@
                             "src": [
                                 {
                                     "type": "jtl",
-                                    "path": "var/tests/results/benchmark_concurrency_result.jtl"
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
                                 }
                             ]
                         }

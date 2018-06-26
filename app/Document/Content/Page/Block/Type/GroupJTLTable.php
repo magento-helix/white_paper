@@ -111,6 +111,9 @@ class GroupJTLTable implements TypeInterface
                 $border = isset($content['data']['items'][$cellIndex]['border'])
                     ? $content['data']['items'][$cellIndex]['border']
                     : (isset($content['border']) ? $content['border'] : 1000);
+                if (!isset($item['values'][0][$index])) {
+                    throw new \Exception("Error undef index {$index} for {$title} {$this->instance->getInstanceType()}");
+                }
                 $value = $item['values'][0][$index];
                 $color = '00B050';
                 if ((null !== $min && $value < $min && $min - $value < $border)|| (null !== $max && $value > $max && $value - $max < $border)) {

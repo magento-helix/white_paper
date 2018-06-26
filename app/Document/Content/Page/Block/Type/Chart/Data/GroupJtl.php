@@ -39,13 +39,23 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
                 $list = [];
 
                 if (isset($handle["$x[$i]"])) {
+                    if (isset($handle[(string)($x[$i] - 0.1)])) {
+                        foreach ($handle[(string)($x[$i] - 0.1)] as $item) {
+                            $list[] = (int)$item[$handleValue];
+                        }
+                    }
                     foreach ($handle["$x[$i]"] as $item) {
                         $list[] = (int)$item[$handleValue];
                     }
-                    $result['values'][$metricKey][$i] = count($list)
-                        ? $this->metricPool->get($itemMetric)->calculate($list)
-                        : 0;
+                    if (isset($handle[(string)($x[$i] + 0.1)])) {
+                        foreach ($handle[(string)($x[$i] + 0.1)] as $item) {
+                            $list[] = (int)$item[$handleValue];
+                        }
+                    }
                 }
+                $result['values'][$metricKey][$i] = count($list)
+                    ? $this->metricPool->get($itemMetric)->calculate($list)
+                    : 0;
             }
         }
 
