@@ -88,8 +88,11 @@ class Jtl
                     $data[$headers[$index]] = $field;
                 }
                 if (!empty($config)) {
+                    $replace = 'Frontend Pool 1-';
+                    $threadId = (int)str_replace($replace, '', $data['threadName']);
                     if ((int)$data[$config['borders']['field']] < (int)$config['borders']['start']
-                        || (int)$data[$config['borders']['field']] > (int)$config['borders']['end']
+                        || (int)$config['borders']['maxThreadId'] < $threadId
+                        || in_array((int)$data[$config['borders']['field']], $config['borders']['excepts'])
                     ) {
                         continue;
                     }

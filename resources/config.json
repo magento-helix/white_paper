@@ -275,6 +275,7 @@
                                     "build": {
                                         "id": 20,
                                         "threads": {
+                                            "excepts": [4],
                                             "start": 2.2,
                                             "end": 4,
                                             "step": 0.2
@@ -287,7 +288,7 @@
                                     "build": {
                                         "id": 21,
                                         "threads": {
-                                            "start": 4.5,
+                                            "start": 4,
                                             "end": 7.5,
                                             "step": 0.5
                                         }
@@ -335,7 +336,7 @@
                             "src": [
                                 {
                                     "build": {
-                                        "id": 269,
+                                        "id": 277,
                                         "threads": {
                                             "start": 0.6,
                                             "end": 2,
@@ -347,10 +348,10 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 270,
+                                        "id": 278,
                                         "threads": {
                                             "start": 2.2,
-                                            "end": 3.4,
+                                            "end": 4,
                                             "step": 0.2
                                         }
                                     },
@@ -435,7 +436,8 @@
                                     "build": {
                                         "id": 320,
                                         "threads": {
-                                            "start": 2.2,
+                                            "excepts": [2],
+                                            "start": 2,
                                             "end": 2.6,
                                             "step": 0.2
                                         }
@@ -457,21 +459,9 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 323,
-                                        "threads": {
-                                            "start": 3,
-                                            "end": 4,
-                                            "step": 0.5
-                                        }
-                                    },
-                                    "type": "concurrencyJtl",
-                                    "path": "tests/results/benchmark_concurrency_result.jtl"
-                                },
-                                {
-                                    "build": {
                                         "id": 321,
                                         "threads": {
-                                            "start": 4.5,
+                                            "start": 4,
                                             "end": 4.5,
                                             "step": 0.5
                                         }

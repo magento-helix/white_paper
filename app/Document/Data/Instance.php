@@ -101,8 +101,21 @@ class Instance implements InstanceInterface
             $this->initializeJtlDataConfig($srcConfig, $measurementType);
         }
         $cores = (int)str_replace("Pro", "", $this->getInstanceType());
-        $this->dataSearchConfig[$measurementType . $type]['borders']['start'] = ceil($srcConfig['build']['threads']['start'] * $cores);
-        $this->dataSearchConfig[$measurementType . $type]['borders']['end'] = ceil($srcConfig['build']['threads']['end'] * $cores);
+        $maxThreadId = 0;
+        $start = ceil($srcConfig['build']['threads']['start'] * $cores);
+        for ($i = $srcConfig['build']['threads']['start']; $i  <= $srcConfig['build']['threads']['end']; $i += $srcConfig['build']['threads']['step']) {
+            $maxThreadId += ceil($cores * $i);
+        }
+        $excepts = [];
+        if (isset($srcConfig['build']['threads']['excepts'])) {
+            foreach ($srcConfig['build']['threads']['excepts'] as $item) {
+                $excepts[] = ceil($cores * $item);
+            }
+        }
+
+        $this->dataSearchConfig[$measurementType . $type]['borders']['start'] = $start;
+        $this->dataSearchConfig[$measurementType . $type]['borders']['maxThreadId'] = $maxThreadId;
+        $this->dataSearchConfig[$measurementType . $type]['borders']['excepts'] = $excepts;
         $this->dataSearchConfig[$measurementType . $type]['borders']['field'] = 'allThreads';
     }
 
