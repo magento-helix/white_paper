@@ -38,14 +38,11 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
             for ($i = 0; $i < count($x); $i++) {
                 $list = [];
 
-                if (isset($handle["$x[$i]"])) {
-                    if (isset($handle[(string)($x[$i] - 0.1)])) {
-                        foreach ($handle[(string)($x[$i] - 0.1)] as $item) {
+                if (isset($handle["$x[$i]"]) || isset($handle[(string)($x[$i] + 0.1)])) {
+                    if (isset($handle["$x[$i]"])) {
+                        foreach ($handle["$x[$i]"] as $item) {
                             $list[] = (int)$item[$handleValue];
                         }
-                    }
-                    foreach ($handle["$x[$i]"] as $item) {
-                        $list[] = (int)$item[$handleValue];
                     }
                     if (isset($handle[(string)($x[$i] + 0.1)])) {
                         foreach ($handle[(string)($x[$i] + 0.1)] as $item) {

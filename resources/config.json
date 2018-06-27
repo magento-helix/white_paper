@@ -275,7 +275,7 @@
                                     "build": {
                                         "id": 20,
                                         "threads": {
-                                            "start": 2,
+                                            "start": 2.2,
                                             "end": 4,
                                             "step": 0.2
                                         }
@@ -287,7 +287,7 @@
                                     "build": {
                                         "id": 21,
                                         "threads": {
-                                            "start": 4,
+                                            "start": 4.5,
                                             "end": 7.5,
                                             "step": 0.5
                                         }
@@ -435,7 +435,7 @@
                                     "build": {
                                         "id": 320,
                                         "threads": {
-                                            "start": 2,
+                                            "start": 2.2,
                                             "end": 2.6,
                                             "step": 0.2
                                         }
