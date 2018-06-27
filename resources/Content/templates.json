@@ -1049,6 +1049,58 @@
                 "src": "concurrencyJtl",
                 "blocks": [
                     {
+                        "type": "groupLineChart",
+                        "data": {
+                            "title": "Order placed per hour",
+                            "type": "group_chart_jtl",
+                            "metrics": [{"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "categories": ["allThreads"],
+                            "data": {
+                                "category": "allThreads",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Order placed per hour",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ],
+                                        "min": 800
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "groupLineChart",
+                        "data": {
+                            "title": "Page views per hour",
+                            "type": "group_chart_jtl",
+                            "metrics": [{"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "categories": ["allThreads"],
+                            "data": {
+                                "category": "allThreads",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Page views per hour",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Frontend Pool"
+                                        ],
+                                        "min": 80000
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [
+                    {
                         "type": "groupJtlTable",
                         "data": {
                             "title": "Concurrent Results",
