@@ -349,7 +349,7 @@
                                     "build": {
                                         "id": 270,
                                         "threads": {
-                                            "start": 2,
+                                            "start": 2.2,
                                             "end": 3.4,
                                             "step": 0.2
                                         }
@@ -471,7 +471,7 @@
                                     "build": {
                                         "id": 321,
                                         "threads": {
-                                            "start": 4,
+                                            "start": 4.5,
                                             "end": 4.5,
                                             "step": 0.5
                                         }

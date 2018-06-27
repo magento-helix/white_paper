@@ -32,6 +32,11 @@ class ConcurrencyJtlProvider implements ProviderInterface
      */
     private $config;
 
+    /**
+     * @var InstanceInterface
+     */
+    private $instance;
+
     public function __construct()
     {
         $this->parser = new Jtl();
@@ -92,7 +97,7 @@ class ConcurrencyJtlProvider implements ProviderInterface
     {
         $key = md5($src);
         if (!isset($this->reportData[$key])) {
-            $this->reportData[$key] = $this->parser->parse($src);
+            $this->reportData[$key] = $this->parser->parse($src, $this->config);
         }
 
         return $this->reportData[$key];

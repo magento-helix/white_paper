@@ -39,7 +39,7 @@ class Instance implements InstanceInterface
                         . $item['path'];
                     /** @var ProviderInterface $provider */
                     $provider = ProviderRegistry::getProvider($item['type'], $src);
-                    $provider->setConfig($this->getDataConfig($item['type'], $measurement['type']));
+                    $provider->setConfig($this->getDataConfig($item, $measurement['type']));
                     $provider->setInstance($this);
                     $provider->load($src);
                     if (isset($this->data[$profile['name'] . $measurement['type'] . $item['type']])) {
@@ -67,7 +67,8 @@ class Instance implements InstanceInterface
         return $this->instanceConfig['type'];
     }
 
-    private function initializeJtlDataConfig($type, $measurementType) {
+    private function initializeJtlDataConfig($srcConfig, $measurementType) {
+        $type = $srcConfig['type'];
         $needTags = [];
         $needFields = [];
         $patterns = ['/^[^0-9(]*/'];
@@ -94,7 +95,19 @@ class Instance implements InstanceInterface
         $this->dataSearchConfig[$measurementType . $type]['patterns'] = $patterns;
     }
 
-    private function initializeIndexerLogDataConfig($type, $measurementType) {
+    private function initializeConcurrencyJtlDataConfig($srcConfig, $measurementType) {
+        $type = $srcConfig['type'];
+        if (!isset($this->dataSearchConfig[$measurementType . $type])) {
+            $this->initializeJtlDataConfig($srcConfig, $measurementType);
+        }
+        $cores = (int)str_replace("Pro", "", $this->getInstanceType());
+        $this->dataSearchConfig[$measurementType . $type]['borders']['start'] = ceil($srcConfig['build']['threads']['start'] * $cores);
+        $this->dataSearchConfig[$measurementType . $type]['borders']['end'] = ceil($srcConfig['build']['threads']['end'] * $cores);
+        $this->dataSearchConfig[$measurementType . $type]['borders']['field'] = 'allThreads';
+    }
+
+    private function initializeIndexerLogDataConfig($srcConfig, $measurementType) {
+        $type = $srcConfig['type'];
         $patterns = [];
         foreach ($this->dataConfig as $page) {
             if ($page['type'] == $measurementType && $page['src'] == $type) {
@@ -106,13 +119,15 @@ class Instance implements InstanceInterface
         $this->dataSearchConfig[$measurementType . $type]['patterns'] = array_unique($patterns);
     }
 
-    private function initializeJsonDataConfig($type, $measurementType)
+    private function initializeJsonDataConfig($srcConfig, $measurementType)
     {
+        $type = $srcConfig['type'];
         $this->dataSearchConfig[$measurementType . $type] = [];
     }
 
-    private function initializeGrafanaDataConfig($type, $measurementType)
+    private function initializeGrafanaDataConfig($srcConfig, $measurementType)
     {
+        $type = $srcConfig['type'];
         $queries= [];
         foreach ($this->dataConfig as $page) {
             if ($page['src'] == $type) {
@@ -129,17 +144,21 @@ class Instance implements InstanceInterface
         $this->dataSearchConfig[$measurementType . $type]['queries'] = $queries;
     }
 
-    private function getDataConfig($type, $measurementType): array
+    private function getDataConfig($srcConfig, $measurementType): array
     {
+        $type = $srcConfig['type'];
+        if ($type == ProviderRegistry::CONCURRENCY_JTL) {
+            $this->initializeConcurrencyJtlDataConfig($srcConfig, $measurementType);
+        }
         if (!isset($this->dataSearchConfig[$measurementType . $type])) {
-            if ($type == ProviderRegistry::JTL || $type == ProviderRegistry::CONCURRENCY_JTL){
-                $this->initializeJtlDataConfig($type, $measurementType);
+            if ($type == ProviderRegistry::JTL){
+                $this->initializeJtlDataConfig($srcConfig, $measurementType);
             } elseif ($type == ProviderRegistry::JSON) {
-                $this->initializeJsonDataConfig($type, $measurementType);
+                $this->initializeJsonDataConfig($srcConfig, $measurementType);
             } elseif ($type == ProviderRegistry::GRAFANA) {
-                $this->initializeGrafanaDataConfig($type, $measurementType);
+                $this->initializeGrafanaDataConfig($srcConfig, $measurementType);
             } elseif ($type == ProviderRegistry::INDEXER_LOG) {
-                $this->initializeIndexerLogDataConfig($type, $measurementType);
+                $this->initializeIndexerLogDataConfig($srcConfig, $measurementType);
             }
         }
 

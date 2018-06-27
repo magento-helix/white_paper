@@ -10,13 +10,13 @@ namespace App\Document\Data\Parser;
  */
 class Jtl
 {
-    public function parse($path): array
+    public function parse($path, $config = []): array
     {
 //        $content = file_get_contents($path);
 //        $arr1 = $this->parseCsv($content);
 //        $arr2 = $this->parseCsv2($path);
 
-        return $this->parseCsv2($path);
+        return $this->parseCsv2($path, $config);
     }
 
     function parseCsv($csv_string, $delimiter = ",", $skip_empty_lines = true, $trim_fields = true)
@@ -56,7 +56,7 @@ class Jtl
         );
     }
 
-    public function parseCSV2($path)
+    public function parseCSV2($path, $config = [])
     {
         $lines = [];
         $handle = @fopen($path, "r");
@@ -86,6 +86,13 @@ class Jtl
                 $data = [];
                 foreach ($fields as $index => $field) {
                     $data[$headers[$index]] = $field;
+                }
+                if (!empty($config)) {
+                    if ((int)$data[$config['borders']['field']] < (int)$config['borders']['start']
+                        || (int)$data[$config['borders']['field']] > (int)$config['borders']['end']
+                    ) {
+                        continue;
+                    }
                 }
                 $lines[] = array_map(
                     function ($field) {
