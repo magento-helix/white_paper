@@ -350,8 +350,7 @@
                                     "build": {
                                         "id": 278,
                                         "threads": {
-                                            "start": 2.2,
-                                            "end": 4,
+                                            "end": 3.4,
                                             "step": 0.2
                                         }
                                     },
@@ -359,6 +358,17 @@
                                     "path": "tests/results/benchmark_concurrency_result.jtl"
                                 },
                                 {
+                                    "build": {
+                                        "id": 279,
+                                        "threads": {
+                                            "start": 3.6,
+                                            "end": 4,
+                                            "step": 0.2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_concurrency_result.jtl"
+                                },                                {
                                     "build": {
                                         "id": 271,
                                         "threads": {
