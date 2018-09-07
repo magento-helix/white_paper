@@ -74,6 +74,10 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
 
         $this->minValue = (float)$this->measurementConfig['src'][0]['build']['threads']['start'];
         $this->maxValue = (float)$this->measurementConfig['src'][count($this->measurementConfig['src']) - 1]['build']['threads']['end'];
+        $precision = max(
+            strlen(substr(strrchr($this->minValue, "."), 1)),
+            strlen(substr(strrchr($this->maxValue, "."), 1))
+        );
         $this->count = count($config['data']['items']);
         $cores = (float)str_replace("Pro", "", $this->instance->getInstanceType());
 
@@ -90,7 +94,7 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
                     }
                 }
                 if ($isConditionPass) {
-                    $load = round($item[$config['data']['category']] / $cores, 1);
+                    $load = round($item[$config['data']['category']] / $cores, $precision);
                     $this->data[$itemConfig['title']]["${load}"][] = $item;
 
                     if ($this->maxValue < $load) {

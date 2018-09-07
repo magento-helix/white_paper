@@ -21,7 +21,7 @@ class GroupLineChart extends LineChart implements TypeInterface
 
     public function add(Section $section, $content, $subTitle = false)
     {
-        $title = $content['title'];
+        $title = $content['title'] . " ({$content['max']}ms -  threshold)";
         $section->addText(
             "<w:br/>" . $title,
             Font::getChartTitleStyle(),
@@ -36,6 +36,10 @@ class GroupLineChart extends LineChart implements TypeInterface
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
         $categories = $dataProvider->getRange($content);
+        $cores = (float)str_replace("Pro", "", $this->instance->getInstanceType());
+        foreach ($categories as $key => $category) {
+            $categories[$key] = ceil($category * $cores);
+        }
         $data = $dataProvider->getData($content, 0);
         $chart = $section->addChart(
             self::TYPE,

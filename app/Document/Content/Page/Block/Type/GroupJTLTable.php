@@ -88,8 +88,9 @@ class GroupJTLTable implements TypeInterface
                     ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
         }
-
+        $cores = (float)str_replace("Pro", "", $this->instance->getInstanceType());
         foreach ($dataProvider->getRange($content) as $index => $load) {
+            $load = ceil($load * $cores);
             $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT / 2);
             $table->addCell($cellSize, $cellRowSpan)
                 ->addText(
@@ -116,7 +117,7 @@ class GroupJTLTable implements TypeInterface
                 }
                 $value = $item['values'][0][$index];
                 $color = '00B050';
-                if ((null !== $min && $value < $min && $min - $value < $border)|| (null !== $max && $value > $max && $value - $max < $border)) {
+                if ((null !== $min && $value < $min && $min - $value < $border) || (null !== $max && $value > $max && $value - $max < $border)) {
                     $color = 'FF9600';
                 } elseif ((null !== $min && $min - $value > $border) || (null !== $max && $value - $max > $border)) {
                     $color = 'FF0000';

@@ -13,7 +13,7 @@ use App\Document\Data\ProviderRegistry;
  * Date: 4/5/18
  * Time: 10:54 AM
  */
-class Gragana implements DataProviderInterface
+class Grafana implements DataProviderInterface
 {
     const TIME_FORMAT = 'H:i';
 

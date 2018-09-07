@@ -6,7 +6,7 @@
                 "blocks": [
                     {
                         "type": "documentTitle",
-                        "data": "Measurements on Magento Cloud Infrastructure"
+                        "data": "Measurements on Magento Cloud Infrastructure - B2C"
                     },
                     {
                         "type": "documentAuthors",
@@ -58,14 +58,14 @@
         ]
     },
     {
-        "title": "Instance Profile Configuration",
+        "title": "Data Profile Configuration",
         "type": "condition",
         "pages": [
             {
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "The scenarios use the following profiles. Each profile includes a number of sites, products, and categories best matching stores typically considered small, medium, large, and extra-large.<w:br/><w:br/>All profiles are available through the Magento 2 GitHub repository, Profiles.<w:br/>"
+                        "data": "The scenarios use the following data profiles. Each data profile includes a number of sites, products, and categories matching stores typically considered small, medium, large, and extra-large B2C installations.<w:br/><w:br/>All profiles are available through the Magento 2 GitHub repository, Profiles.<w:br/>"
                     },
                     {
                         "type": "inlineTable",
@@ -94,7 +94,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Website/store/store view: 1<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 15 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
+                                        "text": "* Websites/stores/stores view: 1 (total)<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 15 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
                                         "textAlignment": "start"
                                     }
                                 ],
@@ -107,7 +107,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Website/store/store view: 3<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 11 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
+                                        "text": "* Websites/stores/stores view: 3 (total)<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 11 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
                                         "textAlignment": "start"
                                     }
                                 ],
@@ -120,7 +120,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Website/store/store view: 5<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 11 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
+                                        "text": "* Websites/stores/stores view: 5 (total)<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 11 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
                                         "textAlignment": "start"
                                     }
                                 ],
@@ -133,7 +133,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Website/store/store view: 5<w:br/>* Individual simples: 600,000<w:br/>* Configurable products: 16,000(with 11 simple products for each configurable product, ~ 176,000 simple products)<w:br/>* Categories: 6,000<w:br/>* Customers: 10,000",
+                                        "text": "* Websites/stores/stores view: 5 (total)<w:br/>* Individual simples: 600,000<w:br/>* Configurable products: 16,000(with 11 simple products for each configurable product, ~ 176,000 simple products)<w:br/>* Categories: 6,000<w:br/>* Customers: 10,000",
                                         "textAlignment": "start"
                                     }
                                 ]
@@ -145,7 +145,7 @@
         ]
     },
     {
-        "title": "Test profile details",
+        "title": "Traffic profile details",
         "type": "testProfileDetails",
         "pages": [
             {
@@ -156,11 +156,15 @@
                     },
                     {
                         "type": "markedList",
-                        "data": "<B>Cache hit/miss rate: </B>60% hit / 40% miss<li><B>User actions: </B> Each user performs 2-3 actions (clicks) per minute. The average industry rate is 1 click per 1-2 minutes. Actions tested include<li><B>Load average: </B> 1 user per core<li><B>Storefront Frontend and Magento Admin actions: </B> Performance of actions completed by customers and business users managing the storefront<li><B>Site Performance Tools: </B> Performance according to sitespeed.io and Google page tests"
+                        "data": "<B>Cache hit/miss rate:</B> 0% cache hit, means that with avg cache hit ratio (~80%) the load could be up to 5 times larger while achieving same performance<li><B>User actions: </B> Each user performs 2-3 actions (clicks) per minute. The average industry rate is 1 click per 1-2 minutes.<li><B>Load average:</B> starting from 0.25x users per core to 8x users per core of the application server<li><B>Storefront Frontend and Magento Admin actions: </B> Performance of actions completed by customers and business users managing the storefront<li><B>Site Performance Tools: </B> Performance according to sitespeed.io and Google page tests"
                     },
                     {
                         "type": "text",
                         "data": "We capture data through the experiments for the mediana, 90 percentile, 95 percentile, and 99 percentile of measured performance."
+                    },
+                    {
+                        "type": "text",
+                        "data": "Note: the traffic profiles represent an average b2c scenario. For specific use cases like marketplace, flash sales, b2b, single product sites etc, the numbers might be significantly different."
                     }
                 ]
             }
@@ -197,7 +201,7 @@
                     {
                         "title": "Instances technical information",
                         "type": "text",
-                        "data": "All tests were run in the Production environment in Magento Commerce (Cloud) Pro plan environments.<w:br/>"
+                        "data": "All tests were run in the Production environment in Magento Commerce (Cloud) Pro plan default environments.<w:br/>"
                     },
                     {
                         "type": "inlineTable",
@@ -388,14 +392,14 @@
         ]
     },
     {
-        "title": "Users distribution details",
+        "title": "Users scenarios",
         "type": "usersDistributionDetails",
         "pages": [
             {
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "These charts detail the amount of user scenarios through the Frontend storefront and the Magento Admin."
+                        "data": "To test performance of several areas of the system, the testing simulates user activity by browsing, adding to cart and buying products, among others. Graph below show the distribution of the simulated activity."
                     },
                     {
                         "type": "pieChart",
@@ -483,28 +487,28 @@
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "This report includes graphs and tables of captured and calculated performance measurements. Each test includes graphs of median performance values and tables with extensive data."
-                    },
-                    {
-                        "type": "text",
                         "title": "Reading performance results",
                         "data": "<B>Performance Experiment Name</B><w:br/><w:br/>The name of each experiment testing section details the Cloud plan, environment size, and profile of store.<w:br/>For example, the title “Pro12 instance with Small profile benchmarking” indicates:"
                     },
                     {
                         "type": "markedList",
-                        "data": "Pro Cloud Plan – The Pro production environment is a dedicated server<li>12 Environment size<li>Small store profile size"
+                        "data": "Pro Cloud Plan – The Pro production environment is a dedicated server<li>12 cores Environment size<li>Small store profile size"
                     },
                     {
                         "type": "text",
-                        "data": "<w:br/><B>Graphs</B><w:br/><w:br/>Graphs map median measurements of performance tests for specific requests and responses. Each graph has a title for the test, legend for the tracked data, and median values. For detailed information including the 90 percentile to 99 percentile, see the corresponding tables after the graphs."
+                        "data": "<w:br/><B>How to interpret the graphs</B><w:br/><w:br/>The graphs show page load time (or whatever) depends on the number of traffic generating threads. When the page load time becomes unacceptable (we assume 2 seconds), you can deduct the maximum number of concurrent users the system could handle without caching."
                     },
                     {
                         "type": "text",
-                        "data": "<w:br/><B>Tables</B><w:br/><w:br/>The tables provide compiled, exact values of mediana, 90 percentile, 95 percentile, and 99 percentile for each of the graphs and additional collected data from tests. Values are calculated from full page loaded time (including HTTP request).<w:br/>All values are color-coded according to benchmarks: "
+                        "data": "<w:br/><B>Graphs</B><w:br/><w:br/>Graphs map median measurements of performance tests for specific requests and responses. Each graph has a title for the test, legend for the tracked data, and median values. For detailed information including the 90 percentile to 99 percentile, see the corresponding tables below the graphs."
+                    },
+                    {
+                        "type": "text",
+                        "data": "<w:br/><B>Tables</B><w:br/><w:br/>The tables provide compiled, exact values of mediana, 90 percentile, 95 percentile, and 99 percentile for each of the graphs and additional collected data from tests. Values are calculated based on full page loaded time (including HTTP request) but exclude loading any resources (images, scripts, style sheets).<w:br/>All values are color-coded according to benchmarks: "
                     },
                     {
                         "type": "markedList",
-                        "data": "Green – Within benchmarks<li>Orange – Exceeding benchmarks<li>Red – Far exceeding benchmark"
+                        "data": "Green – Within benchmarks (&lt;2 sec page load time)<li>Orange – Exceeding benchmarks (&gt;2sec, &lt;3 sec )<li>Red – Significantly exceeding benchmark"
                     },
                     {
                         "type": "text",
@@ -561,6 +565,8 @@
                             "title": "Catalog browsing by guest",
                             "type": "group_chart_jtl",
                             "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "max": 2000,
+                            "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
@@ -642,6 +648,8 @@
                             "title": "Catalog browsing by customer",
                             "type": "group_chart_jtl",
                             "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "max": 2000,
+                            "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
@@ -729,6 +737,8 @@
                             "title": "Checkout start page",
                             "type": "group_chart_jtl",
                             "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "max": 2000,
+                            "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
@@ -747,6 +757,20 @@
                                                 "type": "contains"
                                             }
                                         ]
+                                    },
+                                    {
+                                        "title": "by Customer",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout start"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -758,6 +782,8 @@
                             "title": "Checkout place order page",
                             "type": "group_chart_jtl",
                             "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "max": 2000,
+                            "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
@@ -793,6 +819,8 @@
                             "title": "Add to cart",
                             "type": "group_chart_jtl",
                             "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "max": 2000,
+                            "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
@@ -823,6 +851,8 @@
                             "title": "Search",
                             "type": "group_chart_jtl",
                             "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "max": 2000,
+                            "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
@@ -861,6 +891,7 @@
                                 {"type": "percentile", "config": {"lvl": 50, "group": {"field": "allThreads", "title": "allThreads"}}}
                             ],
                             "max": 2000,
+                            "deviation": 1000,
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
@@ -956,6 +987,7 @@
                                 {"type": "percentile", "config": {"lvl": 90, "group": {"field": "allThreads", "title": "allThreads"}}}
                             ],
                             "max": 2000,
+                            "deviation": 1000,
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
@@ -1054,7 +1086,7 @@
                             "title": "Concurrent Results",
                             "type": "group_chart_jtl",
                             "metrics": [
-                                {"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}
+                                {"type": "concurrent", "config": {"lvl": 1, "group": {"field": "allThreads", "title": "allThreads"}}}
                             ],
                             "data": {
                                 "category": "allThreads",

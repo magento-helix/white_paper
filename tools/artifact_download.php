@@ -15,7 +15,7 @@ $config = new \App\Config(BP . '/../resources/config.json');
 
 $sourceLinkMap = [
     'jtl' => ' %s:/var/lib/jenkins/jobs/%s/builds/%s/archive/%s ',
-    'concurrencyJtl' => ' s3://helix-cmi-backup-storage/jenkins_artifacts/%s/%s/%s/%s ',
+    'concurrencyJtl' => ' s3://helix-cmi-backup-storage/jenkins_artifacts/%s/%s/%s ',
     'json' => ' %s:/var/lib/jenkins/jobs/%s/builds/%s/archive/%s ',
     'indexerLog' => ' %s:/var/lib/jenkins/workspace/%s/var/nohup/%s/%s/%s',
 ];
@@ -65,7 +65,7 @@ function getConcurrencyJtlSourcePath(array $instance, array $src, array $measure
     global $sourceLinkMap;
     $buildId = isset($src['build']['id']) ? $src['build']['id'] : $measurement['build_id'];
 
-    return  sprintf($sourceLinkMap[$src['type']], $instance['id'], $instance['ip'], $buildId, $src['path']);
+    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins_build_name'], $buildId, $src['path']);
 }
 
 function getJsonSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
