@@ -28,11 +28,12 @@ class DocumentTableOfContent implements TypeInterface
     public function add(Section $section, $content, $subTitle = false)
     {
         $section->addText(
-            "Contents",
+            "Table of Contents",
             [
                 'color' => '365F91',
                 'size' => 18,
-                'name' => Font::DEFAULT_TITLE_FONT
+                'name' => 'Cambria (Headings)',
+                'bold' => true
             ],
             [
                 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::START,
@@ -44,11 +45,15 @@ class DocumentTableOfContent implements TypeInterface
 
         $section->addTOC(
             [
+                'size' => 10,
+                'name' => Font::DEFAULT_TITLE_FONT,
+                'bold' => true,
                 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::START,
                 'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
-                1,
-                1
-            ]
+            ],
+            [],
+            1,
+            1
         );
     }
 }

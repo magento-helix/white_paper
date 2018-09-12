@@ -14,7 +14,7 @@ use App\Document\Content\Page\Block\Type\Table\Data\Jtl as TableJTL;
 use App\Document\Content\Page\Block\Type\Table\Data\Sitespeed as TableSitespeed;
 use App\Document\Content\Page\Block\Type\Table\Data\Googlepage as TableGooglepage;
 use App\Document\Content\Page\Block\Type\Chart\Data\Jtl as ChartJTL;
-use App\Document\Content\Page\Block\Type\Chart\Data\Gragana as ChartGrafana;
+use App\Document\Content\Page\Block\Type\Chart\Data\Grafana as ChartGrafana;
 use App\Document\Content\Page\Block\Type\Text\Data\IndexerLog;
 use App\Document\Data\InstanceInterface;
 use App\Document\Data\JtlProvider\DataProviderInterface;
