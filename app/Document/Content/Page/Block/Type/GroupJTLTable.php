@@ -64,7 +64,7 @@ class GroupJTLTable implements TypeInterface
         $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT);
         $table->addCell($cellSize, $cellRowSpan)
             ->addText(
-                'Load',
+                'Active threads (0% cache hit rate)',
                 [
                     'name' => Font::DEFAULT_TABLE_FONT,
                     'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
@@ -73,6 +73,20 @@ class GroupJTLTable implements TypeInterface
                 ],
                 ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
             );
+        if (isset($content['data']['manual_categories'])) {
+            $table->addCell($cellSize, $cellRowSpan)
+                ->addText(
+                    "Possible threads with avg cache hit rate (80%)",
+                    [
+                        'name' => Font::DEFAULT_TABLE_FONT,
+                        'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
+                        'color' => 'ffffff',
+                        'bold' => true
+                    ],
+                    ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
+                );
+        }
+
         foreach ($content['data']['items'] as $index => $item) {
             $cellData[$index] = $dataProvider->getData($content, $index);
 
@@ -102,6 +116,26 @@ class GroupJTLTable implements TypeInterface
                     ],
                     ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
+            if (isset($content['data']['manual_categories'])) {
+                foreach ($content['data']['manual_categories'] as $manualCategory) {
+                    $variable = $manualCategory['config']['variable'];
+                    switch ($manualCategory['config']['type']) {
+                        case 'mult':
+                            $$variable *= $manualCategory['config']['value'];
+                            break;
+                    }
+                    $table->addCell($cellSize, $cellRowSpan)
+                        ->addText(
+                            "{$$variable}",
+                            [
+                                'name' => Font::DEFAULT_TABLE_FONT,
+                                'size' => Font::DEFAULT_TABLE_TEXT_SIZE,
+                                'bold' => true,
+                            ],
+                            ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
+                        );
+                }
+            }
             foreach ($cellData as $cellIndex => $item) {
                 $max = isset($content['data']['items'][$cellIndex]['max'])
                     ? $content['data']['items'][$cellIndex]['max']

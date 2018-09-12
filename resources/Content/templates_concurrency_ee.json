@@ -977,7 +977,13 @@
                                 ]
                             }
                         }
-                    },
+                    }
+                ]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [
                     {
                         "type": "groupJtlTable",
                         "data": {
@@ -1083,6 +1089,110 @@
                     {
                         "type": "groupJtlTable",
                         "data": {
+                            "title": "Admin Results (median)",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {"type": "percentile", "config": {"lvl": 50, "group": {"field": "allThreads", "title": "allThreads"}}}
+                            ],
+                            "max": 2000,
+                            "deviation": 1000,
+                            "data": {
+                                "category": "allThreads",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Simple product save",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Edit Simple Product Save"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product edit",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Edit Simple Product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Open order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Order"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Save order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Save Order"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [
+                    {
+                        "type": "groupJtlTable",
+                        "data": {
+                            "title": "Admin Results (90 percentile)",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {"type": "percentile", "config": {"lvl": 90, "group": {"field": "allThreads", "title": "allThreads"}}}
+                            ],
+                            "max": 2000,
+                            "deviation": 1000,
+                            "data": {
+                                "category": "allThreads",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Simple product save",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Edit Simple Product Save"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product edit",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Edit Simple Product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Open order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Order"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Save order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Save Order"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [
+                    {
+                        "type": "groupJtlTable",
+                        "data": {
                             "title": "Concurrent Results",
                             "type": "group_chart_jtl",
                             "metrics": [
@@ -1090,6 +1200,9 @@
                             ],
                             "data": {
                                 "category": "allThreads",
+                                "manual_categories": [
+                                    {"config": {"type": "mult", "value": 5, "variable": "load"}}
+                                ],
                                 "value": "timeStamp",
                                 "items": [
                                     {
@@ -1125,6 +1238,54 @@
                                             }
                                         ],
                                         "max": 1000
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "groupLineChart",
+                        "data": {
+                            "title": "Order placed per hour",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {"type": "concurrent", "config": {"lvl": 1, "group": {"field": "allThreads", "title": "allThreads"}}}
+                            ],
+                            "categories": ["allThreads"],
+                            "data": {
+                                "category": "allThreads",
+                                "value": "timeStamp",
+                                "items": [
+                                    {
+                                        "title": "Order placed per hour",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "groupLineChart",
+                        "data": {
+                            "title": "Page views per hour",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {"type": "concurrent", "config": {"lvl": 1, "group": {"field": "allThreads", "title": "allThreads"}}}
+                            ],
+                            "categories": ["allThreads"],
+                            "data": {
+                                "category": "allThreads",
+                                "value": "timeStamp",
+                                "items": [
+                                    {
+                                        "title": "Page views per hour",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Frontend Pool"
+                                        ]
                                     }
                                 ]
                             }
