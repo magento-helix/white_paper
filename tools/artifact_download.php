@@ -65,7 +65,7 @@ function getConcurrencyJtlSourcePath(array $instance, array $src, array $measure
     global $sourceLinkMap;
     $buildId = isset($src['build']['id']) ? $src['build']['id'] : $measurement['build_id'];
 
-    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins_build_name'], $buildId, $src['path']);
+    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins_folder'], $buildId, $src['path']);
 }
 
 function getJsonSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
