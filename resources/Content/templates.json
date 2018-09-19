@@ -1,445 +1,405 @@
-[
-    {
-        "type": "title",
-        "pages": [
+[{
+    "type": "title",
+    "pages": [{
+        "blocks": [{
+            "type": "documentTitle",
+            "data": "Measurements on Magento Cloud Infrastructure - B2C"
+        },
             {
-                "blocks": [
-                    {
-                        "type": "documentTitle",
-                        "data": "Measurements on Magento Cloud Infrastructure"
-                    },
-                    {
-                        "type": "documentAuthors",
-                        "data": "<w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/>Helix Team<w:br/>Cloud, Performance &amp; Measurements"
-                    }
-                ]
+                "type": "documentAuthors",
+                "data": "<w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/><w:br/>Helix Team<w:br/>Cloud, Performance &amp; Measurements"
             }
         ]
-    },
+    }]
+},
     {
         "type": "Content",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "type": "documentTableOfContent",
-                        "data": ""
-                    }
-                ]
-            }
-        ]
+        "pages": [{
+            "blocks": [{
+                "type": "documentTableOfContent",
+                "data": ""
+            }]
+        }]
     },
     {
         "title": "Introduction",
         "type": "introduction",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "type": "text",
-                        "data": "This white paper contains results of performance measurements of Magento Commerce 2.2.4 running on Magento Cloud Pro infrastructure for cases of Small, Medium, Large and Extra-large profiles. Measurements track response rates captured for high-loaded eCommerce sites on Magento Cloud Pro production environments 12 to 120.<w:br/><w:br/>All performance measurements are based on simulated day-to-day store activities for customers and business users. The values do not reflect maximum throughout or reflect unique business models, like private sales or flash sales.<w:br/><w:br/>This information aids eCommerce managers and technical staff to better understand the performance characteristics of the application and select an appropriate plan for Magento Commerce store using Magento Cloud environments and services.<w:br/><w:br/>When considering Magento Cloud for your Magento Commerce storefronts, review Instance Profile Configuration to determine which profile meets the size of your storefront. All performance results in this white paper are titled by profile and environment size."
-                    }
-                ]
-            }
-        ]
+        "pages": [{
+            "blocks": [{
+                "type": "text",
+                "data": "This white paper contains results of performance measurements of Magento Commerce 2.2.5 running on Magento Cloud Pro infrastructure for cases of Small, Medium and Large profiles. Measurements track response rates captured for high-loaded eCommerce sites on Magento Cloud Pro production environments 12 to 120.<w:br/><w:br/>All performance measurements are based on simulated day-to-day store activities for customers and business users. The values is also reflect a maximum throughout for each case, but don't reflect unique business models, like private sales or flash sales.<w:br/><w:br/>This information aids eCommerce managers and technical staff to better understand the performance characteristics of the application and select an appropriate plan for Magento Commerce store using Magento Cloud environments and services.<w:br/><w:br/>When considering Magento Cloud for your Magento Commerce storefronts, review Instance Profile Configuration to determine which profile meets the size of your storefront. All performance results in this white paper are titled by profile and environment size."
+            }]
+        }]
     },
     {
         "title": "Summary",
         "type": "conclusion",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "type": "markedList",
-                        "data": "Magento Commerce (Cloud) environments for 12 with Small and Medium profiles and 24 with Medium profile, can serve described load without any specific customizations and demonstrate above response time results for day-to-day store activities and sales.<li>Magento Commerce (Cloud) environments for 12, 24, 48 with Large profile and 48 and 120 with Extra Large profile require customizations in Magento code/infrastructure.<li>API performance scenarios demonstrate acceptable results, with the exception of Get/Create product cases for profiles larger than Small.<li>Client-side performance tests demonstrated good results.<li>Full indexation for Large and Extra-large profile takes a significant amount of time.<li>Emulating real instances, 60% cache hit rate was used during the measurements that implies more time of response caused by request to application and subsequent processes."
-                    }
-                ]
-            }
-        ]
+        "pages": [{
+            "blocks": [{
+                "type": "markedList",
+                "data": "Magento Commerce (Cloud) environments PRO12 and PRO24 with Small and Medium profiles can serve described load without any specific customizations and demonstrate above response time results for day-to-day store activities and sales.<li>Magento Commerce (Cloud) environments for PRO48 and PRO120 with Large profile require customizations in Magento code/infrastructure.<li>Client-side performance tests demonstrated good results.<li>Full indexation for Large profile takes a significant amount of time.<li>Emulating real instances, 0% cache hit rate was used during the measurements that implies more time of response caused by request to application and subsequent processes."
+            }]
+        }]
     },
     {
-        "title": "Instance Profile Configuration",
+        "title": "Data Profile Configuration",
         "type": "condition",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "type": "text",
-                        "data": "The scenarios use the following profiles. Each profile includes a number of sites, products, and categories best matching stores typically considered small, medium, large, and extra-large.<w:br/><w:br/>All profiles are available through the Magento 2 GitHub repository, Profiles.<w:br/>"
-                    },
-                    {
-                        "type": "inlineTable",
-                        "data": {
-                            "rows": [
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Profile",
-                                        "width": "1200",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "Store Data",
-                                        "width": "8000",
-                                        "bold": true
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Small",
-                                        "bold": true,
-                                        "valign": "top"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "* Website/store/store view: 1<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 15 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
-                                        "textAlignment": "start"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Medium",
-                                        "bold": true,
-                                        "valign": "top"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "* Website/store/store view: 3<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 11 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
-                                        "textAlignment": "start"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Large",
-                                        "bold": true,
-                                        "valign": "top"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "* Website/store/store view: 5<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 11 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
-                                        "textAlignment": "start"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Extra Large",
-                                        "bold": true,
-                                        "valign": "top"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "* Website/store/store view: 5<w:br/>* Individual simples: 600,000<w:br/>* Configurable products: 16,000(with 11 simple products for each configurable product, ~ 176,000 simple products)<w:br/>* Categories: 6,000<w:br/>* Customers: 10,000",
-                                        "textAlignment": "start"
-                                    }
-                                ]
+        "pages": [{
+            "blocks": [{
+                "type": "text",
+                "data": "The scenarios use the following data profiles. Each data profile includes a number of sites, products, and categories matching stores typically considered small, medium, large, and extra-large B2C installations.<w:br/><w:br/>All profiles are available through the Magento 2 GitHub repository, Profiles.<w:br/>"
+            },
+                {
+                    "type": "inlineTable",
+                    "data": {
+                        "rows": [
+                            [{
+                                "type": "normal",
+                                "text": "Profile",
+                                "width": "1200",
+                                "bold": true
+                            },
+                                {
+                                    "type": "normal",
+                                    "text": "Store Data",
+                                    "width": "8000",
+                                    "bold": true
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Small",
+                                "bold": true,
+                                "valign": "top"
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "* Websites/stores/stores view: 1 (total)<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 15 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
+                                    "textAlignment": "start"
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Medium",
+                                "bold": true,
+                                "valign": "top"
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "* Websites/stores/stores view: 3 (total)<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 11 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
+                                    "textAlignment": "start"
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Large",
+                                "bold": true,
+                                "valign": "top"
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "* Websites/stores/stores view: 5 (total)<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 11 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
+                                    "textAlignment": "start"
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Extra Large",
+                                "bold": true,
+                                "valign": "top"
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "* Websites/stores/stores view: 5 (total)<w:br/>* Individual simples: 600,000<w:br/>* Configurable products: 16,000(with 11 simple products for each configurable product, ~ 176,000 simple products)<w:br/>* Categories: 6,000<w:br/>* Customers: 10,000",
+                                    "textAlignment": "start"
+                                }
                             ]
-                        }
+                        ]
                     }
-                ]
-            }
-        ]
+                }
+            ]
+        }]
     },
     {
-        "title": "Test profile details",
+        "title": "Load profile details",
         "type": "testProfileDetails",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "type": "text",
-                        "data": "Every experiment uses the profiles listed in Instance Profile Configuration. These experiments use the following parameters."
-                    },
-                    {
-                        "type": "markedList",
-                        "data": "<B>Cache hit/miss rate: </B>60% hit / 40% miss<li><B>User actions: </B> Each user performs 2-3 actions (clicks) per minute. The average industry rate is 1 click per 1-2 minutes. Actions tested include<li><B>Load average: </B> 1 user per core<li><B>Storefront Frontend and Magento Admin actions: </B> Performance of actions completed by customers and business users managing the storefront<li><B>Site Performance Tools: </B> Performance according to sitespeed.io and Google page tests"
-                    },
-                    {
-                        "type": "text",
-                        "data": "We capture data through the experiments for the mediana, 90 percentile, 95 percentile, and 99 percentile of measured performance."
-                    }
-                ]
-            }
-        ]
+        "pages": [{
+            "blocks": [{
+                "type": "text",
+                "data": "Every experiment uses the profiles listed in Instance Profile Configuration. These experiments use the following parameters."
+            },
+                {
+                    "type": "markedList",
+                    "data": "<B>Cache hit/miss rate: </B>0% hit / 100% miss<li><B>User actions: </B> Each user performs 2-3 actions (clicks) per minute. The average industry rate is 1 click per 1-2 minutes. Actions tested include<li><B>Load average: </B> 1 user per core<li><B>Storefront Frontend and Magento Admin actions: </B> Performance of actions completed by customers and business users managing the storefront<li><B>Site Performance Tools: </B> Performance according to sitespeed.io"
+                },
+                {
+                    "type": "text",
+                    "data": "We capture data through the experiments for the 90 percentile and additionaly mediana for main table with response time."
+                },
+                {
+                    "type": "text",
+                    "data": "Note: the traffic profiles represent an average b2c scenario. For specific use cases like marketplace, flash sales, b2b, single product sites etc, the numbers might be significantly different."
+                }
+            ]
+        }]
     },
     {
         "title": "Magento Commerce (Cloud) information",
         "type": "environment",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "type": "text",
-                        "data": "For detailed information on our available Magento Commerce (Cloud) plans and options, see our site for plan information and DevDocs content."
-                    },
-                    {
-                        "type": "text",
-                        "title": "Cloud infrastructure schema",
-                        "data": "Experiments run through JMeter using profiles against the Magento Cloud Pro environment. The following image details the entry point of JMeter and Production infrastructure. For additional information, see the DevDocs Magento Commerce (Cloud) guide – Pro architecture."
-                    },
-                    {
-                        "type": "image",
-                        "data": "/resources/Content/Environment.png"
-                    }
-                ]
-            }
-        ]
+        "pages": [{
+            "blocks": [{
+                "type": "text",
+                "data": "For detailed information on our available Magento Commerce (Cloud) plans and options, see our site for plan information and DevDocs content."
+            },
+                {
+                    "type": "text",
+                    "title": "Cloud infrastructure schema",
+                    "data": "Experiments run through JMeter using profiles against the Magento Cloud Pro environment. The following image details the entry point of JMeter and Production infrastructure. For additional information, see the DevDocs Magento Commerce (Cloud) guide – Pro architecture."
+                },
+                {
+                    "type": "image",
+                    "data": "/resources/Content/Environment.png"
+                }
+            ]
+        }]
     },
     {
         "type": "environment",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "title": "Instances technical information",
-                        "type": "text",
-                        "data": "All tests were run in the Production environment in Magento Commerce (Cloud) Pro plan environments.<w:br/>"
-                    },
-                    {
-                        "type": "inlineTable",
-                        "data": {
-                            "rows": [
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Parameter",
-                                        "bold": true,
-                                        "width": 1400
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "12 cores",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "24 cores",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "48 cores",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "120 cores",
-                                        "bold": true
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Instance type",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "m4"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Elasticsearch<w:br/>(version:1.7.6)",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "HEAP_SIZE: 2G<w:br/>data dir size: 10G"
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "HEAP_SIZE: 4G<w:br/>data dir size: 20G"
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "HEAP_SIZE: 6G<w:br/>data dir size: 30G"
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "HEAP_SIZE: 8G<w:br/>data dir size: 40G"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Mysql",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "innodb_buffer_size: 6G<w:br/>space: 200Gb"
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "innodb_buffer_size: 12G<w:br/>space: 200Gb"
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "innodb_buffer_size: 18G<w:br/>space: 200Gb"
-                                    },
-                                    {
-                                        "type": "normal",
-                                        "text": "innodb_buffer_size: 24G<w:br/>space: 200Gb"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "CPU",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "Intel(R) Xeon(R) CPU E5-2686 v4<w:br/>L1d: 32K<w:br/>L1i: 32K<w:br/>L2: 256K<w:br/>L3: 46080K"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Redis",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "configuration: master * 2 slaves<w:br/>version =3.2.8<w:br/>maxclients: 10000<w:br/>maxmemory: 512mb"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Fastly",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "max_conn: 200"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Cron",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "run each 5 minuts"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    }
-                                ]
+        "pages": [{
+            "blocks": [{
+                "title": "Instances technical information",
+                "type": "text",
+                "data": "All tests were run in the Production environment in Magento Commerce (Cloud) Pro plan environments.<w:br/>"
+            },
+                {
+                    "type": "inlineTable",
+                    "data": {
+                        "rows": [
+                            [{
+                                "type": "normal",
+                                "text": "Parameter",
+                                "bold": true,
+                                "width": 1400
+                            },
+                                {
+                                    "type": "normal",
+                                    "text": "12 cores",
+                                    "bold": true
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "24 cores",
+                                    "bold": true
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "48 cores",
+                                    "bold": true
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "120 cores",
+                                    "bold": true
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Instance type",
+                                "bold": true
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "m4"
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Elasticsearch<w:br/>(version:5.2)",
+                                "bold": true
+                            },
+                                {
+                                    "type": "normal",
+                                    "text": "HEAP_SIZE: 2G"
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "HEAP_SIZE: 4G"
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "HEAP_SIZE: 6G"
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "HEAP_SIZE: 8G"
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Mysql",
+                                "bold": true
+                            },
+                                {
+                                    "type": "normal",
+                                    "text": "innodb_buffer_size: 6G"
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "innodb_buffer_size: 12G"
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "innodb_buffer_size: 18G"
+                                },
+                                {
+                                    "type": "normal",
+                                    "text": "innodb_buffer_size: 24G"
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "CPU",
+                                "bold": true
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "Intel(R) Xeon(R) CPU E5-2686 v4<w:br/>L1d: 32K<w:br/>L1i: 32K<w:br/>L2: 256K<w:br/>L3: 46080K"
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Redis",
+                                "bold": true
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "configuration: master * 2 slaves<w:br/>version =3.2.8<w:br/>maxclients: 10000<w:br/>maxmemory: 512mb"
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Fastly",
+                                "bold": true
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "max_conn: 200"
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                }
+                            ],
+                            [{
+                                "type": "normal",
+                                "text": "Cron",
+                                "bold": true
+                            },
+                                {
+                                    "type": "cell",
+                                    "text": "run each 5 minuts"
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                },
+                                {
+                                    "type": "cell",
+                                    "text": null
+                                }
                             ]
-                        }
+                        ]
                     }
-                ]
-            }
-        ]
+                }
+            ]
+        }]
     },
     {
         "title": "Users distribution details",
         "type": "usersDistributionDetails",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "type": "text",
-                        "data": "These charts detail the amount of user scenarios through the Frontend storefront and the Magento Admin."
-                    },
-                    {
-                        "type": "pieChart",
+        "pages": [{
+            "blocks": [{
+                "type": "text",
+                "data": "These charts detail the amount of user scenarios through the Frontend storefront and the Magento Admin."
+            },
+                {
+                    "type": "pieChart",
+                    "data": {
+                        "title": "Frontend Scenarios",
+                        "type": "chart_inline",
+                        "categories": [
+                            "browse catalog by guest",
+                            "search",
+                            "quick search",
+                            "quick search with filter",
+                            "advanced search",
+                            "checkout by guest",
+                            "checkout by customer",
+                            "add to cart by guest",
+                            "add to wishlist",
+                            "compare products"
+                        ],
                         "data": {
-                            "title": "Frontend Scenarios",
-                            "type": "chart_inline",
-                            "categories": [
-                                "browse catalog by guest",
-                                "search",
-                                "quick search",
-                                "quick search with filter",
-                                "advanced search",
-                                "checkout by guest",
-                                "checkout by customer",
-                                "add to cart by guest",
-                                "add to wishlist",
-                                "compare products"
-                            ],
-                            "data": {
-                                "items": [
-                                    [
-                                        30.00,
-                                        30.00,
-                                        60.00,
-                                        30.00,
-                                        10.00,
-                                        4.00,
-                                        4.00,
-                                        28.00,
-                                        2.00,
-                                        2.00
-                                    ]
+                            "items": [
+                                [
+                                    30.00,
+                                    30.00,
+                                    60.00,
+                                    30.00,
+                                    10.00,
+                                    4.00,
+                                    4.00,
+                                    28.00,
+                                    2.00,
+                                    2.00
                                 ]
-                            }
+                            ]
                         }
                     }
-                ]
-            },
+                }
+            ]
+        },
             {
-                "blocks": [
-                    {
-                        "type": "text",
-                        "data": ""
-                    },
+                "blocks": [{
+                    "type": "text",
+                    "data": ""
+                },
                     {
                         "type": "pieChart",
                         "data": {
@@ -463,9 +423,9 @@
                                         35.00,
                                         25.00,
                                         15.00,
-                                        10.00,
-                                        70.00,
-                                        20.00
+                                        40.00,
+                                        280.00,
+                                        80.00
                                     ]
                                 ]
                             }
@@ -478,66 +438,55 @@
     {
         "title": "Performance Testing and Measurements",
         "type": "perfTestingDetails",
-        "pages": [
-            {
-                "blocks": [
-                    {
-                        "type": "text",
-                        "data": "This report includes graphs and tables of captured and calculated performance measurements. Each test includes graphs of median performance values and tables with extensive data."
-                    },
-                    {
-                        "type": "text",
-                        "title": "Reading performance results",
-                        "data": "<B>Performance Experiment Name</B><w:br/><w:br/>The name of each experiment testing section details the Cloud plan, environment size, and profile of store.<w:br/>For example, the title “Pro12 instance with Small profile benchmarking” indicates:"
-                    },
-                    {
-                        "type": "markedList",
-                        "data": "Pro Cloud Plan – The Pro production environment is a dedicated server<li>12 Environment size<li>Small store profile size"
-                    },
-                    {
-                        "type": "text",
-                        "data": "<w:br/><B>Graphs</B><w:br/><w:br/>Graphs map median measurements of performance tests for specific requests and responses. Each graph has a title for the test, legend for the tracked data, and median values. For detailed information including the 90 percentile to 99 percentile, see the corresponding tables after the graphs."
-                    },
-                    {
-                        "type": "text",
-                        "data": "<w:br/><B>Tables</B><w:br/><w:br/>The tables provide compiled, exact values of mediana, 90 percentile, 95 percentile, and 99 percentile for each of the graphs and additional collected data from tests. Values are calculated from full page loaded time (including HTTP request).<w:br/>All values are color-coded according to benchmarks: "
-                    },
-                    {
-                        "type": "markedList",
-                        "data": "Green – Within benchmarks<li>Orange – Exceeding benchmarks<li>Red – Far exceeding benchmark"
-                    },
-                    {
-                        "type": "text",
-                        "title": "Performance tests performed",
-                        "data": "Three performance tests are performed for all experiments to determine performance: benchmarking, API, and client-side. All tests are available through the Magento 2 GitHub repository, the Performance Toolkit."
-                    },
-                    {
-                        "type": "text",
-                        "data": "<w:br/><B>Benchmarking tests</B><w:br/><w:br/>All values are rated against the following benchmarks:"
-                    },
-                    {
-                        "type": "text",
-                        "data": "Server-side response, multi-thread<w:br/>"
-                    },
-                    {
-                        "type": "markedList",
-                        "data": "Storefront: non-cached 2 sec, cached 500 ms<li>Admin: non-cached 4 sec"
-                    },
-                    {
-                        "type": "text",
-                        "data": "API calls response: 200 ms"
-                    },
-                    {
-                        "type": "text",
-                        "data": "<w:br/><B>API performance</B><w:br/><w:br/>These tests determine the performance of API calls and responses from the server/system"
-                    },
-                    {
-                        "type": "text",
-                        "data": "<w:br/><B>Client-side performance</B><w:br/><w:br/>All client-side tests are single-thread. The experiment initiates actions through the storefront site as if performed by customers.<w:br/>To further expand on these tests, experiments include Google page speed tests and sitespeed.io. The performance tests capture reports and data from these tools profiling stores using the test profile and target Magento Cloud Infrastructure."
-                    }
-                ]
-            }
-        ]
+        "pages": [{
+            "blocks": [{
+                "type": "text",
+                "data": "This report includes graphs and tables of captured and calculated performance measurements. Each test includes graphs of median performance values and tables with extensive data."
+            },
+                {
+                    "type": "text",
+                    "title": "Reading performance results",
+                    "data": "<B>Performance Experiment Name</B><w:br/><w:br/>The name of each experiment testing section details the Cloud plan, environment size, and profile of store.<w:br/>For example, the title “Pro12 instance with Small profile benchmarking” indicates:"
+                },
+                {
+                    "type": "markedList",
+                    "data": "Pro Cloud Plan – The Pro production environment is a dedicated server<li>12 Environment size<li>Small store profile size"
+                },
+                {
+                    "type": "text",
+                    "data": "<w:br/><B>Graphs</B><w:br/><w:br/>Graphs map median measurements of performance tests for specific requests and responses. Each graph has a title for the test, legend for the tracked data, and 90 percentile of response time values. For detailed information with numbers see the corresponding tables after the graphs."
+                },
+                {
+                    "type": "text",
+                    "data": "<w:br/><B>Tables</B><w:br/><w:br/>The tables provide compiled, exact values of mediana and 90 percentiles for each of the graphs and additional collected data from tests. Values are calculated from server time (including HTTP request).<w:br/>All values are color-coded according to benchmarks: "
+                },
+                {
+                    "type": "markedList",
+                    "data": "Green – Within benchmarks<li>Orange – Exceeding benchmarks<li>Red – Far exceeding benchmark"
+                },
+                {
+                    "type": "text",
+                    "title": "Performance tests performed",
+                    "data": "Three performance tests are performed for all experiments to determine performance: benchmarking, API, and client-side. All tests are available through the Magento 2 GitHub repository, the Performance Toolkit."
+                },
+                {
+                    "type": "text",
+                    "data": "<w:br/><B>Benchmarking tests</B><w:br/><w:br/>All values are rated against the following benchmarks:"
+                },
+                {
+                    "type": "text",
+                    "data": "Server-side response, multi-thread<w:br/>"
+                },
+                {
+                    "type": "markedList",
+                    "data": "Storefront: non-cached 2 sec, cached 500 ms<li>Admin: non-cached 4 sec"
+                },
+                {
+                    "type": "text",
+                    "data": "<w:br/><B>Client-side performance</B><w:br/><w:br/>All client-side tests are single-thread. The experiment initiates actions through the storefront site as if performed by customers.<w:br/> The performance tests capture reports and data from these tools profiling stores using the test profile and target Magento Cloud Infrastructure."
+                }
+            ]
+        }]
     },
     {
         "type": "compositeChapter",
@@ -550,234 +499,262 @@
             "CS-GOOGLEPAGE": " (client-side snapshot)",
             "GRAFANA": " server loading"
         },
-        "pages": [
-            {
-                "type": "Concurrency-SS",
-                "src": "concurrencyJtl",
-                "blocks": [
-                    {
-                        "type": "groupLineChart",
-                        "data": {
-                            "title": "Catalog browsing by guest",
-                            "type": "group_chart_jtl",
-                            "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
-                            "categories": ["allThreads"],
-                            "data": {
-                                "category": "allThreads",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Category page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Category"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Guest",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Home page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Home Page"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Guest",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Simple product page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Simple Product"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            },
-                                            {
-                                                "field": "label",
-                                                "value": "Guest",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Complex product page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Configurable Product"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            },
-                                            {
-                                                "field": "label",
-                                                "value": "Guest",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    }
-                                ]
+        "pages": [{
+            "type": "Concurrency-SS",
+            "src": "concurrencyJtl",
+            "blocks": [{
+                "type": "groupLineChart",
+                "data": {
+                    "title": "Catalog browsing by guest",
+                    "type": "group_chart_jtl",
+                    "metrics": [{
+                        "type": "avg",
+                        "config": {
+                            "group": {
+                                "field": "allThreads",
+                                "title": "allThreads"
                             }
                         }
-                    },
-                    {
-                        "type": "groupLineChart",
-                        "data": {
-                            "title": "Catalog browsing by customer",
-                            "type": "group_chart_jtl",
-                            "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
-                            "categories": ["allThreads"],
-                            "data": {
-                                "category": "allThreads",
-                                "value": "Latency",
-                                "items": [
+                    }],
+                    "max": 2000,
+                    "deviation": 1000,
+                    "categories": ["allThreads"],
+                    "data": {
+                        "category": "allThreads",
+                        "value": "Latency",
+                        "items": [{
+                            "title": "Category page",
+                            "tag_field": "label",
+                            "tags": [
+                                "Open Category"
+                            ],
+                            "conditions": [{
+                                "field": "label",
+                                "value": "Guest",
+                                "type": "contains"
+                            }]
+                        },
+                            {
+                                "title": "Home page",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Open Home Page"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "Guest",
+                                    "type": "contains"
+                                }]
+                            },
+                            {
+                                "title": "Simple product page",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Simple Product"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "View",
+                                    "type": "contains"
+                                },
                                     {
-                                        "title": "Category page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Category"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Customer",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
+                                        "field": "label",
+                                        "value": "Guest",
+                                        "type": "contains"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Complex product page",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Configurable Product"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "View",
+                                    "type": "contains"
+                                },
                                     {
-                                        "title": "Home page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Home Page"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Customer",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Simple product page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Simple Product"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            },
-                                            {
-                                                "field": "label",
-                                                "value": "Customer",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Complex product page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Configurable Product"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            },
-                                            {
-                                                "field": "label",
-                                                "value": "Customer",
-                                                "type": "contains"
-                                            }
-                                        ]
+                                        "field": "label",
+                                        "value": "Guest",
+                                        "type": "contains"
                                     }
                                 ]
                             }
+                        ]
+                    }
+                }
+            },
+                {
+                    "type": "groupLineChart",
+                    "data": {
+                        "title": "Catalog browsing by customer",
+                        "type": "group_chart_jtl",
+                        "metrics": [{
+                            "type": "avg",
+                            "config": {
+                                "group": {
+                                    "field": "allThreads",
+                                    "title": "allThreads"
+                                }
+                            }
+                        }],
+                        "max": 2000,
+                        "deviation": 1000,
+                        "categories": ["allThreads"],
+                        "data": {
+                            "category": "allThreads",
+                            "value": "Latency",
+                            "items": [{
+                                "title": "Category page",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Open Category"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "Customer",
+                                    "type": "contains"
+                                }]
+                            },
+                                {
+                                    "title": "Home page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Open Home Page"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Customer",
+                                        "type": "contains"
+                                    }]
+                                },
+                                {
+                                    "title": "Simple product page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Simple Product"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "View",
+                                        "type": "contains"
+                                    },
+                                        {
+                                            "field": "label",
+                                            "value": "Customer",
+                                            "type": "contains"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Complex product page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Configurable Product"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "View",
+                                        "type": "contains"
+                                    },
+                                        {
+                                            "field": "label",
+                                            "value": "Customer",
+                                            "type": "contains"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     }
-                ]
-            },
+                }
+            ]
+        },
             {
                 "type": "Concurrency-SS",
                 "src": "concurrencyJtl",
-                "blocks": [
-                    {
-                        "type": "groupLineChart",
-                        "data": {
-                            "title": "Checkout start page",
-                            "type": "group_chart_jtl",
-                            "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
-                            "categories": ["allThreads"],
-                            "data": {
-                                "category": "allThreads",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "by Guest",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout start"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Guest",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    }
-                                ]
+                "blocks": [{
+                    "type": "groupLineChart",
+                    "data": {
+                        "title": "Checkout start page",
+                        "type": "group_chart_jtl",
+                        "metrics": [{
+                            "type": "avg",
+                            "config": {
+                                "group": {
+                                    "field": "allThreads",
+                                    "title": "allThreads"
+                                }
                             }
+                        }],
+                        "max": 2000,
+                        "deviation": 1000,
+                        "categories": ["allThreads"],
+                        "data": {
+                            "category": "allThreads",
+                            "value": "Latency",
+                            "items": [{
+                                "title": "by Guest",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Checkout start"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "Guest",
+                                    "type": "contains"
+                                }]
+                            },
+                                {
+                                    "title": "by Customer",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout start"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Customer",
+                                        "type": "contains"
+                                    }]
+                                }
+                            ]
                         }
-                    },
+                    }
+                },
                     {
                         "type": "groupLineChart",
                         "data": {
                             "title": "Checkout place order page",
                             "type": "group_chart_jtl",
-                            "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "metrics": [{
+                                "type": "avg",
+                                "config": {
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
+                            "max": 2000,
+                            "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "by Guest",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout Payment Info/Place Order"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Guest",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "items": [{
+                                    "title": "by Guest",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout Payment Info/Place Order"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Guest",
+                                        "type": "contains"
+                                    }]
+                                }]
                             }
                         }
                     }
@@ -786,63 +763,74 @@
             {
                 "type": "Concurrency-SS",
                 "src": "concurrencyJtl",
-                "blocks": [
-                    {
-                        "type": "groupLineChart",
-                        "data": {
-                            "title": "Add to cart",
-                            "type": "group_chart_jtl",
-                            "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
-                            "categories": ["allThreads"],
-                            "data": {
-                                "category": "allThreads",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "by Guest",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Add To Cart"
-                                        ],
-                                        "pattern": "/[^\\(]Add To Cart/",
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Guest",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    }
-                                ]
+                "blocks": [{
+                    "type": "groupLineChart",
+                    "data": {
+                        "title": "Add to cart",
+                        "type": "group_chart_jtl",
+                        "metrics": [{
+                            "type": "avg",
+                            "config": {
+                                "group": {
+                                    "field": "allThreads",
+                                    "title": "allThreads"
+                                }
                             }
+                        }],
+                        "max": 2000,
+                        "deviation": 1000,
+                        "categories": ["allThreads"],
+                        "data": {
+                            "category": "allThreads",
+                            "value": "Latency",
+                            "items": [{
+                                "title": "by Guest",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Add To Cart"
+                                ],
+                                "pattern": "/[^\\(]Add To Cart/",
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "Guest",
+                                    "type": "contains"
+                                }]
+                            }]
                         }
-                    },
+                    }
+                },
                     {
                         "type": "groupLineChart",
                         "data": {
                             "title": "Search",
                             "type": "group_chart_jtl",
-                            "metrics": [{"type": "avg", "config": {"group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "metrics": [{
+                                "type": "avg",
+                                "config": {
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
+                            "max": 2000,
+                            "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Quick Search With Filtration",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Search"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Quick Search With Filtration",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "items": [{
+                                    "title": "Quick Search With Filtration",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Search"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Quick Search With Filtration",
+                                        "type": "contains"
+                                    }]
+                                }]
                             }
                         }
                     }
@@ -851,198 +839,314 @@
             {
                 "type": "Concurrency-SS",
                 "src": "concurrencyJtl",
-                "blocks": [
-                    {
-                        "type": "groupJtlTable",
-                        "data": {
-                            "title": "Frontend Results (median)",
-                            "type": "group_chart_jtl",
-                            "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50, "group": {"field": "allThreads", "title": "allThreads"}}}
-                            ],
-                            "max": 2000,
-                            "data": {
-                                "category": "allThreads",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Category page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Category"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Home page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Home Page"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Simple product page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Simple Product"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Complex product page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Configurable Product"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Checkout start",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout start"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Place order",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout Payment Info/Place Order"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Add to cart",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Add To Cart"
-                                        ],
-                                        "pattern": "/[^\\(]Add To Cart/"
-                                    },
-                                    {
-                                        "title": "Quick search with filtration",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Search"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Quick Search With Filtration",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    }
-                                ]
+                "blocks": [{
+                    "type": "groupJtlTable",
+                    "data": {
+                        "title": "Frontend Results (median)",
+                        "type": "group_chart_jtl",
+                        "metrics": [{
+                            "type": "percentile",
+                            "config": {
+                                "lvl": 50,
+                                "group": {
+                                    "field": "allThreads",
+                                    "title": "allThreads"
+                                }
                             }
-                        }
-                    },
-                    {
-                        "type": "groupJtlTable",
+                        }],
+                        "max": 2000,
+                        "deviation": 1000,
                         "data": {
-                            "title": "Frontend Results (90 percentile)",
-                            "type": "group_chart_jtl",
-                            "metrics": [
-                                {"type": "percentile", "config": {"lvl": 90, "group": {"field": "allThreads", "title": "allThreads"}}}
-                            ],
-                            "max": 2000,
-                            "data": {
-                                "category": "allThreads",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Category page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Category"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Home page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Home Page"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Simple product page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Simple Product"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Complex product page",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Configurable Product"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Checkout start",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout start"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Place order",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout Payment Info/Place Order"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Add to cart",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Add To Cart"
-                                        ],
-                                        "pattern": "/[^\\(]Add To Cart/"
-                                    },
-                                    {
-                                        "title": "Quick search with filtration",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Search"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Quick Search With Filtration",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    }
+                            "category": "allThreads",
+                            "value": "Latency",
+                            "items": [{
+                                "title": "Category page",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Open Category"
                                 ]
-                            }
+                            },
+                                {
+                                    "title": "Home page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Open Home Page"
+                                    ]
+                                },
+                                {
+                                    "title": "Simple product page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Simple Product"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "View",
+                                        "type": "contains"
+                                    }]
+                                },
+                                {
+                                    "title": "Complex product page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Configurable Product"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "View",
+                                        "type": "contains"
+                                    }]
+                                },
+                                {
+                                    "title": "Checkout start",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout start"
+                                    ]
+                                },
+                                {
+                                    "title": "Place order",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout Payment Info/Place Order"
+                                    ]
+                                },
+                                {
+                                    "title": "Add to cart",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Add To Cart"
+                                    ],
+                                    "pattern": "/[^\\(]Add To Cart/"
+                                },
+                                {
+                                    "title": "Quick search with filtration",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Search"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Quick Search With Filtration",
+                                        "type": "contains"
+                                    }]
+                                }
+                            ]
                         }
                     }
-                ]
+                }]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [{
+                    "type": "groupJtlTable",
+                    "data": {
+                        "title": "Frontend Results (90 percentile)",
+                        "type": "group_chart_jtl",
+                        "metrics": [{
+                            "type": "percentile",
+                            "config": {
+                                "lvl": 90,
+                                "group": {
+                                    "field": "allThreads",
+                                    "title": "allThreads"
+                                }
+                            }
+                        }],
+                        "max": 2000,
+                        "deviation": 1000,
+                        "data": {
+                            "category": "allThreads",
+                            "value": "Latency",
+                            "items": [{
+                                "title": "Category page",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Open Category"
+                                ]
+                            },
+                                {
+                                    "title": "Home page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Open Home Page"
+                                    ]
+                                },
+                                {
+                                    "title": "Simple product page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Simple Product"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "View",
+                                        "type": "contains"
+                                    }]
+                                },
+                                {
+                                    "title": "Complex product page",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Configurable Product"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "View",
+                                        "type": "contains"
+                                    }]
+                                },
+                                {
+                                    "title": "Checkout start",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout start"
+                                    ]
+                                },
+                                {
+                                    "title": "Place order",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout Payment Info/Place Order"
+                                    ]
+                                },
+                                {
+                                    "title": "Add to cart",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Add To Cart"
+                                    ],
+                                    "pattern": "/[^\\(]Add To Cart/"
+                                },
+                                {
+                                    "title": "Quick search with filtration",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Search"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Quick Search With Filtration",
+                                        "type": "contains"
+                                    }]
+                                }
+                            ]
+                        }
+                    }
+                }]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [{
+                    "type": "groupJtlTable",
+                    "data": {
+                        "title": "Admin Results (median)",
+                        "type": "group_chart_jtl",
+                        "metrics": [{
+                            "type": "percentile",
+                            "config": {
+                                "lvl": 50,
+                                "group": {
+                                    "field": "allThreads",
+                                    "title": "allThreads"
+                                }
+                            }
+                        }],
+                        "max": 2000,
+                        "deviation": 1000,
+                        "data": {
+                            "category": "allThreads",
+                            "value": "Latency",
+                            "items": [{
+                                "title": "Simple product save",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Edit Simple Product Save"
+                                ]
+                            },
+                                {
+                                    "title": "Simple product edit",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Edit Simple Product"
+                                    ]
+                                },
+                                {
+                                    "title": "Open order",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Open Order"
+                                    ]
+                                },
+                                {
+                                    "title": "Save order",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Save Order"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [{
+                    "type": "groupJtlTable",
+                    "data": {
+                        "title": "Admin Results (90 percentile)",
+                        "type": "group_chart_jtl",
+                        "metrics": [{
+                            "type": "percentile",
+                            "config": {
+                                "lvl": 90,
+                                "group": {
+                                    "field": "allThreads",
+                                    "title": "allThreads"
+                                }
+                            }
+                        }],
+                        "max": 2000,
+                        "deviation": 1000,
+                        "data": {
+                            "category": "allThreads",
+                            "value": "Latency",
+                            "items": [{
+                                "title": "Simple product save",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Edit Simple Product Save"
+                                ]
+                            },
+                                {
+                                    "title": "Simple product edit",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Edit Simple Product"
+                                    ]
+                                },
+                                {
+                                    "title": "Open order",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Open Order"
+                                    ]
+                                },
+                                {
+                                    "title": "Save order",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Save Order"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }]
             },
             {
                 "type": "Concurrency-SS",
@@ -1053,21 +1157,29 @@
                         "data": {
                             "title": "Order placed per hour",
                             "type": "group_chart_jtl",
-                            "metrics": [{"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "metrics": [{
+                                "type": "concurrent",
+                                "config": {
+                                    "lvl": 1,
+                                    "duration": 0.167,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Order placed per hour",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout Payment Info/Place Order"
-                                        ],
-                                        "min": 800
-                                    }
-                                ]
+                                "items": [{
+                                    "title": "Order placed per hour",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout Payment Info/Place Order"
+                                    ],
+                                    "max": 1800
+                                }]
                             }
                         }
                     },
@@ -1076,75 +1188,71 @@
                         "data": {
                             "title": "Page views per hour",
                             "type": "group_chart_jtl",
-                            "metrics": [{"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "metrics": [{
+                                "type": "concurrent",
+                                "config": {
+                                    "lvl": 1,
+                                    "duration": 0.167,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "Page views per hour",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "Frontend Pool"
-                                        ],
-                                        "min": 80000
-                                    }
-                                ]
+                                "items": [{
+                                    "title": "Page views per hour",
+                                    "tag_field": "threadName",
+                                    "tags": [
+                                        "Frontend Pool"
+                                    ],
+                                    "max": 800000
+                                }]
                             }
                         }
-                    }
-                ]
-            },
-            {
-                "type": "Concurrency-SS",
-                "src": "concurrencyJtl",
-                "blocks": [
-                    {
+                    },{
                         "type": "groupJtlTable",
                         "data": {
                             "title": "Concurrent Results",
                             "type": "group_chart_jtl",
-                            "metrics": [
-                                {"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}
-                            ],
+                            "metrics": [{
+                                "type": "concurrent",
+                                "config": {
+                                    "lvl": 1,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
                             "data": {
                                 "category": "allThreads",
-                                "value": "timeStamp",
-                                "items": [
-                                    {
-                                        "title": "Order placed per hour",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Checkout Payment Info/Place Order"
-                                        ],
-                                        "min": 800
-                                    },
+                                "manual_categories": [{
+                                    "config": {
+                                        "type": "mult",
+                                        "value": 5,
+                                        "variable": "load"
+                                    }
+                                }],
+                                "value": "Latency",
+                                "items": [{
+                                    "title": "Order placed per hour",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout Payment Info/Place Order"
+                                    ],
+                                    "max": 8000
+                                },
                                     {
                                         "title": "Page views per hour",
                                         "tag_field": "threadName",
                                         "tags": [
                                             "Frontend Pool"
                                         ],
-                                        "min": 80000
-                                    },
-                                    {
-                                        "title": "Errors count",
-                                        "tag_field": "threadName",
-                                        "metrics": [
-                                            {"type": "count", "config": {"lvl": 1, "group": {"field": "allThreads", "title": "allThreads"}}}
-                                        ],
-                                        "tags": [
-                                            "Frontend Pool"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "responseCode",
-                                                "value": "200",
-                                                "type": "notequals"
-                                            }
-                                        ],
-                                        "max": 1000
+                                        "max": 800000
                                     }
                                 ]
                             }
