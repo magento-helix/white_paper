@@ -411,9 +411,9 @@
                                 "product edit",
                                 "product create",
                                 "edit order",
+                                "customer grid",
                                 "create order",
-                                "returns management",
-                                "customer grid"
+                                "returns management"
                             ],
                             "data": {
                                 "items": [
