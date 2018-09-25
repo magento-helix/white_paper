@@ -21,7 +21,7 @@ class GroupLineChart extends LineChart implements TypeInterface
 
     public function add(Section $section, $content, $subTitle = false)
     {
-        $title = $content['title'] . (isset($content['max']) ? " ({$content['max']}ms -  threshold)" : '');
+        $title = $content['title'] . (isset($content['max']) ? " ({$content['max']}ms - threshold)" : '');
         $section->addText(
             "<w:br/>" . $title,
             Font::getChartTitleStyle(),
@@ -31,6 +31,7 @@ class GroupLineChart extends LineChart implements TypeInterface
             'width' => Converter::cmToEmu(18),
             'height' => Converter::cmToEmu(7),
             'showAxisLabels' => true,
+            'showGridY' => true,
             'enableLegend' => true,
         ];
 

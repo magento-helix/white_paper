@@ -413,10 +413,11 @@
         "title": "Performance Testing and Measurements",
         "type": "perfTestingDetails",
         "pages": [{
-            "blocks": [{
+            "blocks": [
+              {
                 "type": "text",
                 "data": "This report includes graphs and tables of captured and calculated performance measurements. Each test includes graphs of median performance values and tables with more details."
-            },
+              },
                 {
                     "type": "text",
                     "title": "Reading performance results",
@@ -436,11 +437,11 @@
                 },
                 {
                     "type": "text",
-                    "data": "<w:br/><B>Tables</B><w:br/><w:br/>The tables provide compiled, exact values of mediana and 90 percentiles for each of the graphs and additional collected data from tests. Values are calculated from server time (including HTTP request) but exclude loading any resources (images, scripts, style sheets).<w:br/>All values are color-coded according to benchmarks: "
+                    "data": "<w:br/><B>Tables</B><w:br/><w:br/>The tables provide compiled, exact values of mediana and 90 percentiles for each of the graphs and additional collected data from tests. Values are calculated from server time (including HTTP request) but exclude loading any resources (images, scripts, style sheets).<w:br/>All values are color-coded according to benchmarks:"
                 },
                 {
                     "type": "markedList",
-                    "data": "Green – Within benchmarks (<2 sec page load time)<li>Orange – Exceeding benchmarks(>2sec, < X sec )<li>Red – Significantly exceeding benchmark"
+                    "data": "Green – Within benchmarks (&lt;2 sec page load time)<li>Orange – Exceeding benchmarks(&gt;2 sec, &lt; 3 sec )<li>Red – Significantly exceeding benchmark"
                 },
                 {
                     "type": "text",
@@ -486,8 +487,9 @@
                     "title": "Catalog browsing by guest",
                     "type": "group_chart_jtl",
                     "metrics": [{
-                        "type": "avg",
+                        "type": "percentile",
                         "config": {
+                            "lvl": 90,
                             "group": {
                                 "field": "allThreads",
                                 "title": "allThreads"
@@ -570,8 +572,9 @@
                         "title": "Catalog browsing by customer",
                         "type": "group_chart_jtl",
                         "metrics": [{
-                            "type": "avg",
+                            "type": "percentile",
                             "config": {
+                                "lvl": 90,
                                 "group": {
                                     "field": "allThreads",
                                     "title": "allThreads"
@@ -659,8 +662,9 @@
                         "title": "Checkout start page",
                         "type": "group_chart_jtl",
                         "metrics": [{
-                            "type": "avg",
+                            "type": "percentile",
                             "config": {
+                                "lvl": 90,
                                 "group": {
                                     "field": "allThreads",
                                     "title": "allThreads"
@@ -707,8 +711,9 @@
                             "title": "Checkout place order page",
                             "type": "group_chart_jtl",
                             "metrics": [{
-                                "type": "avg",
+                                "type": "percentile",
                                 "config": {
+                                    "lvl": 90,
                                     "group": {
                                         "field": "allThreads",
                                         "title": "allThreads"
@@ -747,8 +752,9 @@
                         "title": "Add to cart",
                         "type": "group_chart_jtl",
                         "metrics": [{
-                            "type": "avg",
+                            "type": "percentile",
                             "config": {
+                                "lvl": 90,
                                 "group": {
                                     "field": "allThreads",
                                     "title": "allThreads"
@@ -783,8 +789,9 @@
                             "title": "Search",
                             "type": "group_chart_jtl",
                             "metrics": [{
-                                "type": "avg",
+                                "type": "percentile",
                                 "config": {
+                                    "lvl": 90,
                                     "group": {
                                         "field": "allThreads",
                                         "title": "allThreads"
@@ -912,12 +919,7 @@
                             ]
                         }
                     }
-                }]
-            },
-            {
-                "type": "Concurrency-SS",
-                "src": "concurrencyJtl",
-                "blocks": [{
+                },{
                     "type": "groupJtlTable",
                     "data": {
                         "title": "Frontend Results (90 percentile)",
@@ -1068,12 +1070,7 @@
                             ]
                         }
                     }
-                }]
-            },
-            {
-                "type": "Concurrency-SS",
-                "src": "concurrencyJtl",
-                "blocks": [{
+                },{
                     "type": "groupJtlTable",
                     "data": {
                         "title": "Admin Results (90 percentile)",
@@ -1155,8 +1152,7 @@
                                     "tag_field": "label",
                                     "tags": [
                                         "Checkout Payment Info/Place Order"
-                                    ],
-                                    "max": 1800
+                                    ]
                                 }]
                             }
                         }
@@ -1180,64 +1176,60 @@
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
+                                "manual_categories": [
+                                    {"config": {"type": "mult", "value": 5, "variable": "load"}}
+                                ],
                                 "value": "Latency",
                                 "items": [{
                                     "title": "Page views per hour",
                                     "tag_field": "threadName",
                                     "tags": [
                                         "Frontend Pool"
-                                    ],
-                                    "max": 800000
+                                    ]
                                 }]
                             }
                         }
-                    },{
+                    }
+                ]
+            },
+            {
+              "type": "Concurrency-SS",
+              "src": "concurrencyJtl",
+              "blocks": [
+                  {
                         "type": "groupJtlTable",
                         "data": {
                             "title": "Concurrent Results",
                             "type": "group_chart_jtl",
-                            "metrics": [{
-                                "type": "concurrent",
-                                "config": {
-                                    "lvl": 1,
-                                    "group": {
-                                        "field": "allThreads",
-                                        "title": "allThreads"
-                                    }
-                                }
-                            }],
+                            "metrics": [
+                              {"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}
+                            ],
                             "data": {
                                 "category": "allThreads",
-                                "manual_categories": [{
-                                    "config": {
-                                        "type": "mult",
-                                        "value": 5,
-                                        "variable": "load"
-                                    }
-                                }],
-                                "value": "Latency",
+                                "manual_categories": [
+                                    {"config": {"type": "mult", "value": 5, "variable": "load"}}
+                                ],
+                                "value": "timeStamp",
                                 "items": [{
                                     "title": "Order placed per hour",
                                     "tag_field": "label",
                                     "tags": [
                                         "Checkout Payment Info/Place Order"
-                                    ],
-                                    "max": 8000
+                                    ]
                                 },
                                     {
                                         "title": "Page views per hour",
                                         "tag_field": "threadName",
                                         "tags": [
                                             "Frontend Pool"
-                                        ],
-                                        "max": 800000
+                                        ]
                                     }
                                 ]
                             }
-                        }
-                    }
-                ]
-            }
+                      }
+                   }
+                  ]
+              }
         ]
     }
 ]
