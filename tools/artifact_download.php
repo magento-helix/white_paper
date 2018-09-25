@@ -13,13 +13,6 @@ date_default_timezone_set('UTC');
 
 $config = new \App\Config(BP . '/../resources/config.json');
 
-$sourceLinkMap = [
-    'jtl' => ' %s:/var/lib/jenkins/jobs/%s/builds/%s/archive/%s ',
-    'concurrencyJtl' => ' s3://helix-cmi-backup-storage/jenkins_artifacts/%s/%s/%s ',
-    'json' => ' %s:/var/lib/jenkins/jobs/%s/builds/%s/archive/%s ',
-    'indexerLog' => ' %s:/var/lib/jenkins/workspace/%s/var/nohup/%s/%s/%s',
-];
-
 foreach ($config->getInstances() as $item) {
     if (!$item['include']) {
         continue;
@@ -52,33 +45,37 @@ foreach ($config->getInstances() as $item) {
     }
 }
 
+function getSourceLinkMap() {
+    return    [
+        'jtl' => ' s3://helix-cmi-backup-storage/jenkins_artifacts/%s/%s/%s ',
+        'concurrencyJtl' => ' s3://helix-cmi-backup-storage/jenkins_artifacts/%s/%s/%s ',
+        'json' => ' s3://helix-cmi-backup-storage/jenkins_artifacts/%s/%s/%s ',
+        'indexerLog' => ' %s:/var/lib/jenkins/workspace/%s/var/nohup/%s/%s/%s',
+    ];
+}
+
 function getJtlSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
 {
-    global $sourceLinkMap;
     $buildId = isset($src['build_id']) ? $src['build_id'] : $measurement['build_id'];
 
-    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins'], $instance['jenkins_folder'], $buildId, $src['path']);
+    return  sprintf(getSourceLinkMap()[$src['type']], $instance['jenkins_folder'], $buildId, $src['path']);
 }
 
 function getConcurrencyJtlSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
 {
-    global $sourceLinkMap;
     $buildId = isset($src['build']['id']) ? $src['build']['id'] : $measurement['build_id'];
 
-    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins_folder'], $buildId, $src['path']);
+    return  sprintf(getSourceLinkMap()[$src['type']], $instance['jenkins_folder'], $buildId, $src['path']);
 }
 
 function getJsonSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
 {
-    global $sourceLinkMap;
     $buildId = isset($src['build_id']) ? $src['build_id'] : $measurement['build_id'];
 
-    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins'], $instance['jenkins_folder'], $buildId, $src['path']);
+    return  sprintf(getSourceLinkMap()[$src['type']], $instance['jenkins_folder'], $buildId, $src['path']);
 }
 
 function getIndexerLogSourcePath(array $instance, array $src, array $measurement, \App\Config $config)
 {
-    global $sourceLinkMap;
-
-    return  sprintf($sourceLinkMap[$src['type']], $instance['jenkins'], $instance['jenkins_folder'], $config->getMagentoEdition(), $config->getMagentoVersion(), $src['path']);
+    return  sprintf(getSourceLinkMap()[$src['type']], $instance['jenkins_folder'], $config->getMagentoEdition(), $config->getMagentoVersion(), $src['path']);
 }

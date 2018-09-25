@@ -380,10 +380,11 @@
                             "title": "Admin Scenarios",
                             "type": "chart_inline",
                             "categories": [
-                                "promotion rules",
                                 "category management",
-                                "product edit",
+                                "process quotes",
                                 "product create",
+                                "promotion rules",
+                                "product edit",
                                 "edit order",
                                 "customer grid",
                                 "create order",
@@ -393,13 +394,14 @@
                                 "items": [
                                     [
                                         5.00,
-                                        5.00,
-                                        5.00,
-                                        5.00,
+                                        15.00,
+                                        20.00,
+                                        10.00,
+                                        30.00,
                                         25.00,
-                                        40.00,
-                                        280.00,
-                                        80.00
+                                        20.00,
+                                        140.00,
+                                        40.00
                                     ]
                                 ]
                             }
@@ -486,16 +488,6 @@
                 "data": {
                     "title": "Catalog browsing by guest",
                     "type": "group_chart_jtl",
-                    "metrics": [{
-                        "type": "percentile",
-                        "config": {
-                            "lvl": 90,
-                            "group": {
-                                "field": "allThreads",
-                                "title": "allThreads"
-                            }
-                        }
-                    }],
                     "max": 2000,
                     "deviation": 1000,
                     "categories": ["allThreads"],
@@ -503,7 +495,7 @@
                         "category": "allThreads",
                         "value": "Latency",
                         "items": [{
-                            "title": "Category page",
+                            "title": "Category page 50p",
                             "tag_field": "label",
                             "tags": [
                                 "Open Category"
@@ -512,10 +504,20 @@
                                 "field": "label",
                                 "value": "Guest",
                                 "type": "contains"
+                            }],
+                            "metrics": [{
+                                "type": "percentile",
+                                "config": {
+                                    "lvl": 50,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
                             }]
                         },
                             {
-                                "title": "Home page",
+                                "title": "Home page 50p",
                                 "tag_field": "label",
                                 "tags": [
                                     "Open Home Page"
@@ -524,10 +526,20 @@
                                     "field": "label",
                                     "value": "Guest",
                                     "type": "contains"
+                                }],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
                                 }]
                             },
                             {
-                                "title": "Simple product page",
+                                "title": "Simple product page 50p",
                                 "tag_field": "label",
                                 "tags": [
                                     "Simple Product"
@@ -542,10 +554,20 @@
                                         "value": "Guest",
                                         "type": "contains"
                                     }
-                                ]
+                                ],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }]
                             },
                             {
-                                "title": "Complex product page",
+                                "title": "Complex product page 50p",
                                 "tag_field": "label",
                                 "tags": [
                                     "Configurable Product"
@@ -560,7 +582,117 @@
                                         "value": "Guest",
                                         "type": "contains"
                                     }
-                                ]
+                                ],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }]
+                            },
+                            {
+                                "title": "Category page 50p",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Open Category"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "Guest",
+                                    "type": "contains"
+                                }],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }]
+                            },
+                            {
+                                "title": "Home page 50p",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Open Home Page"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "Guest",
+                                    "type": "contains"
+                                }],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }]
+                            },
+                            {
+                                "title": "Simple product page 90p",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Simple Product"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "View",
+                                    "type": "contains"
+                                },
+                                    {
+                                        "field": "label",
+                                        "value": "Guest",
+                                        "type": "contains"
+                                    }
+                                ],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }]
+                            },
+                            {
+                                "title": "Complex product page 90p",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Configurable Product"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "View",
+                                    "type": "contains"
+                                },
+                                    {
+                                        "field": "label",
+                                        "value": "Guest",
+                                        "type": "contains"
+                                    }
+                                ],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }]
                             }
                         ]
                     }
@@ -571,16 +703,6 @@
                     "data": {
                         "title": "Catalog browsing by customer",
                         "type": "group_chart_jtl",
-                        "metrics": [{
-                            "type": "percentile",
-                            "config": {
-                                "lvl": 90,
-                                "group": {
-                                    "field": "allThreads",
-                                    "title": "allThreads"
-                                }
-                            }
-                        }],
                         "max": 2000,
                         "deviation": 1000,
                         "categories": ["allThreads"],
@@ -588,19 +710,29 @@
                             "category": "allThreads",
                             "value": "Latency",
                             "items": [{
-                                "title": "Category page",
-                                "tag_field": "label",
-                                "tags": [
-                                    "Open Category"
-                                ],
-                                "conditions": [{
-                                    "field": "label",
-                                    "value": "Customer",
-                                    "type": "contains"
-                                }]
-                            },
+                                    "title": "Category page 50p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Open Category"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Customer",
+                                        "type": "contains"
+                                    }],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 50,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
+                                },
                                 {
-                                    "title": "Home page",
+                                    "title": "Home page 50p",
                                     "tag_field": "label",
                                     "tags": [
                                         "Open Home Page"
@@ -609,10 +741,20 @@
                                         "field": "label",
                                         "value": "Customer",
                                         "type": "contains"
+                                    }],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 50,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
                                     }]
                                 },
                                 {
-                                    "title": "Simple product page",
+                                    "title": "Simple product page 50p",
                                     "tag_field": "label",
                                     "tags": [
                                         "Simple Product"
@@ -627,10 +769,20 @@
                                             "value": "Customer",
                                             "type": "contains"
                                         }
-                                    ]
+                                    ],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 50,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
                                 },
                                 {
-                                    "title": "Complex product page",
+                                    "title": "Complex product page 50p",
                                     "tag_field": "label",
                                     "tags": [
                                         "Configurable Product"
@@ -645,7 +797,117 @@
                                             "value": "Customer",
                                             "type": "contains"
                                         }
-                                    ]
+                                    ],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 50,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
+                                },
+                                {
+                                    "title": "Category page 90p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Open Category"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Customer",
+                                        "type": "contains"
+                                    }],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 90,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
+                                },
+                                {
+                                    "title": "Home page 90p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Open Home Page"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Customer",
+                                        "type": "contains"
+                                    }],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 90,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
+                                },
+                                {
+                                    "title": "Simple product page 90p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Simple Product"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "View",
+                                        "type": "contains"
+                                    },
+                                        {
+                                            "field": "label",
+                                            "value": "Customer",
+                                            "type": "contains"
+                                        }
+                                    ],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 90,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
+                                },
+                                {
+                                    "title": "Complex product page 90p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Configurable Product"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "View",
+                                        "type": "contains"
+                                    },
+                                        {
+                                            "field": "label",
+                                            "value": "Customer",
+                                            "type": "contains"
+                                        }
+                                    ],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 90,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
                                 }
                             ]
                         }
@@ -661,16 +923,6 @@
                     "data": {
                         "title": "Checkout start page",
                         "type": "group_chart_jtl",
-                        "metrics": [{
-                            "type": "percentile",
-                            "config": {
-                                "lvl": 90,
-                                "group": {
-                                    "field": "allThreads",
-                                    "title": "allThreads"
-                                }
-                            }
-                        }],
                         "max": 2000,
                         "deviation": 1000,
                         "categories": ["allThreads"],
@@ -678,7 +930,7 @@
                             "category": "allThreads",
                             "value": "Latency",
                             "items": [{
-                                "title": "by Guest",
+                                "title": "by Guest 50p",
                                 "tag_field": "label",
                                 "tags": [
                                     "Checkout start"
@@ -687,10 +939,20 @@
                                     "field": "label",
                                     "value": "Guest",
                                     "type": "contains"
+                                }],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
                                 }]
                             },
                                 {
-                                    "title": "by Customer",
+                                    "title": "by Customer 50p",
                                     "tag_field": "label",
                                     "tags": [
                                         "Checkout start"
@@ -699,6 +961,60 @@
                                         "field": "label",
                                         "value": "Customer",
                                         "type": "contains"
+                                    }],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 50,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
+                                },
+                                {
+                                    "title": "by Guest 90p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout start"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Guest",
+                                        "type": "contains"
+                                    }],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 90,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
+                                },
+                                {
+                                    "title": "by Customer 90p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout start"
+                                    ],
+                                    "conditions": [{
+                                        "field": "label",
+                                        "value": "Customer",
+                                        "type": "contains"
+                                    }],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 90,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
                                     }]
                                 }
                             ]
@@ -710,16 +1026,6 @@
                         "data": {
                             "title": "Checkout place order page",
                             "type": "group_chart_jtl",
-                            "metrics": [{
-                                "type": "percentile",
-                                "config": {
-                                    "lvl": 90,
-                                    "group": {
-                                        "field": "allThreads",
-                                        "title": "allThreads"
-                                    }
-                                }
-                            }],
                             "max": 2000,
                             "deviation": 1000,
                             "categories": ["allThreads"],
@@ -727,7 +1033,7 @@
                                 "category": "allThreads",
                                 "value": "Latency",
                                 "items": [{
-                                    "title": "by Guest",
+                                    "title": "by Guest 50p",
                                     "tag_field": "label",
                                     "tags": [
                                         "Checkout Payment Info/Place Order"
@@ -736,6 +1042,40 @@
                                         "field": "label",
                                         "value": "Guest",
                                         "type": "contains"
+                                    }],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 50,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
+                                    }]
+                                },
+                                {
+                                    "title": "by Guest 90p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Checkout Payment Info/Place Order"
+                                    ],
+                                    "conditions": [
+                                        {
+                                            "field": "label",
+                                            "value": "Guest",
+                                            "type": "contains"
+                                        }
+                                    ],
+                                    "metrics": [{
+                                        "type": "percentile",
+                                        "config": {
+                                            "lvl": 90,
+                                            "group": {
+                                                "field": "allThreads",
+                                                "title": "allThreads"
+                                            }
+                                        }
                                     }]
                                 }]
                             }
@@ -751,35 +1091,67 @@
                     "data": {
                         "title": "Add to cart",
                         "type": "group_chart_jtl",
-                        "metrics": [{
-                            "type": "percentile",
-                            "config": {
-                                "lvl": 90,
-                                "group": {
-                                    "field": "allThreads",
-                                    "title": "allThreads"
-                                }
-                            }
-                        }],
                         "max": 2000,
                         "deviation": 1000,
                         "categories": ["allThreads"],
                         "data": {
                             "category": "allThreads",
                             "value": "Latency",
-                            "items": [{
-                                "title": "by Guest",
-                                "tag_field": "label",
-                                "tags": [
-                                    "Add To Cart"
-                                ],
-                                "pattern": "/[^\\(]Add To Cart/",
-                                "conditions": [{
-                                    "field": "label",
-                                    "value": "Guest",
-                                    "type": "contains"
+                            "items": [
+                                {
+                                    "title": "by Guest 50p",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Add To Cart"
+                                    ],
+                                    "pattern": "/[^\\(]Add To Cart/",
+                                    "conditions": [
+                                        {
+                                            "field": "label",
+                                            "value": "Guest",
+                                            "type": "contains"
+                                        }
+                                    ],
+                                    "metrics": [
+                                        {
+                                            "type": "percentile",
+                                            "config": {
+                                                "lvl": 50,
+                                                "group": {
+                                                    "field": "allThreads",
+                                                    "title": "allThreads"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "by Guest 90",
+                                    "tag_field": "label",
+                                    "tags": [
+                                        "Add To Cart"
+                                    ],
+                                    "pattern": "/[^\\(]Add To Cart/",
+                                    "conditions": [
+                                        {
+                                            "field": "label",
+                                            "value": "Guest",
+                                            "type": "contains"
+                                        }
+                                    ],
+                                    "metrics": [
+                                        {
+                                            "type": "percentile",
+                                            "config": {
+                                                "lvl": 90,
+                                                "group": {
+                                                    "field": "allThreads",
+                                                    "title": "allThreads"
+                                                }
+                                            }
+                                        }
+                                    ]
                                 }]
-                            }]
                         }
                     }
                 },
@@ -788,34 +1160,58 @@
                         "data": {
                             "title": "Search",
                             "type": "group_chart_jtl",
-                            "metrics": [{
-                                "type": "percentile",
-                                "config": {
-                                    "lvl": 90,
-                                    "group": {
-                                        "field": "allThreads",
-                                        "title": "allThreads"
-                                    }
-                                }
-                            }],
                             "max": 2000,
                             "deviation": 1000,
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
-                                "items": [{
-                                    "title": "Quick Search With Filtration",
-                                    "tag_field": "label",
-                                    "tags": [
-                                        "Search"
-                                    ],
-                                    "conditions": [{
-                                        "field": "label",
-                                        "value": "Quick Search With Filtration",
-                                        "type": "contains"
-                                    }]
-                                }]
+                                "items": [
+                                    {
+                                        "title": "Quick Search With Filtration 50p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Search"
+                                        ],
+                                        "conditions": [{
+                                            "field": "label",
+                                            "value": "Quick Search With Filtration",
+                                            "type": "contains"
+                                        }],
+                                        "metrics": [{
+                                            "type": "percentile",
+                                            "config": {
+                                                "lvl": 50,
+                                                "group": {
+                                                    "field": "allThreads",
+                                                    "title": "allThreads"
+                                                }
+                                            }
+                                        }]
+                                    },
+                                    {
+                                        "title": "Quick Search With Filtration 90p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Search"
+                                        ],
+                                        "conditions": [{
+                                            "field": "label",
+                                            "value": "Quick Search With Filtration",
+                                            "type": "contains"
+                                        }],
+                                        "metrics": [{
+                                            "type": "percentile",
+                                            "config": {
+                                                "lvl": 90,
+                                                "group": {
+                                                    "field": "allThreads",
+                                                    "title": "allThreads"
+                                                }
+                                            }
+                                        }]
+                                    }
+                                ]
                             }
                         }
                     }
