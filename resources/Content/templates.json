@@ -74,7 +74,7 @@
                             },
                                 {
                                     "type": "cell",
-                                    "text": "* Websites/stores/stores view: 1 (total)<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 15 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
+                                    "text": "* Websites/stores/stores view: 1 (total)<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 24 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
                                     "textAlignment": "start"
                                 }
                             ],
@@ -86,7 +86,7 @@
                             },
                                 {
                                     "type": "cell",
-                                    "text": "* Websites/stores/stores view: 3 (total)<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 11 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
+                                    "text": "* Websites/stores/stores view: 3 (total)<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 24 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
                                     "textAlignment": "start"
                                 }
                             ],
@@ -98,7 +98,7 @@
                             },
                                 {
                                     "type": "cell",
-                                    "text": "* Websites/stores/stores view: 5 (total)<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 11 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
+                                    "text": "* Websites/stores/stores view: 5 (total)<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 24 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
                                     "textAlignment": "start"
                                 }
                             ]
@@ -107,7 +107,7 @@
                 },
                 {
                     "type": "text",
-                    "data": "Note: you can find test data generation tools and the data profile configuration in https://github.com/magento/magento2/tree/2.2.5/setup/performance-toolkit."
+                    "data": "<w:br/>Note: you can find test data generation tools and the data profile configuration in https://github.com/magento/magento2/tree/2.2.6/setup/performance-toolkit."
                 }
             ]
         }]
@@ -1635,7 +1635,16 @@
                         "data": {
                             "title": "Active threads over time",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
+                            "metrics": [{
+                                "type": "percentile",
+                                "config": {
+                                    "lvl": 50,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -1707,7 +1716,16 @@
                         "data": {
                             "title": "Catalog browsing",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
+                            "metrics": [{
+                                "type": "percentile",
+                                "config": {
+                                    "lvl": 50,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -1743,7 +1761,16 @@
                         "data": {
                             "title": "Checkout",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
+                            "metrics": [{
+                                "type": "percentile",
+                                "config": {
+                                    "lvl": 50,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -1792,7 +1819,16 @@
                         "data": {
                             "title": "Customer",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
+                            "metrics": [{
+                                "type": "percentile",
+                                "config": {
+                                    "lvl": 50,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -1821,7 +1857,16 @@
                         "data": {
                             "title": "Product Management",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
+                            "metrics": [{
+                                "type": "percentile",
+                                "config": {
+                                    "lvl": 50,
+                                    "group": {
+                                        "field": "allThreads",
+                                        "title": "allThreads"
+                                    }
+                                }
+                            }],
                             "categories": ["TimeLine"],
                             "data": {
                                 "category": "timeStamp",
@@ -1865,39 +1910,6 @@
                 "type": "API",
                 "src": "jtl",
                 "blocks": [
-                    {
-                        "type": "jtlText",
-                        "data": {
-                            "title": "Concurrent Results",
-                            "type": "table_jtl",
-                            "metrics": [
-                                {"type": "concurrent", "config": {"lvl": 1}}
-                            ],
-                            "data": {
-                                "category": "timeStamp",
-                                "value": "timeStamp",
-                                "items": [
-                                    {
-                                        "title": "Errors count",
-                                        "metrics": [
-                                            {"type": "count"}
-                                        ],
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "API"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "responseCode",
-                                                "value": "200",
-                                                "type": "notequals"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    },
                     {
                         "type": "jtlTable",
                         "data": {

@@ -7,15 +7,9 @@
       "type": "Starter",
       "id": "mcklpmeupnfcq",
       "sub_hosts": [
-        {
-          "name": null
-        },
-        {
-          "name": null
-        },
-        {
-          "name": null
-        }
+        {"name": null},
+        {"name": null},
+        {"name": null}
       ],
       "jenkins": "starter-eu",
       "jenkins_folder": "starter",
@@ -23,7 +17,7 @@
       "profiles": [
         {
           "name": "small",
-          "measurements": [
+          "measurements" : [
             {
               "type": "SS",
               "profile": "small",
@@ -72,7 +66,7 @@
         },
         {
           "name": "medium",
-          "measurements": [
+          "measurements" : [
             {
               "type": "SS",
               "profile": "medium",
@@ -129,15 +123,9 @@
       "type": "Starter Large",
       "id": "fit4a2kwwt56a",
       "sub_hosts": [
-        {
-          "name": null
-        },
-        {
-          "name": null
-        },
-        {
-          "name": null
-        }
+        {"name": null},
+        {"name": null},
+        {"name": null}
       ],
       "jenkins": "starterlarge-eu",
       "jenkins_folder": "starterlarge",
@@ -145,7 +133,7 @@
       "profiles": [
         {
           "name": "small",
-          "measurements": [
+          "measurements" : [
             {
               "type": "SS",
               "profile": "small",
@@ -198,7 +186,7 @@
         },
         {
           "name": "medium",
-          "measurements": [
+          "measurements" : [
             {
               "type": "SS",
               "profile": "medium",
@@ -256,155 +244,135 @@
       "id": "oh2wi6klp5ytk",
       "ip": "35.158.210.240",
       "sub_hosts": [
-        {
-          "name": "01df15a1dcbecd748"
-        },
-        {
-          "name": "038a5147a9b774b1d"
-        },
-        {
-          "name": "042785963195a60ee"
-        }
+        {"name": "01df15a1dcbecd748"},
+        {"name": "038a5147a9b774b1d"},
+        {"name": "042785963195a60ee"}
       ],
       "jenkins_folder": "12eu",
       "include": true,
-      "profiles": [
-        {
-          "name": "small",
-          "measurements": [
-            {
-              "type": "Concurrency-SS",
-              "profile": "small",
-              "src": [
-                {
-                  "build": {
-                    "id": 429,
-                    "threads": {
-                      "start": 0.25,
-                      "end": 0.25,
-                      "step": 0.25
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
+      "profiles": [{
+        "name": "small",
+        "measurements" : [
+          {
+            "type": "Concurrency-SS",
+            "profile": "small",
+            "src": [
+              {
+                "build": {
+                  "id": 429,
+                  "threads": {
+                    "start": 0.25,
+                    "end": 0.25,
+                    "step": 0.25
+                  }
                 },
-                {
-                  "build": {
-                    "id": 430,
-                    "threads": {
-                      "start": 0.5,
-                      "end": 0.5,
-                      "step": 0.5
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
+                "type": "concurrencyJtl",
+                "path": "tests/results/benchmark_result.jtl"
+              },
+              {
+                "build": {
+                  "id": 430,
+                  "threads": {
+                    "start": 0.5,
+                    "end": 0.5,
+                    "step": 0.5
+                  }
                 },
-                {
-                  "build": {
-                    "id": 431,
-                    "threads": {
-                      "start": 1,
-                      "end": 1,
-                      "step": 1
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
+                "type": "concurrencyJtl",
+                "path": "tests/results/benchmark_result.jtl"
+              },
+              {
+                "build": {
+                  "id": 431,
+                  "threads": {
+                    "start": 1,
+                    "end": 1,
+                    "step": 1
+                  }
                 },
-                {
-                  "build": {
-                    "id": 432,
-                    "threads": {
-                      "start": 2,
-                      "end": 2,
-                      "step": 2
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
+                "type": "concurrencyJtl",
+                "path": "tests/results/benchmark_result.jtl"
+              },
+              {
+                "build": {
+                  "id": 432,
+                  "threads": {
+                    "start": 2,
+                    "end": 2,
+                    "step": 2
+                  }
                 },
-                {
-                  "build": {
-                    "id": 436,
-                    "threads": {
-                      "start": 4,
-                      "end": 4,
-                      "step": 4
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
+                "type": "concurrencyJtl",
+                "path": "tests/results/benchmark_result.jtl"
+              },
+              {
+                "build": {
+                  "id": 436,
+                  "threads": {
+                    "start": 4,
+                    "end": 4,
+                    "step": 4
+                  }
                 },
-                {
-                  "build": {
-                    "id": 434,
-                    "threads": {
-                      "start": 6,
-                      "end": 6,
-                      "step": 6
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
+                "type": "concurrencyJtl",
+                "path": "tests/results/benchmark_result.jtl"
+              },
+              {
+                "build": {
+                  "id": 434,
+                  "threads": {
+                    "start": 6,
+                    "end": 6,
+                    "step": 6
+                  }
                 },
-                {
-                  "build": {
-                    "id": 435,
-                    "threads": {
-                      "start": 8,
-                      "end": 8,
-                      "step": 8
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
-                }
-              ]
-            },
-            {
-              "type": "API",
-              "profile": "small",
-              "build_id": 624,
-              "src": [
-                {
-                  "type": "jtl",
-                  "path": "tests/results/benchmark_api_result.jtl"
-                }
-              ]
-            },
-            {
-              "type": "CS-SITESPEED",
-              "profile": "small",
-              "build_id": 381,
-              "src": [
-                {
-                  "type": "json",
-                  "path": "tests/results/sidespeedio/browsertime.json"
-                }
-              ]
-            }
-          ]
-        },
+                "type": "concurrencyJtl",
+                "path": "tests/results/benchmark_result.jtl"
+              },
+              {
+                "build": {
+                  "id": 435,
+                  "threads": {
+                    "start": 8,
+                    "end": 8,
+                    "step": 8
+                  }
+                },
+                "type": "concurrencyJtl",
+                "path": "tests/results/benchmark_result.jtl"
+              }
+            ]
+          },
+          {
+            "type": "API",
+            "profile": "small",
+            "build_id": 624,
+            "src": [
+              {
+                "type": "jtl",
+                "path": "tests/results/benchmark_api_result.jtl"
+              }
+            ]
+          },
+          {
+            "type": "CS-SITESPEED",
+            "profile": "small",
+            "build_id": 381,
+            "src": [
+              {
+                "type": "json",
+                "path": "tests/results/sidespeedio/browsertime.json"
+              }
+            ]
+          }]
+      },
         {
           "name": "medium",
-          "measurements": [
+          "measurements" : [
             {
               "type": "Concurrency-SS",
               "profile": "medium",
               "src": [
-                {
-                  "build": {
-                    "id": 599,
-                    "threads": {
-                      "start": 0.25,
-                      "end": 0.25,
-                      "step": 0.25
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
-                },
                 {
                   "build": {
                     "id": 600,
@@ -412,18 +380,6 @@
                       "start": 0.5,
                       "end": 0.5,
                       "step": 0.5
-                    }
-                  },
-                  "type": "concurrencyJtl",
-                  "path": "tests/results/benchmark_result.jtl"
-                },
-                {
-                  "build": {
-                    "id": 601,
-                    "threads": {
-                      "start": 0.75,
-                      "end": 0.75,
-                      "step": 0.75
                     }
                   },
                   "type": "concurrencyJtl",
@@ -523,29 +479,23 @@
       "id": "zhe434vvxvvhc",
       "ip": "54.93.150.14",
       "sub_hosts": [
-        {
-          "name": "025a07f7c8210afda"
-        },
-        {
-          "name": "0674ba891b8349b24"
-        },
-        {
-          "name": "0e9d1089c3f524de9"
-        }
+        {"name": "025a07f7c8210afda"},
+        {"name": "0674ba891b8349b24"},
+        {"name": "0e9d1089c3f524de9"}
       ],
       "jenkins_folder": "24eu",
       "include": true,
       "profiles": [
         {
           "name": "small",
-          "measurements": [
+          "measurements" : [
             {
               "type": "Concurrency-SS",
               "profile": "small",
               "src": [
                 {
                   "build": {
-                    "id": 346,
+                    "id": 352,
                     "threads": {
                       "start": 0.25,
                       "end": 0.25,
@@ -644,14 +594,14 @@
         },
         {
           "name": "medium",
-          "measurements": [
+          "measurements" : [
             {
               "type": "Concurrency-SS",
               "profile": "medium",
               "src": [
                 {
                   "build": {
-                    "id": 221,
+                    "id": 371,
                     "threads": {
                       "start": 0.25,
                       "end": 0.25,
@@ -663,11 +613,11 @@
                 },
                 {
                   "build": {
-                    "id": 371,
+                    "id": 373,
                     "threads": {
-                      "start": 0.5,
-                      "end": 0.5,
-                      "step": 0.5
+                      "start": 0.75,
+                      "end": 0.75,
+                      "step": 0.75
                     }
                   },
                   "type": "concurrencyJtl",
@@ -675,7 +625,7 @@
                 },
                 {
                   "build": {
-                    "id": 223,
+                    "id": 374,
                     "threads": {
                       "start": 1,
                       "end": 1,
@@ -687,7 +637,7 @@
                 },
                 {
                   "build": {
-                    "id": 224,
+                    "id": 375,
                     "threads": {
                       "start": 2,
                       "end": 2,
@@ -750,7 +700,7 @@
         },
         {
           "name": "large",
-          "measurements": [
+          "measurements" : [
             {
               "type": "Concurrency-SS",
               "profile": "large",
@@ -849,15 +799,9 @@
       "id": "qjldd4p2tbpwg",
       "ip": "18.194.58.244",
       "sub_hosts": [
-        {
-          "name": "032fd67cb04856dab"
-        },
-        {
-          "name": "0b6fc7129022af0a3"
-        },
-        {
-          "name": "0cc95ba4791960d6d"
-        }
+        {"name": "032fd67cb04856dab"},
+        {"name": "0b6fc7129022af0a3"},
+        {"name": "0cc95ba4791960d6d"}
       ],
       "jenkins_folder": "48eu",
       "include": true,
@@ -919,7 +863,7 @@
                 },
                 {
                   "build": {
-                    "id": 188,
+                    "id": 243,
                     "threads": {
                       "start": 4,
                       "end": 4,
@@ -1034,6 +978,30 @@
                   },
                   "type": "concurrencyJtl",
                   "path": "tests/results/benchmark_result.jtl"
+                },
+                {
+                  "build": {
+                    "id": 129,
+                    "threads": {
+                      "start": 6,
+                      "end": 6,
+                      "step": 6
+                    }
+                  },
+                  "type": "concurrencyJtl",
+                  "path": "tests/results/benchmark_result.jtl"
+                },
+                {
+                  "build": {
+                    "id": 130,
+                    "threads": {
+                      "start": 8,
+                      "end": 8,
+                      "step": 8
+                    }
+                  },
+                  "type": "concurrencyJtl",
+                  "path": "tests/results/benchmark_result.jtl"
                 }
               ]
             },
@@ -1057,15 +1025,9 @@
       "id": "smjthfxq3rotk",
       "ip": "18.194.58.244",
       "sub_hosts": [
-        {
-          "name": "032e8887fe0e8f267"
-        },
-        {
-          "name": "07ccc673207b75041"
-        },
-        {
-          "name": "080c45a8db93504a2"
-        }
+        {"name": "032e8887fe0e8f267"},
+        {"name": "07ccc673207b75041"},
+        {"name": "080c45a8db93504a2"}
       ],
       "jenkins_folder": "120eu",
       "jenkins": "jenkins120-eu",
@@ -1074,14 +1036,14 @@
       "profiles": [
         {
           "name": "large",
-          "measurements": [
+          "measurements" : [
             {
               "type": "Concurrency-SS",
-              "profile": "extra_large",
+              "profile": "large",
               "src": [
                 {
                   "build": {
-                    "id": 137,
+                    "id": 185,
                     "threads": {
                       "start": 0.25,
                       "end": 0.25,
@@ -1180,7 +1142,7 @@
         },
         {
           "name": "extra_large",
-          "measurements": [
+          "measurements" : [
             {
               "type": "Concurrency-SS",
               "profile": "extra_large",
