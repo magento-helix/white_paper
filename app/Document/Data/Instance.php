@@ -67,6 +67,11 @@ class Instance implements InstanceInterface
         return $this->instanceConfig['type'];
     }
 
+    public function getCores(): int
+    {
+        return $this->instanceConfig['cores'];
+    }
+
     private function initializeJtlDataConfig($srcConfig, $measurementType) {
         $type = $srcConfig['type'];
         $needTags = [];
@@ -100,7 +105,7 @@ class Instance implements InstanceInterface
         if (!isset($this->dataSearchConfig[$measurementType . $type])) {
             $this->initializeJtlDataConfig($srcConfig, $measurementType);
         }
-        $cores = (int)str_replace("Pro", "", $this->getInstanceType());
+        $cores = (int)$this->getCores();
         $maxThreadId = 0;
         $start = ceil($srcConfig['build']['threads']['start'] * $cores);
         for ($i = $srcConfig['build']['threads']['start']; $i  <= $srcConfig['build']['threads']['end']; $i += $srcConfig['build']['threads']['step']) {
@@ -116,6 +121,9 @@ class Instance implements InstanceInterface
         $this->dataSearchConfig[$measurementType . $type]['borders']['start'] = $start;
         $this->dataSearchConfig[$measurementType . $type]['borders']['maxThreadId'] = $maxThreadId;
         $this->dataSearchConfig[$measurementType . $type]['borders']['excepts'] = $excepts;
+        $this->dataSearchConfig[$measurementType . $type]['borders']['deviation'] = isset($srcConfig['build']['threads']['deviation'])
+            ? (int)$srcConfig['build']['threads']['deviation']
+            : 0;
         $this->dataSearchConfig[$measurementType . $type]['borders']['field'] = 'allThreads';
     }
 

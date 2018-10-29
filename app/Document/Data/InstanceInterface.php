@@ -14,4 +14,6 @@ interface InstanceInterface
     public function getData(string $key) : array;
 
     public function getInstanceType(): string;
+
+    public function getCores(): int;
 }

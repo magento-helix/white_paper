@@ -6,7 +6,7 @@
                 "blocks": [
                     {
                         "type": "documentTitle",
-                        "data": "Measurements on Magento Cloud Infrastructure"
+                        "data": "Measurements on Magento Cloud Infrastructure - B2C"
                     },
                     {
                         "type": "documentAuthors",
@@ -37,7 +37,7 @@
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "This white paper contains results of performance measurements of Magento Commerce 2.2.4 running on Magento Cloud Pro infrastructure for cases of Small, Medium, Large and Extra-large profiles. Measurements track response rates captured for high-loaded eCommerce sites on Magento Cloud Pro production environments 12 to 120.<w:br/><w:br/>All performance measurements are based on simulated day-to-day store activities for customers and business users. The values do not reflect maximum throughout or reflect unique business models, like private sales or flash sales.<w:br/><w:br/>This information aids eCommerce managers and technical staff to better understand the performance characteristics of the application and select an appropriate plan for Magento Commerce store using Magento Cloud environments and services.<w:br/><w:br/>When considering Magento Cloud for your Magento Commerce storefronts, review Instance Profile Configuration to determine which profile meets the size of your storefront. All performance results in this white paper are titled by profile and environment size."
+                        "data": "This white paper contains results of performance measurements of Magento Commerce 2.2.6 running on Magento Cloud Pro infrastructure for cases of Small, Medium and Large profiles. Measurements track response rates captured for high-loaded eCommerce sites on Magento Cloud Pro production environments 12 to 120.<w:br/><w:br/>All performance measurements are based on simulated day-to-day store activities for customers and business users. The values is also reflect a maximum throughout for each case, but don't reflect unique business models, like private sales or flash sales.<w:br/><w:br/>This information aids eCommerce managers and technical staff to better understand the performance characteristics of the application and select an appropriate plan for Magento Commerce store using Magento Cloud environments and services.<w:br/><w:br/>When considering Magento Cloud for your Magento Commerce storefronts, review Instance Profile Configuration to determine which profile meets the size of your storefront. All performance results in this white paper are titled by profile and environment size."
                     }
                 ]
             }
@@ -51,21 +51,21 @@
                 "blocks": [
                     {
                         "type": "markedList",
-                        "data": "Magento Commerce (Cloud) environments for 12 with Small and Medium profiles and 24 with Medium profile, can serve described load without any specific customizations and demonstrate above response time results for day-to-day store activities and sales.<li>Magento Commerce (Cloud) environments for 12, 24, 48 with Large profile and 48 and 120 with Extra Large profile require customizations in Magento code/infrastructure.<li>API performance scenarios demonstrate acceptable results, with the exception of Get/Create product cases for profiles larger than Small.<li>Client-side performance tests demonstrated good results.<li>Full indexation for Large and Extra-large profile takes a significant amount of time.<li>Emulating real instances, 60% cache hit rate was used during the measurements that implies more time of response caused by request to application and subsequent processes."
+                        "data": "Magento Commerce (Cloud) environments PRO12 and PRO24 with Small and Medium profiles can serve described load without any specific customizations and demonstrate above response time results for day-to-day store activities and sales.<li>Magento Commerce (Cloud) environments for PRO48 and PRO120 with Large profile require customizations in Magento code/infrastructure.<li>Client-side performance tests demonstrated good results.<li>Full indexation for Large profile takes a significant amount of time.<li>Emulating real instances, 0% cache hit rate was used during the measurements that implies more time of response caused by request to application and subsequent processes."
                     }
                 ]
             }
         ]
     },
     {
-        "title": "Instance Profile Configuration",
+        "title": "Data Profile Configuration",
         "type": "condition",
         "pages": [
             {
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "The scenarios use the following profiles. Each profile includes a number of sites, products, and categories best matching stores typically considered small, medium, large, and extra-large.<w:br/><w:br/>All profiles are available through the Magento 2 GitHub repository, Profiles.<w:br/>"
+                        "data": "The scenarios use the following data profiles. Each data profile includes a number of sites, products, and categories matching stores typically considered small, medium, large, and extra-large B2C installations.<w:br/><w:br/>All profiles are available through the Magento 2 GitHub repository, Profiles.<w:br/>"
                     },
                     {
                         "type": "inlineTable",
@@ -94,7 +94,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Website/store/store view: 1<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 15 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
+                                        "text": "* Websites/stores/stores view: 1 (total)<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 24 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
                                         "textAlignment": "start"
                                     }
                                 ],
@@ -107,7 +107,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Website/store/store view: 3<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 11 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
+                                        "text": "* Websites/stores/stores view: 3 (total)<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 24 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
                                         "textAlignment": "start"
                                     }
                                 ],
@@ -120,32 +120,23 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Website/store/store view: 5<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 11 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
-                                        "textAlignment": "start"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Extra Large",
-                                        "bold": true,
-                                        "valign": "top"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "* Website/store/store view: 5<w:br/>* Individual simples: 600,000<w:br/>* Configurable products: 16,000(with 11 simple products for each configurable product, ~ 176,000 simple products)<w:br/>* Categories: 6,000<w:br/>* Customers: 10,000",
+                                        "text": "* Websites/stores/stores view: 5 (total)<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 24 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
                                         "textAlignment": "start"
                                     }
                                 ]
                             ]
                         }
+                    },
+                    {
+                        "type": "text",
+                        "data": "<w:br/>Note: you can find test data generation tools and the data profile configuration in https://github.com/magento/magento2/tree/2.2.6/setup/performance-toolkit."
                     }
                 ]
             }
         ]
     },
     {
-        "title": "Test profile details",
+        "title": "Load profile details",
         "type": "testProfileDetails",
         "pages": [
             {
@@ -156,11 +147,19 @@
                     },
                     {
                         "type": "markedList",
-                        "data": "<B>Cache hit/miss rate: </B>60% hit / 40% miss<li><B>User actions: </B> Each user performs 2-3 actions (clicks) per minute. The average industry rate is 1 click per 1-2 minutes. Actions tested include<li><B>Load average: </B> 1 user per core<li><B>Storefront Frontend and Magento Admin actions: </B> Performance of actions completed by customers and business users managing the storefront<li><B>Site Performance Tools: </B> Performance according to sitespeed.io and Google page tests"
+                        "data": "<B>Cache hit/miss rate: </B>0% hit, means that with avg cache hit ratio (~80%) the load could be up to 5 times larger while achieving same performance<li><B>User actions: </B> Each user performs 2-3 actions (clicks) per minute. The average industry rate is 1 click per 1-2 minutes. Actions tested include<li><B>Load average: </B> 1 user per core<li><B>Storefront Frontend and Magento Admin actions: </B> Performance of actions completed by customers and business users managing the storefront<li><B>Site Performance Tools: </B> Performance according to sitespeed.io"
                     },
                     {
                         "type": "text",
-                        "data": "We capture data through the experiments for the mediana, 90 percentile, 95 percentile, and 99 percentile of measured performance."
+                        "data": "<B>Load average:</B> starting from 0.25x users per core to 8x users per core of the application server"
+                    },
+                    {
+                        "type": "text",
+                        "data": "We capture data through the experiments for the 90 percentile and additionaly mediana for main table with response time."
+                    },
+                    {
+                        "type": "text",
+                        "data": "Note: the traffic profiles represent an average b2c scenario. For specific use cases like marketplace, flash sales, b2b, single product sites etc, the numbers might be significantly different."
                     }
                 ]
             }
@@ -245,24 +244,24 @@
                                 [
                                     {
                                         "type": "normal",
-                                        "text": "Elasticsearch<w:br/>(version:1.7.6)",
+                                        "text": "Elasticsearch<w:br/>(version:5.2)",
                                         "bold": true
                                     },
                                     {
                                         "type": "normal",
-                                        "text": "HEAP_SIZE: 2G<w:br/>data dir size: 10G"
+                                        "text": "HEAP_SIZE: 2G"
                                     },
                                     {
                                         "type": "normal",
-                                        "text": "HEAP_SIZE: 4G<w:br/>data dir size: 20G"
+                                        "text": "HEAP_SIZE: 4G"
                                     },
                                     {
                                         "type": "normal",
-                                        "text": "HEAP_SIZE: 6G<w:br/>data dir size: 30G"
+                                        "text": "HEAP_SIZE: 6G"
                                     },
                                     {
                                         "type": "normal",
-                                        "text": "HEAP_SIZE: 8G<w:br/>data dir size: 40G"
+                                        "text": "HEAP_SIZE: 8G"
                                     }
                                 ],
                                 [
@@ -273,19 +272,19 @@
                                     },
                                     {
                                         "type": "normal",
-                                        "text": "innodb_buffer_size: 6G<w:br/>space: 200Gb"
+                                        "text": "innodb_buffer_size: 6G"
                                     },
                                     {
                                         "type": "normal",
-                                        "text": "innodb_buffer_size: 12G<w:br/>space: 200Gb"
+                                        "text": "innodb_buffer_size: 12G"
                                     },
                                     {
                                         "type": "normal",
-                                        "text": "innodb_buffer_size: 18G<w:br/>space: 200Gb"
+                                        "text": "innodb_buffer_size: 18G"
                                     },
                                     {
                                         "type": "normal",
-                                        "text": "innodb_buffer_size: 24G<w:br/>space: 200Gb"
+                                        "text": "innodb_buffer_size: 24G"
                                     }
                                 ],
                                 [
@@ -337,29 +336,6 @@
                                 [
                                     {
                                         "type": "normal",
-                                        "text": "Fastly",
-                                        "bold": true
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "max_conn: 200"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": null
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
                                         "text": "Cron",
                                         "bold": true
                                     },
@@ -388,60 +364,14 @@
         ]
     },
     {
-        "title": "Profile indexation time",
-        "type": "regular",
-        "pages" : [
-            {
-                "blocks" : [
-                    {
-                        "type": "text",
-                        "data": "The following lists detail the elapsed time for running indexation tasks for each profile size.<w:br/>These values may display as orange or red but are not always an indicator of bad performance. Depending on the type of indexing, the size of profile, and environment, the amount of time may exceed benchmarks but within the expected amount of time for lengthy procedures."
-                    }
-                ]
-            }
-
-        ]
-    },
-    {
-        "title": "Profile indexation time",
-        "type": "compositeChapter",
-        "sub_titles": {
-            "SS": ""
-        },
-        "pages": [
-            {
-                "type": "SS",
-                "src": "indexerLog",
-                "blocks": [
-                    {
-                        "type": "indexerLog",
-                        "data": {
-                            "type": "indexer_log",
-                            "title": "Profile generation times",
-                            "pattern": "\/(Config Changes.*Total execution time:[^a-zA-Z]*)\/s"
-                        }
-                    },
-                    {
-                        "type": "indexerLog",
-                        "data": {
-                            "type": "indexer_log",
-                            "title": "Indexer times",
-                            "pattern": "\/(Design Config.*)Disabled maintenance\/s"
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "title": "Users distribution details",
+        "title": "Users scenarious",
         "type": "usersDistributionDetails",
         "pages": [
             {
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "These charts detail the amount of user scenarios through the Frontend storefront and the Magento Admin."
+                        "data": "To test performance of several areas of the system, the testing simulates user activity by browsing, adding to cart and buying products, among others. Graph below show the distribution of the simulated activity."
                     },
                     {
                         "type": "pieChart",
@@ -459,7 +389,6 @@
                                 "quick order",
                                 "negotiable quote",
                                 "requisition list"
-
                             ],
                             "data": {
                                 "items": [
@@ -534,7 +463,7 @@
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "This report includes graphs and tables of captured and calculated performance measurements. Each test includes graphs of median performance values and tables with extensive data."
+                        "data": "This report includes graphs and tables of captured and calculated performance measurements. Each test includes graphs of median performance values and tables with more details."
                     },
                     {
                         "type": "text",
@@ -547,15 +476,19 @@
                     },
                     {
                         "type": "text",
-                        "data": "<w:br/><B>Graphs</B><w:br/><w:br/>Graphs map median measurements of performance tests for specific requests and responses. Each graph has a title for the test, legend for the tracked data, and median values. For detailed information including the 90 percentile to 99 percentile, see the corresponding tables after the graphs."
+                        "data": "<w:br/><B>Graphs</B><w:br/><w:br/>Graphs map median measurements of performance tests for specific requests and responses. Each graph has a title for the test, legend for the tracked data, and 90 percentile of response time values. For detailed information with numbers see the corresponding tables below the graphs."
                     },
                     {
                         "type": "text",
-                        "data": "<w:br/><B>Tables</B><w:br/><w:br/>The tables provide compiled, exact values of mediana, 90 percentile, 95 percentile, and 99 percentile for each of the graphs and additional collected data from tests. Values are calculated from full page loaded time (including HTTP request).<w:br/>All values are color-coded according to benchmarks: "
+                        "data": "<w:br/><B>How to interpret the graphs</B><w:br/><w:br/>The graphs show page load time (or whatever) depends on the number of traffic generating threads. When the page load time becomes unacceptable (we assume 2 seconds), you can deduct the maximum number of concurrent users the system could handle without caching."
+                    },
+                    {
+                        "type": "text",
+                        "data": "<w:br/><B>Tables</B><w:br/><w:br/>The tables provide compiled, exact values of mediana and 90 percentiles for each of the graphs and additional collected data from tests. Values are calculated from server time (including HTTP request) but exclude loading any resources (images, scripts, style sheets).<w:br/>All values are color-coded according to benchmarks:"
                     },
                     {
                         "type": "markedList",
-                        "data": "Green – Within benchmarks<li>Orange – Exceeding benchmarks<li>Red – Far exceeding benchmark"
+                        "data": "Green – Within benchmarks (&lt;2 sec page load time)<li>Orange – Exceeding benchmarks(&gt;2 sec, &lt; 3 sec )<li>Red – Significantly exceeding benchmark"
                     },
                     {
                         "type": "text",
@@ -576,15 +509,7 @@
                     },
                     {
                         "type": "text",
-                        "data": "API calls response: 200 ms"
-                    },
-                    {
-                        "type": "text",
-                        "data": "<w:br/><B>API performance</B><w:br/><w:br/>These tests determine the performance of API calls and responses from the server/system"
-                    },
-                    {
-                        "type": "text",
-                        "data": "<w:br/><B>Client-side performance</B><w:br/><w:br/>All client-side tests are single-thread. The experiment initiates actions through the storefront site as if performed by customers.<w:br/>To further expand on these tests, experiments include Google page speed tests and sitespeed.io. The performance tests capture reports and data from these tools profiling stores using the test profile and target Magento Cloud Infrastructure."
+                        "data": "<w:br/><B>Client-side performance</B><w:br/><w:br/>All client-side tests are single-thread. The experiment initiates actions through the storefront site as if performed by customers.<w:br/> The performance tests capture reports and data from these tools profiling stores using the test profile and target Magento Cloud Infrastructure."
                     }
                 ]
             }
@@ -595,6 +520,7 @@
         "contentType": "config",
         "sub_titles": {
             "SS": " for benchmarking",
+            "Concurrency-SS": " for concurrency benchmarking",
             "API": " (API performance)",
             "CS-SITESPEED": " (client-side snapshot)",
             "CS-GOOGLEPAGE": " (client-side snapshot)",
@@ -602,139 +528,25 @@
         },
         "pages": [
             {
-                "type": "SS",
-                "src": "jtl",
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
                 "blocks": [
                     {
-                        "type": "lineChart",
-                        "data": {
-                            "title": "Active threads over time",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
-                            "data": {
-                                "category": "timeStamp",
-                                "value": "grpThreads",
-                                "items": [
-                                    {
-                                        "title": "Frontend Pool",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "Frontend Pool"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Admin Pool",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "Admin Pool"
-                                        ]
-                                    },
-                                    {
-                                        "title": "CSR Pool",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "CSR Pool"
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "type": "lineChart",
-                        "data": {
-                            "title": "Response Time Over Time (successful responses)",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "percentile", "config": {"lvl": "90"}}],
-                            "categories": ["TimeLine"],
-                            "data": {
-                                "category": "timeStamp",
-                                "value": "Latency",
-                                "items": [
-                                    {
-                                        "title": "90 percentile",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "Frontend Pool",
-                                            "Admin Pool",
-                                            "CSR Pool"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "responseCode",
-                                                "value": "200",
-                                                "type": "equals"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Median for cashed pages",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "Frontend Pool",
-                                            "Admin Pool",
-                                            "CSR Pool"
-                                        ],
-                                        "metrics": [{"type": "percentile", "config": {"lvl": "50"}}],
-                                        "conditions": [
-                                            {
-                                                "field": "responseCode",
-                                                "value": "200",
-                                                "type": "equals"
-                                            },
-                                            {
-                                                "field": "URL",
-                                                "value": "cacheModifier",
-                                                "type": "notcontains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Median for NOT cashed pages",
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "Frontend Pool",
-                                            "Admin Pool",
-                                            "CSR Pool"
-                                        ],
-                                        "metrics": [{"type": "percentile", "config": {"lvl": "50"}}],
-                                        "conditions": [
-                                            {
-                                                "field": "responseCode",
-                                                "value": "200",
-                                                "type": "equals"
-                                            },
-                                            {
-                                                "field": "URL",
-                                                "value": "cacheModifier",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "SS",
-                "src": "jtl",
-                "blocks": [
-                    {
-                        "type": "lineChart",
+                        "type": "groupLineChart",
                         "data": {
                             "title": "Catalog browsing by guest",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "type": "group_chart_jtl",
+                            "max": 2000,
+                            "deviation": 1000,
+                            "categories": [
+                                "allThreads"
+                            ],
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
-                                        "title": "Category page",
+                                        "title": "Category page 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Open Category"
@@ -745,10 +557,22 @@
                                                 "value": "Guest",
                                                 "type": "contains"
                                             }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     },
                                     {
-                                        "title": "Home page",
+                                        "title": "Home page 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Open Home Page"
@@ -759,10 +583,22 @@
                                                 "value": "Guest",
                                                 "type": "contains"
                                             }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     },
                                     {
-                                        "title": "Simple product page",
+                                        "title": "Simple product page 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Simple Product"
@@ -778,10 +614,22 @@
                                                 "value": "Guest",
                                                 "type": "contains"
                                             }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     },
                                     {
-                                        "title": "Complex product page",
+                                        "title": "Complex product page 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Configurable Product"
@@ -796,6 +644,132 @@
                                                 "field": "label",
                                                 "value": "Guest",
                                                 "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Category page 50p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Category"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Home page 50p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Home Page"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product page 90p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Simple Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            },
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Complex product page 90p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Configurable Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            },
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
                                             }
                                         ]
                                     }
@@ -804,18 +778,21 @@
                         }
                     },
                     {
-                        "type": "lineChart",
+                        "type": "groupLineChart",
                         "data": {
                             "title": "Catalog browsing by customer",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "type": "group_chart_jtl",
+                            "max": 2000,
+                            "deviation": 1000,
+                            "categories": [
+                                "allThreads"
+                            ],
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
-                                        "title": "Category page",
+                                        "title": "Category page 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Open Category"
@@ -826,10 +803,22 @@
                                                 "value": "Customer",
                                                 "type": "contains"
                                             }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     },
                                     {
-                                        "title": "Home page",
+                                        "title": "Home page 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Open Home Page"
@@ -840,10 +829,22 @@
                                                 "value": "Customer",
                                                 "type": "contains"
                                             }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     },
                                     {
-                                        "title": "Simple product page",
+                                        "title": "Simple product page 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Simple Product"
@@ -859,10 +860,22 @@
                                                 "value": "Customer",
                                                 "type": "contains"
                                             }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     },
                                     {
-                                        "title": "Complex product page",
+                                        "title": "Complex product page 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Configurable Product"
@@ -877,6 +890,132 @@
                                                 "field": "label",
                                                 "value": "Customer",
                                                 "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Category page 90p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Category"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Home page 90p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Home Page"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product page 90p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Simple Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            },
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Complex product page 90p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Configurable Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            },
+                                            {
+                                                "field": "label",
+                                                "value": "Customer",
+                                                "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
                                             }
                                         ]
                                     }
@@ -887,25 +1026,59 @@
                 ]
             },
             {
-                "type": "SS",
-                "src": "jtl",
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
                 "blocks": [
                     {
-                        "type": "lineChart",
+                        "type": "groupLineChart",
                         "data": {
                             "title": "Checkout start page",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "type": "group_chart_jtl",
+                            "max": 2000,
+                            "deviation": 1000,
+                            "categories": [
+                                "allThreads"
+                            ],
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
-                                        "title": "by Customer",
+                                        "title": "50 percentile",
                                         "tag_field": "label",
                                         "tags": [
                                             "Checkout start"
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "90 percentile",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout start"
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     }
                                 ]
@@ -913,21 +1086,55 @@
                         }
                     },
                     {
-                        "type": "lineChart",
+                        "type": "groupLineChart",
                         "data": {
                             "title": "Checkout place order page",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "type": "group_chart_jtl",
+                            "max": 2000,
+                            "deviation": 1000,
+                            "categories": [
+                                "allThreads"
+                            ],
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
-                                        "title": "by Customer",
+                                        "title": "50 percentile",
                                         "tag_field": "label",
                                         "tags": [
                                             "Checkout Payment Info/Place Order"
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "90 percentile",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     }
                                 ]
@@ -937,59 +1144,83 @@
                 ]
             },
             {
-                "type": "SS",
-                "src": "jtl",
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
                 "blocks": [
                     {
-                        "type": "lineChart",
+                        "type": "groupLineChart",
                         "data": {
                             "title": "Add to cart",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "type": "group_chart_jtl",
+                            "max": 2000,
+                            "deviation": 1000,
+                            "categories": [
+                                "allThreads"
+                            ],
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
-                                        "title": "by Customer",
+                                        "title": "50 percentile",
                                         "tag_field": "label",
                                         "tags": [
                                             "Add To Cart"
                                         ],
-                                        "pattern": "/[^\\(]Add To Cart/"
+                                        "pattern": "/[^\\(]Add To Cart/",
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "90 percentile",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Add To Cart"
+                                        ],
+                                        "pattern": "/[^\\(]Add To Cart/",
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
+                                        ]
                                     }
                                 ]
                             }
                         }
                     },
                     {
-                        "type": "lineChart",
+                        "type": "groupLineChart",
                         "data": {
                             "title": "Search",
-                            "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "type": "group_chart_jtl",
+                            "max": 2000,
+                            "deviation": 1000,
+                            "categories": [
+                                "allThreads"
+                            ],
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
-                                        "title": "Quick",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Search"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Quick",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Quick Search With Filtration",
+                                        "title": "Quick Search With Filtration 50p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Search"
@@ -1000,10 +1231,22 @@
                                                 "value": "Quick Search With Filtration",
                                                 "type": "contains"
                                             }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 50,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
+                                            }
                                         ]
                                     },
                                     {
-                                        "title": "Advanced Search",
+                                        "title": "Quick Search With Filtration 90p",
                                         "tag_field": "label",
                                         "tags": [
                                             "Search"
@@ -1011,8 +1254,20 @@
                                         "conditions": [
                                             {
                                                 "field": "label",
-                                                "value": "Advanced Search",
+                                                "value": "Quick Search With Filtration",
                                                 "type": "contains"
+                                            }
+                                        ],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": 90,
+                                                    "group": {
+                                                        "field": "allThreads",
+                                                        "title": "allThreads"
+                                                    }
+                                                }
                                             }
                                         ]
                                     }
@@ -1023,52 +1278,99 @@
                 ]
             },
             {
-                "type": "SS",
-                "src": "jtl",
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
                 "blocks": [
                     {
-                        "type": "jtlText",
+                        "type": "groupJtlTable",
                         "data": {
-                            "title": "Concurrent Results",
-                            "type": "table_jtl",
+                            "title": "Frontend B2B related Results (median)",
+                            "type": "group_chart_jtl",
                             "metrics": [
-                                {"type": "concurrent", "config": {"lvl": 1}}
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
                             ],
+                            "max": 2000,
                             "data": {
-                                "category": "timeStamp",
-                                "value": "timeStamp",
+                                "category": "allThreads",
+                                "value": "Latency",
                                 "items": [
                                     {
-                                        "title": "Order placed per hour",
+                                        "title": "Quickorder\nAdd To Cart",
                                         "tag_field": "label",
                                         "tags": [
-                                            "Checkout Payment Info/Place Order"
+                                            "Quickorder Add To Cart"
                                         ]
                                     },
                                     {
-                                        "title": "Page views per hour",
-                                        "tag_field": "threadName",
+                                        "title": "Quickorder Suggest Product",
+                                        "tag_field": "label",
                                         "tags": [
-                                            "Frontend Pool"
+                                            "Quickorder Suggest Product"
                                         ]
                                     },
                                     {
-                                        "title": "Errors count",
-                                        "tag_field": "threadName",
-                                        "metrics": [
-                                            {"type": "count"}
-                                        ],
+                                        "title": "Create Requisition List",
+                                        "tag_field": "label",
                                         "tags": [
-                                            "Frontend Pool",
-                                            "Admin Pool",
-                                            "CSR Pool"
+                                            "Create Requisition List"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Requisition List View",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Requisition List View"
                                         ],
                                         "conditions": [
                                             {
-                                                "field": "responseCode",
-                                                "value": "200",
-                                                "type": "notequals"
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
                                             }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Copy Order Items To Requisition List",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Copy Order Items To Requisition List"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Open Quotes",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Quotes"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Open Quote",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Quote"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Quote Recalculate",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Quote Recalculate"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Reorder",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Reorder"
                                         ]
                                     }
                                 ]
@@ -1076,19 +1378,128 @@
                         }
                     },
                     {
-                        "type": "jtlTable",
+                        "type": "groupJtlTable",
                         "data": {
-                            "title": "Frontend Results",
-                            "type": "table_jtl",
+                            "title": "Frontend B2B related Results (90 percentile)",
+                            "type": "group_chart_jtl",
                             "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50}},
-                                {"type": "percentile", "config": {"lvl": 90}},
-                                {"type": "percentile", "config": {"lvl": 95}},
-                                {"type": "percentile", "config": {"lvl": 99}}
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
                             ],
                             "max": 2000,
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Quickorder Add To Cart",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Quickorder Add To Cart"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Quickorder Suggest Product",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Quickorder Suggest Product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Create Requisition List",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Create Requisition List"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Requisition List View",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Requisition List View"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Copy Order Items To Requisition List",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Copy Order Items To Requisition List"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Open Quotes",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Quotes"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Open Quote",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Quote"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Quote Recalculate",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Quote Recalculate"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Reorder",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Reorder"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [
+                    {
+                        "type": "groupJtlTable",
+                        "data": {
+                            "title": "Frontend Results (median)",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "max": 2000,
+                            "deviation": 1000,
+                            "data": {
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
@@ -1156,7 +1567,7 @@
                                         "pattern": "/[^\\(]Add To Cart/"
                                     },
                                     {
-                                        "title": "Quick search",
+                                        "title": "Quick search with filtration",
                                         "tag_field": "label",
                                         "tags": [
                                             "Search"
@@ -1164,10 +1575,101 @@
                                         "conditions": [
                                             {
                                                 "field": "label",
-                                                "value": "Quick",
+                                                "value": "Quick Search With Filtration",
                                                 "type": "contains"
                                             }
                                         ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "groupJtlTable",
+                        "data": {
+                            "title": "Frontend Results (90 percentile)",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "max": 2000,
+                            "deviation": 1000,
+                            "data": {
+                                "category": "allThreads",
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Category page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Category"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Home page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Home Page"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Simple Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Complex product page",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Configurable Product"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "View",
+                                                "type": "contains"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Checkout start",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout start"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Place order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Add to cart",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Add To Cart"
+                                        ],
+                                        "pattern": "/[^\\(]Add To Cart/"
                                     },
                                     {
                                         "title": "Quick search with filtration",
@@ -1182,19 +1684,66 @@
                                                 "type": "contains"
                                             }
                                         ]
-                                    },
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [
+                    {
+                        "type": "groupJtlTable",
+                        "data": {
+                            "title": "Admin Results (median)",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "max": 4000,
+                            "deviation": 1000,
+                            "data": {
+                                "category": "allThreads",
+                                "value": "Latency",
+                                "items": [
                                     {
-                                        "title": "Advanced search",
+                                        "title": "Simple product save",
                                         "tag_field": "label",
                                         "tags": [
-                                            "Search"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "Advanced Search",
-                                                "type": "contains"
-                                            }
+                                            "Edit Simple Product Save"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Simple product edit",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Edit Simple Product"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Open order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Open Order"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Save order",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Save Order"
                                         ]
                                     }
                                 ]
@@ -1202,19 +1751,26 @@
                         }
                     },
                     {
-                        "type": "jtlTable",
+                        "type": "groupJtlTable",
                         "data": {
-                            "title": "<w:br/>Admin Results",
-                            "type": "table_jtl",
+                            "title": "Admin Results (90 percentile)",
+                            "type": "group_chart_jtl",
                             "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50}},
-                                {"type": "percentile", "config": {"lvl": 90}},
-                                {"type": "percentile", "config": {"lvl": 95}},
-                                {"type": "percentile", "config": {"lvl": 99}}
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
                             ],
                             "max": 4000,
+                            "deviation": 1000,
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
@@ -1252,100 +1808,139 @@
                 ]
             },
             {
-                "type": "SS",
-                "src": "jtl",
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
                 "blocks": [
                     {
-                        "type": "jtlTable",
+                        "type": "groupLineChart",
                         "data": {
-                            "title": "Frontend B2B related Results",
-                            "type": "table_jtl",
+                            "title": "Order placed per hour",
+                            "type": "group_chart_jtl",
                             "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50}},
-                                {"type": "percentile", "config": {"lvl": 90}},
-                                {"type": "percentile", "config": {"lvl": 95}},
-                                {"type": "percentile", "config": {"lvl": 99}}
+                                {
+                                    "type": "concurrent",
+                                    "config": {
+                                        "lvl": 1,
+                                        "duration": 0.167,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
                             ],
-                            "max": 2000,
+                            "categories": [
+                                "allThreads"
+                            ],
                             "data": {
-                                "category": "timeStamp",
+                                "category": "allThreads",
                                 "value": "Latency",
                                 "items": [
                                     {
-                                        "title": "Quickorder Add To Cart",
+                                        "title": "Order placed per hour",
                                         "tag_field": "label",
                                         "tags": [
-                                            "Quickorder Add To Cart"
+                                            "Checkout Payment Info/Place Order"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "groupLineChart",
+                        "data": {
+                            "title": "Page views per hour",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {
+                                    "type": "concurrent",
+                                    "config": {
+                                        "lvl": 1,
+                                        "duration": 0.167,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "categories": [
+                                "allThreads"
+                            ],
+                            "data": {
+                                "category": "allThreads",
+                                "manual_categories": [
+                                    {
+                                        "config": {
+                                            "type": "mult",
+                                            "value": 5,
+                                            "variable": "load"
+                                        }
+                                    }
+                                ],
+                                "value": "Latency",
+                                "items": [
+                                    {
+                                        "title": "Page views per hour",
+                                        "tag_field": "threadName",
+                                        "tags": [
+                                            "Frontend Pool"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [
+                    {
+                        "type": "groupJtlTable",
+                        "data": {
+                            "title": "Concurrent Results",
+                            "type": "group_chart_jtl",
+                            "metrics": [
+                                {
+                                    "type": "concurrent",
+                                    "config": {
+                                        "lvl": 1,
+                                        "duration": 0.167,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "data": {
+                                "category": "allThreads",
+                                "manual_categories": [
+                                    {
+                                        "config": {
+                                            "type": "mult",
+                                            "value": 5,
+                                            "variable": "load"
+                                        }
+                                    }
+                                ],
+                                "value": "timeStamp",
+                                "items": [
+                                    {
+                                        "title": "Order placed per hour",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
                                         ]
                                     },
                                     {
-                                        "title": "Quickorder Suggest Product",
-                                        "tag_field": "label",
+                                        "title": "Page views per hour",
+                                        "tag_field": "threadName",
                                         "tags": [
-                                            "Quickorder Suggest Product"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Create Requisition List",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Create Requisition List"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Requisition List View",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Requisition List View"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "label",
-                                                "value": "View",
-                                                "type": "contains"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "title": "Copy Order Items To Requisition List",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Copy Order Items To Requisition List"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Request Quote",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Request Quote"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Open Quotes",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Quotes"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Open Quote",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Open Quote"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Quote Recalculate",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Quote Recalculate"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Reorder",
-                                        "tag_field": "label",
-                                        "tags": [
-                                            "Reorder"
+                                            "Frontend Pool"
                                         ]
                                     }
                                 ]
@@ -1363,8 +1958,21 @@
                         "data": {
                             "title": "Active threads over time",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "categories": [
+                                "TimeLine"
+                            ],
                             "data": {
                                 "category": "timeStamp",
                                 "value": "grpThreads",
@@ -1385,8 +1993,17 @@
                         "data": {
                             "title": "Response Time Over Time (successful responses)",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "percentile", "config": {"lvl": "90"}}],
-                            "categories": ["TimeLine"],
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": "90"
+                                    }
+                                }
+                            ],
+                            "categories": [
+                                "TimeLine"
+                            ],
                             "data": {
                                 "category": "timeStamp",
                                 "value": "Latency",
@@ -1411,7 +2028,14 @@
                                         "tags": [
                                             "API"
                                         ],
-                                        "metrics": [{"type": "percentile", "config": {"lvl": "50"}}],
+                                        "metrics": [
+                                            {
+                                                "type": "percentile",
+                                                "config": {
+                                                    "lvl": "50"
+                                                }
+                                            }
+                                        ],
                                         "conditions": [
                                             {
                                                 "field": "responseCode",
@@ -1435,8 +2059,21 @@
                         "data": {
                             "title": "Catalog browsing",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "categories": [
+                                "TimeLine"
+                            ],
                             "data": {
                                 "category": "timeStamp",
                                 "value": "Latency",
@@ -1471,8 +2108,21 @@
                         "data": {
                             "title": "Checkout",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "categories": [
+                                "TimeLine"
+                            ],
                             "data": {
                                 "category": "timeStamp",
                                 "value": "Latency",
@@ -1520,8 +2170,21 @@
                         "data": {
                             "title": "Customer",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "categories": [
+                                "TimeLine"
+                            ],
                             "data": {
                                 "category": "timeStamp",
                                 "value": "Latency",
@@ -1549,8 +2212,21 @@
                         "data": {
                             "title": "Product Management",
                             "type": "chart_jtl",
-                            "metrics": [{"type": "avg", "config": {}}],
-                            "categories": ["TimeLine"],
+                            "metrics": [
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
+                                        }
+                                    }
+                                }
+                            ],
+                            "categories": [
+                                "TimeLine"
+                            ],
                             "data": {
                                 "category": "timeStamp",
                                 "value": "Latency",
@@ -1594,48 +2270,35 @@
                 "src": "jtl",
                 "blocks": [
                     {
-                        "type": "jtlText",
-                        "data": {
-                            "title": "Concurrent Results",
-                            "type": "table_jtl",
-                            "metrics": [
-                                {"type": "concurrent", "config": {"lvl": 1}}
-                            ],
-                            "data": {
-                                "category": "timeStamp",
-                                "value": "timeStamp",
-                                "items": [
-                                    {
-                                        "title": "Errors count",
-                                        "metrics": [
-                                            {"type": "count"}
-                                        ],
-                                        "tag_field": "threadName",
-                                        "tags": [
-                                            "API"
-                                        ],
-                                        "conditions": [
-                                            {
-                                                "field": "responseCode",
-                                                "value": "200",
-                                                "type": "notequals"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
                         "type": "jtlTable",
                         "data": {
                             "title": "Category management results",
                             "type": "table_jtl",
                             "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50}},
-                                {"type": "percentile", "config": {"lvl": 90}},
-                                {"type": "percentile", "config": {"lvl": 95}},
-                                {"type": "percentile", "config": {"lvl": 99}}
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50
+                                    }
+                                },
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90
+                                    }
+                                },
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 95
+                                    }
+                                },
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 99
+                                    }
+                                }
                             ],
                             "max": 200,
                             "data": {
@@ -1687,17 +2350,36 @@
                             "title": "<w:br/>Checkout and Customer results",
                             "type": "table_jtl",
                             "metrics": [
-                                {"type": "percentile", "config": {"lvl": 50}},
-                                {"type": "percentile", "config": {"lvl": 90}},
-                                {"type": "percentile", "config": {"lvl": 95}},
-                                {"type": "percentile", "config": {"lvl": 99}}
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50
+                                    }
+                                },
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 90
+                                    }
+                                },
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 95
+                                    }
+                                },
+                                {
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 99
+                                    }
+                                }
                             ],
                             "max": 200,
                             "data": {
                                 "category": "timeStamp",
                                 "value": "Latency",
                                 "items": [
-
                                     {
                                         "title": "Create customer",
                                         "tag_field": "label",
@@ -1749,43 +2431,20 @@
                             "title": "Sitespeed.io Results",
                             "type": "table_sitespeed",
                             "metrics": [
-                                {"type": "percentile 50"},
-                                {"type": "percentile 90"},
-                                {"type": "percentile 95"},
-                                {"type": "percentile 99"}
+                                {
+                                    "type": "percentile 50"
+                                },
+                                {
+                                    "type": "percentile 90"
+                                },
+                                {
+                                    "type": "percentile 95"
+                                },
+                                {
+                                    "type": "percentile 99"
+                                }
                             ],
                             "max": 2000
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "CS-GOOGLEPAGE",
-                "src": "json",
-                "blocks": [
-                    {
-                        "type": "jsonTable",
-                        "data": {
-                            "title": "Google page test Results",
-                            "type": "table_googlepage",
-                            "metrics": [
-                                {"type": "score"}
-                            ],
-                            "max": 100
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "SS",
-                "src": "grafana",
-                "blocks": [
-                    {
-                        "type": "compositeColumnChart",
-                        "data": {
-                            "title": "CPU",
-                            "query": "SELECT SUM(\"system:second\")/(30000/1000) as \"system\", SUM(\"user:second\")/(30000/1000) as \"user\", SUM(\"nice:second\")/(30000/1000) as \"nice\", SUM(\"idle:second\")/(30000/1000) as \"idle\", SUM(\"iowait:second\")/(30000/1000) as \"iowait\", SUM(\"irq:second\")/(30000/1000) as \"irq\", SUM(\"softirq:second\")/(30000/1000) as \"softirq\", SUM(\"steal:second\")/(30000/1000) as \"steal\", SUM(\"guest:second\")/(30000/1000) as \"guest\" FROM \"cpu\" WHERE \"cluster\" = '%cluster_id%' AND \"host\" = 'i-%sub_host_name%.platform.sh' AND time >= %start_time%ms and time <= %end_time%ms GROUP BY time(30s) fill(none)",
-                            "type": "chart_grafana"
                         }
                     }
                 ]

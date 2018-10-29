@@ -53,7 +53,7 @@ class GroupJTLTable implements TypeInterface
             Font::DEFAULT_CHART_TITLE
         );
         $table = $section->addTable(Font::DEFAULT_TABLE_STYLE);
-        $table->setWidth(Font::DEFAULT_TABLE_WIDTH + 1000);
+        $table->setWidth(Font::DEFAULT_TABLE_WIDTH + 2000);
         $cellRowSpan = ['valign' => 'center'];
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
@@ -102,7 +102,7 @@ class GroupJTLTable implements TypeInterface
                     ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]
                 );
         }
-        $cores = (float)str_replace("Pro", "", $this->instance->getInstanceType());
+        $cores = (float)$this->instance->getCores();
         foreach ($dataProvider->getRange($content) as $index => $load) {
             $load = ceil($load * $cores);
             $table->addRow(Font::DEFAULT_TABLE_ROW_HEIGHT / 2);

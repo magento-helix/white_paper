@@ -72,6 +72,7 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
             }
         }
 
+        $deviation = $this->measurementConfig['src'][0]['build']['threads']['deviation'];
         $this->minValue = (float)$this->measurementConfig['src'][0]['build']['threads']['start'];
         $this->maxValue = (float)$this->measurementConfig['src'][count($this->measurementConfig['src']) - 1]['build']['threads']['end'];
         $precision = max(
@@ -79,7 +80,7 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
             strlen(substr(strrchr($this->maxValue, "."), 1))
         );
         $this->count = count($config['data']['items']);
-        $cores = (float)str_replace("Pro", "", $this->instance->getInstanceType());
+        $cores = (float)$this->instance->getCores();
 
         foreach ($config['data']['items'] as $itemConfig) {
             $this->data[$itemConfig['title']] = [];
@@ -94,7 +95,11 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
                     }
                 }
                 if ($isConditionPass) {
-                    $load = round($item[$config['data']['category']] / $cores, $precision);
+                    $threads = $item[$config['data']['category']];
+                    $load = round($threads / $cores, $precision);
+                    if ($threads >= $this->minValue * $cores - $deviation && $threads <= $this->minValue * $cores) {
+                        $load = round($this->minValue, $precision);
+                    }
                     $this->data[$itemConfig['title']]["${load}"][] = $item;
 
                     if ($this->maxValue < $load) {
@@ -110,7 +115,7 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
     {
         if (empty($this->range)) {
             foreach ($this->measurementConfig['src'] as $item) {
-                for ($i = $item['build']['threads']['start']; $i <=  $item['build']['threads']['end']; $i += $item['build']['threads']['step']) {
+                for ($i = $item['build']['threads']['start']; $i <= $item['build']['threads']['end']; $i += $item['build']['threads']['step']) {
                     $this->range[] = $i;
                 }
             }

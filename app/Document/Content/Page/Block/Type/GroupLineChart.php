@@ -37,7 +37,7 @@ class GroupLineChart extends LineChart implements TypeInterface
 
         $dataProvider = $this->dataProviderPool->get($content['type'], $this->instance, $this->measurementConfig);
         $categories = $dataProvider->getRange($content);
-        $cores = (float)str_replace("Pro", "", $this->instance->getInstanceType());
+        $cores = (float)$this->instance->getCores();
         foreach ($categories as $key => $category) {
             $categories[$key] = ceil($category * $cores);
         }

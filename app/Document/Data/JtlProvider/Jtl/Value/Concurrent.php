@@ -35,6 +35,6 @@ class Concurrent implements MetricInterface
             $duration = $this->config['duration'];
         }
 
-        return $count / $duration;
+        return ceil($count / $duration);
     }
 }

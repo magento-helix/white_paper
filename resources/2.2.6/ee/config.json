@@ -1,15 +1,21 @@
 {
     "title": "Measurements on AWS Infrastructure",
     "edition": "ee",
-    "version": "2.2.5",
+    "version": "2.2.6",
     "instances": [
         {
             "type": "Starter",
             "id": "mcklpmeupnfcq",
             "sub_hosts": [
-                {"name": null},
-                {"name": null},
-                {"name": null}
+                {
+                    "name": null
+                },
+                {
+                    "name": null
+                },
+                {
+                    "name": null
+                }
             ],
             "jenkins": "starter-eu",
             "jenkins_folder": "starter",
@@ -17,7 +23,7 @@
             "profiles": [
                 {
                     "name": "small",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "SS",
                             "profile": "small",
@@ -66,7 +72,7 @@
                 },
                 {
                     "name": "medium",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "SS",
                             "profile": "medium",
@@ -123,9 +129,15 @@
             "type": "Starter Large",
             "id": "fit4a2kwwt56a",
             "sub_hosts": [
-                {"name": null},
-                {"name": null},
-                {"name": null}
+                {
+                    "name": null
+                },
+                {
+                    "name": null
+                },
+                {
+                    "name": null
+                }
             ],
             "jenkins": "starterlarge-eu",
             "jenkins_folder": "starterlarge",
@@ -133,7 +145,7 @@
             "profiles": [
                 {
                     "name": "small",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "SS",
                             "profile": "small",
@@ -186,7 +198,7 @@
                 },
                 {
                     "name": "medium",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "SS",
                             "profile": "medium",
@@ -244,23 +256,29 @@
             "id": "oh2wi6klp5ytk",
             "ip": "35.158.210.240",
             "sub_hosts": [
-                {"name": "01df15a1dcbecd748"},
-                {"name": "038a5147a9b774b1d"},
-                {"name": "042785963195a60ee"}
+                {
+                    "name": "01df15a1dcbecd748"
+                },
+                {
+                    "name": "038a5147a9b774b1d"
+                },
+                {
+                    "name": "042785963195a60ee"
+                }
             ],
             "jenkins_folder": "12eu",
             "include": true,
             "profiles": [
                 {
                     "name": "small",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "Concurrency-SS",
                             "profile": "small",
                             "src": [
                                 {
                                     "build": {
-                                        "id": 556,
+                                        "id": 429,
                                         "threads": {
                                             "start": 0.25,
                                             "end": 0.25,
@@ -272,7 +290,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 557,
+                                        "id": 430,
                                         "threads": {
                                             "start": 0.5,
                                             "end": 0.5,
@@ -284,7 +302,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 558,
+                                        "id": 431,
                                         "threads": {
                                             "start": 1,
                                             "end": 1,
@@ -296,7 +314,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 559,
+                                        "id": 432,
                                         "threads": {
                                             "start": 2,
                                             "end": 2,
@@ -308,7 +326,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 560,
+                                        "id": 436,
                                         "threads": {
                                             "start": 4,
                                             "end": 4,
@@ -320,7 +338,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 561,
+                                        "id": 434,
                                         "threads": {
                                             "start": 6,
                                             "end": 6,
@@ -332,7 +350,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 562,
+                                        "id": 435,
                                         "threads": {
                                             "start": 8,
                                             "end": 8,
@@ -345,35 +363,39 @@
                             ]
                         },
                         {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 624,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        },
+                        {
                             "type": "CS-SITESPEED",
                             "profile": "small",
-                            "build_id": 330,
-                            "src": "var/tests/results/sidespeedio/browsertime.json"
+                            "build_id": 381,
+                            "src": [
+                                {
+                                    "type": "json",
+                                    "path": "tests/results/sidespeedio/browsertime.json"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "name": "medium",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "Concurrency-SS",
                             "profile": "medium",
                             "src": [
                                 {
                                     "build": {
-                                        "id": 515,
-                                        "threads": {
-                                            "start": 0.25,
-                                            "end": 0.25,
-                                            "step": 0.25
-                                        }
-                                    },
-                                    "type": "concurrencyJtl",
-                                    "path": "tests/results/benchmark_result.jtl"
-                                },
-                                {
-                                    "build": {
-                                        "id": 516,
+                                        "id": 600,
                                         "threads": {
                                             "start": 0.5,
                                             "end": 0.5,
@@ -385,11 +407,11 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 517,
+                                        "id": 603,
                                         "threads": {
-                                            "start": 1,
-                                            "end": 1,
-                                            "step": 1
+                                            "start": 1.5,
+                                            "end": 1.5,
+                                            "step": 1.5
                                         }
                                     },
                                     "type": "concurrencyJtl",
@@ -397,7 +419,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 518,
+                                        "id": 604,
                                         "threads": {
                                             "start": 2,
                                             "end": 2,
@@ -409,7 +431,19 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 519,
+                                        "id": 605,
+                                        "threads": {
+                                            "start": 3,
+                                            "end": 3,
+                                            "step": 3
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 606,
                                         "threads": {
                                             "start": 4,
                                             "end": 4,
@@ -421,7 +455,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 520,
+                                        "id": 607,
                                         "threads": {
                                             "start": 6,
                                             "end": 6,
@@ -433,7 +467,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 521,
+                                        "id": 608,
                                         "threads": {
                                             "start": 8,
                                             "end": 8,
@@ -442,6 +476,17 @@
                                     },
                                     "type": "concurrencyJtl",
                                     "path": "tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 622,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         }
@@ -454,23 +499,29 @@
             "id": "zhe434vvxvvhc",
             "ip": "54.93.150.14",
             "sub_hosts": [
-                {"name": "025a07f7c8210afda"},
-                {"name": "0674ba891b8349b24"},
-                {"name": "0e9d1089c3f524de9"}
+                {
+                    "name": "025a07f7c8210afda"
+                },
+                {
+                    "name": "0674ba891b8349b24"
+                },
+                {
+                    "name": "0e9d1089c3f524de9"
+                }
             ],
             "jenkins_folder": "24eu",
             "include": true,
             "profiles": [
                 {
                     "name": "small",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "Concurrency-SS",
                             "profile": "small",
                             "src": [
                                 {
                                     "build": {
-                                        "id": 188,
+                                        "id": 352,
                                         "threads": {
                                             "start": 0.25,
                                             "end": 0.25,
@@ -482,7 +533,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 189,
+                                        "id": 321,
                                         "threads": {
                                             "start": 0.5,
                                             "end": 0.5,
@@ -494,7 +545,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 190,
+                                        "id": 313,
                                         "threads": {
                                             "start": 1,
                                             "end": 1,
@@ -506,7 +557,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 191,
+                                        "id": 314,
                                         "threads": {
                                             "start": 2,
                                             "end": 2,
@@ -518,7 +569,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 192,
+                                        "id": 315,
                                         "threads": {
                                             "start": 4,
                                             "end": 4,
@@ -530,7 +581,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 193,
+                                        "id": 316,
                                         "threads": {
                                             "start": 6,
                                             "end": 6,
@@ -542,7 +593,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 194,
+                                        "id": 317,
                                         "threads": {
                                             "start": 8,
                                             "end": 8,
@@ -553,19 +604,30 @@
                                     "path": "tests/results/benchmark_result.jtl"
                                 }
                             ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "small",
+                            "build_id": 379,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "name": "medium",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "Concurrency-SS",
                             "profile": "medium",
                             "src": [
                                 {
                                     "build": {
-                                        "id": 180,
+                                        "id": 371,
                                         "threads": {
                                             "start": 0.25,
                                             "end": 0.25,
@@ -577,11 +639,11 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 181,
+                                        "id": 373,
                                         "threads": {
-                                            "start": 0.5,
-                                            "end": 0.5,
-                                            "step": 0.5
+                                            "start": 0.75,
+                                            "end": 0.75,
+                                            "step": 0.75
                                         }
                                     },
                                     "type": "concurrencyJtl",
@@ -589,7 +651,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 182,
+                                        "id": 374,
                                         "threads": {
                                             "start": 1,
                                             "end": 1,
@@ -601,7 +663,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 183,
+                                        "id": 375,
                                         "threads": {
                                             "start": 2,
                                             "end": 2,
@@ -613,7 +675,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 184,
+                                        "id": 377,
                                         "threads": {
                                             "start": 4,
                                             "end": 4,
@@ -625,7 +687,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 185,
+                                        "id": 226,
                                         "threads": {
                                             "start": 6,
                                             "end": 6,
@@ -637,7 +699,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 186,
+                                        "id": 227,
                                         "threads": {
                                             "start": 8,
                                             "end": 8,
@@ -646,6 +708,111 @@
                                     },
                                     "type": "concurrencyJtl",
                                     "path": "tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 362,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "large",
+                    "measurements": [
+                        {
+                            "type": "Concurrency-SS",
+                            "profile": "large",
+                            "src": [
+                                {
+                                    "build": {
+                                        "id": 279,
+                                        "threads": {
+                                            "start": 0.25,
+                                            "end": 0.25,
+                                            "step": 0.25
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 280,
+                                        "threads": {
+                                            "start": 0.5,
+                                            "end": 0.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 282,
+                                        "threads": {
+                                            "start": 1,
+                                            "end": 1,
+                                            "step": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 290,
+                                        "threads": {
+                                            "start": 2,
+                                            "end": 2,
+                                            "step": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 286,
+                                        "threads": {
+                                            "start": 4,
+                                            "end": 4,
+                                            "step": 4
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 287,
+                                        "threads": {
+                                            "start": 6,
+                                            "end": 6,
+                                            "step": 6
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "large",
+                            "build_id": 338,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         }
@@ -658,9 +825,15 @@
             "id": "qjldd4p2tbpwg",
             "ip": "18.194.58.244",
             "sub_hosts": [
-                {"name": "032fd67cb04856dab"},
-                {"name": "0b6fc7129022af0a3"},
-                {"name": "0cc95ba4791960d6d"}
+                {
+                    "name": "032fd67cb04856dab"
+                },
+                {
+                    "name": "0b6fc7129022af0a3"
+                },
+                {
+                    "name": "0cc95ba4791960d6d"
+                }
             ],
             "jenkins_folder": "48eu",
             "include": true,
@@ -719,6 +892,53 @@
                                     },
                                     "type": "concurrencyJtl",
                                     "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 243,
+                                        "threads": {
+                                            "start": 4,
+                                            "end": 4,
+                                            "step": 4
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 244,
+                                        "threads": {
+                                            "start": 6,
+                                            "end": 6,
+                                            "step": 6
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 245,
+                                        "threads": {
+                                            "start": 8,
+                                            "end": 8,
+                                            "step": 8
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "medium",
+                            "build_id": 257,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         }
@@ -733,7 +953,7 @@
                             "src": [
                                 {
                                     "build": {
-                                        "id": 196,
+                                        "id": 124,
                                         "threads": {
                                             "start": 0.25,
                                             "end": 0.25,
@@ -745,7 +965,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 197,
+                                        "id": 125,
                                         "threads": {
                                             "start": 0.5,
                                             "end": 0.5,
@@ -757,7 +977,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 198,
+                                        "id": 131,
                                         "threads": {
                                             "start": 1,
                                             "end": 1,
@@ -769,7 +989,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 199,
+                                        "id": 127,
                                         "threads": {
                                             "start": 2,
                                             "end": 2,
@@ -781,7 +1001,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 200,
+                                        "id": 128,
                                         "threads": {
                                             "start": 4,
                                             "end": 4,
@@ -793,7 +1013,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 201,
+                                        "id": 129,
                                         "threads": {
                                             "start": 6,
                                             "end": 6,
@@ -805,7 +1025,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 202,
+                                        "id": 130,
                                         "threads": {
                                             "start": 8,
                                             "end": 8,
@@ -814,6 +1034,17 @@
                                     },
                                     "type": "concurrencyJtl",
                                     "path": "tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "large",
+                            "build_id": 258,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "tests/results/benchmark_api_result.jtl"
                                 }
                             ]
                         }
@@ -826,9 +1057,15 @@
             "id": "smjthfxq3rotk",
             "ip": "18.194.58.244",
             "sub_hosts": [
-                {"name": "032e8887fe0e8f267"},
-                {"name": "07ccc673207b75041"},
-                {"name": "080c45a8db93504a2"}
+                {
+                    "name": "032e8887fe0e8f267"
+                },
+                {
+                    "name": "07ccc673207b75041"
+                },
+                {
+                    "name": "080c45a8db93504a2"
+                }
             ],
             "jenkins_folder": "120eu",
             "jenkins": "jenkins120-eu",
@@ -837,14 +1074,14 @@
             "profiles": [
                 {
                     "name": "large",
-                    "measurements" : [
+                    "measurements": [
                         {
                             "type": "Concurrency-SS",
                             "profile": "large",
                             "src": [
                                 {
                                     "build": {
-                                        "id": 125,
+                                        "id": 185,
                                         "threads": {
                                             "start": 0.25,
                                             "end": 0.25,
@@ -856,7 +1093,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 126,
+                                        "id": 138,
                                         "threads": {
                                             "start": 0.5,
                                             "end": 0.5,
@@ -868,19 +1105,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 127,
-                                        "threads": {
-                                            "start": 0.75,
-                                            "end": 0.75,
-                                            "step": 0.75
-                                        }
-                                    },
-                                    "type": "concurrencyJtl",
-                                    "path": "tests/results/benchmark_result.jtl"
-                                },
-                                {
-                                    "build": {
-                                        "id": 128,
+                                        "id": 139,
                                         "threads": {
                                             "start": 1,
                                             "end": 1,
@@ -892,7 +1117,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 129,
+                                        "id": 140,
                                         "threads": {
                                             "start": 2,
                                             "end": 2,
@@ -904,11 +1129,11 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 130,
+                                        "id": 141,
                                         "threads": {
-                                            "start": 3,
-                                            "end": 3,
-                                            "step": 3
+                                            "start": 4,
+                                            "end": 4,
+                                            "step": 4
                                         }
                                     },
                                     "type": "concurrencyJtl",
@@ -916,7 +1141,101 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 131,
+                                        "id": 182,
+                                        "threads": {
+                                            "start": 6,
+                                            "end": 6,
+                                            "step": 6
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 183,
+                                        "threads": {
+                                            "start": 8,
+                                            "end": 8,
+                                            "step": 8
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "API",
+                            "profile": "large",
+                            "build_id": 180,
+                            "src": [
+                                {
+                                    "type": "jtl",
+                                    "path": "tests/results/benchmark_api_result.jtl"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "extra_large",
+                    "measurements": [
+                        {
+                            "type": "Concurrency-SS",
+                            "profile": "extra_large",
+                            "src": [
+                                {
+                                    "build": {
+                                        "id": 147,
+                                        "threads": {
+                                            "start": 0.25,
+                                            "end": 0.25,
+                                            "step": 0.25
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 148,
+                                        "threads": {
+                                            "start": 0.5,
+                                            "end": 0.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 149,
+                                        "threads": {
+                                            "start": 1,
+                                            "end": 1,
+                                            "step": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 150,
+                                        "threads": {
+                                            "start": 2,
+                                            "end": 2,
+                                            "step": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 151,
                                         "threads": {
                                             "start": 4,
                                             "end": 4,
