@@ -72,7 +72,9 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
             }
         }
 
-        $deviation = $this->measurementConfig['src'][0]['build']['threads']['deviation'];
+        $deviation = isset($this->measurementConfig['src'][0]['build']['threads']['deviation'])
+            ? $this->measurementConfig['src'][0]['build']['threads']['deviation']
+            : 0;
         $this->minValue = (float)$this->measurementConfig['src'][0]['build']['threads']['start'];
         $this->maxValue = (float)$this->measurementConfig['src'][count($this->measurementConfig['src']) - 1]['build']['threads']['end'];
         $precision = max(

@@ -10,7 +10,11 @@ include 'bootstrap.php';
 define('BP', __DIR__);
 date_default_timezone_set('UTC');
 
-$config = new \App\Config('./resources/config.json');
+if (!isset($argv[1]) || !isset($argv[2])) {
+    die("\nPlease set magento version and edition like: php app.php 2.2.4 ee\n");
+}
+
+$config = new \App\Config("./resources/${argv[1]}/${argv[2]}/config.json");
 
 $doc = new App\Document($config);
 

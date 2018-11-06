@@ -6,6 +6,7 @@
         {
             "type": "Starter",
             "id": "mcklpmeupnfcq",
+            "cores": 8,
             "sub_hosts": [
                 {
                     "name": null
@@ -19,105 +20,104 @@
             ],
             "jenkins": "starter-eu",
             "jenkins_folder": "starter",
-            "include": false,
+            "include": true,
             "profiles": [
                 {
                     "name": "small",
                     "measurements": [
                         {
-                            "type": "SS",
+                            "type": "Concurrency-SS",
                             "profile": "small",
-                            "build_id": 135,
                             "src": [
                                 {
-                                    "type": "jtl",
-                                    "path": "tests/results/benchmark_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "API",
-                            "profile": "small",
-                            "build_id": 136,
-                            "src": [
-                                {
-                                    "type": "jtl",
-                                    "path": "tests/results/benchmark_api_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-SITESPEED",
-                            "profile": "small",
-                            "build_id": 153,
-                            "src": [
-                                {
-                                    "type": "json",
-                                    "path": "tests/results/sidespeedio/browsertime.json"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-GOOGLEPAGE",
-                            "profile": "small",
-                            "build_id": 153,
-                            "src": [
-                                {
-                                    "type": "json",
-                                    "path": "tests/results/googlepagespeed/result.json"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "medium",
-                    "measurements": [
-                        {
-                            "type": "SS",
-                            "profile": "medium",
-                            "build_id": 142,
-                            "src": [
-                                {
-                                    "type": "jtl",
+                                    "build": {
+                                        "id": 30,
+                                        "threads": {
+                                            "start": 0.5,
+                                            "end": 0.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
                                     "path": "tests/results/benchmark_result.jtl"
                                 },
                                 {
-                                    "type": "indexerLog",
-                                    "path": "medium.out"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "API",
-                            "profile": "medium",
-                            "build_id": 143,
-                            "src": [
+                                    "build": {
+                                        "id": 31,
+                                        "threads": {
+                                            "start": 1,
+                                            "end": 1,
+                                            "step": 1,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "jtl",
-                                    "path": "tests/results/benchmark_api_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-SITESPEED",
-                            "profile": "medium",
-                            "build_id": 154,
-                            "src": [
+                                    "build": {
+                                        "id": 32,
+                                        "threads": {
+                                            "start": 2,
+                                            "end": 2,
+                                            "step": 2,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "json",
-                                    "path": "tests/results/sidespeedio/browsertime.json"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-GOOGLEPAGE",
-                            "profile": "medium",
-                            "build_id": 154,
-                            "src": [
+                                    "build": {
+                                        "id": 33,
+                                        "threads": {
+                                            "start": 4,
+                                            "end": 4,
+                                            "step": 4,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "json",
-                                    "path": "tests/results/googlepagespeed/result.json"
+                                    "build": {
+                                        "id": 34,
+                                        "threads": {
+                                            "start": 6,
+                                            "end": 6,
+                                            "step": 6,
+                                            "deviation": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 35,
+                                        "threads": {
+                                            "start": 8,
+                                            "end": 8,
+                                            "step": 8,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 36,
+                                        "threads": {
+                                            "start": 16,
+                                            "end": 16,
+                                            "step": 16,
+                                            "deviation": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
                                 }
                             ]
                         }
@@ -128,6 +128,7 @@
         {
             "type": "Starter Large",
             "id": "fit4a2kwwt56a",
+            "cores": 16,
             "sub_hosts": [
                 {
                     "name": null
@@ -141,109 +142,104 @@
             ],
             "jenkins": "starterlarge-eu",
             "jenkins_folder": "starterlarge",
-            "include": false,
+            "include": true,
             "profiles": [
                 {
                     "name": "small",
                     "measurements": [
                         {
-                            "type": "SS",
+                            "type": "Concurrency-SS",
                             "profile": "small",
-                            "build_id": 131,
                             "src": [
                                 {
-                                    "type": "jtl",
+                                    "build": {
+                                        "id": 103,
+                                        "threads": {
+                                            "start": 0.25,
+                                            "end": 0.25,
+                                            "step": 0.25
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
                                     "path": "tests/results/benchmark_result.jtl"
                                 },
                                 {
-                                    "type": "indexerLog",
-                                    "path": "small.out"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "API",
-                            "profile": "small",
-                            "build_id": 132,
-                            "src": [
-                                {
-                                    "type": "jtl",
-                                    "path": "tests/results/benchmark_api_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-SITESPEED",
-                            "profile": "small",
-                            "build_id": 149,
-                            "src": [
-                                {
-                                    "type": "json",
-                                    "path": "tests/results/sidespeedio/browsertime.json"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-GOOGLEPAGE",
-                            "profile": "small",
-                            "build_id": 149,
-                            "src": [
-                                {
-                                    "type": "json",
-                                    "path": "tests/results/googlepagespeed/result.json"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "medium",
-                    "measurements": [
-                        {
-                            "type": "SS",
-                            "profile": "medium",
-                            "build_id": 144,
-                            "src": [
-                                {
-                                    "type": "jtl",
+                                    "build": {
+                                        "id": 104,
+                                        "threads": {
+                                            "start": 0.5,
+                                            "end": 0.5,
+                                            "step": 0.5,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
                                     "path": "tests/results/benchmark_result.jtl"
                                 },
                                 {
-                                    "type": "indexerLog",
-                                    "path": "medium.out"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "API",
-                            "profile": "medium",
-                            "build_id": 145,
-                            "src": [
+                                    "build": {
+                                        "id": 105,
+                                        "threads": {
+                                            "start": 1,
+                                            "end": 1,
+                                            "step": 1,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "jtl",
-                                    "path": "tests/results/benchmark_api_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-SITESPEED",
-                            "profile": "medium",
-                            "build_id": 150,
-                            "src": [
+                                    "build": {
+                                        "id": 106,
+                                        "threads": {
+                                            "start": 2,
+                                            "end": 2,
+                                            "step": 2,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "json",
-                                    "path": "tests/results/sidespeedio/browsertime.json"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-GOOGLEPAGE",
-                            "profile": "medium",
-                            "build_id": 150,
-                            "src": [
+                                    "build": {
+                                        "id": 110,
+                                        "threads": {
+                                            "start": 3,
+                                            "end": 3,
+                                            "step": 3,
+                                            "deviation": 3
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "json",
-                                    "path": "tests/results/googlepagespeed/result.json"
+                                    "build": {
+                                        "id": 108,
+                                        "threads": {
+                                            "start": 4,
+                                            "end": 4,
+                                            "step": 4,
+                                            "deviation": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 112,
+                                        "threads": {
+                                            "start": 8,
+                                            "end": 8,
+                                            "step": 8,
+                                            "deviation": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
                                 }
                             ]
                         }
@@ -267,7 +263,7 @@
                 }
             ],
             "jenkins_folder": "12eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "small",
@@ -510,7 +506,7 @@
                 }
             ],
             "jenkins_folder": "24eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "small",
@@ -836,7 +832,7 @@
                 }
             ],
             "jenkins_folder": "48eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "medium",
@@ -1070,7 +1066,7 @@
             "jenkins_folder": "120eu",
             "jenkins": "jenkins120-eu",
             "jenkins_build_name": "120eu",
-            "include": true,
+            "include": false,
             "profiles": [
                 {
                     "name": "large",

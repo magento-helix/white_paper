@@ -6,6 +6,7 @@
         {
             "type": "Starter",
             "id": "mcklpmeupnfcq",
+            "cores": 8,
             "sub_hosts": [
                 {"name": null},
                 {"name": null},
@@ -13,105 +14,104 @@
             ],
             "jenkins": "starter-eu",
             "jenkins_folder": "starter",
-            "include": false,
+            "include": true,
             "profiles": [
                 {
                     "name": "small",
                     "measurements" : [
                         {
-                            "type": "SS",
+                            "type": "Concurrency-SS",
                             "profile": "small",
-                            "build_id": 135,
                             "src": [
                                 {
-                                    "type": "jtl",
-                                    "path": "tests/results/benchmark_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "API",
-                            "profile": "small",
-                            "build_id": 136,
-                            "src": [
-                                {
-                                    "type": "jtl",
-                                    "path": "tests/results/benchmark_api_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-SITESPEED",
-                            "profile": "small",
-                            "build_id": 153,
-                            "src": [
-                                {
-                                    "type": "json",
-                                    "path": "tests/results/sidespeedio/browsertime.json"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-GOOGLEPAGE",
-                            "profile": "small",
-                            "build_id": 153,
-                            "src": [
-                                {
-                                    "type": "json",
-                                    "path": "tests/results/googlepagespeed/result.json"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "medium",
-                    "measurements" : [
-                        {
-                            "type": "SS",
-                            "profile": "medium",
-                            "build_id": 142,
-                            "src": [
-                                {
-                                    "type": "jtl",
+                                    "build": {
+                                        "id": 49,
+                                        "threads": {
+                                            "start": 0.5,
+                                            "end": 0.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
                                     "path": "tests/results/benchmark_result.jtl"
                                 },
                                 {
-                                    "type": "indexerLog",
-                                    "path": "medium.out"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "API",
-                            "profile": "medium",
-                            "build_id": 143,
-                            "src": [
+                                    "build": {
+                                        "id": 43,
+                                        "threads": {
+                                            "start": 1,
+                                            "end": 1,
+                                            "step": 1,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "jtl",
-                                    "path": "tests/results/benchmark_api_result.jtl"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-SITESPEED",
-                            "profile": "medium",
-                            "build_id": 154,
-                            "src": [
+                                    "build": {
+                                        "id": 44,
+                                        "threads": {
+                                            "start": 2,
+                                            "end": 2,
+                                            "step": 2,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "json",
-                                    "path": "tests/results/sidespeedio/browsertime.json"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "CS-GOOGLEPAGE",
-                            "profile": "medium",
-                            "build_id": 154,
-                            "src": [
+                                    "build": {
+                                        "id": 50,
+                                        "threads": {
+                                            "start": 4,
+                                            "end": 4,
+                                            "step": 4,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
                                 {
-                                    "type": "json",
-                                    "path": "tests/results/googlepagespeed/result.json"
+                                    "build": {
+                                        "id": 46,
+                                        "threads": {
+                                            "start": 6,
+                                            "end": 6,
+                                            "step": 6,
+                                            "deviation": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 47,
+                                        "threads": {
+                                            "start": 8,
+                                            "end": 8,
+                                            "step": 8,
+                                            "deviation": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 48,
+                                        "threads": {
+                                            "start": 16,
+                                            "end": 16,
+                                            "step": 16,
+                                            "deviation": 3
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
                                 }
                             ]
                         }
@@ -121,7 +121,7 @@
         },
         {
             "type": "Starter Large",
-            "cores": 8,
+            "cores": 16,
             "id": "fit4a2kwwt56a",
             "sub_hosts": [
                 {"name": null},
@@ -143,10 +143,9 @@
                                     "build": {
                                         "id": 90,
                                         "threads": {
-                                            "start": 0.5,
-                                            "end": 0.5,
-                                            "step": 0.5,
-                                            "deviation": 1
+                                            "start": 0.25,
+                                            "end": 0.25,
+                                            "step": 0.25
                                         }
                                     },
                                     "type": "concurrencyJtl",
@@ -155,6 +154,18 @@
                                 {
                                     "build": {
                                         "id": 91,
+                                        "threads": {
+                                            "start": 0.5,
+                                            "end": 0.5,
+                                            "step": 0.5
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 92,
                                         "threads": {
                                             "start": 1,
                                             "end": 1,
@@ -167,7 +178,7 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 92,
+                                        "id": 93,
                                         "threads": {
                                             "start": 2,
                                             "end": 2,
@@ -180,25 +191,12 @@
                                 },
                                 {
                                     "build": {
-                                        "id": 93,
-                                        "threads": {
-                                            "start": 4,
-                                            "end": 4,
-                                            "step": 4,
-                                            "deviation": 1
-                                        }
-                                    },
-                                    "type": "concurrencyJtl",
-                                    "path": "tests/results/benchmark_result.jtl"
-                                },
-                                {
-                                    "build": {
                                         "id": 94,
                                         "threads": {
-                                            "start": 6,
-                                            "end": 6,
-                                            "step": 6,
-                                            "deviation": 4
+                                            "start": 3,
+                                            "end": 3,
+                                            "step": 3,
+                                            "deviation": 1
                                         }
                                     },
                                     "type": "concurrencyJtl",
@@ -208,10 +206,10 @@
                                     "build": {
                                         "id": 95,
                                         "threads": {
-                                            "start": 8,
-                                            "end": 8,
-                                            "step": 8,
-                                            "deviation": 5
+                                            "start": 4,
+                                            "end": 4,
+                                            "step": 4,
+                                            "deviation": 2
                                         }
                                     },
                                     "type": "concurrencyJtl",
@@ -221,9 +219,9 @@
                                     "build": {
                                         "id": 96,
                                         "threads": {
-                                            "start": 16,
-                                            "end": 16,
-                                            "step": 16,
+                                            "start": 8,
+                                            "end": 8,
+                                            "step": 8,
                                             "deviation": 4
                                         }
                                     },

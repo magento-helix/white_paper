@@ -11,7 +11,11 @@ include BP . '/../bootstrap.php';
 define('SSH_CONFIG', '~/.ssh/config');
 date_default_timezone_set('UTC');
 
-$config = new \App\Config(BP . '/../resources/config.json');
+if (!isset($argv[1]) || !isset($argv[2])) {
+    die("\nPlease set magento version and edition like: php app.php 2.2.4 ee\n");
+}
+
+$config = new \App\Config(BP . "/../resources/${argv[1]}/${argv[2]}/config.json");
 
 foreach ($config->getInstances() as $item) {
     if (!$item['include']) {

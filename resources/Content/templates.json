@@ -416,10 +416,10 @@
         "type": "perfTestingDetails",
         "pages": [{
             "blocks": [
-              {
-                "type": "text",
-                "data": "This report includes graphs and tables of captured and calculated performance measurements. Each test includes graphs of median performance values and tables with more details."
-              },
+                {
+                    "type": "text",
+                    "data": "This report includes graphs and tables of captured and calculated performance measurements. Each test includes graphs of median performance values and tables with more details."
+                },
                 {
                     "type": "text",
                     "title": "Reading performance results",
@@ -710,27 +710,27 @@
                             "category": "allThreads",
                             "value": "Latency",
                             "items": [{
-                                    "title": "Category page 50p",
-                                    "tag_field": "label",
-                                    "tags": [
-                                        "Open Category"
-                                    ],
-                                    "conditions": [{
-                                        "field": "label",
-                                        "value": "Customer",
-                                        "type": "contains"
-                                    }],
-                                    "metrics": [{
-                                        "type": "percentile",
-                                        "config": {
-                                            "lvl": 50,
-                                            "group": {
-                                                "field": "allThreads",
-                                                "title": "allThreads"
-                                            }
+                                "title": "Category page 50p",
+                                "tag_field": "label",
+                                "tags": [
+                                    "Open Category"
+                                ],
+                                "conditions": [{
+                                    "field": "label",
+                                    "value": "Customer",
+                                    "type": "contains"
+                                }],
+                                "metrics": [{
+                                    "type": "percentile",
+                                    "config": {
+                                        "lvl": 50,
+                                        "group": {
+                                            "field": "allThreads",
+                                            "title": "allThreads"
                                         }
-                                    }]
-                                },
+                                    }
+                                }]
+                            },
                                 {
                                     "title": "Home page 50p",
                                     "tag_field": "label",
@@ -1054,30 +1054,30 @@
                                         }
                                     }]
                                 },
-                                {
-                                    "title": "by Guest 90p",
-                                    "tag_field": "label",
-                                    "tags": [
-                                        "Checkout Payment Info/Place Order"
-                                    ],
-                                    "conditions": [
-                                        {
-                                            "field": "label",
-                                            "value": "Guest",
-                                            "type": "contains"
-                                        }
-                                    ],
-                                    "metrics": [{
-                                        "type": "percentile",
-                                        "config": {
-                                            "lvl": 90,
-                                            "group": {
-                                                "field": "allThreads",
-                                                "title": "allThreads"
+                                    {
+                                        "title": "by Guest 90p",
+                                        "tag_field": "label",
+                                        "tags": [
+                                            "Checkout Payment Info/Place Order"
+                                        ],
+                                        "conditions": [
+                                            {
+                                                "field": "label",
+                                                "value": "Guest",
+                                                "type": "contains"
                                             }
-                                        }
+                                        ],
+                                        "metrics": [{
+                                            "type": "percentile",
+                                            "config": {
+                                                "lvl": 90,
+                                                "group": {
+                                                    "field": "allThreads",
+                                                    "title": "allThreads"
+                                                }
+                                            }
+                                        }]
                                     }]
-                                }]
                             }
                         }
                     }
@@ -1532,7 +1532,6 @@
                                 "type": "concurrent",
                                 "config": {
                                     "lvl": 1,
-                                    "duration": 0.167,
                                     "group": {
                                         "field": "allThreads",
                                         "title": "allThreads"
@@ -1562,7 +1561,6 @@
                                 "type": "concurrent",
                                 "config": {
                                     "lvl": 1,
-                                    "duration": 0.167,
                                     "group": {
                                         "field": "allThreads",
                                         "title": "allThreads"
@@ -1589,16 +1587,16 @@
                 ]
             },
             {
-              "type": "Concurrency-SS",
-              "src": "concurrencyJtl",
-              "blocks": [
-                  {
+                "type": "Concurrency-SS",
+                "src": "concurrencyJtl",
+                "blocks": [
+                    {
                         "type": "groupJtlTable",
                         "data": {
                             "title": "Concurrent Results",
                             "type": "group_chart_jtl",
                             "metrics": [
-                              {"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}
+                                {"type": "concurrent", "config": {"lvl": 1, "group": {"field": "allThreads", "title": "allThreads"}}}
                             ],
                             "data": {
                                 "category": "allThreads",
@@ -1622,10 +1620,10 @@
                                     }
                                 ]
                             }
-                      }
-                   }
-                  ]
-              },
+                        }
+                    }
+                ]
+            },
             {
                 "type": "API",
                 "src": "jtl",

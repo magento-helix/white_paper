@@ -104,11 +104,12 @@ class JTLTable implements TypeInterface
             foreach ($cellData as $cellDatum) {
                 $value = $cellDatum['values'][$index][1];
                 $color = '00B050';
-                if ($value - $content['max'] > 0 && $value - $content['max'] < 1000) {
+                if ($value >= $content['max'] && $value < $content['max'] + $content['deviation']) {
                     $color = 'FF9600';
-                } elseif ($value - $content['max'] > 1000) {
+                } elseif ($value >= $content['max'] + $content['deviation']) {
                     $color = 'FF0000';
                 }
+                echo "value = $value||||| color = $color";
                 $table->addCell($cellSize, $cellRowSpan)
                     ->addText(
                         $cellDatum['values'][$index][1],

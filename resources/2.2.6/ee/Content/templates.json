@@ -1046,7 +1046,7 @@
                         "data": {
                             "title": "Order placed per hour",
                             "type": "group_chart_jtl",
-                            "metrics": [{"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "metrics": [{"type": "concurrent", "config": {"lvl": 1, "group": {"field": "allThreads", "title": "allThreads"}}}],
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
@@ -1069,7 +1069,7 @@
                         "data": {
                             "title": "Page views per hour",
                             "type": "group_chart_jtl",
-                            "metrics": [{"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}],
+                            "metrics": [{"type": "concurrent", "config": {"lvl": 1, "group": {"field": "allThreads", "title": "allThreads"}}}],
                             "categories": ["allThreads"],
                             "data": {
                                 "category": "allThreads",
@@ -1099,7 +1099,7 @@
                             "title": "Concurrent Results",
                             "type": "group_chart_jtl",
                             "metrics": [
-                                {"type": "concurrent", "config": {"lvl": 1, "duration": 0.167, "group": {"field": "allThreads", "title": "allThreads"}}}
+                                {"type": "concurrent", "config": {"lvl": 1, "group": {"field": "allThreads", "title": "allThreads"}}}
                             ],
                             "data": {
                                 "category": "allThreads",

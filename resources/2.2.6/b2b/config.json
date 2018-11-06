@@ -255,6 +255,7 @@
             "type": "Pro12",
             "id": "oh2wi6klp5ytk",
             "ip": "35.158.210.240",
+            "cores": 12,
             "sub_hosts": [
                 {
                     "name": "01df15a1dcbecd748"
@@ -364,6 +365,7 @@
             "type": "Pro24",
             "id": "zhe434vvxvvhc",
             "ip": "54.93.150.14",
+            "cores": 24,
             "sub_hosts": [
                 {
                     "name": "025a07f7c8210afda"
@@ -633,6 +635,7 @@
             "type": "Pro120",
             "id": "smjthfxq3rotk",
             "ip": "18.194.58.244",
+            "cores": 120,
             "sub_hosts": [
                 {
                     "name": "032e8887fe0e8f267"
@@ -658,12 +661,38 @@
                             "src": [
                                 {
                                     "build": {
-                                        "id": 251,
+                                        "id": 327,
+                                        "threads": {
+                                            "start": 0.05,
+                                            "end": 0.05,
+                                            "step": 0.05,
+                                            "deviation": 1
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 328,
                                         "threads": {
                                             "start": 0.1,
                                             "end": 0.1,
                                             "step": 0.1,
                                             "deviation": 2
+                                        }
+                                    },
+                                    "type": "concurrencyJtl",
+                                    "path": "tests/results/benchmark_result.jtl"
+                                },
+                                {
+                                    "build": {
+                                        "id": 329,
+                                        "threads": {
+                                            "start": 0.25,
+                                            "end": 0.25,
+                                            "step": 0.25,
+                                            "deviation": 3
                                         }
                                     },
                                     "type": "concurrencyJtl",

@@ -6,7 +6,7 @@
                 "blocks": [
                     {
                         "type": "documentTitle",
-                        "data": "Measurements on Magento Cloud Infrastructure - B2C"
+                        "data": "Measurements on Magento Cloud Infrastructure - B2B"
                     },
                     {
                         "type": "documentAuthors",
@@ -37,7 +37,7 @@
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "This white paper contains results of performance measurements of Magento Commerce 2.2.6 running on Magento Cloud Pro infrastructure for cases of Small, Medium and Large profiles. Measurements track response rates captured for high-loaded eCommerce sites on Magento Cloud Pro production environments 12 to 120.<w:br/><w:br/>All performance measurements are based on simulated day-to-day store activities for customers and business users. The values is also reflect a maximum throughout for each case, but don't reflect unique business models, like private sales or flash sales.<w:br/><w:br/>This information aids eCommerce managers and technical staff to better understand the performance characteristics of the application and select an appropriate plan for Magento Commerce store using Magento Cloud environments and services.<w:br/><w:br/>When considering Magento Cloud for your Magento Commerce storefronts, review Instance Profile Configuration to determine which profile meets the size of your storefront. All performance results in this white paper are titled by profile and environment size."
+                        "data": "This white paper contains results of performance measurements of Magento Commerce B2B 2.2.5 running on Magento Cloud Pro infrastructure for cases of Small, Medium profiles. Measurements track response rates captured for high-loaded eCommerce sites on Magento Cloud Pro production environments 12 to 120.<w:br/><w:br/>All performance measurements are based on simulated day-to-day store activities for customers and business users. The values is also reflect a maximum throughout for each case, but don't reflect unique business models, like private sales or flash sales.<w:br/><w:br/>This information aids eCommerce managers and technical staff to better understand the performance characteristics of the application and select an appropriate plan for Magento Commerce store using Magento Cloud environments and services.<w:br/><w:br/>When considering Magento Cloud for your Magento Commerce storefronts, review Instance Profile Configuration to determine which profile meets the size of your storefront. All performance results in this white paper are titled by profile and environment size."
                     }
                 ]
             }
@@ -65,7 +65,7 @@
                 "blocks": [
                     {
                         "type": "text",
-                        "data": "The scenarios use the following data profiles. Each data profile includes a number of sites, products, and categories matching stores typically considered small, medium, large, and extra-large B2C installations.<w:br/><w:br/>All profiles are available through the Magento 2 GitHub repository, Profiles.<w:br/>"
+                        "data": "The scenarios use the following data profiles. Each data profile includes a number of sites, products, and categories matching stores typically considered small, medium, B2B installations.<w:br/><w:br/>All profiles are available through the Magento 2 GitHub repository, Profiles.<w:br/>"
                     },
                     {
                         "type": "inlineTable",
@@ -94,7 +94,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Websites/stores/stores view: 1 (total)<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 40(with 24 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200",
+                                        "text": "* Websites/stores/stores view: 1 (total)<w:br/>* Individual simple products: 800<w:br/>* Configurable products: 200(with 24 simple products for each configurable product, ~ 600 simple products)<w:br/>* Categories: 30<w:br/>* Customers: 200<w:br/>* Shared catalogs: 100<w:br/>* Companies: 70",
                                         "textAlignment": "start"
                                     }
                                 ],
@@ -107,20 +107,7 @@
                                     },
                                     {
                                         "type": "cell",
-                                        "text": "* Websites/stores/stores view: 3 (total)<w:br/>Individual simple products: 24,000<w:br/>* Configurable products: 640(with 24 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 300<w:br/>* Customers: 2,000",
-                                        "textAlignment": "start"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "type": "normal",
-                                        "text": "Large",
-                                        "bold": true,
-                                        "valign": "top"
-                                    },
-                                    {
-                                        "type": "cell",
-                                        "text": "* Websites/stores/stores view: 5 (total)<w:br/>* Individual simple products: 300,000<w:br/>* Configurable products: 8,000(with 24 simple products for each configurable product, ~ 88,000 simple products)<w:br/>* Categories: 3,000<w:br/>* Customers: 5,000",
+                                        "text": "* Websites/stores/stores view: 3 (total)<w:br/>Individual simple products: 32,546<w:br/>* Configurable products: 250(with 24 simple products for each configurable product, ~ 7,000 simple products)<w:br/>* Categories: 3000<w:br/>* Customers: 2,100<w:br/>* Shared catalogs: 300<w:br/>* Companies: 700",
                                         "textAlignment": "start"
                                     }
                                 ]
@@ -129,7 +116,7 @@
                     },
                     {
                         "type": "text",
-                        "data": "<w:br/>Note: you can find test data generation tools and the data profile configuration in https://github.com/magento/magento2/tree/2.2.6/setup/performance-toolkit."
+                        "data": "<w:br/>Note: you can find test data generation tools and the data profile configuration in https://github.com/magento/magento2/tree/2.2.5/setup/performance-toolkit."
                     }
                 ]
             }
@@ -159,7 +146,7 @@
                     },
                     {
                         "type": "text",
-                        "data": "Note: the traffic profiles represent an average b2c scenario. For specific use cases like marketplace, flash sales, b2b, single product sites etc, the numbers might be significantly different."
+                        "data": "Note: the traffic profiles represent an average b2b scenario."
                     }
                 ]
             }
@@ -537,7 +524,8 @@
                             "title": "Catalog browsing by guest",
                             "type": "group_chart_jtl",
                             "max": 2000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "categories": [
                                 "allThreads"
                             ],
@@ -783,7 +771,8 @@
                             "title": "Catalog browsing by customer",
                             "type": "group_chart_jtl",
                             "max": 2000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "categories": [
                                 "allThreads"
                             ],
@@ -1035,7 +1024,8 @@
                             "title": "Checkout start page",
                             "type": "group_chart_jtl",
                             "max": 2000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "categories": [
                                 "allThreads"
                             ],
@@ -1091,7 +1081,8 @@
                             "title": "Checkout place order page",
                             "type": "group_chart_jtl",
                             "max": 2000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "categories": [
                                 "allThreads"
                             ],
@@ -1153,7 +1144,8 @@
                             "title": "Add to cart",
                             "type": "group_chart_jtl",
                             "max": 2000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "categories": [
                                 "allThreads"
                             ],
@@ -1211,7 +1203,8 @@
                             "title": "Search",
                             "type": "group_chart_jtl",
                             "max": 2000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "categories": [
                                 "allThreads"
                             ],
@@ -1497,7 +1490,8 @@
                                 }
                             ],
                             "max": 2000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
@@ -1602,7 +1596,8 @@
                                 }
                             ],
                             "max": 2000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
@@ -1713,7 +1708,8 @@
                                 }
                             ],
                             "max": 4000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
@@ -1768,7 +1764,8 @@
                                 }
                             ],
                             "max": 4000,
-                            "deviation": 1000,
+                            "deviation": 500,
+                            "border": 500,
                             "data": {
                                 "category": "allThreads",
                                 "value": "Latency",
@@ -1821,7 +1818,6 @@
                                     "type": "concurrent",
                                     "config": {
                                         "lvl": 1,
-                                        "duration": 0.167,
                                         "group": {
                                             "field": "allThreads",
                                             "title": "allThreads"
@@ -1834,7 +1830,7 @@
                             ],
                             "data": {
                                 "category": "allThreads",
-                                "value": "Latency",
+                                "value": "timeStamp",
                                 "items": [
                                     {
                                         "title": "Order placed per hour",
@@ -1857,7 +1853,6 @@
                                     "type": "concurrent",
                                     "config": {
                                         "lvl": 1,
-                                        "duration": 0.167,
                                         "group": {
                                             "field": "allThreads",
                                             "title": "allThreads"
@@ -1879,7 +1874,7 @@
                                         }
                                     }
                                 ],
-                                "value": "Latency",
+                                "value": "timeStamp",
                                 "items": [
                                     {
                                         "title": "Page views per hour",
@@ -1908,7 +1903,6 @@
                                     "type": "concurrent",
                                     "config": {
                                         "lvl": 1,
-                                        "duration": 0.167,
                                         "group": {
                                             "field": "allThreads",
                                             "title": "allThreads"
