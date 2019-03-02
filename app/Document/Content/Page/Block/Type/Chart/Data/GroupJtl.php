@@ -44,11 +44,11 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
                             $list[] = (int)$item[$handleValue];
                         }
                     }
-                    if (isset($handle[(string)($x[$i] + 0.1)])) {
-                        foreach ($handle[(string)($x[$i] + 0.1)] as $item) {
-                            $list[] = (int)$item[$handleValue];
-                        }
-                    }
+//                    if (isset($handle[(string)($x[$i] + 0.1)])) {
+//                        foreach ($handle[(string)($x[$i] + 0.1)] as $item) {
+//                            $list[] = (int)$item[$handleValue];
+//                        }
+//                    }
                 }
                 $result['values'][$metricKey][$i] = count($list)
                     ? $this->metricPool->get($itemMetric)->calculate($list)
@@ -61,55 +61,72 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
 
     public function loadData($config)
     {
-        $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . ProviderRegistry::CONCURRENCY_JTL)['filtered'];
-        $data = [];
-        foreach ($config['data']['items'] as $itemConfig) {
-            $data[$itemConfig['title']] = [];
-            foreach ($itemConfig['tags'] as $tag) {
-                if (isset($reportData['by_tags'][$tag])) {
-                    $data[$itemConfig['title']] = array_merge($data[$itemConfig['title']], $reportData['by_tags'][$tag]);
-                }
-            }
-        }
-
-        $deviation = isset($this->measurementConfig['src'][0]['build']['threads']['deviation'])
-            ? $this->measurementConfig['src'][0]['build']['threads']['deviation']
-            : 0;
-        $this->minValue = (float)$this->measurementConfig['src'][0]['build']['threads']['start'];
-        $this->maxValue = (float)$this->measurementConfig['src'][count($this->measurementConfig['src']) - 1]['build']['threads']['end'];
-        $precision = max(
-            strlen(substr(strrchr($this->minValue, "."), 1)),
-            strlen(substr(strrchr($this->maxValue, "."), 1))
-        );
+        $errorBorder = 0.10;
         $this->count = count($config['data']['items']);
         $cores = (float)$this->instance->getCores();
 
-        foreach ($config['data']['items'] as $itemConfig) {
-            $this->data[$itemConfig['title']] = [];
-            foreach ($data[$itemConfig['title']] as $item) {
-                $isConditionPass = true;
-                if (isset($itemConfig['conditions'])) {
-                    foreach ($itemConfig['conditions'] as $condition) {
-                        if (!$this->conditionPool->get($condition)->check($item)) {
-                            $isConditionPass = false;
-                            break;
-                        }
-                    }
-                }
-                if ($isConditionPass) {
-                    $threads = $item[$config['data']['category']];
-                    $load = round($threads / $cores, $precision);
-                    if ($threads >= $this->minValue * $cores - $deviation && $threads <= $this->minValue * $cores) {
-                        $load = round($this->minValue, $precision);
-                    }
-                    $this->data[$itemConfig['title']]["${load}"][] = $item;
+        foreach ($this->measurementConfig['src'] as $srcItem) {
+            $reportData = $this->instance->getData($this->measurementConfig['profile'] . $this->measurementConfig['type'] . ProviderRegistry::CONCURRENCY_JTL)[md5($srcItem['build']['id'])]['filtered'];
+            $this->minValue = (float)$srcItem['build']['threads']['start'];
+            $this->maxValue = (float)$srcItem['build']['threads']['end'];
+            $precision = max(
+                strlen(substr(strrchr($this->minValue, "."), 1)),
+                strlen(substr(strrchr($this->maxValue, "."), 1))
+            );
 
-                    if ($this->maxValue < $load) {
-                        $this->maxValue = (float)$load;
+            $data = [];
+            foreach ($config['data']['items'] as $itemConfig) {
+                $data[$itemConfig['title']] = [];
+                foreach ($itemConfig['tags'] as $tag) {
+                    if (isset($reportData['by_tags'][$tag])) {
+                        $data[$itemConfig['title']] = array_merge($data[$itemConfig['title']], $reportData['by_tags'][$tag]);
                     }
                 }
             }
-            ksort($this->data[$itemConfig['title']], SORT_NUMERIC);
+
+            $deviation = isset($srcItem['build']['threads']['deviation'])
+                ? $srcItem['build']['threads']['deviation']
+                : 0;
+
+            foreach ($config['data']['items'] as $itemConfig) {
+                $failed = 0;
+                $all = 0;
+                foreach ($data[$itemConfig['title']] as $item) {
+                    $isConditionPass = true;
+                    if (isset($itemConfig['conditions'])) {
+                        foreach ($itemConfig['conditions'] as $condition) {
+                            if (!$this->conditionPool->get($condition)->check($item)) {
+                                $isConditionPass = false;
+                                break;
+                            }
+                        }
+                    }
+                    if ($isConditionPass) {
+                        $all++;
+                        if ($item['success'] === 'false') {
+                            $failed++;
+                        }
+                        $threads = $item[$config['data']['category']];
+                        $load = round($threads / $cores, $precision);
+                        if ($threads >= $this->minValue * $cores - $deviation && $threads <= $this->minValue * $cores) {
+                            $load = round($this->minValue, $precision);
+                        }
+                        $this->data[$itemConfig['title']]["${load}"][] = $item;
+
+                        if ($this->maxValue < $load) {
+                            $this->maxValue = (float)$load;
+                        }
+                    }
+                }
+
+                if ($all * $errorBorder < $failed) {
+                    $this->data[$itemConfig['title']] = [];
+                    echo "Build '{$srcItem['build']['id']}' contains more than "
+                        . ($errorBorder * 100)
+                        . "% of errors for '{$itemConfig['title']}'-like scenario\n";
+                }
+                ksort($this->data[$itemConfig['title']], SORT_NUMERIC);
+            }
         }
     }
 

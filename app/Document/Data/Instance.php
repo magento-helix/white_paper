@@ -42,17 +42,17 @@ class Instance implements InstanceInterface
                     $provider->setConfig($this->getDataConfig($item, $measurement['type']));
                     $provider->setInstance($this);
                     $provider->load($src);
-                    if (isset($this->data[$profile['name'] . $measurement['type'] . $item['type']])) {
-                        $this->data[$profile['name'] . $measurement['type'] . $item['type']]['full'] = array_merge_recursive(
-                            $this->data[$profile['name'] . $measurement['type'] . $item['type']]['full'],
+                    if (isset($this->data[$profile['name'] . $measurement['type'] . $item['type']][md5($buildId)])) {
+                        $this->data[$profile['name'] . $measurement['type'] . $item['type']][md5($buildId)]['full'] = array_merge_recursive(
+                            $this->data[$profile['name'] . $measurement['type'] . $item['type']][md5($buildId)]['full'],
                             $provider->getReportData($src)
                         );
-                        $this->data[$profile['name'] . $measurement['type'] . $item['type']]['filtered'] = array_merge_recursive(
-                            $this->data[$profile['name'] . $measurement['type'] . $item['type']]['filtered'],
+                        $this->data[$profile['name'] . $measurement['type'] . $item['type']][md5($buildId)]['filtered'] = array_merge_recursive(
+                            $this->data[$profile['name'] . $measurement['type'] . $item['type']][md5($buildId)]['filtered'],
                             $provider->getData()
                         );
                     } else {
-                        $this->data[$profile['name'] . $measurement['type'] . $item['type']] = [
+                        $this->data[$profile['name'] . $measurement['type'] . $item['type']][md5($buildId)] = [
                             'full' => $provider->getReportData($src),
                             'filtered' => $provider->getData()
                         ];
