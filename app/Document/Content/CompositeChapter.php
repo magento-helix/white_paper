@@ -14,15 +14,6 @@ use PhpOffice\PhpWord\PhpWord;
 
 class CompositeChapter extends AbstractChapter implements ChapterInterface
 {
-    private $map = [
-        'SS' => ' for benchmarking',
-        'Concurrency-SS' => ' for concurrency benchmarking',
-        'API' => ' (API performance)',
-        'CS-SITESPEED' => ' (client-side snapshot)',
-        'CS-GOOGLEPAGE' => ' (client-side snapshot)',
-        'GRAFANA' => ' server loading',
-    ];
-
     public function add(PhpWord $phpWord, $content)
     {
         $section = $this->addPage($phpWord);
