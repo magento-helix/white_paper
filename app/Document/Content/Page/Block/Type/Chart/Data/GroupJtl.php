@@ -120,10 +120,10 @@ class GroupJtl extends AbstractJtl implements DataProviderInterface
                 }
 
                 if ($all * $errorBorder < $failed) {
-                    $this->data[$itemConfig['title']] = [];
-                    echo "Build '{$srcItem['build']['id']}' contains more than "
-                        . ($errorBorder * 100)
-                        . "% of errors for '{$itemConfig['title']}'-like scenario\n";
+//                    $this->data[$itemConfig['title']] = [];
+                    echo "Build '{$srcItem['build']['id']}' contains "
+                        . number_format($failed / ($all / 100), 2)
+                        . "% of errors (all samples: {$all}; errors: {$failed}) for '{$itemConfig['title']}'-like scenario\n";
                 }
                 ksort($this->data[$itemConfig['title']], SORT_NUMERIC);
             }
